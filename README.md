@@ -6,7 +6,7 @@ Andrew Duguay, Mark Johnston, Chaturanga Liyanage
 
 **Overview of Process**: 
 Using the AES, implement an algorithm that can be synthesized into hardware to encrypt and decrypt 128-bit sized blocks of data. The encryption will happen in four steps: 
-1) XOR with the current round's cipher key.
+1) XOR with the current round's cipher key (first operation on round 1, last operation on subsequent rounds).
    - Simple bitwise XOR operation
    - Initial cipher key generated or stored??
    - Data from encryption round n is used to generate cipher key for encryption round n+1
