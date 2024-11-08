@@ -15,9 +15,12 @@ Using the AES, implement an algorithm that can be synthesized into hardware to e
    - Byte data will be manipulated as if using polynomial notation
 3) Rotation of rows
    - Byte converted into 4x4 matrix, with bits 0-3 -> column 1, 4-7 -> column 2, etc.
-   - Row n is roted n slots to the (left/right?)
+   - Row n is rotated n slots to the left
 5) Shuffling of columns.
    - Pattern of shuffle is either uniform or can be determined by the particular round's key 
+#Decryption
+The decryption process... 
+
 
 **Design Restraints**: 
 - Function in frequency range [10Mhz, 500Mhz]
@@ -26,13 +29,13 @@ Using the AES, implement an algorithm that can be synthesized into hardware to e
 - Mem Units: 200
 - Buffers not permitted internally
 - Integrated look-up table/ FF combination
-- Delays: look-up-table: 175ps, setup: 25ps, hold: 14ps, flip flop propogation delay: 125ps
+- Delays: look-up-table: 175ps, setup: 25ps, hold: 14ps, flip flop propagation delay: 125ps
 
 **Ideas For Implementation**:
 - Possibly have inputs to toggle between Encrypt, Decrypt, ECB and CBC (Much like a control input for reset)
 
 **Summary of Material**:
-1) Block Cipher Mode of Operation (Wikipedia Page)
+1) Block Cipher Mode of Operation (<a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation">Wikipedia Page</a>)
       -Uses block cipher to scramble data
       -initialization vector must be non repeating
       -Electronic Codebook (ECB):
