@@ -1,1 +1,6 @@
-0
+12
+~E 1 "../src/Look_Up_Table.vhd" 4 lut
+~E 1 "../src/Look_Up_Table.vhd" 4 play
+~A 1 "../src/Look_Up_Table.vhd" 8 scratch
+~E 1 "../src/Look_Up_Table.vhd" 5 sBox
+~A 1 "../src/Look_Up_Table.vhd" 9 behavioral
