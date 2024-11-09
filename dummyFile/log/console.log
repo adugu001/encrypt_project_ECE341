@@ -1,0 +1,537 @@
+# Design: Design "dummyFile" has been set as active.
+# Design: Design "dummyFile" has been set as active.
+acom -reorder -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 17): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (5, 22): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 34): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (5, 40): Identifier expected.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  46.0 [ms]
+acom -reorder -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 20): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 20): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (5, 22): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (5, 24): Design unit declaration expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (6, 11): Identifier expected.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -reorder -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 20): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 20): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (5, 22): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (5, 24): Design unit declaration expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 15): Keyword 'is' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 15): Keyword 'end' expected.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -reorder -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 20): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 20): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (5, 22): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (5, 24): Design unit declaration expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 15): Keyword 'is' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 15): Keyword 'end' expected.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -reorder -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 17): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (5, 22): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 34): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (5, 40): Identifier expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (5, 41): Identifier expected.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -reorder -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 19): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 19): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (5, 21): Keyword 'end' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 21): ';' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (5, 23): Design unit declaration expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 15): Keyword 'is' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 15): Keyword 'end' expected.
+# Compile failure 7 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -reorder -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Architecture "scratch" of Entity "lut"
+# Error: COMP96_0018: Look_Up_Table.vhd : (9, 8): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (9, 24): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (9, 25): Identifier expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  46.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Architecture "scratch" of Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (9, 17): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (9, 18): Identifier expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Architecture "scratch" of Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (9, 18): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (9, 24): Identifier expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Architecture "scratch" of Entity "lut"
+# Error: COMP96_0090: Look_Up_Table.vhd : (9, 22): Expected array type.
+# Error: COMP96_0064: Look_Up_Table.vhd : (9, 15): Unknown type.
+# Error: COMP96_0058: Look_Up_Table.vhd : (9, 1): Initial value is required for constant "lit".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Architecture "scratch" of Entity "lut"
+# Error: COMP96_0015: Look_Up_Table.vhd : (9, 18): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (9, 21): Identifier expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "lut"
+# Compile Architecture "scratch" of Entity "lut"
+# Error: COMP96_0018: Look_Up_Table.vhd : (9, 15): Identifier expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Compile success 0 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0029: Look_Up_Table.vhd : (10, 21): Expression expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0015: Look_Up_Table.vhd : (10, 22): ';' expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0127: Look_Up_Table.vhd : (10, 21): Improper aggregate length. Expected length is 256.
+# Error: COMP96_0079: Look_Up_Table.vhd : (10, 21): Invalid aggregate.
+# Error: COMP96_0077: Look_Up_Table.vhd : (10, 21): Undefined type of expression. Expected type 'ROM'.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0127: Look_Up_Table.vhd : (10, 21): Improper aggregate length. Expected length is 256.
+# Error: COMP96_0079: Look_Up_Table.vhd : (10, 21): Invalid aggregate.
+# Error: COMP96_0077: Look_Up_Table.vhd : (10, 21): Undefined type of expression. Expected type 'ROM'.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0015: Look_Up_Table.vhd : (10, 67): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (12, 1): ';' expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0077: Look_Up_Table.vhd : (10, 23): Undefined type of expression. Expected type 'INTEGER'.
+# Error: COMP96_0079: Look_Up_Table.vhd : (10, 22): Invalid aggregate.
+# Error: COMP96_0077: Look_Up_Table.vhd : (10, 22): Undefined type of expression. Expected type 'ROM'.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0127: Look_Up_Table.vhd : (10, 22): Improper aggregate length. Expected length is 16.
+# Error: COMP96_0079: Look_Up_Table.vhd : (10, 22): Invalid aggregate.
+# Error: COMP96_0077: Look_Up_Table.vhd : (10, 22): Undefined type of expression. Expected type 'ROM'.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0127: Look_Up_Table.vhd : (12, 5): Improper aggregate length. Expected length is 16.
+# Error: COMP96_0079: Look_Up_Table.vhd : (12, 5): Invalid aggregate.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "play"
+# Compile Architecture "scratch" of Entity "play"
+# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Error: COMP96_0010: Look_Up_Table.vhd : (39, 120): Invalid literal.
+# Compile Entity "sBox"
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 26): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 26): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (5, 28): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (5, 30): Design unit declaration expected.
+# Compile Entity "play"
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 16): Keyword 'is' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 16): Keyword 'end' expected.
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0018: Look_Up_Table.vhd : (10, 10): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (39, 120): '=>' expected.
+# Compile failure 9 Errors 0 Warnings  Analysis time :  46.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 26): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (5, 26): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (5, 28): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (5, 30): Design unit declaration expected.
+# Compile Entity "play"
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 16): Keyword 'is' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 16): Keyword 'end' expected.
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0018: Look_Up_Table.vhd : (10, 10): Identifier expected.
+# Compile failure 7 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (6, 1): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 5): Keyword 'end' expected.
+# Error: COMP96_0111: Look_Up_Table.vhd : (6, 12): Labels do not match.
+# Compile Architecture "scratch" of Entity "play"
+# Error: COMP96_0018: Look_Up_Table.vhd : (10, 10): Identifier expected.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (6, 1): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 5): Keyword 'end' expected.
+# Compile Architecture "behavioral" of Entity "play"
+# Error: COMP96_0018: Look_Up_Table.vhd : (10, 10): Identifier expected.
+# Error: COMP96_0111: Look_Up_Table.vhd : (51, 5): Labels do not match.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (6, 1): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 5): Keyword 'end' expected.
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (10, 10): Identifier expected.
+# Error: COMP96_0111: Look_Up_Table.vhd : (51, 5): Labels do not match.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (6, 1): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 5): Keyword 'end' expected.
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (10, 10): Identifier expected.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (6, 1): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 5): Keyword 'end' expected.
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (10, 10): Identifier expected.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (6, 1): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 5): Keyword 'end' expected.
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0056: Look_Up_Table.vhd : (8, 1): Cannot find referenced entity declaration "sBox".
+# Compile failure 5 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Error: COMP96_0018: Look_Up_Table.vhd : (6, 1): Identifier expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ')' expected.
+# Error: COMP96_0015: Look_Up_Table.vhd : (6, 1): ';' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (6, 5): Keyword 'end' expected.
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0056: Look_Up_Table.vhd : (8, 1): Cannot find referenced entity declaration "sBox".
+# Compile failure 5 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0015: Look_Up_Table.vhd : (29, 16): ':' expected.
+# Error: COMP96_0018: Look_Up_Table.vhd : (29, 18): Identifier expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0078: Look_Up_Table.vhd : (29, 22): Unknown identifier "to_unsigned".
+# Error: COMP96_0133: Look_Up_Table.vhd : (29, 22): Cannot find object declaration.
+# Error: COMP96_0289: Look_Up_Table.vhd : (29, 22): Prefix of index must be an array.
+# Error: COMP96_0077: Look_Up_Table.vhd : (29, 22): Undefined type of expression. Expected type 'INTEGER'.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0078: Look_Up_Table.vhd : (29, 22): Unknown identifier "unsigned".
+# Error: COMP96_0133: Look_Up_Table.vhd : (29, 22): Cannot find object declaration.
+# Error: COMP96_0289: Look_Up_Table.vhd : (29, 22): Prefix of index must be an array.
+# Error: COMP96_0077: Look_Up_Table.vhd : (29, 22): Undefined type of expression. Expected type 'INTEGER'.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0149: Look_Up_Table.vhd : (29, 30): Explicit type conversions are allowed between closely related types only.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0078: Look_Up_Table.vhd : (29, 30): Unknown identifier "unsigned".
+# Error: COMP96_0133: Look_Up_Table.vhd : (29, 30): Cannot find object declaration.
+# Error: COMP96_0289: Look_Up_Table.vhd : (29, 30): Prefix of index must be an array.
+# Error: COMP96_0149: Look_Up_Table.vhd : (29, 30): Explicit type conversions are allowed between closely related types only.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0078: Look_Up_Table.vhd : (29, 22): Unknown identifier "to_integer".
+# Error: COMP96_0078: Look_Up_Table.vhd : (29, 33): Unknown identifier "unsigned".
+# Error: COMP96_0133: Look_Up_Table.vhd : (29, 33): Cannot find object declaration.
+# Error: COMP96_0133: Look_Up_Table.vhd : (29, 22): Cannot find object declaration.
+# Error: COMP96_0289: Look_Up_Table.vhd : (29, 22): Prefix of index must be an array.
+# Error: COMP96_0077: Look_Up_Table.vhd : (29, 22): Undefined type of expression. Expected type 'INTEGER'.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0078: Look_Up_Table.vhd : (29, 30): Unknown identifier "unsigned".
+# Error: COMP96_0133: Look_Up_Table.vhd : (29, 30): Cannot find object declaration.
+# Error: COMP96_0289: Look_Up_Table.vhd : (29, 30): Prefix of index must be an array.
+# Error: COMP96_0149: Look_Up_Table.vhd : (29, 30): Explicit type conversions are allowed between closely related types only.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0284: Look_Up_Table.vhd : (30, 41): Direction of the discrete range must be the same as that of the prefix of the slice name.
+# Error: COMP96_0149: Look_Up_Table.vhd : (30, 30): Explicit type conversions are allowed between closely related types only.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0284: Look_Up_Table.vhd : (30, 44): Direction of the discrete range must be the same as that of the prefix of the slice name.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0015: Look_Up_Table.vhd : (54, 27): ')' expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0283: Look_Up_Table.vhd : (54, 28): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: Look_Up_Table.vhd : (54, 24): Expected array type.
+# Error: COMP96_0149: Look_Up_Table.vhd : (54, 24): Explicit type conversions are allowed between closely related types only.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0283: Look_Up_Table.vhd : (56, 28): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: Look_Up_Table.vhd : (56, 24): Expected array type.
+# Error: COMP96_0149: Look_Up_Table.vhd : (56, 24): Explicit type conversions are allowed between closely related types only.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# A feature of VHDL 2008 has been detected. Use the -2008 argument of the vcom command.
+# Error: COMP96_0025: Look_Up_Table.vhd : (54, 10): Identifier or string literal expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (56, 2): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (57, 2): Design unit declaration expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0283: Look_Up_Table.vhd : (60, 28): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: Look_Up_Table.vhd : (60, 24): Expected array type.
+# Error: COMP96_0149: Look_Up_Table.vhd : (60, 24): Explicit type conversions are allowed between closely related types only.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0019: Look_Up_Table.vhd : (56, 2): Keyword 'begin' expected.
+# Error: COMP96_0047: Look_Up_Table.vhd : (57, 2): Concurrent statement or ':' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (58, 2): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (59, 2): Design unit declaration expected.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0015: Look_Up_Table.vhd : (55, 13): ':' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (56, 2): Keyword 'begin' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (57, 2): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (58, 2): Design unit declaration expected.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0019: Look_Up_Table.vhd : (56, 2): Keyword 'begin' expected.
+# Error: COMP96_0019: Look_Up_Table.vhd : (57, 2): Keyword 'end' expected.
+# Error: COMP96_0016: Look_Up_Table.vhd : (58, 2): Design unit declaration expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0283: Look_Up_Table.vhd : (58, 29): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: Look_Up_Table.vhd : (58, 25): Expected array type.
+# Error: COMP96_0149: Look_Up_Table.vhd : (58, 25): Explicit type conversions are allowed between closely related types only.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0149: Look_Up_Table.vhd : (58, 25): Explicit type conversions are allowed between closely related types only.
+# Warning: COMP96_0367: Look_Up_Table.vhd : (58, 8): Improper array length (1). Expected length is 9.
+# Compile failure 1 Errors 1 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0149: Look_Up_Table.vhd : (58, 34): Explicit type conversions are allowed between closely related types only.
+# Warning: COMP96_0367: Look_Up_Table.vhd : (58, 8): Improper array length (1). Expected length is 9.
+# Compile failure 1 Errors 1 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0149: Look_Up_Table.vhd : (58, 34): Explicit type conversions are allowed between closely related types only.
+# Warning: COMP96_0367: Look_Up_Table.vhd : (58, 8): Improper array length (1). Expected length is 8.
+# Compile failure 1 Errors 1 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0149: Look_Up_Table.vhd : (58, 34): Explicit type conversions are allowed between closely related types only.
+# Warning: COMP96_0367: Look_Up_Table.vhd : (58, 8): Improper array length (1). Expected length is 8.
+# Compile failure 1 Errors 1 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/Look_Up_Table.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Look_Up_Table.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Error: COMP96_0269: Look_Up_Table.vhd : (58, 25): For each formal parameter of a subprogram, a subprogram call must specify exactly one corresponding actual.
+# Compile failure 1 E

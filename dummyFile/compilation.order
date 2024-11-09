@@ -1,1 +1,2 @@
-.\src\Look_Up_Table.vhd
+.\src\Sbox.vhd
+.\src\shiftRows.vhd
