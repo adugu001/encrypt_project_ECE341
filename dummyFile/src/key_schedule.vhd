@@ -1,3 +1,5 @@
+--IGNORE THIS FOR NOW. NOT BEHAVIORAL
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;	  
@@ -19,6 +21,9 @@ architecture behavioral of key_schedule is
 	signal subkey : std_logic_vector(127 downto 0);
 	signal reg_in : std_logic_vector(127 downto 0);
 	signal reg_out : std_logic_vector(127 downto 0);
+	
+	
+	
 begin
 reg_in <= key when reset = '0' else subkey;	  
 	--store full key in generic register map
@@ -29,4 +34,11 @@ reg_in <= key when reset = '0' else subkey;
 			clk => clk,
 			d   => reg_in,
 			q   => reg_out);	
+			
+
+			
+			
+			
+			
+			
 end architecture behavioral;
