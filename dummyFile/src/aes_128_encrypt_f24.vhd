@@ -56,8 +56,11 @@ begin
 p1 : process(clk) is   
 variable fullKey : std_logic_vector(0 to 127);
 variable key_load_complete : boolean := false;
+variable data_load_complete : boolean := false;
 variable key_loading : boolean := false;  
 variable keyLoadCount : integer := 0;
+variable fullData : std_logic_vector(0 to 127);	
+variable dataLoadCount : integer := 0;
 begin	
 	
 	if (clk'event and clk = '1' and reset = '0')then  
@@ -66,7 +69,6 @@ begin
 			keyLoadCount := 0;
 		end if;
 		if(key_load = '1') then	
-			start := '0';
 			if(keyLoadCount = 0) then
 				fullKey(0 to 31) := dataIn;
 			elsif(keyLoadCount = 1) then
@@ -85,8 +87,25 @@ begin
 			keyLoadCount := keyLoadCount + 1;
 		end if;
 		if(key_load_complete = true) then
-			if(
+			--unsure what IV does. leaving it out for now and loading db. will come back to it later.
+		
+			if(dataLoadCount = 0) then
+				fullData(0 to 31) := dataIn;
+			elsif(dataLoadCount = 1) then
+				fullData(32 to 63) := dataIn;
+			elsif(dataLoadCount = 2) then
+				fullData(64 to 95) := dataIn;
+			else if(dataLoadCount = 3) then
+				fullData(96 to 127) := dataIn;
+			else
+				data_load_complete :=true;  
+				--debug
+				report to_string(fullData);
+				end if;
 			end if;
+			dataLoadCount := dataLoadCount + 1;
+			end if;	  
+			
 	end if;
 end process;
 
