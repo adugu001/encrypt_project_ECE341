@@ -75,6 +75,14 @@ type roundConstants is array (0 to 11) of integer;
     (1, 0, 0, 0,2,0,0,0,4,0,0,0)
 );
 
+type mult_matrix is array (0 to 3, 0 to 3) of integer;
+	signal mul : mult_matrix := (
+    (2,3,1,1),
+	(1,2,3,1),
+	(1,1,2,3),
+	(3,1,1,2)
+);
+
 	impure function sbox_LUT ( byte : in std_logic_vector(0 to 7))
     return std_logic_vector is	
 	variable count : integer := 0;
@@ -294,12 +302,10 @@ begin
 		result_matrix(120 to 127) := temp_row(24 to 31);		   
 		
 		
-		
 		--mix columns
+		result_matrix(0 to 3):= std_logic_vector(mul(0,0) * to_unsigned(to_integer(unsigned(result_matrix(0 to 3))),result_matrix(0 to 3)'length)); 
 		
 		
-		
-		--for i in 0 to 3 loop
 		end if;		
 		end if;
 		
