@@ -75,6 +75,14 @@ type roundConstants is array (0 to 11) of integer;
     (1, 0, 0, 0,2,0,0,0,4,0,0,0)
 );
 
+type mult_matrix is array (0 to 3, 0 to 3) of integer;
+	signal mul : mult_matrix := (
+    (2,3,1,1),
+	(1,2,3,1),
+	(1,1,2,3),
+	(3,1,1,2)
+);
+
 	impure function sbox_LUT ( byte : in std_logic_vector(0 to 7))
     return std_logic_vector is	
 	variable count : integer := 0;
@@ -109,14 +117,16 @@ type roundConstants is array (0 to 11) of integer;
   
   begin
 	
-p1 : process(clk) is   
+p1 : process(clk) is  
+type key_store is array (natural range <>) of std_logic_vector;
 variable fullKey : std_logic_vector(0 to 127);
 variable key_load_complete : boolean := false;
 variable data_load_complete : boolean := false;
 variable key_loading : boolean := false;  
 variable keyLoadCount : integer := 0;
 variable fullData : std_logic_vector(0 to 127);	
-variable dataLoadCount : integer := 0;		 
+variable dataLoadCount : integer := 0;
+variable dataOutCount: integer:= 0;
 variable temp : std_logic_vector(0 to 127);
 variable tempWord : std_logic_vector(0 to 31);	
 variable tt : integer := 0;	  
@@ -126,7 +136,13 @@ variable key_expansion_complete:  boolean:= false;
 variable encryption_count : integer := 0; 
 variable sub_counter : integer := 0;
 variable temp_row : std_logic_vector(0 to 31); 
-variable result_matrix: std_logic_vector(0 to 127);
+variable result_matrix: std_logic_vector(0 to 127);	 
+variable mix_Matrix: std_logic_vector(0 to 31);
+variable col_count: integer:= 0;  
+variable roundKeys: key_store (0 to 9)(0 to 127);
+variable rotate_matrix: std_logic_vector(0 to 127);
+variable done_enc: boolean := false;
+variable data_out_complete: boolean := false;
 begin	
 	--report "start";
 	--	 tt := sbox_LUT("00000000");
@@ -155,7 +171,7 @@ begin
 			end if;
 			keyLoadCount := keyLoadCount + 1;
 		end if;
-		if(key_load_complete = true) then
+		if(key_load_complete = true and done_enc = false) then
 			--unsure what IV does. leaving it out for now and loading db. will come back to it later.
 		
 			if(dataLoadCount = 0) then
@@ -178,7 +194,7 @@ begin
 			--at this point, assume that the data is fully loaded.
 			
 			--expand key
-		if(key_load_complete and data_load_complete) then  
+		if(key_load_complete and data_load_complete and done_enc = false) then  
 			
 			-- I will rework this to use loops and variables to simplify this. Initial run through was just to make sure the operational logic works.
 			
@@ -240,7 +256,8 @@ begin
 			expansionMatrix(96 to 103) := tempWord(0 to 7);
 			expansionMatrix(104 to 111) := tempWord(8 to 15);
 			expansionMatrix(112 to 119) := tempWord(16 to 23);
-			expansionMatrix(120 to 127) := tempWord(24 to 31); 
+			expansionMatrix(120 to 127) := tempWord(24 to 31); 	
+			roundKeys(i) := expansionMatrix;
 		   rc_count := rc_count + 1;
 			end loop;
 			key_expansion_complete := true;
@@ -248,12 +265,15 @@ begin
 				
 		end if;
 		--begin encryption loop
-		if(key_expansion_complete = true) then
+		if(key_expansion_complete = true and done_enc = false) then
 		
-			if(encryption_count = 0) then
+			--if first round xor with key
+			--if(encryption_count = 0) then
 				--initial round
-				result_matrix := fullData XOR fullKey;
-			else
+		result_matrix := fullData XOR fullKey;
+			--end if;
+		for i in 0 to 9 loop
+			
 				
 		--substitute in sbox
 		for i in 0 to 15 loop
@@ -294,14 +314,68 @@ begin
 		result_matrix(120 to 127) := temp_row(24 to 31);		   
 		
 		
+		--mix columns	 
+		for i in 0 to 15 loop
+		mix_matrix((i*8*0)+0 to (i*8*0)+7):= std_logic_vector(mul(i+0,i) * to_unsigned(to_integer(unsigned(result_matrix((0*8*col_count) + 0 to (0*8*col_count) + 7)))  ,result_matrix(0 to 3)'length)); 
+		mix_matrix((i*8*1)+0 to (i*8*1)+7):= std_logic_vector(mul(i+1,i) * to_unsigned(to_integer(unsigned(result_matrix((1*8*col_count) + 0 to (1*8*col_count) + 7)))  ,result_matrix(0 to 3)'length)); 
+		mix_matrix((i*8*2)+0 to (i*8*2)+7):= std_logic_vector(mul(i+2,i) * to_unsigned(to_integer(unsigned(result_matrix((2*8*col_count) to (2*8*col_count) + 7)))  ,result_matrix(0 to 3)'length)); 
+		mix_matrix((i*8*3)+0 to (i*8*3)+7):= std_logic_vector(mul(i+3,i) * to_unsigned(to_integer(unsigned(result_matrix((3*8*col_count) to (3*8*col_count) + 7)))  ,result_matrix(0 to 3)'length));
 		
-		--mix columns
+		
+		result_matrix((i*8)+0 to (i*8)+7):= std_logic_vector(
+			to_unsigned(to_integer(unsigned(mix_matrix(0 to 7))) ,result_matrix(0 to 7)'length)	+
+			to_unsigned(to_integer(unsigned(mix_matrix(8 to 15))) ,result_matrix(8 to 15)'length) + 
+			to_unsigned(to_integer(unsigned(mix_matrix(16 to 23))) ,result_matrix(16 to 23)'length) +
+			to_unsigned(to_integer(unsigned(mix_matrix(24 to 31))) ,result_matrix(24 to 31)'length) 
+		);
+		
+		--move to next column
+		if(col_count mod 4 = 0 ) then
+			col_count := col_count + 1;	
+			end if;		  
+		end loop;
 		
 		
+		--rotate
+		rotate_matrix(0 to 31) := result_matrix(0 to 7) & result_matrix(32 to 39) & result_matrix(64 to 71) & result_matrix(96 to 103);
+		rotate_matrix(32 to 63) := result_matrix(8 to 15) & result_matrix(40 to 47) & result_matrix(72 to 79) & result_matrix(104 to 111);
+		rotate_matrix(64 to 95) := result_matrix(16 to 23) & result_matrix(48 to 55) & result_matrix(80 to 87) & result_matrix(112 to 119);
+		rotate_matrix(96 to 127) := result_matrix(24 to 31) & result_matrix(56 to 63) & result_matrix(88 to 95) & result_matrix(120 to 127);	 
 		
-		--for i in 0 to 3 loop
-		end if;		
+		report "matrix after rotate: " & to_hstring(rotate_matrix);
+		result_matrix:= rotate_matrix; 
+		
+		
+		--add round key	except last round
+			if(i  /=  9) then
+				result_matrix:= result_matrix XOR roundKeys(i);
+			end if;
+		end loop;
+		
+		done_enc := true;
 		end if;
+		
+		--output ciphertext
+		if(done_enc = true) then
+			report to_hstring(result_matrix);
+			Done <= '1';  
+			if(dataOutCount = 0) then
+				dataOut(0 to 31) <= result_matrix(0 to 31);
+			elsif(dataOutCount = 1) then
+				dataOut(0 to 31) <= result_matrix(32 to 63);
+			elsif(dataOutCount = 2) then
+				dataOut(0 to 31) <= result_matrix(64 to 95);
+			else if(dataOutCount = 3) then
+				dataOut(0 to 31) <= result_matrix(96 to 127);
+			else
+				data_out_complete := true;
+				end if;
+			end if;
+			dataOutCount := dataOutCount + 1;
+			
+		end if;
+		
+		--reset all variables after done.
 		
 	end if;	 
 end process;
