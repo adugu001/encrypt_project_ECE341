@@ -1,4 +1,5 @@
-18
+39
+~E 1 "../src/aes_128_encrypt_f24.vhd" 6 AES_128_encrypt_f24
 ~E 1 "../src/Look_Up_Table.vhd" 4 lut
 ~E 1 "../src/Look_Up_Table.vhd" 4 play
 ~A 1 "../src/Look_Up_Table.vhd" 8 scratch

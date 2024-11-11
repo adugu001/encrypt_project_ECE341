@@ -20,6 +20,7 @@ LANGUAGE=VHDL
 REFRESH_FLOW=1
 FLOWTOOLS=NONE
 FAMILY=
+fileopenfolder=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src
 
 [SpecTracer]
 WindowVisible=0
@@ -61,8 +62,16 @@ Extension8=alintws
 [Files]
 /Sbox.vhd=-1
 /shiftRows.vhd=-1
+/aes_128_encrypt_f24.vhd=-1
+/dffreg.vhd=-1
+/key_schedule.vhd=-1
+/function_package.vhd=-1
 
 [Files.Data]
 .\src\Sbox.vhd=VHDL Source Code
-
 .\src\shiftRows.vhd=VHDL Source Code
+.\src\aes_128_encrypt_f24.vhd=VHDL Source Code
+.\src\dffreg.vhd=VHDL Source Code
+.\src\key_schedule.vhd=VHDL Source Code
+
+.\src\function_package.vhd=VHDL Source Code

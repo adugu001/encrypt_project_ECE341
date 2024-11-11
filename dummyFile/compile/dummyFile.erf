@@ -1,5 +1,5 @@
 WARNING DAGGEN_0523: "The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available."
-MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd" 
-MESSAGE "Compile Entity "shiftRows"" 
-MESSAGE "Compile Architecture "behavioral" of Entity "shiftRows"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" 
+MESSAGE "Compile Package "function_package"" 
+MESSAGE "Compile Package Body "function_package"" 
 SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]" 

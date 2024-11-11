@@ -1,2 +1,6 @@
 .\src\Sbox.vhd
 .\src\shiftRows.vhd
+.\src\aes_128_encrypt_f24.vhd
+.\src\dffreg.vhd
+.\src\key_schedule.vhd
+.\src\function_package.vhd
