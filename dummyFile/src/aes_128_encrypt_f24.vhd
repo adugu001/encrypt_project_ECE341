@@ -71,10 +71,10 @@ variable fullData : std_logic_vector(0 to 127);
 variable dataLoadCount : integer := 0;		 
 variable temp : std_logic_vector(0 to 127);
 variable tempWord : std_logic_vector(0 to 31);	
-variable tt : std_logic_vector(0 to 7);
+variable tt : std_logic_vector(0 to 127);
 begin	
 	report "start";
-		 tt := sbox("00000000");
+		 tt := sbox(temp, '0');
 	if (clk'event and clk = '1' and reset = '0')then 
 		
 		if(start = '1') then
@@ -126,7 +126,7 @@ begin
 		if(key_load_complete and data_load_complete) then
 			--Step 1: shift left 
 			tempWord := fullData(96 to 127); 
-			tempWord(0 to 31) := tempWord sll 8;
+			tempWord(0 to 31) := std_logic_vector(unsigned(tempWord) sll 8);
 		end if;	
 		
 	end if;	 

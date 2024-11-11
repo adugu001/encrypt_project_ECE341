@@ -3,18 +3,18 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package function_package is
-    function sbox ( byte : in std_logic_vector(0 to 127);  invert : std_logic ) return std_logic_vector;
-    function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
-	function mixCol( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
-	function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector;
+    impure function sbox ( data : in std_logic_vector(0 to 127);  invert : std_logic ) return std_logic_vector;
+	impure function sbox_byte ( byte : in std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector;
+    impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
+	impure function mixCol( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
+	impure function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector;	
+	impure function to_string( data : std_logic_vector(0 to 127)) return string;
 end package function_package;	 	
 
 package body function_package is																   
-	
-	
---------------------------------------------------------------------------------------------------------------------------------------
---Substitution by LUT
-function sbox ( byte : in std_logic_vector(0 to 127) ; invert : std_logic ) return std_logic_vector is
+----------------------------------------------------------------------------------------------------------------------------------------
+--COMPLETE, TESTED THROUGH ALL RANGES
+impure function sbox_byte ( byte : in std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector is
 type ROM is array (0 to 15, 0 to 15) of integer;
 constant encrypt_substitution : ROM := (	   
 --0			1		2		3		4		5		6		7		8		9	  10/A	  11/B	  12/C	  13/D	  14/E	  15/F
@@ -55,108 +55,130 @@ constant decrypt_substitution : ROM := (
 (16#17#, 16#2b#, 16#04#, 16#7e#, 16#ba#, 16#77#, 16#d6#, 16#26#, 16#e1#, 16#69#, 16#14#, 16#63#, 16#55#, 16#21#, 16#0c#, 16#7d#)
 );	
 
+variable x, y : integer := 0;
+variable output : std_logic_vector(0 to 7);
+begin 	   
+		x := to_integer(unsigned(std_logic_vector(byte(0 to 3))));
+		y := to_integer(unsigned(std_logic_vector(byte(4 to 7))));
+		if invert = '0' then 
+			output := std_logic_vector(to_unsigned(encrypt_substitution(x, y), 8));
+		else
+			output := std_logic_vector(to_unsigned(decrypt_substitution(x, y), 8));
+		end if;   		  
+return output;
+end function sbox_byte;
+--------------------------------------------------------------------------------------------------------------------------------------
+--Substitution by LUT
+impure function sbox ( data : in std_logic_vector(0 to 127) ; invert : std_logic ) return std_logic_vector is
+variable byte : std_logic_vector(0 to 7);
 variable x, y : integer := 0;	
 variable output :  std_logic_vector(0 to 127);
 begin 	  
 	for i in 0 to 15 loop 
-		x := to_integer(unsigned(std_logic_vector(byte(i*4     to (i*4)+3))));
-		y := to_integer(unsigned(std_logic_vector(byte((i*4)+4 to (i*4)+3))));
-		if invert = '0' then
-			output(i*4 to (i*4)+7) := std_logic_vector(to_unsigned(encrypt_substitution(x, y), 8));
-		else
-			output(i*4 to (i*4)+7) := std_logic_vector(to_unsigned(decrypt_substitution(x, y), 8)); 
-		end if;
-	end loop;
-	--debug	
---		report "test";
---		test :=  Sbox(to_integer(unsigned(byte(0 to 3))), to_integer(unsigned(byte(4 to 7))) );
---		report "test" & to_string(test);	   		  
+		byte := data(i*8 to i*8 + 7);	
+		byte := sbox_byte(byte, invert);
+		output(i*8 to i*8 + 7) := byte;
+	end loop;	   		  
 return output;
 end function sbox;
   
 --------------------------------------------------------------------------------------------------------------------------------------	
-function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
-variable b0, b1, b2, b3, temp : std_logic_vector(0 to 7);
+impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
+variable old0, old1, old2, old3, new0, new1, new2, new3 : std_logic_vector(0 to 7);
 variable output : std_logic_vector(0 to 127);
 begin			 
 		--One loop for each row
 		for i in 0 to 3 loop
 			--Equate each column bytes based on row
-			b0 := data(32*i      to 32*i + 7);
-			b1 := data(32*i + 8  to 32*i + 15);
-			b2 := data(32*i + 16 to 32*i + 23);
-			b3 := data(32*i + 24 to 32*i + 31);
+			old0 := data(32*i      to 32*i + 7);
+			old1 := data(32*i + 8  to 32*i + 15);
+			old2 := data(32*i + 16 to 32*i + 23);
+			old3 := data(32*i + 24 to 32*i + 31);
 			--note: rotate 1 column left = rotate 3 columns right. Therefore below conditions can 
 			--act as forward and reverse operations depending on i and inverse
-			if ((i = 1 AND invert = '0') OR (i = 3 AND invert = '1')) then
-				temp := b0;
-				b0 := b1;
-				b1 := b2;
-				b2 := b3;
-				b3 := temp;
+			if (i = 0) then
+				new0 := old0;
+				new1 := old1;
+				new2 := old2;
+				new3 := old3;
+			elsif((i = 1 AND invert = '0') OR (i = 3 AND invert = '1')) then
+				new0 := old1;
+				new1 := old2;
+				new2 := old3;
+				new3 := old0;
 			elsif(i=2) then	
-				temp := b0;
-				b0 := b2;
-				b2 := temp;
-				temp := b1;
-				b1 := b3;
-				b3 := temp;
+				new0 := old2;
+				new1 := old3;
+				new2 := old0;
+				new3 := old1;
 			elsif((i = 3 AND invert = '0') OR (i = 1 AND invert = '1')) then
-				temp := b0;
-				b0 := b3;
-				b3 := b2;
-				b2 := b1;
-				b1 := temp;
+				new0 := old3;
+				new1 := old0;
+				new2 := old1;
+				new3 := old2;
 			end if;
 			--assign rotated bits to the corresponding indices on the 128 bit array
-			output(32*i      to 32*i + 7)  := b0;
-			output(32*i + 8  to 32*i + 15) := b1;
-			output(32*i + 16 to 32*i + 23) := b2;
-			output(32*i + 24 to 32*i + 31) := b3;
-			return output;
+			output(32*i      to 32*i + 7)  := new0;
+			output(32*i + 8  to 32*i + 15) := new1;
+			output(32*i + 16 to 32*i + 23) := new2;
+			output(32*i + 24 to 32*i + 31) := new3;
 		end loop;
+		return output;
 end function shiftRows;
 --------------------------------------------------------------------------------------------------------------------------------------
-function mixCol( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
-variable b0, b1, b2, b3, temp : std_logic_vector(0 to 7);
+impure function mixCol( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
+variable old0, old1, old2, old3, new0, new1, new2, new3 : std_logic_vector(0 to 7);
 variable output : std_logic_vector(0 to 127);
 begin			 
 		--One loop for each row
 		for i in 0 to 3 loop
 			--Equate each column bytes based on row
-			b0 := data(32*i      to 32*i + 7);
-			b1 := data(32*i + 8  to 32*i + 15);
-			b2 := data(32*i + 16 to 32*i + 23);
-			b3 := data(32*i + 24 to 32*i + 31);
-			--note: rotate 1 column left = rotate 3 columns right. Therefore below conditions can 
-			--act as forward and reverse operations depending on i and inverse
-			if invert = '0' then
-				temp := b0;
-				b0 := b3;
-				b3 := b1;
-				b1 := b2;
-				b2 := temp;
+			old0 := data(32*i      to 32*i + 7);
+			old1 := data(32*i + 8  to 32*i + 15);
+			old2 := data(32*i + 16 to 32*i + 23);
+			old3 := data(32*i + 24 to 32*i + 31);
+			if invert = '0' then	
+				--0123
+				--3201
+				new0 := old3;
+				new1 := old2;
+				new2:= old0;
+				new3 := old1;
 			else	
-				temp := b0;
-				b0 := b2;
-				b2 := b3;
-				b3 := b0;
-				b1 := temp;
+				--3201
+				--0123
+				new0 := old2;
+				new1 := old3;
+				new2:= old1;
+				new3 := old0;
 			end if;
 			--assign rotated bits to the corresponding indices on the 128 bit array
-			output(32*i      to 32*i + 7)  := b0;
-			output(32*i + 8  to 32*i + 15) := b1;
-			output(32*i + 16 to 32*i + 23) := b2;
-			output(32*i + 24 to 32*i + 31) := b3;
+			output(32*i      to 32*i + 7)  := new0;
+			output(32*i + 8  to 32*i + 15) := new1;
+			output(32*i + 16 to 32*i + 23) := new2;
+			output(32*i + 24 to 32*i + 31) := new3;
 			end loop;
 		return output;
 end function mixCol;
 --------------------------------------------------------------------------------------------------------------------------------------
-function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector is
+impure function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector is
 variable output : std_logic_vector(0 to 127);
 begin			 
 	output := data XOR key;
 	return output;
 end function addRoundKey;
 --------------------------------------------------------------------------------------------------------------------------------------
+impure function to_string( data : std_logic_vector(0 to 127)) return string is
+variable output : string(1 to 127) := (others => ' ');
+begin			 
+	for i in 0 to 127 loop
+		if data(i) = '0' then
+			output(i+1) := '0';
+		elsif data(i) = '1' then
+			output(i+1) := '1';
+		end if;
+	end loop;
+	return output; 
+	
+end function to_string;
 end package body;
