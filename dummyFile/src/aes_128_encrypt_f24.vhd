@@ -1,6 +1,7 @@
-library ieee;
+library ieee; 
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.function_package.all;
 
 entity AES_128_encrypt_f24 is
   port(

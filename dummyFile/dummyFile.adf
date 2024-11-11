@@ -3,25 +3,33 @@ Current Flow=Generic
 VCS=0
 version=4
 Current Config=compile
+
 [Configurations]
 compile=dummyFile
+
 [Library]
 dummyFile=.\dummyFile\dummyFile.lib
+
 [$LibMap$]
 dummyFile=.
 Active_lib=
+
 [Settings]
 FLOW_TYPE=HDL
 LANGUAGE=VHDL
 REFRESH_FLOW=1
 FLOWTOOLS=NONE
 FAMILY=
+fileopenfolder=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src
+
 [SpecTracer]
 WindowVisible=0
+
 [HierarchyViewer]
 HierarchyInformation=
 ShowHide=ShowTopLevel
 Selected=
+
 [Folders]
 Name0=Event Lists
 Directory0=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\
@@ -50,7 +58,20 @@ Extension7=htm;html
 Name8=ALINT-PRO Workspaces
 Directory8=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\
 Extension8=alintws
+
 [Files]
-/Look_Up_Table.vhd=-1
+/Sbox.vhd=-1
+/shiftRows.vhd=-1
+/aes_128_encrypt_f24.vhd=-1
+/dffreg.vhd=-1
+/key_schedule.vhd=-1
+/function_package.vhd=-1
+
 [Files.Data]
-.\src\Look_Up_Table.vhd=VHDL Source Code
+.\src\Sbox.vhd=VHDL Source Code
+.\src\shiftRows.vhd=VHDL Source Code
+.\src\aes_128_encrypt_f24.vhd=VHDL Source Code
+.\src\dffreg.vhd=VHDL Source Code
+.\src\key_schedule.vhd=VHDL Source Code
+
+.\src\function_package.vhd=VHDL Source Code
