@@ -1,0 +1,294 @@
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Error: COMP96_0010: function_package.vhd : (47, 116): Invalid literal.
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0015: function_package.vhd : (47, 116): '=>' expected.
+# Warning: COMP96_0048: function_package.vhd : (71, 1): This function may complete without return statement.
+# Compile failure 2 Errors 1 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0015: function_package.vhd : (55, 1): ';' expected.
+# Warning: COMP96_0048: function_package.vhd : (71, 1): This function may complete without return statement.
+# Compile failure 1 Errors 1 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Warning: COMP96_0048: function_package.vhd : (71, 1): This function may complete without return statement.
+# Error: COMP96_0122: function_package.vhd : (37, 1): Symbol "encrypt_substitution" has already been declared in this scope.
+# Compile failure 1 Errors 1 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Warning: COMP96_0048: function_package.vhd : (71, 1): This function may complete without return statement.
+# Compile success 0 Errors 1 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0015: function_package.vhd : (71, 1): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (108, 5): Keyword 'loop' expected.
+# Error: COMP96_0015: function_package.vhd : (114, 5): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (114, 17): Keyword 'end' expected.
+# Error: COMP96_0015: function_package.vhd : (114, 17): ';' expected.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0019: function_package.vhd : (107, 5): Keyword 'loop' expected.
+# Error: COMP96_0015: function_package.vhd : (113, 5): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (113, 17): Keyword 'end' expected.
+# Error: COMP96_0015: function_package.vhd : (113, 17): ';' expected.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0078: function_package.vhd : (81, 19): Unknown identifier "inverse".
+# Error: COMP96_0133: function_package.vhd : (81, 19): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (81, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: function_package.vhd : (94, 21): Unknown identifier "inverse".
+# Error: COMP96_0133: function_package.vhd : (94, 21): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (94, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0123: function_package.vhd : (102, 4): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0123: function_package.vhd : (103, 4): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0123: function_package.vhd : (104, 4): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0123: function_package.vhd : (105, 4): Variable or constant cannot be the target of a signal assignment.
+# Compile failure 10 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0123: function_package.vhd : (102, 4): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0123: function_package.vhd : (103, 4): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0123: function_package.vhd : (104, 4): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0123: function_package.vhd : (105, 4): Variable or constant cannot be the target of a signal assignment.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0617: function_package.vhd : (62, 8): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'INTEGER'.
+# Error: COMP96_0617: function_package.vhd : (63, 8): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'INTEGER'.
+# Error: COMP96_0078: function_package.vhd : (64, 6): Unknown identifier "invert".
+# Error: COMP96_0133: function_package.vhd : (64, 6): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (64, 6): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0283: function_package.vhd : (65, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (65, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0283: function_package.vhd : (67, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (67, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 11 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0149: function_package.vhd : (62, 16): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0149: function_package.vhd : (63, 16): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0078: function_package.vhd : (64, 6): Unknown identifier "invert".
+# Error: COMP96_0133: function_package.vhd : (64, 6): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (64, 6): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0283: function_package.vhd : (65, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (65, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0283: function_package.vhd : (67, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (67, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 11 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0015: function_package.vhd : (62, 70): ')' expected.
+# Error: COMP96_0015: function_package.vhd : (63, 70): ')' expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0149: function_package.vhd : (62, 16): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0149: function_package.vhd : (63, 16): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0078: function_package.vhd : (64, 6): Unknown identifier "invert".
+# Error: COMP96_0133: function_package.vhd : (64, 6): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (64, 6): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0283: function_package.vhd : (65, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (65, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0283: function_package.vhd : (67, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (67, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 11 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0149: function_package.vhd : (63, 16): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0078: function_package.vhd : (64, 6): Unknown identifier "invert".
+# Error: COMP96_0133: function_package.vhd : (64, 6): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (64, 6): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0283: function_package.vhd : (65, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (65, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0283: function_package.vhd : (67, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (67, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 10 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0078: function_package.vhd : (64, 6): Unknown identifier "invert".
+# Error: COMP96_0133: function_package.vhd : (64, 6): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (64, 6): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0283: function_package.vhd : (65, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (65, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0283: function_package.vhd : (67, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (67, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 9 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0071: function_package.vhd : (64, 15): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: function_package.vhd : (64, 6): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0283: function_package.vhd : (65, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (65, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0283: function_package.vhd : (67, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (67, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0283: function_package.vhd : (65, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (65, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0283: function_package.vhd : (67, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (67, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0283: function_package.vhd : (67, 76): Actual index positions do not correspond to index positions in type declaration.
+# Error: COMP96_0090: function_package.vhd : (67, 56): Expected array type.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0093: function_package.vhd : (65, 67): The type of a parameter in a subprogram call does not match to a formal parameter of the "ieee.NUMERIC_STD.TO_INTEGER(ARG : SIGNED) return INTEGER" subprogram.
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0149: function_package.vhd : (65, 56): Explicit type conversions are allowed between closely related types only.
+# Error: COMP96_0149: function_package.vhd : (67, 56): Explicit type conversions are allowed between closely related types only.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0269: function_package.vhd : (65, 47): For each formal parameter of a subprogram, a subprogram call must specify exactly one corresponding actual.
+# Error: COMP96_0269: function_package.vhd : (67, 47): For each formal parameter of a subprogram, a subprogram call must specify exactly one corresponding actual.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0020: function_package.vhd : (156, 1): Variable can be declared only in a process or subprogram.
+# Error: COMP96_0019: function_package.vhd : (157, 1): Keyword 'end' expected.
+# Error: COMP96_0015: function_package.vhd : (157, 1): ';' expected.
+# Error: COMP96_0016: function_package.vhd : (158, 3): Design unit declaration expected.
+# Error: COMP96_0018: function_package.vhd : (161, 17): Identifier expected.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Warning: COMP96_0048: function_package.vhd : (159, 1): This function may complete without return statement.
+# Error: COMP96_0111: function_package.vhd : (159, 14): Labels do not match.
+# Compile failure 1 Errors 1 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Warning: COMP96_0048: function_package.vhd : (159, 1): This function may complete without return statement.
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work dummyFile -2002  $dsn/src/function_package.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
