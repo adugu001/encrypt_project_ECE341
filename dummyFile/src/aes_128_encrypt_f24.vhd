@@ -69,9 +69,9 @@ type ROM is array (0 to 15, 0 to 15) of integer;
     (16#e1#, 16#f8#, 16#98#, 16#11#, 16#69#, 16#d9#, 16#8e#, 16#94#, 16#9b#, 16#1e#, 16#87#, 16#e9#, 16#ce#, 16#55#, 16#28#, 16#df#),
     (16#8c#, 16#a1#, 16#89#, 16#0d#, 16#bf#, 16#e6#, 16#42#, 16#68#, 16#41#, 16#99#, 16#2d#, 16#0f#, 16#b0#, 16#54#, 16#bb#, 16#16#)
 );	
-type roundConstants is array (0 to 7) of integer;
+type roundConstants is array (0 to 11) of integer;
 	signal rc : roundConstants := (
-    (1, 0, 0, 0,2,0,0,0)
+    (1, 0, 0, 0,2,0,0,0,4,0,0,0)
 );
 
 	impure function sbox_LUT ( byte : in std_logic_vector(0 to 7))
@@ -124,7 +124,8 @@ variable rc_count : integer := 0;
 variable key_expansion_complete:  boolean:= false;
 variable encryption_count : integer := 0; 
 variable sub_counter : integer := 0;
-variable temp_row : std_logic_vector(0 to 15);
+variable temp_row : std_logic_vector(0 to 31); 
+variable result_matrix: std_logic_vector(0 to 127);
 begin	
 	--report "start";
 	--	 tt := sbox_LUT("00000000");
@@ -247,22 +248,58 @@ begin
 		end if;
 		--begin encryption loop
 		if(key_expansion_complete = true) then
-			
+		
+			if(encryption_count = 0) then
+				--initial round
+				result_matrix := fullData XOR fullKey;
+			else
 				
 		--substitute in sbox
 		for i in 0 to 15 loop
-			expansionMatrix((sub_counter*4) to (sub_counter*4)+7) := sbox_LUT(expansionMatrix((sub_counter*4) to (sub_counter*4)+7));	
+			result_matrix((sub_counter*4) to (sub_counter*4)+7) := sbox_LUT(result_matrix((sub_counter*4) to (sub_counter*4)+7));	
 			sub_counter := sub_counter + 1;
 		end loop;
 		
 		--shift rows 
 		
 		----second row
+		temp_row := result_matrix(8 to 15) & result_matrix(40 to 47) & result_matrix(72 to 79) & result_matrix(104 to 111);
+		temp_row := temp_row sll 8;	
+		
+		--replace second row
+		result_matrix(8 to 15) := temp_row(0 to 7);
+		result_matrix(40 to 47) := temp_row(8 to 15);
+		result_matrix(72 to 79) := temp_row(16 to 23);
+		result_matrix(104 to 111) := temp_row(24 to 31);
+		
+		----third row
+		temp_row := result_matrix(16 to 23) & result_matrix(48 to 55) & result_matrix(80 to 87) & result_matrix(112 to 119);
+		temp_row := temp_row sll 16;	
+		
+		--replace third row
+		result_matrix(16 to 23) := temp_row(0 to 7);
+		result_matrix(48 to 55) := temp_row(8 to 15);
+		result_matrix(80 to 87) := temp_row(16 to 23);
+		result_matrix(112 to 119) := temp_row(24 to 31);
+		
+		----last row
+		temp_row := result_matrix(24 to 31) & result_matrix(56 to 63) & result_matrix(88 to 95) & result_matrix(120 to 127);
+		temp_row := temp_row sll 24;	
+		
+		--replace last row
+		result_matrix(24 to 31) := temp_row(0 to 7);
+		result_matrix(56 to 63) := temp_row(8 to 15);
+		result_matrix(88 to 95) := temp_row(16 to 23);
+		result_matrix(120 to 127) := temp_row(24 to 31);		   
 		
 		
 		
-		for i in 0 to 3 loop
-				
+		--mix columns
+		
+		
+		
+		--for i in 0 to 3 loop
+		end if;		
 		end if;
 		
 	end if;	 
