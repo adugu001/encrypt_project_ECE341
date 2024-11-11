@@ -1,4 +1,7 @@
 SetActiveLib -work
+
+comp -include "$dsn\src\function_package.vhd" 
+
 comp -include "$dsn\src\aes_128_encrypt_f24.vhd" 
 comp -include "$dsn\src\TestBench\aes_128_encrypt_f24_TB.vhd" 
 asim +access +r TESTBENCH_FOR_aes_128_encrypt_f24 
