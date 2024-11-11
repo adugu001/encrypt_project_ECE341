@@ -68,6 +68,10 @@ type ROM is array (0 to 15, 0 to 15) of integer;
     (16#70#, 16#3e#, 16#b5#, 16#66#, 16#48#, 16#03#, 16#f6#, 16#0e#, 16#61#, 16#35#, 16#57#, 16#b9#, 16#86#, 16#c1#, 16#1d#, 16#9e#),
     (16#e1#, 16#f8#, 16#98#, 16#11#, 16#69#, 16#d9#, 16#8e#, 16#94#, 16#9b#, 16#1e#, 16#87#, 16#e9#, 16#ce#, 16#55#, 16#28#, 16#df#),
     (16#8c#, 16#a1#, 16#89#, 16#0d#, 16#bf#, 16#e6#, 16#42#, 16#68#, 16#41#, 16#99#, 16#2d#, 16#0f#, 16#b0#, 16#54#, 16#bb#, 16#16#)
+);	
+type roundConstants is array (0 to 7) of integer;
+	signal rc : roundConstants := (
+    (1, 0, 0, 0,2,0,0,0)
 );
 
 	impure function sbox_LUT ( byte : in std_logic_vector(0 to 7))
@@ -80,10 +84,26 @@ type ROM is array (0 to 15, 0 to 15) of integer;
 		report "test";
 		test :=  Sbox(to_integer(unsigned(byte(0 to 3))), to_integer(unsigned(byte(4 to 7))) );
 		report "test" & to_string(test);
-		   		  
-    return std_logic_vector(newVector);
+		newVector := std_logic_vector(to_unsigned(test, newVector'length));
+		report to_string(newVector);
+    return std_logic_vector(newVector);	   
   end function; 
   
+  
+  	impure function rc_LUT ( byte : in std_logic_vector(0 to 7))
+    return std_logic_vector is	
+	variable count : integer := 0;
+	variable newVector : std_logic_vector(0 to 7);	
+	variable test : integer := 0;
+	begin 
+		--debug	
+		report "test";
+		test :=  rc(to_integer(unsigned(byte(0 to 7))) );
+		report "test" & to_string(test);
+		newVector := std_logic_vector(to_unsigned(test, newVector'length));
+		report to_string(newVector);
+    return std_logic_vector(newVector);
+  end function; 
   
   
   begin
@@ -98,10 +118,16 @@ variable fullData : std_logic_vector(0 to 127);
 variable dataLoadCount : integer := 0;		 
 variable temp : std_logic_vector(0 to 127);
 variable tempWord : std_logic_vector(0 to 31);	
-variable tt : std_logic_vector(0 to 7);
+variable tt : integer := 0;	  
+variable expansionMatrix : std_logic_vector(0 to 127);	
+variable rc_count : integer := 0;
+variable key_expansion_complete:  boolean:= false;
+variable encryption_count : integer := 0; 
+variable sub_counter : integer := 0;
+variable temp_row : std_logic_vector(0 to 15);
 begin	
-	report "start";
-		 tt := sbox_LUT("00000000");
+	--report "start";
+	--	 tt := sbox_LUT("00000000");
 	if (clk'event and clk = '1' and reset = '0')then 
 		
 		if(start = '1') then
@@ -150,11 +176,94 @@ begin
 			--at this point, assume that the data is fully loaded.
 			
 			--expand key
-		if(key_load_complete and data_load_complete) then
+		if(key_load_complete and data_load_complete) then  
+			
+			-- I will rework this to use loops and variables to simplify this. Initial run through was just to make sure the operational logic works.
+			
 			--Step 1: shift left 
-			tempWord := fullData(96 to 127); 
+			tempWord := fullKey(96 to 127);
+			expansionMatrix := fullKey;
 			tempWord(0 to 31) := tempWord sll 8;
-		end if;	
+			
+			for i in 0 to 9 loop
+			--Step 2: Sub bytes for those in sBox
+			tempWord(0 to 7) := sbox_LUT(tempWord(0 to 7));	
+			tempWord(8 to 15) := sbox_LUT(tempWord(8 to 15));	
+			tempWord(16 to 23) := sbox_LUT(tempWord(16 to 23));	
+			tempWord(24 to 31) := sbox_LUT(tempWord(24 to 31));	
+			--Step 3: add round constant 						  
+			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4),8))))), tempWord(0 to 7)'length));
+			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+1,8))))), tempWord(8 to 15)'length));
+			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+2,8))))), tempWord(16 to 23)'length));
+			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+3,8))))), tempWord(24 to 31)'length));
+			--Step 4: add first column with new key
+			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(expansionMatrix(0 to 7))), tempWord(0 to 7)'length));
+			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(expansionMatrix(8 to 15))), tempWord(8 to 15)'length));
+			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(expansionMatrix(16 to 23))), tempWord(16 to 23)'length));
+			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(expansionMatrix(24 to 31))), tempWord(24 to 31)'length));	
+			
+			expansionMatrix(0 to 7) := tempWord(0 to 7);
+			expansionMatrix(8 to 15) := tempWord(8 to 15);
+			expansionMatrix(16 to 23) := tempWord(16 to 23);
+			expansionMatrix(24 to 31) := tempWord(24 to 31);
+			
+			--Step 5: add second column with new key	 
+			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(expansionMatrix(32 to 39))), tempWord(0 to 7)'length));
+			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(expansionMatrix(40 to 47))), tempWord(8 to 15)'length));
+			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(expansionMatrix(48 to 55))), tempWord(16 to 23)'length));
+			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(expansionMatrix(56 to 63))), tempWord(24 to 31)'length));
+			
+			expansionMatrix(32 to 39) := tempWord(0 to 7);
+			expansionMatrix(40 to 47) := tempWord(8 to 15);
+			expansionMatrix(48 to 55) := tempWord(16 to 23);
+			expansionMatrix(56 to 63) := tempWord(24 to 31);
+			
+			--Step 6: add third column with new key
+			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(expansionMatrix(64 to 71))), tempWord(0 to 7)'length));
+			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(expansionMatrix(72 to 79))), tempWord(8 to 15)'length));
+			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(expansionMatrix(80 to 87))), tempWord(16 to 23)'length));
+			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(expansionMatrix(88 to 95))), tempWord(24 to 31)'length));
+			
+			expansionMatrix(64 to 71) := tempWord(0 to 7);
+			expansionMatrix(72 to 79) := tempWord(8 to 15);
+			expansionMatrix(80 to 87) := tempWord(16 to 23);
+			expansionMatrix(88 to 95) := tempWord(24 to 31); 
+			
+			--Step 7: add last column with new key
+			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(expansionMatrix(96 to 103))), tempWord(0 to 7)'length));
+			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(expansionMatrix(104 to 111))), tempWord(8 to 15)'length));
+			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(expansionMatrix(112 to 119))), tempWord(16 to 23)'length));
+			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(expansionMatrix(120 to 127))), tempWord(24 to 31)'length));
+			
+			expansionMatrix(96 to 103) := tempWord(0 to 7);
+			expansionMatrix(104 to 111) := tempWord(8 to 15);
+			expansionMatrix(112 to 119) := tempWord(16 to 23);
+			expansionMatrix(120 to 127) := tempWord(24 to 31); 
+		   rc_count := rc_count + 1;
+			end loop;
+			key_expansion_complete := true;
+			--key Expansion done.
+				
+		end if;
+		--begin encryption loop
+		if(key_expansion_complete = true) then
+			
+				
+		--substitute in sbox
+		for i in 0 to 15 loop
+			expansionMatrix((sub_counter*4) to (sub_counter*4)+7) := sbox_LUT(expansionMatrix((sub_counter*4) to (sub_counter*4)+7));	
+			sub_counter := sub_counter + 1;
+		end loop;
+		
+		--shift rows 
+		
+		----second row
+		
+		
+		
+		for i in 0 to 3 loop
+				
+		end if;
 		
 	end if;	 
 end process;
