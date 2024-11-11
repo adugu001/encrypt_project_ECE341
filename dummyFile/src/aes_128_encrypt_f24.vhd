@@ -155,7 +155,8 @@ begin
 		end if;
 		if(key_load = '1') then	
 			if(keyLoadCount = 0) then
-				fullKey(0 to 31) := dataIn;
+				fullKey(0 to 31) := dataIn;	
+				report "key_chunk_1: " & to_string(fullKey(0 to 31));
 			elsif(keyLoadCount = 1) then
 				fullKey(32 to 63) := dataIn;
 			elsif(keyLoadCount = 2) then

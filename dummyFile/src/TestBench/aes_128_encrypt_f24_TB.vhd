@@ -1,4 +1,7 @@
 library dummyFile;
+library ieee;
+use ieee.NUMERIC_STD.all;
+use ieee.std_logic_1164.all;
 use dummyFile.function_package.all;
 
 	-- Add your library and packages declaration here ...
@@ -38,7 +41,7 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 	-- Observed signals - signals mapped to the output ports of tested entity
 	signal dataOut : STD_LOGIC_VECTOR(0 to 31);
 	signal Done : STD_LOGIC;
-
+   	signal SIMULATIONACTIVE:BOOLEAN:=TRUE;		 
 	-- Add your code here ...
 
 begin
@@ -59,9 +62,40 @@ begin
 			dataOut => dataOut,
 			Done => Done
 		);
-
+		
+		 process
+	begin
+		while simulationActive loop
+			clk <='0'; wait for 1ns;
+			clk <='1'; wait for 1ns;
+		end loop;
+		wait;	
+	end process;
+		
 	-- Add your stimulus here ...
-
+	clockProcess:process
+	begin	 	
+		wait until clk'event AND clk = '1';
+		reset <= '1';
+		wait until clk'event AND clk = '1';
+		reset <= '0';
+		wait until clk'event AND clk = '1';
+		start <= '1';  
+		wait until clk'event AND clk = '1';
+		key_load <= '1';
+		wait until clk'event AND clk = '1';
+		dataIn(0 to 31) <= std_logic_vector(to_unsigned(0, dataIn(0 to  31)'length));
+		wait until clk'event AND clk = '1';
+		dataIn(0 to 31) <= std_logic_vector(to_unsigned(1, dataIn(0 to  31)'length));
+		for i in 0 to 15 loop	  	
+			wait until clk'event AND clk = '1';
+			report "clk " & to_string(i);
+		end loop;
+		
+		
+		simulationactive<= false;
+		wait;
+	end process;
 end TB_ARCHITECTURE;
 
 configuration TESTBENCH_FOR_aes_128_encrypt_f24 of aes_128_encrypt_f24_tb is
