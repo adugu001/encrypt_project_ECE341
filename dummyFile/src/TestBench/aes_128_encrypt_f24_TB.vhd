@@ -1,4 +1,5 @@
 library dummyFile;
+
 library ieee;
 use ieee.NUMERIC_STD.all;
 use ieee.std_logic_1164.all;
@@ -42,11 +43,16 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 	signal dataOut : STD_LOGIC_VECTOR(0 to 31);
 	signal Done : STD_LOGIC;
    	signal SIMULATIONACTIVE:BOOLEAN:=TRUE;		 
+
 	-- Add your code here ...
 
 begin
 
 	-- Unit Under Test port map
+
+
+
+
 	UUT : aes_128_encrypt_f24
 		port map (
 			clk => clk,
@@ -63,17 +69,17 @@ begin
 			Done => Done
 		);
 		
-		 process
+process
 	begin
 		while simulationActive loop
 			clk <='0'; wait for 1ns;
 			clk <='1'; wait for 1ns;
 		end loop;
 		wait;	
-	end process;
+end process;
 		
 	-- Add your stimulus here ...
-	clockProcess:process
+clockProcess:process
 	begin	 	
 		wait until clk'event AND clk = '1';
 		reset <= '1';
@@ -95,7 +101,54 @@ begin
 		
 		simulationactive<= false;
 		wait;
-	end process;
+end process;
+                                                    
+functionProcess: process
+  variable testdata : std_logic_vector(0 to 127);
+	variable data : std_logic_vector(0 to 127) :=           
+                              "00000000"&"00010110"&"11110011"&"11001001"&
+                              "01001010"&"00000000"&"11111111"&"00001101"&
+															"00000000"&"00010110"&"11110011"&"11001001"&
+															"01001010"&"00000000"&"11111111"&"00001101"; 														
+	variable substituted : std_logic_vector(0 to 127) :=	
+                                "01100011"&"01000111"&"00001101"&"11011101"&
+													   		"11010110"&"01100011"&"00010110"&"11010111"&
+													   		"01100011"&"01000111"&"00001101"&"11011101"&
+													   		"11010110"&"01100011"&"00010110"&"11010111";												   
+	variable mixed : std_logic_vector(0 to 127) := 			
+                                "11011101"&"00001101"&"01100011"&"01000111"&
+														    "11010111"&"00010110"&"11010110"&"01100011"&
+														    "11011101"&"00001101"&"01100011"&"01000111"&
+														    "11010111"&"00010110"&"11010110"&"01100011";															
+	variable rotated: std_logic_vector(0 to 127) := 		
+                                "11011101"&"00001101"&"01100011"&"01000111"&
+														    "00010110"&"11010110"&"01100011"&"11010111"&
+														    "01100011"&"01000111"&"11011101"&"00001101"&
+														    "01100011"&"11010111"&"00010110"&"11010110";												
+	begin 
+		--ENCRYPTION
+		--substitute data
+		testData := sbox(data, '0');
+		assert(testData = substituted) report "sbox failed";
+		--mix columns
+		testdata := mixcol(substituted, '0');
+		assert(testData = mixed) report "mixcol fialed";
+		--shift rows
+		testdata := shiftrows(mixed, '0');
+		assert (testdata = rotated) report "shiftRows failed";
+		--DECRYPTION
+		--invert shift rows
+		testdata := shiftrows(rotated, '1');
+		assert (testdata = mixed) report "invert shiftRows failed";
+		--invert mix columns
+		testdata := mixcol(mixed, '1');
+		assert(testData = substituted) report "invert mixcol fialed";
+		--invert substitute data
+		testData := sbox(substituted, '1');
+		assert(testData = data) report "invert sbox failed";
+		
+		wait;
+end process;
 end TB_ARCHITECTURE;
 
 configuration TESTBENCH_FOR_aes_128_encrypt_f24 of aes_128_encrypt_f24_tb is
@@ -105,4 +158,5 @@ configuration TESTBENCH_FOR_aes_128_encrypt_f24 of aes_128_encrypt_f24_tb is
 		end for;
 	end for;
 end TESTBENCH_FOR_aes_128_encrypt_f24;
+
 

@@ -1,9 +1,15 @@
-39
+94
 ~E 1 "../src/aes_128_encrypt_f24.vhd" 6 AES_128_encrypt_f24
-~E 1 "../src/Look_Up_Table.vhd" 4 lut
-~E 1 "../src/Look_Up_Table.vhd" 4 play
-~A 1 "../src/Look_Up_Table.vhd" 8 scratch
-~E 1 "../src/Look_Up_Table.vhd" 5 sBox
+~A 1 "../src/aes_128_encrypt_f24.vhd" 53 behavioral
+~E 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 8 aes_128_encrypt_f24_tb
+~A 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 11 TB_ARCHITECTURE
+~E 1 "../src/dffreg.vhd" 6 dffreg
+~A 1 "../src/dffreg.vhd" 15 behavioral
+~E 1 "../src/key_schedule.vhd" 8 key_schedule
+~A 1 "../src/key_schedule.vhd" 19 behavioral
+~E 0 "" 0 play
+~A 0 "" 0 scratch
+~E 1 "../src/Sbox.vhd" 5 sBox
 ~A 1 "../src/Sbox.vhd" 9 behavioral
 ~A 1 "../src/Sbox.vhd" 41 dataflow
 ~E 1 "../src/shiftRows.vhd" 5 shiftRows

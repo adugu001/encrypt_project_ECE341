@@ -129,6 +129,8 @@ variable dataLoadCount : integer := 0;
 variable dataOutCount: integer:= 0;
 variable temp : std_logic_vector(0 to 127);
 variable tempWord : std_logic_vector(0 to 31);	
+
+
 variable tt : integer := 0;	  
 variable expansionMatrix : std_logic_vector(0 to 127);	
 variable rc_count : integer := 0;
@@ -200,6 +202,7 @@ begin
 			-- I will rework this to use loops and variables to simplify this. Initial run through was just to make sure the operational logic works.
 			
 			--Step 1: shift left 
+
 			tempWord := fullKey(96 to 127);
 			expansionMatrix := fullKey;
 			tempWord(0 to 31) := tempWord sll 8;
