@@ -34,7 +34,7 @@ The decryption process...
 
 
 **Design Restraints**: 
-- Function in frequency range [10Mhz, 500Mhz]
+- Function in frequency range [10Mhz, 500Mhz] clock or [2ns, 100ns] period
 - 2^64 bit memory
 - Tech Resources: 110,000
 - Mem Units: 200
