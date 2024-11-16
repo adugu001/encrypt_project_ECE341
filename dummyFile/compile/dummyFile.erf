@@ -1,4 +1,4 @@
-MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" 
-MESSAGE "Compile Entity "aes_128_encrypt_f24_tb"" 
-MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"" 
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" 
+MESSAGE "Compile Package "function_package"" 
+MESSAGE "Compile Package Body "function_package"" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]" 

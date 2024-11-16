@@ -2,13 +2,17 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-package function_package is
+package function_package is	 
+	--TODO
+
     impure function sbox ( data : in std_logic_vector(0 to 127);  invert : std_logic ) return std_logic_vector;
 	impure function sbox_byte ( byte : in std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector;
     impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
-	impure function mixCol( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
-	impure function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector;	
-	impure function to_string( data : std_logic_vector(0 to 127)) return string;
+	impure function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector;
+	impure function gfMult_byte ( a : in std_logic_vector(0 to 7);  b : in std_logic_vector(0 to 7)) return std_logic_vector;
+	impure function mixColumns ( data : in std_logic_vector(0 to 127);  output : out std_logic_vector(0 to 127); invert : in std_logic_vector) return std_logic_vector;
+	impure function to_INT( data : std_logic_vector(0 to 7)) return integer;
+	impure function to_byte( data : integer ) return std_logic_vector;
 end package function_package;	 	
 
 package body function_package is																   
@@ -84,82 +88,57 @@ end function sbox;
   
 --------------------------------------------------------------------------------------------------------------------------------------	
 impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
-variable old0, old1, old2, old3, new0, new1, new2, new3 : std_logic_vector(0 to 7);
+variable temp, old1, old2, old3, new0, new1, new2, new3 : std_logic_vector(0 to 7);
 variable output : std_logic_vector(0 to 127);
-begin			 
-		--One loop for each row
-		for i in 0 to 3 loop
-			--Equate each column bytes based on row
-			old0 := data(32*i      to 32*i + 7);
-			old1 := data(32*i + 8  to 32*i + 15);
-			old2 := data(32*i + 16 to 32*i + 23);
-			old3 := data(32*i + 24 to 32*i + 31);
-			--note: rotate 1 column left = rotate 3 columns right. Therefore below conditions can 
-			--act as forward and reverse operations depending on i and inverse
-			if (i = 0) then
-				new0 := old0;
-				new1 := old1;
-				new2 := old2;
-				new3 := old3;
-			elsif((i = 1 AND invert = '0') OR (i = 3 AND invert = '1')) then
-				new0 := old1;
-				new1 := old2;
-				new2 := old3;
-				new3 := old0;
-			elsif(i=2) then	
-				new0 := old2;
-				new1 := old3;
-				new2 := old0;
-				new3 := old1;
-			elsif((i = 3 AND invert = '0') OR (i = 1 AND invert = '1')) then
-				new0 := old3;
-				new1 := old0;
-				new2 := old1;
-				new3 := old2;
-			end if;
-			--assign rotated bits to the corresponding indices on the 128 bit array
-			output(32*i      to 32*i + 7)  := new0;
-			output(32*i + 8  to 32*i + 15) := new1;
-			output(32*i + 16 to 32*i + 23) := new2;
-			output(32*i + 24 to 32*i + 31) := new3;
-		end loop;
+type matrix is array(0 to 3, 0 to 3) of std_logic_vector(0 to 7);
+variable blockMatrix : matrix;
+
+begin
+for i in 0 to 3 loop
+		blockMatrix(0,i) := data(  32*i    to 32*i + 7);
+		blockMatrix(1,i) := data(32*i + 8  to 32*i + 15);
+		blockMatrix(2,i) := data(32*i + 16 to 32*i + 23);
+		blockMatrix(3,i) := data(32*i + 24 to 32*i + 31);
+	--1   5   9    13
+	--2	  6   10   14
+	--3	  7	  11   15
+	--4	  8   12   16
+end loop;	
+for i in 0 to 3 loop
+	--Equate each column bytes based on row
+	
+	--note: rotate 1 column left = rotate 3 columns right. Therefore below conditions can 
+	--act as forward and reverse operations depending on i and inverse
+	if((i = 1 AND invert = '0') OR (i = 3 AND invert = '1')) then
+		temp := blockMatrix(i,0);
+		blockMatrix(i,0) := blockMatrix(i,1);
+		blockMatrix(i,1) := blockMatrix(i,2);
+		blockMatrix(i,2) := blockMatrix(i,3);
+		blockMatrix(i,3) := temp;
+	elsif(i=2) then	
+		temp := blockMatrix(i,0);
+		blockMatrix(i,0) := blockMatrix(i,2);
+		blockMatrix(i,2) := temp;
+		temp := blockMatrix(i,1);
+		blockMatrix(i,1) := blockMatrix(i,3);
+		blockMatrix(i,3) := temp;
+	elsif((i = 3 AND invert = '0') OR (i = 1 AND invert = '1')) then
+		temp := blockMatrix(i,0);
+		blockMatrix(i,0) := blockMatrix(i,3);
+		blockMatrix(i,3) := blockMatrix(i,2);
+		blockMatrix(i,2) := blockMatrix(i,1);
+		blockMatrix(i,1) := temp;
+	end if;
+end loop;
+	--assign rotated bits to the corresponding indices on the 128 bit array
+for i in 0 to 3 loop
+	 output(  32*i    to 32*i + 7)  := blockMatrix(0,i);
+	 output(32*i + 8  to 32*i + 15) := blockMatrix(1,i);
+	 output(32*i + 16 to 32*i + 23) := blockMatrix(2,i);
+	 output(32*i + 24 to 32*i + 31) := blockMatrix(3,i);
+end loop;
 		return output;
 end function shiftRows;
---------------------------------------------------------------------------------------------------------------------------------------
-impure function mixCol( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
-variable old0, old1, old2, old3, new0, new1, new2, new3 : std_logic_vector(0 to 7);
-variable output : std_logic_vector(0 to 127);
-begin			 
-		--One loop for each row
-		for i in 0 to 3 loop
-			--Equate each column bytes based on row
-			old0 := data(32*i      to 32*i + 7);
-			old1 := data(32*i + 8  to 32*i + 15);
-			old2 := data(32*i + 16 to 32*i + 23);
-			old3 := data(32*i + 24 to 32*i + 31);
-			if invert = '0' then	
-				--0123
-				--3201
-				new0 := old3;
-				new1 := old2;
-				new2:= old0;
-				new3 := old1;
-			else	
-				--3201
-				--0123
-				new0 := old2;
-				new1 := old3;
-				new2:= old1;
-				new3 := old0;
-			end if;
-			--assign rotated bits to the corresponding indices on the 128 bit array
-			output(32*i      to 32*i + 7)  := new0;
-			output(32*i + 8  to 32*i + 15) := new1;
-			output(32*i + 16 to 32*i + 23) := new2;
-			output(32*i + 24 to 32*i + 31) := new3;
-			end loop;
-		return output;
-end function mixCol;
 --------------------------------------------------------------------------------------------------------------------------------------
 impure function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector is
 variable output : std_logic_vector(0 to 127);
@@ -168,17 +147,80 @@ begin
 	return output;
 end function addRoundKey;
 --------------------------------------------------------------------------------------------------------------------------------------
-impure function to_string( data : std_logic_vector(0 to 127)) return string is
-variable output : string(1 to 127) := (others => ' ');
-begin			 
-	for i in 0 to 127 loop
-		if data(i) = '0' then
-			output(i+1) := '0';
-		elsif data(i) = '1' then
-			output(i+1) := '1';
-		end if;
+impure function gfMult_byte ( a : in std_logic_vector(0 to 7);  b : in std_logic_vector(0 to 7); ) return std_logic_vector is
+constant irreducible : std_logic_vector(0 to 15) := "0000000100011011";
+variable multBIT, sum : std_logic_vector(0 to 15);
+variable bitmask, output : std_logic_vector(0 to 7);
+variable Aint, Bint : integer;
+
+begin
+	Bint := to_integer(unsigned(b));
+	bitmask := "00000001";		--Isolate each "variable" in polynomial form to allow distributive multiplication						
+	sum := (others => '0');
+	for i in 0 to 7 loop
+		multBIT := "00000000"&(bitmask AND a);		--select bit i
+		Aint := to_integer(unsigned(multBIT));		--int form for multiplication
+		multBIT := std_logic_vector(to_unsigned(Aint*Bint, 16));  --standard multiplicative distribution of byte b to each digit in a
+		sum := sum XOR multBIT;	  								  --Addition to sum
+		
+		while (to_integer(unsigned(sum))) > 255 loop   --Looped subtraction in place of division by irreducible polynomial
+			sum := sum XOR irreducible;
+		end loop;
+		bitmask := bitmask sll 1;						--shift bitmask to move to next digit
 	end loop;
-	return output; 
+	output := sum(0 to 7);
+	return output;
 	
-end function to_string;
+end function gfMult_byte;
+--------------------------------------------------------------------------------------------------------------------------------------
+impure function mixColumns ( data : in std_logic_vector(0 to 127);  output : out std_logic_vector(0 to 127); invert : in std_logic_vector) return std_logic_vector is
+variable s0, s1, s2, s3, d0, d1, d2, d3 : std_logic_vector(0 to 7);
+begin
+	if (invert = "0") then
+		for i in 0 to 3 loop
+		s0 := data(  32*i    to 32*i + 7);
+		s1 := data(32*i + 8  to 32*i + 15);
+		s2 := data(32*i + 16 to 32*i + 23);
+		s3 := data(32*i + 24 to 32*i + 31);
+		
+		d0 := gfMult_byte("00000010", s0) XOR gfMult_byte("00000011", s1) XOR s2 XOR s3;
+		d1 := s0 XOR gfMult_byte("00000010", s1) XOR gfMult_byte("00000011", s2) XOR s3;
+		d2 := s0 XOR s1 XOR gfMult_byte("00000010", s2) XOR gfMult_byte("00000011", s3);
+		d3 := gfMult_byte("00000011", s0) XOR s1 XOR s2 XOR gfMult_byte("00000010", s3);
+		
+		output(  32*i    to 32*i + 7)  := d0;
+		output(32*i + 8  to 32*i + 15) := d1;
+		output(32*i + 16 to 32*i + 23) := d2;
+		output(32*i + 24 to 32*i + 31) := d3;
+		end loop;
+	else
+		for i in 0 to 3 loop
+		s0 := data(  32*i    to 32*i + 7);
+		s1 := data(32*i + 8  to 32*i + 15);
+		s2 := data(32*i + 16 to 32*i + 23);
+		s3 := data(32*i + 24 to 32*i + 31);
+		
+		d0 := gfMult_byte("00001110", s0) XOR gfMult_byte("00001011", s1) XOR gfMult_byte("00001011", s2) XOR gfMult_byte("00001001", s3);
+		d1 := gfMult_byte("00001001", s0) XOR gfMult_byte("00001110", s1) XOR gfMult_byte("00001011", s2) XOR gfMult_byte("00001011", s3);
+		d2 := gfMult_byte("00001011", s0) XOR gfMult_byte("00001001", s1) XOR gfMult_byte("00001110", s2) XOR gfMult_byte("00001011", s3);
+		d3 := gfMult_byte("00001011", s0) XOR gfMult_byte("00001011", s1) XOR gfMult_byte("00001001", s2) XOR gfMult_byte("00001110", s3);
+		
+		output(  32*i    to 32*i + 7)  := d0;
+		output(32*i + 8  to 32*i + 15) := d1;
+		output(32*i + 16 to 32*i + 23) := d2;
+		output(32*i + 24 to 32*i + 31) := d3;
+		end loop;
+	end if;
+	return output;
+end function mixColumns;
+--------------------------------------------------------------------------------------------------------------------------------------
+impure function to_INT( data : std_logic_vector(0 to 7)) return integer is
+begin			 
+	return to_integer(unsigned(data));
+end function to_INT;
+--------------------------------------------------------------------------------------------------------------------------------------
+impure function to_byte( data : integer ) return std_logic_vector is
+begin			 
+	return std_logic_vector(to_unsigned(data, 8));
+end function to_byte;
 end package body;
