@@ -5,12 +5,12 @@ use ieee.numeric_std.all;
 package function_package is	 
 	--TODO
 
-    impure function sbox ( data : in std_logic_vector(0 to 127);  invert : std_logic ) return std_logic_vector;
-	impure function sbox_byte ( byte : in std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector;
+    impure function sbox( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
+	impure function sbox_byte( byte : std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector;
     impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
 	impure function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector;
-	impure function gfMult_byte ( a : in std_logic_vector(0 to 7);  b : in std_logic_vector(0 to 7)) return std_logic_vector;
-	impure function mixColumns ( data : in std_logic_vector(0 to 127);  output : out std_logic_vector(0 to 127); invert : in std_logic_vector) return std_logic_vector;
+	impure function gfMult_byte( a : in std_logic_vector(0 to 7);  b : in std_logic_vector(0 to 7)) return std_logic_vector;
+	impure function mixColumns( data : in std_logic_vector(0 to 127); invert : in std_logic) return std_logic_vector;
 	impure function to_INT( data : std_logic_vector(0 to 7)) return integer;
 	impure function to_byte( data : integer ) return std_logic_vector;
 end package function_package;	 	
@@ -18,7 +18,7 @@ end package function_package;
 package body function_package is																   
 ----------------------------------------------------------------------------------------------------------------------------------------
 --COMPLETE, TESTED THROUGH ALL RANGES
-impure function sbox_byte ( byte : in std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector is
+impure function sbox_byte ( byte : std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector is
 type ROM is array (0 to 15, 0 to 15) of integer;
 constant encrypt_substitution : ROM := (	   
 --0			1		2		3		4		5		6		7		8		9	  10/A	  11/B	  12/C	  13/D	  14/E	  15/F
@@ -73,9 +73,8 @@ return output;
 end function sbox_byte;
 --------------------------------------------------------------------------------------------------------------------------------------
 --Substitution by LUT
-impure function sbox ( data : in std_logic_vector(0 to 127) ; invert : std_logic ) return std_logic_vector is
+impure function sbox( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
 variable byte : std_logic_vector(0 to 7);
-variable x, y : integer := 0;	
 variable output :  std_logic_vector(0 to 127);
 begin 	  
 	for i in 0 to 15 loop 
@@ -173,10 +172,11 @@ begin
 	
 end function gfMult_byte;
 --------------------------------------------------------------------------------------------------------------------------------------
-impure function mixColumns ( data : in std_logic_vector(0 to 127);  output : out std_logic_vector(0 to 127); invert : in std_logic_vector) return std_logic_vector is
+impure function mixColumns ( data : in std_logic_vector(0 to 127); invert : in std_logic) return std_logic_vector is
 variable s0, s1, s2, s3, d0, d1, d2, d3 : std_logic_vector(0 to 7);
+variable output : std_logic_vector(0 to 127);
 begin
-	if (invert = "0") then
+	if (invert = '0') then
 		for i in 0 to 3 loop
 		s0 := data(  32*i    to 32*i + 7);
 		s1 := data(32*i + 8  to 32*i + 15);
