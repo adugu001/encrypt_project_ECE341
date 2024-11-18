@@ -79,8 +79,13 @@ process
 end process;
 		
 	-- Add your stimulus here ...
-clockProcess:process
-	begin	 	
+clockProcess:process  
+variable data : std_logic_vector(0 to 127);	
+
+variable key : std_logic_vector(0 to 127);
+begin	 	 
+	data:= "00110010010000111111011010101000100010000101101000110000100011010011000100110001100110001010001011100000001101110000011100110100";
+	key:= "00101011011111100001010100010110001010001010111011010010101001101010101111110111000101011000100000001001110011110100111100111100";
 		wait until clk'event AND clk = '1';
 		reset <= '1';
 		wait until clk'event AND clk = '1';
@@ -89,16 +94,24 @@ clockProcess:process
 		start <= '1';  
 		wait until clk'event AND clk = '1';
 		key_load <= '1';
+		dataIn(0 to 31) <= std_logic_vector(key(0 to 31));
 		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(to_unsigned(0, dataIn(0 to  31)'length));
+		dataIn(0 to 31) <= std_logic_vector(key(32 to 63));	
 		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(to_unsigned(1, dataIn(0 to  31)'length));
-		for i in 0 to 15 loop	  	
-			wait until clk'event AND clk = '1';
-			report "clk " & to_string(i);
-		end loop;
-		
-		
+		dataIn(0 to 31) <= std_logic_vector(key(64 to 95));
+		wait until clk'event AND clk = '1';
+		dataIn(0 to 31) <= std_logic_vector(key(96 to 127));
+		wait until clk'event AND clk = '1';		
+		db_load <= '1';
+		dataIn(0 to 31) <= std_logic_vector(data(0 to 31));
+		wait until clk'event AND clk = '1';		
+		dataIn(0 to 31) <= std_logic_vector(data(32 to 63));
+		wait until clk'event AND clk = '1';		
+		dataIn(0 to 31) <= std_logic_vector(data(64 to 95));
+		wait until clk'event AND clk = '1';		
+		dataIn(0 to 31) <= std_logic_vector(data(96 to 127));
+		wait until clk'event AND clk = '1';		
+
 		simulationactive<= false;
 		wait;
 end process;
