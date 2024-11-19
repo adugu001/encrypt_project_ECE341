@@ -154,9 +154,23 @@ variable col_count: integer:= 0;
 variable roundKeys: key_store (0 to 9)(0 to 127);
 variable rotate_matrix: std_logic_vector(0 to 127);
 variable done_enc: boolean := false;
+
+variable data_out_complete: boolean := false;
+variable IV : std_logic_vector(0 to 127);
+variable invert : std_logic := '0';
 variable data_out_complete: boolean := false;  
 variable rc_return: std_logic_vector(0 to 7);
 begin	
+
+                         	--IVLOAD---------------------------------------------------------------------------------------------
+--	if(iv_load = "1") then
+--		for i in 0 to 3 loop
+--			IV(i*32 to i*32 + 31) := data;
+--			wait on CLK = '1' AND CLK'event;
+--		end loop;
+--	else IV := others => '0';
+--	end if;
+--key expansion--------------------------------------------------------------------------------------------------------
 	--report "start";
 	--	 tt := sbox_LUT("00000000");
 	if (clk'event and clk = '1' and reset = '0')then 
@@ -306,117 +320,39 @@ begin
 			--key Expansion done.
 				
 		end if;
-		--begin encryption loop
-		if(key_expansion_complete = true and done_enc = false) then
 		
-			--if first round xor with key
-			--if(encryption_count = 0) then
-				--initial round
-		result_matrix := fullData XOR fullKey; 
-			--end if;
-		for i in 0 to 9 loop
-		report "Beginning of round " & to_string(i) & " data: " & to_hstring(result_matrix);	
-		sub_counter:= 0;		
-		--substitute in sbox
-		for i in 0 to 15 loop
-			result_matrix((sub_counter*4) to (sub_counter*4)+7) := sbox_LUT(result_matrix((sub_counter*4) to (sub_counter*4)+7));	
-			sub_counter := sub_counter + 1;
-		end loop;
-		
-		--shift rows 
-		
-		----second row
-		temp_row := result_matrix(8 to 15) & result_matrix(40 to 47) & result_matrix(72 to 79) & result_matrix(104 to 111);
-		temp_row := temp_row sll 8;	
-		
-		--replace second row
-		result_matrix(8 to 15) := temp_row(0 to 7);
-		result_matrix(40 to 47) := temp_row(8 to 15);
-		result_matrix(72 to 79) := temp_row(16 to 23);
-		result_matrix(104 to 111) := temp_row(24 to 31);
-		
-		----third row
-		temp_row := result_matrix(16 to 23) & result_matrix(48 to 55) & result_matrix(80 to 87) & result_matrix(112 to 119);
-		temp_row := temp_row sll 16;	
-		
-		--replace third row
-		result_matrix(16 to 23) := temp_row(0 to 7);
-		result_matrix(48 to 55) := temp_row(8 to 15);
-		result_matrix(80 to 87) := temp_row(16 to 23);
-		result_matrix(112 to 119) := temp_row(24 to 31);
-		
-		----last row
-		temp_row := result_matrix(24 to 31) & result_matrix(56 to 63) & result_matrix(88 to 95) & result_matrix(120 to 127);
-		temp_row := temp_row sll 24;	
-		
-		--replace last row
-		result_matrix(24 to 31) := temp_row(0 to 7);
-		result_matrix(56 to 63) := temp_row(8 to 15);
-		result_matrix(88 to 95) := temp_row(16 to 23);
-		result_matrix(120 to 127) := temp_row(24 to 31);		   
-		
-		
-		--mix columns	 
-		for i in 0 to 3 loop
-		mix_matrix((i*8*0)+0 to (i*8*0)+7):= std_logic_vector(mul(0,i) * to_unsigned(to_integer(unsigned(result_matrix((0*8*col_count) + 0 to (0*8*col_count) + 7)))  ,result_matrix(0 to 3)'length)); 
-		mix_matrix((i*8*1)+0 to (i*8*1)+7):= std_logic_vector(mul(1,i) * to_unsigned(to_integer(unsigned(result_matrix((1*8*col_count) + 0 to (1*8*col_count) + 7)))  ,result_matrix(0 to 3)'length)); 
-		mix_matrix((i*8*2)+0 to (i*8*2)+7):= std_logic_vector(mul(2,i) * to_unsigned(to_integer(unsigned(result_matrix((2*8*col_count) to (2*8*col_count) + 7)))  ,result_matrix(0 to 3)'length)); 
-		mix_matrix((i*8*3)+0 to (i*8*3)+7):= std_logic_vector(mul(3,i) * to_unsigned(to_integer(unsigned(result_matrix((3*8*col_count) to (3*8*col_count) + 7)))  ,result_matrix(0 to 3)'length));
-		
-		
-		result_matrix((i*8)+0 to (i*8)+7):= std_logic_vector(
-			to_unsigned(to_integer(unsigned(mix_matrix(0 to 7))) ,result_matrix(0 to 7)'length)	+
-			to_unsigned(to_integer(unsigned(mix_matrix(8 to 15))) ,result_matrix(8 to 15)'length) + 
-			to_unsigned(to_integer(unsigned(mix_matrix(16 to 23))) ,result_matrix(16 to 23)'length) +
-			to_unsigned(to_integer(unsigned(mix_matrix(24 to 31))) ,result_matrix(24 to 31)'length) 
-		);
-		
-		--move to next column
-		if(col_count mod 4 = 0 ) then
-			col_count := col_count + 1;	
-			end if;		  
-		end loop;
-		
-		
-		--rotate
-		rotate_matrix(0 to 31) := result_matrix(0 to 7) & result_matrix(32 to 39) & result_matrix(64 to 71) & result_matrix(96 to 103);
-		rotate_matrix(32 to 63) := result_matrix(8 to 15) & result_matrix(40 to 47) & result_matrix(72 to 79) & result_matrix(104 to 111);
-		rotate_matrix(64 to 95) := result_matrix(16 to 23) & result_matrix(48 to 55) & result_matrix(80 to 87) & result_matrix(112 to 119);
-		rotate_matrix(96 to 127) := result_matrix(24 to 31) & result_matrix(56 to 63) & result_matrix(88 to 95) & result_matrix(120 to 127);	 
-		
-		report "matrix after rotate: " & to_hstring(rotate_matrix);
-		result_matrix:= rotate_matrix; 
-		
-		
-		--add round key	except last round
-			if(i  /=  9) then
-				result_matrix:= result_matrix XOR roundKeys(i);
-			end if;
-		end loop;
-		
-		done_enc := true;
-		end if;
-		
-		--output ciphertext
-		if(done_enc = true) then
-			report to_hstring(result_matrix);
-			Done <= '1';  
-			if(dataOutCount = 0) then
-				dataOut(0 to 31) <= result_matrix(0 to 31);
-			elsif(dataOutCount = 1) then
-				dataOut(0 to 31) <= result_matrix(32 to 63);
-			elsif(dataOutCount = 2) then
-				dataOut(0 to 31) <= result_matrix(64 to 95);
-			else if(dataOutCount = 3) then
-				dataOut(0 to 31) <= result_matrix(96 to 127);
-			else
-				data_out_complete := true;
+--encryption loop---------------------------------------------------------------------------------------------
+	
+		if(key_expansion_complete = true and done_enc = false) then	
+			--first round, key is added first
+			result_matrix := addRoundkey(fullData, fullkey);
+			for i in 0 to 9 loop	
+				--substitute in sbox 
+				result_matrix := sbox(result_matrix, invert);
+				
+				--shift rows 
+				result_matrix := shiftRows(result_matrix, invert);
+
+				--mix columns
+				result_matrix := mixColumns(result_matrix, invert);
+				report "matrix after rotate: " & to_hstring(rotate_matrix);
+
+				--add round key	except last round
+				if(i  /=  9) then
+					result_matrix := addRoundKey(result_matrix, roundKeys(i)); 
 				end if;
-			end if;
-			dataOutCount := dataOutCount + 1;
-			
+			end loop;
+			done_enc := true;
 		end if;
 		
+--output ciphertext------------------------------------------------------------------------------------------------
+		if(done_enc = true) then
+			for i in 0 to 3 loop
+				--wait until (CLK='1' and CLK'event);
+				dataOut <= result_matrix(i*32 to i*32 + 31);
+			end loop;
+		end if;
+-------------------------------------------------------------------------------------------------------------------		
 		--reset all variables after done.
 		
 	end if;	 

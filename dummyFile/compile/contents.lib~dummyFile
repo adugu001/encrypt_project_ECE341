@@ -1,8 +1,8 @@
-105
+123
 ~E 1 "../src/aes_128_encrypt_f24.vhd" 6 AES_128_encrypt_f24
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 53 behavioral
-~E 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 8 aes_128_encrypt_f24_tb
-~A 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 11 TB_ARCHITECTURE
+~E 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 10 aes_128_encrypt_f24_tb
+~A 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 13 TB_ARCHITECTURE
 ~E 1 "../src/dffreg.vhd" 6 dffreg
 ~A 1 "../src/dffreg.vhd" 15 behavioral
 ~E 1 "../src/key_schedule.vhd" 8 key_schedule
@@ -14,3 +14,4 @@
 ~A 1 "../src/Sbox.vhd" 41 dataflow
 ~E 1 "../src/shiftRows.vhd" 5 shiftRows
 ~A 1 "../src/shiftRows.vhd" 10 behavioral
+~C 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 154 testbench_for_aes_128_encrypt_f24

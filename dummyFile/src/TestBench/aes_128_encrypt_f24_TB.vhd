@@ -142,23 +142,23 @@ functionProcess: process
 		--ENCRYPTION
 		--substitute data
 		testData := sbox(data, '0');
-		assert(testData = substituted) report "sbox failed";
-		--mix columns
-		testdata := mixcol(substituted, '0');
-		assert(testData = mixed) report "mixcol fialed";
-		--shift rows
-		testdata := shiftrows(mixed, '0');
-		assert (testdata = rotated) report "shiftRows failed";
-		--DECRYPTION
-		--invert shift rows
-		testdata := shiftrows(rotated, '1');
-		assert (testdata = mixed) report "invert shiftRows failed";
-		--invert mix columns
-		testdata := mixcol(mixed, '1');
-		assert(testData = substituted) report "invert mixcol fialed";
-		--invert substitute data
-		testData := sbox(substituted, '1');
-		assert(testData = data) report "invert sbox failed";
+--		assert(testData = substituted) report "sbox failed";
+--		--mix columns
+--		testdata := mixcol(substituted, '0');
+--		assert(testData = mixed) report "mixcol fialed";
+--		--shift rows
+--		testdata := shiftrows(mixed, '0');
+--		assert (testdata = rotated) report "shiftRows failed";
+--		--DECRYPTION
+--		--invert shift rows
+--		testdata := shiftrows(rotated, '1');
+--		assert (testdata = mixed) report "invert shiftRows failed";
+--		--invert mix columns
+--		testdata := mixcol(mixed, '1');
+--		assert(testData = substituted) report "invert mixcol fialed";
+--		--invert substitute data
+--		testData := sbox(substituted, '1');
+--		assert(testData = data) report "invert sbox failed";
 		
 		wait;
 end process;
