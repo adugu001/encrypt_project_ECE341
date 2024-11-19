@@ -1,8 +1,19 @@
 # encrypt_project_ECE341
 Model for encryption hardware analyzing 128-bit size data blocks  
 
+**TASKS**:
+- Convert functions to column major
+- Create function for matrix multiplication
+- Create function to convert std_logic_vector directly to int (just for aesthetics)
+- TEST BENCHES BELOW ARE TO SIMPLIFY TESTING, HAVING MULTIPLE TEST BENCHES WILL HELP WHEN WE MOVE TO DATA FLOW AND STRUCTURAL
+- I think we should make multiple test bench files or separate processes, For system test, key expansion, functions, data storage entities, etc.
+- Move Key Expansion to Function/entity in separate file
+- Clean up extraneeous files (There was a lot of initial files we made that aren't necessary yet)
+
+
+
 **Members**: 
-Andrew Duguay, Mark Johnston, Chaturanga Liyanage
+Andrew Duguay, Mark Johnston, Amanuel
 
 **Overview of Process**: 
 Using the AES, implement an algorithm that can be synthesized into hardware to encrypt and decrypt 128-bit sized blocks of data. The encryption will happen in four steps: 
@@ -23,7 +34,7 @@ The decryption process...
 
 
 **Design Restraints**: 
-- Function in frequency range [10Mhz, 500Mhz]
+- Function in frequency range [10Mhz, 500Mhz] clock or [2ns, 100ns] period
 - 2^64 bit memory
 - Tech Resources: 110,000
 - Mem Units: 200

@@ -70,9 +70,19 @@ type ROM is array (0 to 15, 0 to 15) of integer;
     (16#e1#, 16#f8#, 16#98#, 16#11#, 16#69#, 16#d9#, 16#8e#, 16#94#, 16#9b#, 16#1e#, 16#87#, 16#e9#, 16#ce#, 16#55#, 16#28#, 16#df#),
     (16#8c#, 16#a1#, 16#89#, 16#0d#, 16#bf#, 16#e6#, 16#42#, 16#68#, 16#41#, 16#99#, 16#2d#, 16#0f#, 16#b0#, 16#54#, 16#bb#, 16#16#)
 );	
-type roundConstants is array (0 to 11) of integer;
+type roundConstants is array (0 to 39) of integer;
 	signal rc : roundConstants := (
-    (1, 0, 0, 0,2,0,0,0,4,0,0,0)
+    (16#01#, 16#00#, 16#00#, 16#00#,
+	16#02#,16#00#,16#00#,16#00#,
+	16#04#,16#00#,16#00#,16#00#,
+	16#08#,16#00#,16#00#,16#00#,
+	16#10#,16#00#,16#00#,16#00#,
+	16#20#,16#00#,16#00#,16#00#,
+	16#40#,16#00#,16#00#,16#00#,
+	16#80#,16#00#,16#00#,16#00#,
+	16#1b#,16#00#,16#00#,16#00#,
+	16#36#,16#00#,16#00#,16#00#
+)
 );
 
 type mult_matrix is array (0 to 3, 0 to 3) of integer;
@@ -108,7 +118,7 @@ type mult_matrix is array (0 to 3, 0 to 3) of integer;
 		--debug	
 		report "test";
 		test :=  rc(to_integer(unsigned(byte(0 to 7))) );
-		report "test" & to_string(test);
+		report "Rc_lut " & to_string(test);
 		newVector := std_logic_vector(to_unsigned(test, newVector'length));
 		report to_string(newVector);
     return std_logic_vector(newVector);
@@ -139,16 +149,20 @@ variable encryption_count : integer := 0;
 variable sub_counter : integer := 0;
 variable temp_row : std_logic_vector(0 to 31); 
 variable result_matrix: std_logic_vector(0 to 127);	 
-variable mix_Matrix: std_logic_vector(0 to 31);
+variable mix_Matrix: std_logic_vector(0 to 127);
 variable col_count: integer:= 0;  
 variable roundKeys: key_store (0 to 9)(0 to 127);
 variable rotate_matrix: std_logic_vector(0 to 127);
 variable done_enc: boolean := false;
+
 variable data_out_complete: boolean := false;
 variable IV : std_logic_vector(0 to 127);
 variable invert : std_logic := '0';
-begin
-	--IVLOAD---------------------------------------------------------------------------------------------
+variable data_out_complete: boolean := false;  
+variable rc_return: std_logic_vector(0 to 7);
+begin	
+
+                         	--IVLOAD---------------------------------------------------------------------------------------------
 --	if(iv_load = "1") then
 --		for i in 0 to 3 loop
 --			IV(i*32 to i*32 + 31) := data;
@@ -161,45 +175,53 @@ begin
 	--	 tt := sbox_LUT("00000000");
 	if (clk'event and clk = '1' and reset = '0')then 
 		
-		if(start = '1') then
-			
+		if(start = '1' AND key_loading = false AND key_load_complete = true) then
+			report "start";
 			key_loading := true;	
 			keyLoadCount := 0;
 		end if;
-		if(key_load = '1') then	
+		if(key_load = '1' AND key_load_complete = false) then	  
+			report "start keyload";
 			if(keyLoadCount = 0) then
 				fullKey(0 to 31) := dataIn;	
 				report "key_chunk_1: " & to_string(fullKey(0 to 31));
 			elsif(keyLoadCount = 1) then
 				fullKey(32 to 63) := dataIn;
+				report "key_chunk_2: " & to_string(fullKey(32 to 63));
 			elsif(keyLoadCount = 2) then
 				fullKey(64 to 95) := dataIn;
+				report "key_chunk_3: " & to_string(fullKey(64 to 95));
 			else if(keyLoadCount = 3) then
-				fullKey(96 to 127) := dataIn;
+				fullKey(96 to 127) := dataIn; 
+				report "key_chunk_4: " & to_string(fullKey(96 to 127));
 			else
 				key_loading := false;  
 				key_load_complete :=true;  
 				--debug
-				report to_string(fullKey);
+				report "full key: " & to_hstring(fullKey);
 				end if;
 			end if;
-			keyLoadCount := keyLoadCount + 1;
+			keyLoadCount := keyLoadCount + 1; 
+			report "new count:= " & to_string(keyLoadCount);
 		end if;
-		if(key_load_complete = true and done_enc = false) then
+		if(key_load_complete = true and data_load_complete = false AND done_enc = false) then
 			--unsure what IV does. leaving it out for now and loading db. will come back to it later.
-		
+			report "start data load";
 			if(dataLoadCount = 0) then
-				fullData(0 to 31) := dataIn;
+				fullData(0 to 31) := dataIn;  
+				report "data_chunk_1: " & to_string(fullData(0 to 31));
 			elsif(dataLoadCount = 1) then
-				fullData(32 to 63) := dataIn;
+				fullData(32 to 63) := dataIn;	  
+				report "data_chunk_2: " & to_string(fullData(32 to 63));
 			elsif(dataLoadCount = 2) then
-				fullData(64 to 95) := dataIn;
+				fullData(64 to 95) := dataIn;	
+				report "data_chunk_3: " & to_string(fullData(64 to 95));
 			else if(dataLoadCount = 3) then
-				fullData(96 to 127) := dataIn;
-			else
+				fullData(96 to 127) := dataIn;	  
+				report "data_chunk_4: " & to_string(fullData(96 to 127));
 				data_load_complete :=true;  
-				--debug
-				report to_string(fullData);
+				report "full data: " & to_hstring(fullData);	
+				data_load_complete :=true;  
 				end if;
 			end if;
 			dataLoadCount := dataLoadCount + 1;
@@ -216,66 +238,85 @@ begin
 
 			tempWord := fullKey(96 to 127);
 			expansionMatrix := fullKey;
-			tempWord(0 to 31) := tempWord sll 8;
+			--tempWord(0 to 31) := tempWord rol 8; 
 			
-			for i in 0 to 9 loop
+			for i in 0 to 9 loop	
+				
+			tempWord := expansionMatrix(96 to 127);	 
+			report "round " & to_string(i) & " b4: " & to_hstring(tempWord);
+			tempWord(0 to 31) := tempWord rol 8;
+			report "round " & to_string(i) & " b5: " & to_hstring(tempWord); 
+			
 			--Step 2: Sub bytes for those in sBox
 			tempWord(0 to 7) := sbox_LUT(tempWord(0 to 7));	
 			tempWord(8 to 15) := sbox_LUT(tempWord(8 to 15));	
 			tempWord(16 to 23) := sbox_LUT(tempWord(16 to 23));	
-			tempWord(24 to 31) := sbox_LUT(tempWord(24 to 31));	
-			--Step 3: add round constant 						  
-			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4),8))))), tempWord(0 to 7)'length));
+			tempWord(24 to 31) := sbox_LUT(tempWord(24 to 31));	  
+			
+			report "round " & to_string(i) & " subbed: " & to_hstring(tempWord);
+			
+			--Step 3: add round constant 
+			rc_return := rc_LUT(std_logic_vector(to_unsigned((rc_count*4),8)));		
+			report "round " & to_string(i) & " rc_return: " & to_hstring(rc_return);
+			tempWord(0 to 3) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 3))) + to_integer(unsigned(rc_return(0 to 3))), tempWord(0 to 3)'length));
+			tempWord(4 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(4 to 7))) + to_integer(unsigned(rc_return(4 to 7))), tempWord(0 to 3)'length));
 			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+1,8))))), tempWord(8 to 15)'length));
 			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+2,8))))), tempWord(16 to 23)'length));
 			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+3,8))))), tempWord(24 to 31)'length));
-			--Step 4: add first column with new key
-			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(expansionMatrix(0 to 7))), tempWord(0 to 7)'length));
-			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(expansionMatrix(8 to 15))), tempWord(8 to 15)'length));
-			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(expansionMatrix(16 to 23))), tempWord(16 to 23)'length));
-			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(expansionMatrix(24 to 31))), tempWord(24 to 31)'length));	
+			--Step 4: add first column with new key		
+			
+			report "round " & to_string(i) & " beforexor: " & to_hstring(tempWord);
+			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(0 to 7)));
+			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(8 to 15)));
+			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(16 to 23)));
+			tempWord(24 to 31) := std_logic_vector(unsigned(tempWord(24 to 31)) XOR unsigned(expansionMatrix(24 to 31)));	
 			
 			expansionMatrix(0 to 7) := tempWord(0 to 7);
 			expansionMatrix(8 to 15) := tempWord(8 to 15);
 			expansionMatrix(16 to 23) := tempWord(16 to 23);
-			expansionMatrix(24 to 31) := tempWord(24 to 31);
+			expansionMatrix(24 to 31) := tempWord(24 to 31);  
+			report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			
 			--Step 5: add second column with new key	 
-			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(expansionMatrix(32 to 39))), tempWord(0 to 7)'length));
-			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(expansionMatrix(40 to 47))), tempWord(8 to 15)'length));
-			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(expansionMatrix(48 to 55))), tempWord(16 to 23)'length));
-			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(expansionMatrix(56 to 63))), tempWord(24 to 31)'length));
+			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7))XOR unsigned(expansionMatrix(32 to 39)));
+			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(40 to 47)));
+			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(48 to 55)));
+			tempWord(24 to 31) := std_logic_vector(unsigned(tempWord(24 to 31)) XOR unsigned(expansionMatrix(56 to 63)));
 			
 			expansionMatrix(32 to 39) := tempWord(0 to 7);
 			expansionMatrix(40 to 47) := tempWord(8 to 15);
 			expansionMatrix(48 to 55) := tempWord(16 to 23);
-			expansionMatrix(56 to 63) := tempWord(24 to 31);
+			expansionMatrix(56 to 63) := tempWord(24 to 31);   
+			report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			
 			--Step 6: add third column with new key
-			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(expansionMatrix(64 to 71))), tempWord(0 to 7)'length));
-			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(expansionMatrix(72 to 79))), tempWord(8 to 15)'length));
-			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(expansionMatrix(80 to 87))), tempWord(16 to 23)'length));
-			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(expansionMatrix(88 to 95))), tempWord(24 to 31)'length));
+			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(64 to 71)));
+			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(72 to 79)));
+			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(80 to 87)));
+			tempWord(24 to 31) := std_logic_vector(unsigned(tempWord(24 to 31)) XOR unsigned(expansionMatrix(88 to 95)));
 			
 			expansionMatrix(64 to 71) := tempWord(0 to 7);
 			expansionMatrix(72 to 79) := tempWord(8 to 15);
 			expansionMatrix(80 to 87) := tempWord(16 to 23);
 			expansionMatrix(88 to 95) := tempWord(24 to 31); 
+			report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			
 			--Step 7: add last column with new key
-			tempWord(0 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 7))) + to_integer(unsigned(expansionMatrix(96 to 103))), tempWord(0 to 7)'length));
-			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(expansionMatrix(104 to 111))), tempWord(8 to 15)'length));
-			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(expansionMatrix(112 to 119))), tempWord(16 to 23)'length));
-			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(expansionMatrix(120 to 127))), tempWord(24 to 31)'length));
+			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(96 to 103)));
+			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(104 to 111)));
+			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(112 to 119)));
+			tempWord(24 to 31) := std_logic_vector(unsigned(tempWord(24 to 31)) XOR unsigned(expansionMatrix(120 to 127)));
 			
 			expansionMatrix(96 to 103) := tempWord(0 to 7);
 			expansionMatrix(104 to 111) := tempWord(8 to 15);
 			expansionMatrix(112 to 119) := tempWord(16 to 23);
 			expansionMatrix(120 to 127) := tempWord(24 to 31); 	
+			report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			roundKeys(i) := expansionMatrix;
 		   rc_count := rc_count + 1;
 			end loop;
 			key_expansion_complete := true;
+			report "round key 1: " & to_hstring(roundKeys(1));
 			--key Expansion done.
 				
 		end if;
