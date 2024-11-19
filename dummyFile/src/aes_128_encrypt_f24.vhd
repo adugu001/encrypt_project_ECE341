@@ -52,7 +52,7 @@ end entity AES_128_encrypt_f24;
 
 architecture behavioral of AES_128_encrypt_f24 is 
 type ROM is array (0 to 15, 0 to 15) of integer;
-	signal Sbox : ROM := (
+	signal Sbox1 : ROM := (
     (16#63#, 16#7c#, 16#77#, 16#7b#, 16#f2#, 16#6b#, 16#6f#, 16#c5#, 16#30#, 16#01#, 16#67#, 16#2b#, 16#fe#, 16#d7#, 16#ab#, 16#76#),
     (16#ca#, 16#82#, 16#c9#, 16#7d#, 16#fa#, 16#59#, 16#47#, 16#f0#, 16#ad#, 16#d4#, 16#a2#, 16#af#, 16#9c#, 16#a4#, 16#72#, 16#c0#),
     (16#b7#, 16#fd#, 16#93#, 16#26#, 16#36#, 16#3f#, 16#f7#, 16#cc#, 16#34#, 16#a5#, 16#e5#, 16#f1#, 16#71#, 16#d8#, 16#31#, 16#15#),
@@ -101,7 +101,7 @@ type mult_matrix is array (0 to 3, 0 to 3) of integer;
 	begin 
 		--debug	
 		report "test";
-		test :=  Sbox(to_integer(unsigned(byte(0 to 3))), to_integer(unsigned(byte(4 to 7))) );
+		test :=  Sbox1(to_integer(unsigned(byte(0 to 3))), to_integer(unsigned(byte(4 to 7))) );
 		report "test" & to_string(test);
 		newVector := std_logic_vector(to_unsigned(test, newVector'length));
 		report to_string(newVector);
@@ -127,7 +127,7 @@ type mult_matrix is array (0 to 3, 0 to 3) of integer;
   
   begin
 	
-p1 : process(clk) is  
+p1 : process is  
 type key_store is array (natural range <>) of std_logic_vector;
 variable fullKey : std_logic_vector(0 to 127);
 variable key_load_complete : boolean := false;
@@ -157,18 +157,20 @@ variable done_enc: boolean := false;
 
 variable data_out_complete: boolean := false;
 variable IV : std_logic_vector(0 to 127);
-variable invert : std_logic := '0';  
+
+variable invert : std_logic := '0';
+
 variable rc_return: std_logic_vector(0 to 7);
 begin	
 
-                         	--IVLOAD---------------------------------------------------------------------------------------------
---	if(iv_load = "1") then
---		for i in 0 to 3 loop
---			IV(i*32 to i*32 + 31) := data;
---			wait on CLK = '1' AND CLK'event;
---		end loop;
---	else IV := others => '0';
---	end if;
+--IVLOAD---------------------------------------------------------------------------------------------
+	if(iv_load = '1') then
+		for i in 0 to 3 loop
+			IV(i*32 to i*32 + 31) := dataIN;
+			wait until (CLK = '1' AND CLK'event);
+		end loop;
+	else IV := (others => '0');
+	end if;
 --key expansion--------------------------------------------------------------------------------------------------------
 	--report "start";
 	--	 tt := sbox_LUT("00000000");
@@ -347,7 +349,7 @@ begin
 --output ciphertext------------------------------------------------------------------------------------------------
 		if(done_enc = true) then
 			for i in 0 to 3 loop
-				--wait until (CLK='1' and CLK'event);
+				wait until (CLK='1' and CLK'event);
 				dataOut <= result_matrix(i*32 to i*32 + 31);
 			end loop;
 		end if;

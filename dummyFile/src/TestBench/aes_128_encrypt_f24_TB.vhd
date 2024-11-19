@@ -117,22 +117,19 @@ begin
 end process;
                                                     
 functionProcess: process
-  variable testdata : std_logic_vector(0 to 127);
-	variable data : std_logic_vector(0 to 127) :=           
-							                                "00000000"&"00010110"&"11110011"&"11001001"&
-							                                "01001010"&"00000000"&"11111111"&"00001101"&
-															"00000000"&"00010110"&"11110011"&"11001001"&
-															"01001010"&"00000000"&"11111111"&"00001101"; 														
-	variable substituted : std_logic_vector(0 to 127) :=	
-                                							"01100011"&"01000111"&"00001101"&"11011101"&
-													   		"11010110"&"01100011"&"00010110"&"11010111"&
-													   		"01100011"&"01000111"&"00001101"&"11011101"&
-													   		"11010110"&"01100011"&"00010110"&"11010111";												   
+variable testdata : std_logic_vector(0 to 127);
+variable a,b,c : std_logic_vector(0 to 7);
+	variable data : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 after shift rows
+							                                "11010100"&"10111111"&"01011101"&"00110000"&
+							                                "11100000"&"10110100"&"01010010"&"10101110"&
+															"10111000"&"01000001"&"00010001"&"11110001"&
+															"00011110"&"00100111"&"10011000"&"11100101"; 														
+												   
 	variable mixed : std_logic_vector(0 to 127) := 			
-                                							"11011101"&"00001101"&"01100011"&"01000111"&
-														    "11010111"&"00010110"&"11010110"&"01100011"&
-														    "11011101"&"00001101"&"01100011"&"01000111"&
-														    "11010111"&"00010110"&"11010110"&"01100011";															
+                                							"00000100"&"01100110"&"10000001"&"11100101"&
+														    "11100000"&"11001011"&"00011001"&"10011010"&
+														    "01001000"&"11111000"&"11010011"&"01111010"&
+														    "00101000"&"00000110"&"00100110"&"01001100";															
 	variable rotated: std_logic_vector(0 to 127) := 		
                                 							"11011101"&"00001101"&"01100011"&"01000111"&
 														    "00010110"&"11010110"&"01100011"&"11010111"&
@@ -141,8 +138,16 @@ functionProcess: process
 	begin 
 		--ENCRYPTION
 		--substitute data
-		testData := sbox(data, '0');
---		assert(testData = substituted) report "sbox failed";
+		a := "00000001";
+		b := "01010111";
+		c := gfMult_byte(a, b);
+		assert b = c report "gf failed";
+		a := "10000011";
+		b := "01010111";
+		c := gfMult_byte(a, b);
+		assert c = "11000001" report "gf failed";
+		testData := mixcolumns(data, '0');
+		assert(testData = mixed) report "mixcolumns failed";
 --		--mix columns
 --		testdata := mixcol(substituted, '0');
 --		assert(testData = mixed) report "mixcol fialed";
