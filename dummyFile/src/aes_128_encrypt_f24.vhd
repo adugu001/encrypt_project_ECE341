@@ -157,8 +157,7 @@ variable done_enc: boolean := false;
 
 variable data_out_complete: boolean := false;
 variable IV : std_logic_vector(0 to 127);
-variable invert : std_logic := '0';
-variable data_out_complete: boolean := false;  
+variable invert : std_logic := '0';  
 variable rc_return: std_logic_vector(0 to 7);
 begin	
 
