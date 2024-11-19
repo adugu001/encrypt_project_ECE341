@@ -1,3 +1,179 @@
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+asim -O5 +access +r +m+aes_128_encrypt_f24_tb aes_128_encrypt_f24_tb TB_ARCHITECTURE
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6280 kB (elbread=256 elab2=5874 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  10:37 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step
+step
+step
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0019: function_package.vhd : (165, 31): Keyword 'then' expected.
+# Error: COMP96_0019: function_package.vhd : (167, 7): Keyword 'loop' expected.
+# Error: COMP96_0036: function_package.vhd : (167, 9): Boolean expression expected.
+# Warning: COMP96_0048: function_package.vhd : (169, 2): This function may complete without return statement.
+# Error: COMP96_0015: function_package.vhd : (169, 6): ';' expected.
+# Error: COMP96_0015: function_package.vhd : (173, 5): ';' expected.
+# Error: COMP96_0016: function_package.vhd : (173, 14): Design unit declaration expected.
+# Error: COMP96_0018: function_package.vhd : (226, 17): Identifier expected.
+# Compile failure 7 Errors 1 Warnings  Analysis time :  47.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0754: function_package.vhd : (166, 19): Cannot find the operator denoted with the ""mod"[STD_ULOGIC_VECTOR, STD_ULOGIC_VECTOR return STD_ULOGIC_VECTOR]" signature.
+# Error: COMP96_0077: function_package.vhd : (166, 11): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0015: function_package.vhd : (166, 65): ')' expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0149: function_package.vhd : (166, 28): Explicit type conversions are allowed between closely related types only.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0269: function_package.vhd : (166, 28): For each formal parameter of a subprogram, a subprogram call must specify exactly one corresponding actual.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
 acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
 # Compile Entity "shiftRows"
@@ -21,17 +197,1010 @@ acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
 # Compile Entity "aes_128_encrypt_f24_tb"
 # Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Error: COMP96_0078: TestBench/aes_128_encrypt_f24_TB.vhd : (134, 15): Unknown identifier "mixcol".
-# Error: COMP96_0133: TestBench/aes_128_encrypt_f24_TB.vhd : (134, 15): Cannot find object declaration.
-# Error: COMP96_0289: TestBench/aes_128_encrypt_f24_TB.vhd : (134, 15): Prefix of index must be an array.
-# Error: COMP96_0077: TestBench/aes_128_encrypt_f24_TB.vhd : (134, 15): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0078: TestBench/aes_128_encrypt_f24_TB.vhd : (144, 15): Unknown identifier "mixcol".
-# Error: COMP96_0133: TestBench/aes_128_encrypt_f24_TB.vhd : (144, 15): Cannot find object declaration.
-# Error: COMP96_0289: TestBench/aes_128_encrypt_f24_TB.vhd : (144, 15): Prefix of index must be an array.
-# Error: COMP96_0077: TestBench/aes_128_encrypt_f24_TB.vhd : (144, 15): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
 # Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Error: VLM_0009: TestBench/aes_128_encrypt_f24_TB.vhd : (155, 6): Architecture TB_ARCHITECTURE must be recompiled because entity dummyfile.aes_128_encrypt_f24_tb has changed.
-# Compile failure 9 Errors 0 Warnings  Analysis time :  0.6 [s]
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.3 [s]
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6280 kB (elbread=256 elab2=5874 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  10:54 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 163 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+step -over
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+run
+# EXECUTION:: ERROR  : mixcolumns failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+restart
+endsim
+# KERNEL: stopped at time: 0 ps
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+aes_128_encrypt_f24_tb aes_128_encrypt_f24_tb TB_ARCHITECTURE
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6279 kB (elbread=256 elab2=5874 kernel=148 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  10:57 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+# Warning: Failed to connect to the license server. 4 tries left.
+# Connection to the license server has been restored.
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0019: function_package.vhd : (160, 36): Keyword 'then' expected.
+# Error: COMP96_0019: function_package.vhd : (162, 43): Keyword 'loop' expected.
+# Error: COMP96_0015: function_package.vhd : (166, 17): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (166, 17): Keyword 'end' expected.
+# Error: COMP96_0015: function_package.vhd : (167, 14): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (167, 14): Keyword 'end' expected.
+# Warning: COMP96_0048: function_package.vhd : (171, 3): This function may complete without return statement.
+# Error: COMP96_0015: function_package.vhd : (171, 7): ';' expected.
+# Error: COMP96_0015: function_package.vhd : (173, 6): ';' expected.
+# Error: COMP96_0016: function_package.vhd : (173, 10): Design unit declaration expected.
+# Error: COMP96_0018: function_package.vhd : (230, 17): Identifier expected.
+# Compile failure 10 Errors 1 Warnings  Analysis time :  63.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0019: function_package.vhd : (163, 43): Keyword 'loop' expected.
+# Error: COMP96_0015: function_package.vhd : (167, 17): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (167, 17): Keyword 'end' expected.
+# Error: COMP96_0015: function_package.vhd : (168, 14): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (168, 14): Keyword 'end' expected.
+# Warning: COMP96_0048: function_package.vhd : (172, 3): This function may complete without return statement.
+# Error: COMP96_0015: function_package.vhd : (172, 7): ';' expected.
+# Error: COMP96_0015: function_package.vhd : (174, 6): ';' expected.
+# Error: COMP96_0016: function_package.vhd : (174, 10): Design unit declaration expected.
+# Error: COMP96_0018: function_package.vhd : (231, 17): Identifier expected.
+# Compile failure 9 Errors 1 Warnings  Analysis time :  46.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0015: function_package.vhd : (167, 17): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (167, 17): Keyword 'end' expected.
+# Error: COMP96_0015: function_package.vhd : (168, 14): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (168, 14): Keyword 'end' expected.
+# Error: COMP96_0019: function_package.vhd : (172, 7): Keyword 'loop' expected.
+# Error: COMP96_0036: function_package.vhd : (172, 9): Boolean expression expected.
+# Warning: COMP96_0048: function_package.vhd : (174, 2): This function may complete without return statement.
+# Error: COMP96_0015: function_package.vhd : (174, 6): ';' expected.
+# Error: COMP96_0015: function_package.vhd : (178, 5): ';' expected.
+# Error: COMP96_0016: function_package.vhd : (178, 14): Design unit declaration expected.
+# Error: COMP96_0018: function_package.vhd : (231, 17): Identifier expected.
+# Compile failure 10 Errors 1 Warnings  Analysis time :  47.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0015: function_package.vhd : (167, 18): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (167, 18): Keyword 'end' expected.
+# Error: COMP96_0015: function_package.vhd : (168, 15): ';' expected.
+# Error: COMP96_0019: function_package.vhd : (168, 15): Keyword 'end' expected.
+# Error: COMP96_0019: function_package.vhd : (172, 8): Keyword 'loop' expected.
+# Error: COMP96_0036: function_package.vhd : (172, 10): Boolean expression expected.
+# Warning: COMP96_0048: function_package.vhd : (174, 2): This function may complete without return statement.
+# Error: COMP96_0015: function_package.vhd : (174, 6): ';' expected.
+# Error: COMP96_0015: function_package.vhd : (178, 5): ';' expected.
+# Error: COMP96_0016: function_package.vhd : (178, 14): Design unit declaration expected.
+# Error: COMP96_0018: function_package.vhd : (231, 17): Identifier expected.
+# Compile failure 10 Errors 1 Warnings  Analysis time :  47.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0019: function_package.vhd : (178, 5): Keyword 'loop' expected.
+# Error: COMP96_0019: function_package.vhd : (180, 1): Keyword 'end' expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Warning: COMP96_0367: function_package.vhd : (161, 11): Improper array length (8). Expected length is 16.
+# Error: COMP96_0078: function_package.vhd : (166, 21): Unknown identifier "irredducible".
+# Error: COMP96_0133: function_package.vhd : (166, 21): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (166, 13): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
+# Error: COMP96_0078: function_package.vhd : (174, 3): Unknown identifier "bitmask".
+# Error: COMP96_0133: function_package.vhd : (174, 3): Cannot find object declaration.
+# Error: COMP96_0078: function_package.vhd : (174, 14): Unknown identifier "bitmask".
+# Compile failure 6 Errors 1 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0078: function_package.vhd : (166, 21): Unknown identifier "irredducible".
+# Error: COMP96_0133: function_package.vhd : (166, 21): Cannot find object declaration.
+# Error: COMP96_0077: function_package.vhd : (166, 13): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
+# Error: COMP96_0078: function_package.vhd : (174, 3): Unknown identifier "bitmask".
+# Error: COMP96_0133: function_package.vhd : (174, 3): Cannot find object declaration.
+# Error: COMP96_0078: function_package.vhd : (174, 14): Unknown identifier "bitmask".
+# Compile failure 6 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0078: function_package.vhd : (174, 3): Unknown identifier "bitmask".
+# Error: COMP96_0133: function_package.vhd : (174, 3): Cannot find object declaration.
+# Error: COMP96_0078: function_package.vhd : (174, 14): Unknown identifier "bitmask".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+aes_128_encrypt_f24_tb aes_128_encrypt_f24_tb TB_ARCHITECTURE
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:23 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:24 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 141 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:25 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 141 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 161 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:26 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 141 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 161 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 174 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:26 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 141 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 143 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 161 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:28 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 143 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 161 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 174 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 174 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 177 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:30 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 143 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 177 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:30 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:31 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  79.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:31 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 143 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 159 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 159 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 159 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 159 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 176 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 160 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 176 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:33 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 176 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+aes_128_encrypt_f24_tb aes_128_encrypt_f24_tb TB_ARCHITECTURE
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:40 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 161 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+aes_128_encrypt_f24_tb aes_128_encrypt_f24_tb TB_ARCHITECTURE
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:44 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 164 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 164 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 164 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Error: COMP96_0019: function_package.vhd : (174, 8): Keyword 'loop' expected.
+# Error: COMP96_0036: function_package.vhd : (174, 10): Boolean expression expected.
+# Warning: COMP96_0048: function_package.vhd : (178, 2): This function may complete without return statement.
+# Error: COMP96_0015: function_package.vhd : (178, 6): ';' expected.
+# Error: COMP96_0015: function_package.vhd : (182, 5): ';' expected.
+# Error: COMP96_0016: function_package.vhd : (182, 14): Design unit declaration expected.
+# Error: COMP96_0018: function_package.vhd : (235, 17): Identifier expected.
+# Compile failure 6 Errors 1 Warnings  Analysis time :  47.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:48 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 166 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 167 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+run
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 167 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+run
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 167 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:50 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 167 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:50 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+step -over
+step -over
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+aes_128_encrypt_f24_tb aes_128_encrypt_f24_tb TB_ARCHITECTURE
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:51 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+# EXECUTION:: ERROR  : gf failed
+# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /aes_128_encrypt_f24_tb,  Process: functionProcess.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 149 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:52 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run @100ns
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6281 kB (elbread=256 elab2=5875 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  11:52 PM, Monday, November 18, 2024
+#  Simulation has been initialized
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 147 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 149 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
+step -over
+step -over
+endsim
+# VSIM: Simulation has finished.
 acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
 # Compile Entity "shiftRows"
@@ -57,424 +1226,3 @@ acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd
 # Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
 # Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-asim -O5 +access +r +m+aes_128_encrypt_f24_tb aes_128_encrypt_f24_tb TB_ARCHITECTURE
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.1 [s].
-# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 6275 kB (elbread=256 elab2=5869 kernel=148 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
-#  2:15 PM, Monday, November 18, 2024
-#  Simulation has been initialized
-# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
-run @100ns
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 131 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-step
-step -over
-step -over
-step -over
-step -over
-step -over
-step -over
-run
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 82 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-run
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 82 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-run
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 82 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-run
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 82 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-run
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 82 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-run
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 82 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-run
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 82 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-run
-# KERNEL: Stopped at time 0 ps + 0.
-# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" at line 86 in process of instance "/aes_128_encrypt_f24_tb/functionProcess".
-endsim
-# VSIM: Simulation has finished.
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0046: aes_128_encrypt_f24.vhd : (299, 1): Sequential statement expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (301, 1): Keyword 'end' expected.
-# Error: COMP96_0025: aes_128_encrypt_f24.vhd : (304, 11): Identifier or string literal expected.
-# Error: COMP96_0046: aes_128_encrypt_f24.vhd : (311, 1): Sequential statement expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (426, 6): Keyword 'process' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (427, 5): ';' expected.
-# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (427, 12): Design unit declaration expected.
-# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (430, 17): Identifier expected.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0046: aes_128_encrypt_f24.vhd : (299, 1): Sequential statement expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (301, 1): Keyword 'end' expected.
-# Error: COMP96_0025: aes_128_encrypt_f24.vhd : (304, 11): Identifier or string literal expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (315, 3): Keyword 'begin' expected.
-# Error: COMP96_0329: aes_128_encrypt_f24.vhd : (322, 3): Generate statement must have a label.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (322, 19): Keyword 'generate' expected.
-# Error: COMP96_0047: aes_128_encrypt_f24.vhd : (328, 4): Concurrent statement or ':' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (329, 7): ';' expected.
-# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (329, 11): Design unit declaration expected.
-# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (431, 17): Identifier expected.
-# Compile failure 10 Errors 0 Warnings  Analysis time :  63.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0046: aes_128_encrypt_f24.vhd : (299, 1): Sequential statement expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (301, 1): Keyword 'end' expected.
-# Error: COMP96_0025: aes_128_encrypt_f24.vhd : (304, 11): Identifier or string literal expected.
-# Error: COMP96_0329: aes_128_encrypt_f24.vhd : (315, 3): Generate statement must have a label.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (315, 58): Keyword 'generate' expected.
-# Error: COMP96_0329: aes_128_encrypt_f24.vhd : (322, 3): Generate statement must have a label.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (322, 19): Keyword 'generate' expected.
-# Error: COMP96_0047: aes_128_encrypt_f24.vhd : (328, 4): Concurrent statement or ':' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (329, 7): ';' expected.
-# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (329, 11): Design unit declaration expected.
-# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (431, 17): Identifier expected.
-# Compile failure 11 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0025: aes_128_encrypt_f24.vhd : (310, 13): Identifier or string literal expected.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0283: aes_128_encrypt_f24.vhd : (290, 22): Actual index positions do not correspond to index positions in type declaration.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (293, 47): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.shiftRows(data : std_logic_vector(0 to 127); invert : std_logic) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (296, 48): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.mixColumns(data : std_logic_vector(0 to 127); output : std_logic_vector(0 to 127); invert : std_logic_vector) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0162: aes_128_encrypt_f24.vhd : (301, 6): Function call can appear only in expression.
-# Error: COMP96_0066: aes_128_encrypt_f24.vhd : (301, 6): Cannot find "addRoundKey" procedure declaration.
-# Error: COMP96_0242: aes_128_encrypt_f24.vhd : (310, 5): Wait statement in process with explicit sensitivity list is not allowed.
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (311, 5): Signal cannot be the target of a variable assignment.
-# Compile failure 9 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (293, 47): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.shiftRows(data : std_logic_vector(0 to 127); invert : std_logic) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (296, 48): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.mixColumns(data : std_logic_vector(0 to 127); output : std_logic_vector(0 to 127); invert : std_logic_vector) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0162: aes_128_encrypt_f24.vhd : (301, 6): Function call can appear only in expression.
-# Error: COMP96_0066: aes_128_encrypt_f24.vhd : (301, 6): Cannot find "addRoundKey" procedure declaration.
-# Error: COMP96_0242: aes_128_encrypt_f24.vhd : (310, 5): Wait statement in process with explicit sensitivity list is not allowed.
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (311, 5): Signal cannot be the target of a variable assignment.
-# Compile failure 9 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (293, 47): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.shiftRows(data : std_logic_vector(0 to 127); invert : std_logic) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (296, 48): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.mixColumns(data : std_logic_vector(0 to 127); output : std_logic_vector(0 to 127); invert : std_logic_vector) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0162: aes_128_encrypt_f24.vhd : (301, 6): Function call can appear only in expression.
-# Error: COMP96_0066: aes_128_encrypt_f24.vhd : (301, 6): Cannot find "addRoundKey" procedure declaration.
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (311, 5): Signal cannot be the target of a variable assignment.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# Error: COMP96_0078: function_package.vhd : (191, 3): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (191, 3): Cannot find object declaration.
-# Error: COMP96_0078: function_package.vhd : (192, 3): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (192, 3): Cannot find object declaration.
-# Error: COMP96_0078: function_package.vhd : (193, 3): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (193, 3): Cannot find object declaration.
-# Error: COMP96_0078: function_package.vhd : (194, 3): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (194, 3): Cannot find object declaration.
-# Error: COMP96_0078: function_package.vhd : (208, 3): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (208, 3): Cannot find object declaration.
-# Error: COMP96_0078: function_package.vhd : (209, 3): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (209, 3): Cannot find object declaration.
-# Error: COMP96_0078: function_package.vhd : (210, 3): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (210, 3): Cannot find object declaration.
-# Error: COMP96_0078: function_package.vhd : (211, 3): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (211, 3): Cannot find object declaration.
-# Error: COMP96_0078: function_package.vhd : (214, 9): Unknown identifier "output".
-# Error: COMP96_0133: function_package.vhd : (214, 9): Cannot find object declaration.
-# Error: COMP96_0106: function_package.vhd : (214, 9): Returned value type does not match the type declared in function declaration.
-# Compile failure 19 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (293, 47): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.shiftRows(data : std_logic_vector(0 to 127); invert : std_logic) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (296, 48): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.mixColumns(data : std_logic_vector(0 to 127); invert : std_logic_vector) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0162: aes_128_encrypt_f24.vhd : (301, 6): Function call can appear only in expression.
-# Error: COMP96_0066: aes_128_encrypt_f24.vhd : (301, 6): Cannot find "addRoundKey" procedure declaration.
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (311, 5): Signal cannot be the target of a variable assignment.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (293, 47): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.shiftRows(data : std_logic_vector(0 to 127); invert : std_logic) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (296, 48): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.mixColumns(data : std_logic_vector(0 to 127); invert : std_logic_vector) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (311, 5): Signal cannot be the target of a variable assignment.
-# Compile failure 6 Errors 0 Warnings  Analysis time :  32.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (293, 47): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.shiftRows(data : std_logic_vector(0 to 127); invert : std_logic) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (296, 48): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.mixColumns(data : std_logic_vector(0 to 127); invert : std_logic_vector) return STD_LOGIC_VECTOR" subprogram.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  32.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# Error: COMP96_0071: function_package.vhd : (180, 15): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: function_package.vhd : (180, 5): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
-# Compile Entity "shiftRows"
-# Compile Architecture "behavioral" of Entity "shiftRows"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
-# Compile Entity "sBox"
-# Compile Architecture "behavioral" of Entity "sBox"
-# Compile Architecture "dataflow" of Entity "sBox"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
-# Compile Entity "dffreg"
-# Compile Architecture "behavioral" of Entity "dffreg"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
-# Compile Entity "key_schedule"
-# Compile Architecture "behavioral" of Entity "key_schedule"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (293, 47): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.shiftRows(data : std_logic_vector(0 to 127); invert : std_logic) return STD_LOGIC_VECTOR" subprogram.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (296, 48): The type of a parameter in a subprogram call does not match to a formal parameter of the "work.function_package.mixColumns(data : std_logic_vector(0 to 127); invert : std_logic) return STD_LOGIC_VECTOR" subprogram.
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Compile failure 5 Errors 0 Warnings  Analysis time :  0.4 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  32.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
-# Compile Entity "shiftRows"
-# Compile Architecture "behavioral" of Entity "shiftRows"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
-# Compile Entity "sBox"
-# Compile Architecture "behavioral" of Entity "sBox"
-# Compile Architecture "dataflow" of Entity "sBox"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
-# Compile Entity "dffreg"
-# Compile Architecture "behavioral" of Entity "dffreg"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
-# Compile Entity "key_schedule"
-# Compile Architecture "behavioral" of Entity "key_schedule"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Compile failure 3 Errors 0 Warnings  Analysis time :  0.2 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
-# Compile Entity "shiftRows"
-# Compile Architecture "behavioral" of Entity "shiftRows"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
-# Compile Entity "sBox"
-# Compile Architecture "behavioral" of Entity "sBox"
-# Compile Architecture "dataflow" of Entity "sBox"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
-# Compile Entity "dffreg"
-# Compile Architecture "behavioral" of Entity "dffreg"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
-# Compile Entity "key_schedule"
-# Compile Architecture "behavioral" of Entity "key_schedule"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Compile failure 3 Errors 0 Warnings  Analysis time :  0.2 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 'INTEGER' to 'STD_ULOGIC_VECTOR'.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 27): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: aes_128_encrypt_f24.vhd : (290, 42): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: aes_128_encrypt_f24.vhd : (290, 22): Assignment target incompatible with right side. Cannot convert 

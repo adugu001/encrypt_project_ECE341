@@ -146,28 +146,36 @@ begin
 	return output;
 end function addRoundKey;
 --------------------------------------------------------------------------------------------------------------------------------------
-impure function gfMult_byte ( a : in std_logic_vector(0 to 7);  b : in std_logic_vector(0 to 7); ) return std_logic_vector is
-constant irreducible : std_logic_vector(0 to 15) := "0000000100011011";
-variable multBIT, sum : std_logic_vector(0 to 15);
-variable bitmask, output : std_logic_vector(0 to 7);
+impure function gfMult_byte ( a : in std_logic_vector(0 to 7);  b : in std_logic_vector(0 to 7) ) return std_logic_vector is
+variable irreducible : std_logic_vector(0 to 15) := "1000110110000000";	  --shifted
+variable bitmask2, sum, temp_b : std_logic_vector(0 to 15) := "1000000000000000";
+variable bitmask1, output : std_logic_vector(0 to 7);
 variable Aint, Bint : integer;
 
 begin
-	Bint := to_integer(unsigned(b));
-	bitmask := "00000001";		--Isolate each "variable" in polynomial form to allow distributive multiplication						
-	sum := (others => '0');
+	bitmask1 := "00000001";		--Isolate each "variable" in polynomial form to allow distributive multiplication						
+	sum := "0000000000000000";
+	temp_b := "00000000"&b;
 	for i in 0 to 7 loop
-		multBIT := "00000000"&(bitmask AND a);		--select bit i
-		Aint := to_integer(unsigned(multBIT));		--int form for multiplication
-		multBIT := std_logic_vector(to_unsigned(Aint*Bint, 16));  --standard multiplicative distribution of byte b to each digit in a
-		sum := sum XOR multBIT;	  								  --Addition to sum
-		
-		while (to_integer(unsigned(sum))) > 255 loop   --Looped subtraction in place of division by irreducible polynomial
-			sum := sum XOR irreducible;
+		if (bitmask1 AND a) /= "00000000" then
+			sum :=temp_B xor sum;
+		end if;
+		while (to_integer(unsigned(sum)) > 255) loop   --Looped subtraction in place of division by irreducible polynomial
+			
+			for i in 0 to 7 loop
+				if (bitmask2 and sum) /= "0000000000000000" then
+					sum := sum xor irreducible;
+				end if;
+				irreducible := irreducible srl 1;
+				bitmask2 := bitmask2 srl 1;
+			end loop;
+			bitmask2 := "1000000000000000";
+			irreducible := "1000110110000000";
 		end loop;
-		bitmask := bitmask sll 1;						--shift bitmask to move to next digit
+		bitmask1 := bitmask1 sll 1;
+		temp_b := temp_b sll 1;
 	end loop;
-	output := sum(0 to 7);
+	output := sum(8 to 15);
 	return output;
 	
 end function gfMult_byte;
