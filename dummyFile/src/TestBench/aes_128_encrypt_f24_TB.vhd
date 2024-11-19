@@ -129,12 +129,7 @@ variable a,b,c : std_logic_vector(0 to 7);
                                 							"00000100"&"01100110"&"10000001"&"11100101"&
 														    "11100000"&"11001011"&"00011001"&"10011010"&
 														    "01001000"&"11111000"&"11010011"&"01111010"&
-														    "00101000"&"00000110"&"00100110"&"01001100";															
-	variable rotated: std_logic_vector(0 to 127) := 		
-                                							"11011101"&"00001101"&"01100011"&"01000111"&
-														    "00010110"&"11010110"&"01100011"&"11010111"&
-														    "01100011"&"01000111"&"11011101"&"00001101"&
-														    "01100011"&"11010111"&"00010110"&"11010110";												
+														    "00101000"&"00000110"&"00100110"&"01001100";																											
 	begin 
 		--ENCRYPTION
 		--substitute data
@@ -146,24 +141,10 @@ variable a,b,c : std_logic_vector(0 to 7);
 		b := "01010111";
 		c := gfMult_byte(a, b);
 		assert c = "11000001" report "gf failed";
+		
 		testData := mixcolumns(data, '0');
 		assert(testData = mixed) report "mixcolumns failed";
---		--mix columns
---		testdata := mixcol(substituted, '0');
---		assert(testData = mixed) report "mixcol fialed";
---		--shift rows
---		testdata := shiftrows(mixed, '0');
---		assert (testdata = rotated) report "shiftRows failed";
---		--DECRYPTION
---		--invert shift rows
---		testdata := shiftrows(rotated, '1');
---		assert (testdata = mixed) report "invert shiftRows failed";
---		--invert mix columns
---		testdata := mixcol(mixed, '1');
---		assert(testData = substituted) report "invert mixcol fialed";
---		--invert substitute data
---		testData := sbox(substituted, '1');
---		assert(testData = data) report "invert sbox failed";
+
 		
 		wait;
 end process;
