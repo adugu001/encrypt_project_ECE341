@@ -50,6 +50,7 @@ end entity AES_128_encrypt_f24;
 --      You are permitted to add control signals.
 
 
+
 architecture behavioral of AES_128_encrypt_f24 is
 signal state, nextstate: integer range 0 to 6 := 0;
 type roundConstants is array (0 to 39) of integer;
@@ -90,29 +91,29 @@ impure function rc_LUT ( byte : in std_logic_vector(0 to 7)) return std_logic_ve
 		report to_string(newVector);
     return std_logic_vector(newVector);
 end function; 
+
   
   
 begin
 	
 p1 : process(clk,reset) is  
-type key_store is array (natural range <>) of std_logic_vector;
+
 variable fullKey : std_logic_vector(0 to 127);
 variable fullData : std_logic_vector(0 to 127);	
 variable temp : std_logic_vector(0 to 127);
-variable tempWord : std_logic_vector(0 to 31);	
+
 
 
 variable tt : integer := 0;	  
-variable expansionMatrix : std_logic_vector(0 to 127);	
-variable rc_count : integer := 0;
+	
+
 variable key_expansion_complete:  boolean:= false;
 variable encryption_count : integer := 0; 
 variable sub_counter : integer := 0;
 variable temp_row : std_logic_vector(0 to 31); 
 variable result_matrix: std_logic_vector(0 to 127);	 
-variable mix_Matrix: std_logic_vector(0 to 127);
 variable col_count: integer:= 0;  
-variable roundKeys: key_store (0 to 9)(0 to 127);
+variable roundKeys: work.function_package.key_store;
 variable rotate_matrix: std_logic_vector(0 to 127);
 variable done_enc: boolean := false;
 
@@ -122,6 +123,7 @@ variable IV_load_count : integer:= 0;
 variable IV_load_complete: boolean := false;
 
 variable invert : std_logic := '0';
+
 
 variable rc_return: std_logic_vector(0 to 7);
 begin
@@ -159,8 +161,7 @@ if (reset = '0') then
 			if encrypt = '1' then
 						--key expansion--------------------------------------------------------------------------------------------------------  
 							tempWord := fullKey(96 to 127);
-							expansionMatrix := fullKey;
-				
+							expansionMatrix := fullKey;				
 							for i in 0 to 9 loop	
 							--Step 1: shift left 	
 							tempWord := expansionMatrix(96 to 127);	 
@@ -291,14 +292,11 @@ temp := std_logic_vector(to_unsigned (0, 128));
 tempWord := std_logic_vector(to_unsigned (0, 32));	
 
 tt  := 0;	  
-expansionMatrix := std_logic_vector(to_unsigned (0, 128));	
-rc_count  := 0;
 key_expansion_complete:= false;
 encryption_count  := 0; 
 sub_counter  := 0;
 temp_row := std_logic_vector(to_unsigned (0, 32));
-result_matrix:= std_logic_vector(to_unsigned (0, 128));	 
-mix_Matrix:= std_logic_vector(to_unsigned (0, 128));
+result_matrix:= std_logic_vector(to_unsigned (0, 128));
 col_count:= 0;  
 --roundKeys: key_store (0 to 9)(0 to 127);
 rotate_matrix:= std_logic_vector(to_unsigned (0, 128));
@@ -310,6 +308,7 @@ IV_load_complete := false;
 invert  := '0';
 rc_return:= std_logic_vector(to_unsigned (0, 8));
 end if;		
+
 end process;
 
 CLK_process: process(CLK)

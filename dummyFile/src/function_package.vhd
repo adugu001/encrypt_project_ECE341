@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 package function_package is	 
 	--TODO
-
+type key_store is array (0 to 9) of std_logic_vector(0 to 127);
     impure function sbox( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
 	impure function sbox_byte( byte : std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector;
     impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
@@ -12,7 +12,8 @@ package function_package is
 	impure function gfMult_byte( a : in std_logic_vector(0 to 7);  b : in std_logic_vector(0 to 7)) return std_logic_vector;
 	impure function mixColumns( data : in std_logic_vector(0 to 127); invert : in std_logic) return std_logic_vector;
 	impure function to_INT( data : std_logic_vector(0 to 7)) return integer;
-	impure function to_byte( data : integer ) return std_logic_vector;
+	impure function to_byte( data : integer ) return std_logic_vector;	
+	impure function generateRoundKeys(fullKey : std_logic_vector) return key_store;
 end package function_package;	 	
 
 package body function_package is																   
@@ -230,5 +231,116 @@ end function to_INT;
 impure function to_byte( data : integer ) return std_logic_vector is
 begin			 
 	return std_logic_vector(to_unsigned(data, 8));
-end function to_byte;
+end function to_byte; 
+-------------------------------------------------------------------------------------------------------------------------------------- 
+ type roundConstants is array (0 to 39) of integer;
+	constant rc : roundConstants := (
+    (16#01#, 16#00#, 16#00#, 16#00#,
+	16#02#,16#00#,16#00#,16#00#,
+	16#04#,16#00#,16#00#,16#00#,
+	16#08#,16#00#,16#00#,16#00#,
+	16#10#,16#00#,16#00#,16#00#,
+	16#20#,16#00#,16#00#,16#00#,
+	16#40#,16#00#,16#00#,16#00#,
+	16#80#,16#00#,16#00#,16#00#,
+	16#1b#,16#00#,16#00#,16#00#,
+	16#36#,16#00#,16#00#,16#00#
+)
+);
+impure function rc_LUT ( byte : in std_logic_vector(0 to 7))
+    return std_logic_vector is	
+	variable count : integer := 0;
+	variable newVector : std_logic_vector(0 to 7);	
+	variable test : integer := 0;
+	begin 
+
+		test :=  rc(to_integer(unsigned(byte(0 to 7))) );
+		newVector := std_logic_vector(to_unsigned(test, newVector'length));
+    return std_logic_vector(newVector);
+  end function; 		  
+-------------------------------------------------------------------------------------------------------------------------------------- 
+
+impure function sbox_LUT ( byteIn : in std_logic_vector(0 to 7))
+    return std_logic_vector is	
+	variable count : integer := 0;
+	variable newVector : std_logic_vector(0 to 7);	
+	begin 
+		newVector := sbox_byte(byteIn(0 to 7), '0' ) ;
+    return std_logic_vector(newVector);	   
+  end function; 
+
+ type mult_matrix is array (0 to 3, 0 to 3) of integer;
+	constant mul : mult_matrix := (
+    (2,3,1,1),
+	(1,2,3,1),
+	(1,1,2,3),
+	(3,1,1,2)
+); 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------- 
+
+impure function generateRoundKeys(fullKey : std_logic_vector) return key_store is 
+variable roundKeys: key_store;  
+variable tempWord : std_logic_vector(0 to 31);
+variable expansionMatrix : std_logic_vector(0 to 127);
+variable rc_return: std_logic_vector(0 to 7);
+variable rc_count : integer := 0;
+begin
+	 tempWord := fullKey(96 to 127);
+			expansionMatrix := fullKey;
+
+			
+			for i in 0 to 9 loop	
+			--Step 1: shift left 	
+			tempWord := expansionMatrix(96 to 127);	 
+			tempWord(0 to 31) := tempWord rol 8;
+			
+			--Step 2: Sub bytes for those in sBox 
+			for i in 0 to 3 loop
+				tempWord(i*8 to (i*8)+7) := sbox_LUT(tempWord(i*8 to (i*8)+7));	
+			end loop;
+			
+			--Step 3: add round constant 
+			tempWord(0 to 7) := std_logic_vector(tempWord(0 to 7) XOR rc_LUT(std_logic_vector(to_unsigned((rc_count*4),8)))(0 to 7));
+			
+			--Step 4: add first column with new key		
+				 
+			for i in 0 to 3 loop
+				tempWord(i*8 to (i*8)+7) := std_logic_vector(unsigned(tempWord(i*8 to (i*8)+7)) XOR unsigned(expansionMatrix(i*8 to (i*8)+7)));
+			end loop;
+			
+			expansionMatrix(0 to 31) := tempWord(0 to 31);
+			
+			--Step 5: add second column with new key	  
+			for i in 0 to 3 loop
+				tempWord(i*8 to (i*8)+7) := std_logic_vector(unsigned(tempWord(i*8 to (i*8)+7)) XOR unsigned(expansionMatrix((i+4)*8 to ((i+4)*8)+7)));
+			end loop;
+			
+			
+			expansionMatrix(32 to 63) := tempWord(0 to 31); 
+			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
+			
+			--Step 6: add third column with new key
+			for i in 0 to 3 loop
+				tempWord(i*8 to (i*8)+7) := std_logic_vector(unsigned(tempWord(i*8 to (i*8)+7)) XOR unsigned(expansionMatrix((i+8)*8 to ((i+8)*8)+7)));
+			end loop;
+			
+			expansionMatrix(64 to 95) := tempWord(0 to 31);
+	
+			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
+			
+			--Step 7: add last column with new key
+			for i in 0 to 3 loop
+				tempWord(i*8 to (i*8)+7) := std_logic_vector(unsigned(tempWord(i*8 to (i*8)+7)) XOR unsigned(expansionMatrix((i+12)*8 to ((i+12)*8)+7)));
+			end loop;
+			
+			expansionMatrix(96 to 127) := tempWord(0 to 31);
+	
+			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
+			roundKeys(i) := expansionMatrix;
+		   rc_count := rc_count + 1;
+			end loop;
+			return roundKeys;
+	end function generateRoundKeys;
 end package body;
