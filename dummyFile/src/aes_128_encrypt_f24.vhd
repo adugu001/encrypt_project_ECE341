@@ -83,7 +83,7 @@ type ROM is array (0 to 15, 0 to 15) of integer;
   begin
 	
 p1 : process(clk,reset) is  
-type key_store is array (natural range <>) of std_logic_vector;
+
 variable fullKey : std_logic_vector(0 to 127);
 variable key_load_complete : boolean := false;
 variable data_load_complete : boolean := false;
@@ -105,7 +105,7 @@ variable sub_counter : integer := 0;
 variable temp_row : std_logic_vector(0 to 31); 
 variable result_matrix: std_logic_vector(0 to 127);	 
 variable col_count: integer:= 0;  
-variable roundKeys: key_store (0 to 9)(0 to 127);
+variable roundKeys: work.function_package.key_store;
 variable rotate_matrix: std_logic_vector(0 to 127);
 variable done_enc: boolean := false;
 
@@ -195,7 +195,7 @@ if (clk'event and clk = '1' and reset = '0')then
 			
 			roundKeys := generateRoundKeys(fullKey);
 			
-
+			key_expansion_complete := true;
 			
 			--report "round key 1: " & to_hstring(roundKeys(1));
 			--key Expansion done.
