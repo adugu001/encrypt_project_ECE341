@@ -4,4 +4,5 @@
 .\src\function_package.vhd
 .\src\key_schedule.vhd
 .\src\aes_128_encrypt_f24.vhd
+.\src\aes_128_test_package.vhd
 .\src\TestBench\aes_128_encrypt_f24_TB.vhd
