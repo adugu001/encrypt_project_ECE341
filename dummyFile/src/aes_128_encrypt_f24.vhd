@@ -100,11 +100,11 @@ type mult_matrix is array (0 to 3, 0 to 3) of integer;
 	variable test : integer := 0;
 	begin 
 		--debug	
-		report "test";
+		--report "test";
 		test :=  Sbox1(to_integer(unsigned(byte(0 to 3))), to_integer(unsigned(byte(4 to 7))) );
-		report "test" & to_string(test);
+		--report "test" & to_string(test);
 		newVector := std_logic_vector(to_unsigned(test, newVector'length));
-		report to_string(newVector);
+		--report to_string(newVector);
     return std_logic_vector(newVector);	   
   end function; 
   
@@ -116,11 +116,11 @@ type mult_matrix is array (0 to 3, 0 to 3) of integer;
 	variable test : integer := 0;
 	begin 
 		--debug	
-		report "test";
+		--report "test";
 		test :=  rc(to_integer(unsigned(byte(0 to 7))) );
-		report "Rc_lut " & to_string(test);
+		--report "Rc_lut " & to_string(test);
 		newVector := std_logic_vector(to_unsigned(test, newVector'length));
-		report to_string(newVector);
+		--report to_string(newVector);
     return std_logic_vector(newVector);
   end function; 
   
@@ -171,8 +171,8 @@ begin
 	
 if (clk'event and clk = '1' and reset = '0')then  
 		--START---------------------------------------------------------------------------------------------
-		if(start = '1' AND key_loading = false AND key_load_complete = true ) then
-			report "start";
+		if(start = '1' AND key_loading = false AND key_load_complete = false ) then
+			--report "start";
 			key_loading := true;	
 			keyLoadCount := 0;
 		end if;	 	
@@ -187,48 +187,48 @@ if (clk'event and clk = '1' and reset = '0')then
 		end if;
 		
 		--load full key--------------------------------------------------------------------------------------------------------
-		if(key_load = '1' AND key_load_complete = false) then	  
-			report "start keyload";
+		if((key_load = '1' OR key_loading) AND key_load_complete = false) then	  
+			--report "start keyload";
 			if(keyLoadCount = 0) then
 				fullKey(0 to 31) := dataIn;	
-				report "key_chunk_1: " & to_string(fullKey(0 to 31));
+				--report "key_chunk_1: " & to_string(fullKey(0 to 31));
 			elsif(keyLoadCount = 1) then
 				fullKey(32 to 63) := dataIn;
-				report "key_chunk_2: " & to_string(fullKey(32 to 63));
+				--report "key_chunk_2: " & to_string(fullKey(32 to 63));
 			elsif(keyLoadCount = 2) then
 				fullKey(64 to 95) := dataIn;
-				report "key_chunk_3: " & to_string(fullKey(64 to 95));
+				--report "key_chunk_3: " & to_string(fullKey(64 to 95));
 			else if(keyLoadCount = 3) then
 				fullKey(96 to 127) := dataIn; 
-				report "key_chunk_4: " & to_string(fullKey(96 to 127));
+				--report "key_chunk_4: " & to_string(fullKey(96 to 127));
 			else
 				key_loading := false;  
 				key_load_complete :=true;  
 				--debug
-				report "full key: " & to_hstring(fullKey);
+				--report "full key: " & to_hstring(fullKey);
 				end if;
 			end if;
 			keyLoadCount := keyLoadCount + 1; 
-			report "new count:= " & to_string(keyLoadCount);
+			--report "new count:= " & to_string(keyLoadCount);
 		end if;	   
 		--load full data--------------------------------------------------------------------------------------------------------
 		if(key_load_complete = true and data_load_complete = false AND done_enc = false) then
 			
-			report "start data load";
+			--report "start data load";
 			if(dataLoadCount = 0) then
 				fullData(0 to 31) := dataIn;  
-				report "data_chunk_1: " & to_string(fullData(0 to 31));
+				--report "data_chunk_1: " & to_string(fullData(0 to 31));
 			elsif(dataLoadCount = 1) then
 				fullData(32 to 63) := dataIn;	  
-				report "data_chunk_2: " & to_string(fullData(32 to 63));
+				--report "data_chunk_2: " & to_string(fullData(32 to 63));
 			elsif(dataLoadCount = 2) then
 				fullData(64 to 95) := dataIn;	
-				report "data_chunk_3: " & to_string(fullData(64 to 95));
+				--report "data_chunk_3: " & to_string(fullData(64 to 95));
 			else if(dataLoadCount = 3) then
 				fullData(96 to 127) := dataIn;	  
-				report "data_chunk_4: " & to_string(fullData(96 to 127));
+				--report "data_chunk_4: " & to_string(fullData(96 to 127));
 				data_load_complete :=true;  
-				report "full data: " & to_hstring(fullData);	
+				--report "full data: " & to_hstring(fullData);	
 				data_load_complete :=true;  
 				end if;
 			end if;
@@ -249,9 +249,9 @@ if (clk'event and clk = '1' and reset = '0')then
 			for i in 0 to 9 loop	
 			--Step 1: shift left 	
 			tempWord := expansionMatrix(96 to 127);	 
-			report "round " & to_string(i) & " b4: " & to_hstring(tempWord);
+			--report "round " & to_string(i) & " b4: " & to_hstring(tempWord);
 			tempWord(0 to 31) := tempWord rol 8;
-			report "round " & to_string(i) & " b5: " & to_hstring(tempWord); 
+			--report "round " & to_string(i) & " b5: " & to_hstring(tempWord); 
 			
 			--Step 2: Sub bytes for those in sBox
 			tempWord(0 to 7) := sbox_LUT(tempWord(0 to 7));	
@@ -259,18 +259,18 @@ if (clk'event and clk = '1' and reset = '0')then
 			tempWord(16 to 23) := sbox_LUT(tempWord(16 to 23));	
 			tempWord(24 to 31) := sbox_LUT(tempWord(24 to 31));	  
 			
-			report "round " & to_string(i) & " subbed: " & to_hstring(tempWord);
+			--report "round " & to_string(i) & " subbed: " & to_hstring(tempWord);
 			
 			--Step 3: add round constant 
 			rc_return := rc_LUT(std_logic_vector(to_unsigned((rc_count*4),8)));		
-			report "round " & to_string(i) & " rc_return: " & to_hstring(rc_return);
+			--report "round " & to_string(i) & " rc_return: " & to_hstring(rc_return);
 			tempWord(0 to 3) := std_logic_vector(tempWord(0 to 3) XOR rc_return(0 to 3));
 			tempWord(4 to 7) := std_logic_vector(tempWord(4 to 7) XOR rc_return(4 to 7));
 			
 			
 			--Step 4: add first column with new key		
 			
-			report "round " & to_string(i) & " beforexor: " & to_hstring(tempWord);
+			--report "round " & to_string(i) & " beforexor: " & to_hstring(tempWord);
 			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(0 to 7)));
 			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(8 to 15)));
 			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(16 to 23)));
@@ -280,7 +280,7 @@ if (clk'event and clk = '1' and reset = '0')then
 			expansionMatrix(8 to 15) := tempWord(8 to 15);
 			expansionMatrix(16 to 23) := tempWord(16 to 23);
 			expansionMatrix(24 to 31) := tempWord(24 to 31);  
-			report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
+			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			
 			--Step 5: add second column with new key	 
 			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7))XOR unsigned(expansionMatrix(32 to 39)));
@@ -292,7 +292,7 @@ if (clk'event and clk = '1' and reset = '0')then
 			expansionMatrix(40 to 47) := tempWord(8 to 15);
 			expansionMatrix(48 to 55) := tempWord(16 to 23);
 			expansionMatrix(56 to 63) := tempWord(24 to 31);   
-			report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
+			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			
 			--Step 6: add third column with new key
 			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(64 to 71)));
@@ -304,7 +304,7 @@ if (clk'event and clk = '1' and reset = '0')then
 			expansionMatrix(72 to 79) := tempWord(8 to 15);
 			expansionMatrix(80 to 87) := tempWord(16 to 23);
 			expansionMatrix(88 to 95) := tempWord(24 to 31); 
-			report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
+			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			
 			--Step 7: add last column with new key
 			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(96 to 103)));
@@ -316,12 +316,12 @@ if (clk'event and clk = '1' and reset = '0')then
 			expansionMatrix(104 to 111) := tempWord(8 to 15);
 			expansionMatrix(112 to 119) := tempWord(16 to 23);
 			expansionMatrix(120 to 127) := tempWord(24 to 31); 	
-			report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
+			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			roundKeys(i) := expansionMatrix;
 		   rc_count := rc_count + 1;
 			end loop;
 			key_expansion_complete := true;
-			report "round key 1: " & to_hstring(roundKeys(1));
+			--report "round key 1: " & to_hstring(roundKeys(1));
 			--key Expansion done.
 				
 		end if;
@@ -335,21 +335,21 @@ if (clk'event and clk = '1' and reset = '0')then
 				--substitute in sbox 
 				result_matrix := sbox(result_matrix, invert);
 				
-				report "round " & to_string(i) & " after sbox key : " & to_hstring(result_matrix);
+				--report "round " & to_string(i) & " after sbox key : " & to_hstring(result_matrix);
 				--shift rows 
 				result_matrix := shiftRows(result_matrix, invert);
 				
-				report "round " & to_string(i) & " after shift key : " & to_hstring(result_matrix);
+				--report "round " & to_string(i) & " after shift key : " & to_hstring(result_matrix);
 				--mix columns
 				if(i  /=  9) then
 					result_matrix := mixColumns(result_matrix, invert);
 				end if;
-				report "round " & to_string(i) & " before key : " & to_hstring(result_matrix);
+				--report "round " & to_string(i) & " before key : " & to_hstring(result_matrix);
 				--add round key	except last round
 				
 					result_matrix := addRoundKey(result_matrix, roundKeys(i)); 
 					
-				report "round " & to_string(i) & " end value: " & to_hstring(result_matrix);
+				--report "round " & to_string(i) & " end value: " & to_hstring(result_matrix);
 			end loop;
 			done_enc := true;
 		end if;
@@ -361,7 +361,7 @@ if(done_enc = true) then
 			--	wait until (CLK='1' and CLK'event);
 				dataOut <= result_matrix(dataOutCount*32 to dataOutCount*32 + 31);
 				dataOutCount := dataOutCount + 1;
-			--end loop;  				  
+			--end loop;  				  			 0734
 			if(dataOutCount = 4 ) then
 				--reset all variables after done.
 				 	
@@ -369,7 +369,7 @@ if(done_enc = true) then
 				dataLoadCount := 0;
 				data_load_complete := false;
 				done_enc := false;	  
-				report "reset vars";
+				--report "reset vars";
 				
 			end if;
 		end if;

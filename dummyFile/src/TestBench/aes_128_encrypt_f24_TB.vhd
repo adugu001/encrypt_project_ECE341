@@ -81,8 +81,9 @@ end process;
 	-- Add your stimulus here ...
 clockProcess:process  
 variable data : std_logic_vector(0 to 127);	
-
-variable key : std_logic_vector(0 to 127);
+variable key : std_logic_vector(0 to 127); 
+variable data1 : std_logic_vector(0 to 127);	
+variable key1 : std_logic_vector(0 to 127); 
 variable cipher : std_logic_vector(0 to 127);
 
 begin
@@ -95,11 +96,11 @@ begin
 		reset <= '0';	 
 		iv_load <= '0';
 		wait until clk'event AND clk = '1';
-		start <= '1';  
-		wait until clk'event AND clk = '1';
+		start <= '1';
 		key_load <= '1';
 		dataIn(0 to 31) <= std_logic_vector(key(0 to 31));
-		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';		  
+		--key_load <= '0';
 		dataIn(0 to 31) <= std_logic_vector(key(32 to 63));	
 		wait until clk'event AND clk = '1';
 		dataIn(0 to 31) <= std_logic_vector(key(64 to 95));
@@ -129,42 +130,85 @@ begin
 		report "cipher chunk 3:" &  to_hstring(cipher);
 		wait until clk'event AND clk = '1';	
 		cipher(96 to 127) := dataOut;	
-		report "cipher chunk 4:" &  to_hstring(cipher);
+		report "cipher chunk 4:" &  to_hstring(cipher);	
 		
 		--Tests 10 seperate encryptions-----------------------------------------------------
 		for i in 0 to 9 loop
-			data := tests_128(i).plain;
-			key := 	tests_128(i).key;
-				 
-			iv_load <= '0';
-			wait until clk'event AND clk = '1';
-			start <= '1';  
-			wait until clk'event AND clk = '1';
-			key_load <= '1';
+				data := tests_128(i).plain;
+				key := 	tests_128(i).key;
 			
+			reset <= '1';
+			wait until clk'event AND clk = '1';
+			reset <= '0';	 
+			iv_load <= '0';
+			--wait until clk'event AND clk = '1';
+			start <= '1';  
+			key_load <= '1';
 			key_load_loop: for i in 0 to 3 loop
 				dataIn(0 to 31) <= std_logic_vector(key(i*32 to i*32 + 31));
 				wait until clk'event AND clk = '1';
 			end loop key_load_loop;	
-			
 			db_load <= '1';
 			data_load_loop: for i in 0 to 3 loop
 				dataIn(0 to 31) <= std_logic_vector(data(i*32 to i*32 + 31));
 				wait until clk'event AND clk = '1';	
 			end loop data_load_loop;
-			
 			wait until clk'event AND clk = '1';	
 			if(done = '1') then
 				cipher(0 to 31) := dataOut;	
 			end if; 
 			wait until clk'event AND clk = '1';	
 			cipher(32 to 63) := dataOut;	
+
 			wait until clk'event AND clk = '1';	
 			cipher(64 to 95) := dataOut;	
 			wait until clk'event AND clk = '1';	
 			cipher(96 to 127) := dataOut;	
-			assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i);
+			 
+		
+		 report "Actual Output: " & to_hstring(cipher) & "     Expected: " & to_hstring(tests_128(i).expected);
+		 assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
+			
 		end loop;
+		
+		
+		--for i in 0 to 9 loop
+--			data := tests_128(i).plain;
+--			key := 	tests_128(i).key;
+--			
+--			
+--			reset <= '1'; 
+--			wait until clk'event AND clk = '1';
+--			reset <= '0'; 
+--			iv_load <= '0';
+--				start <= '1';  
+--			key_load <= '1';
+--			
+--			key_load_loop: for i in 0 to 3 loop
+--				dataIn(0 to 31) <= std_logic_vector(key(i*32 to i*32 + 31));
+--				wait until clk'event AND clk = '1';
+--			end loop key_load_loop;	
+--			
+--			db_load <= '1';
+--			data_load_loop: for i in 0 to 3 loop
+--				dataIn(0 to 31) <= std_logic_vector(data(i*32 to i*32 + 31));
+--				wait until clk'event AND clk = '1';	
+--			end loop data_load_loop;
+--			
+--			wait until clk'event AND clk = '1';	
+--			if(done = '1') then
+--				cipher(0 to 31) := dataOut;	
+--			end if; 
+--			wait until clk'event AND clk = '1';	
+--			cipher(32 to 63) := dataOut;	
+--			wait until clk'event AND clk = '1';	
+--			cipher(64 to 95) := dataOut;	
+--			wait until clk'event AND clk = '1';	
+--			cipher(96 to 127) := dataOut;	
+--			report "out" & to_hstring(cipher) & ":" & to_hstring(tests_128(i).expected);
+--			assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
+--			
+--		end loop;
 		
 		
 		simulationactive<= false;
