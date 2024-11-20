@@ -70,59 +70,14 @@ type ROM is array (0 to 15, 0 to 15) of integer;
     (16#e1#, 16#f8#, 16#98#, 16#11#, 16#69#, 16#d9#, 16#8e#, 16#94#, 16#9b#, 16#1e#, 16#87#, 16#e9#, 16#ce#, 16#55#, 16#28#, 16#df#),
     (16#8c#, 16#a1#, 16#89#, 16#0d#, 16#bf#, 16#e6#, 16#42#, 16#68#, 16#41#, 16#99#, 16#2d#, 16#0f#, 16#b0#, 16#54#, 16#bb#, 16#16#)
 );	
-type roundConstants is array (0 to 39) of integer;
-	signal rc : roundConstants := (
-    (16#01#, 16#00#, 16#00#, 16#00#,
-	16#02#,16#00#,16#00#,16#00#,
-	16#04#,16#00#,16#00#,16#00#,
-	16#08#,16#00#,16#00#,16#00#,
-	16#10#,16#00#,16#00#,16#00#,
-	16#20#,16#00#,16#00#,16#00#,
-	16#40#,16#00#,16#00#,16#00#,
-	16#80#,16#00#,16#00#,16#00#,
-	16#1b#,16#00#,16#00#,16#00#,
-	16#36#,16#00#,16#00#,16#00#
-)
-);
 
-type mult_matrix is array (0 to 3, 0 to 3) of integer;
-	signal mul : mult_matrix := (
-    (2,3,1,1),
-	(1,2,3,1),
-	(1,1,2,3),
-	(3,1,1,2)
-);
 
-	impure function sbox_LUT ( byte : in std_logic_vector(0 to 7))
-    return std_logic_vector is	
-	variable count : integer := 0;
-	variable newVector : std_logic_vector(0 to 7);	
-	variable test : integer := 0;
-	begin 
-		--debug	
-		--report "test";
-		test :=  Sbox1(to_integer(unsigned(byte(0 to 3))), to_integer(unsigned(byte(4 to 7))) );
-		--report "test" & to_string(test);
-		newVector := std_logic_vector(to_unsigned(test, newVector'length));
-		--report to_string(newVector);
-    return std_logic_vector(newVector);	   
-  end function; 
+
+
+
   
   
-  	impure function rc_LUT ( byte : in std_logic_vector(0 to 7))
-    return std_logic_vector is	
-	variable count : integer := 0;
-	variable newVector : std_logic_vector(0 to 7);	
-	variable test : integer := 0;
-	begin 
-		--debug	
-		--report "test";
-		test :=  rc(to_integer(unsigned(byte(0 to 7))) );
-		--report "Rc_lut " & to_string(test);
-		newVector := std_logic_vector(to_unsigned(test, newVector'length));
-		--report to_string(newVector);
-    return std_logic_vector(newVector);
-  end function; 
+  	
   
   
   begin
@@ -138,18 +93,17 @@ variable fullData : std_logic_vector(0 to 127);
 variable dataLoadCount : integer := 0;
 variable dataOutCount: integer:= 0;
 variable temp : std_logic_vector(0 to 127);
-variable tempWord : std_logic_vector(0 to 31);	
+
 
 
 variable tt : integer := 0;	  
-variable expansionMatrix : std_logic_vector(0 to 127);	
-variable rc_count : integer := 0;
+	
+
 variable key_expansion_complete:  boolean:= false;
 variable encryption_count : integer := 0; 
 variable sub_counter : integer := 0;
 variable temp_row : std_logic_vector(0 to 31); 
 variable result_matrix: std_logic_vector(0 to 127);	 
-variable mix_Matrix: std_logic_vector(0 to 127);
 variable col_count: integer:= 0;  
 variable roundKeys: key_store (0 to 9)(0 to 127);
 variable rotate_matrix: std_logic_vector(0 to 127);
@@ -162,7 +116,7 @@ variable IV_load_complete: boolean := false;
 
 variable invert : std_logic := '0';
 
-variable rc_return: std_logic_vector(0 to 7);
+
 begin	
 
 
@@ -239,88 +193,10 @@ if (clk'event and clk = '1' and reset = '0')then
 		--key expansion--------------------------------------------------------------------------------------------------------
 		if(key_load_complete and data_load_complete and done_enc = false ) then  
 			
-			
+			roundKeys := generateRoundKeys(fullKey);
 			
 
-			tempWord := fullKey(96 to 127);
-			expansionMatrix := fullKey;
-
 			
-			for i in 0 to 9 loop	
-			--Step 1: shift left 	
-			tempWord := expansionMatrix(96 to 127);	 
-			--report "round " & to_string(i) & " b4: " & to_hstring(tempWord);
-			tempWord(0 to 31) := tempWord rol 8;
-			--report "round " & to_string(i) & " b5: " & to_hstring(tempWord); 
-			
-			--Step 2: Sub bytes for those in sBox
-			tempWord(0 to 7) := sbox_LUT(tempWord(0 to 7));	
-			tempWord(8 to 15) := sbox_LUT(tempWord(8 to 15));	
-			tempWord(16 to 23) := sbox_LUT(tempWord(16 to 23));	
-			tempWord(24 to 31) := sbox_LUT(tempWord(24 to 31));	  
-			
-			--report "round " & to_string(i) & " subbed: " & to_hstring(tempWord);
-			
-			--Step 3: add round constant 
-			rc_return := rc_LUT(std_logic_vector(to_unsigned((rc_count*4),8)));		
-			--report "round " & to_string(i) & " rc_return: " & to_hstring(rc_return);
-			tempWord(0 to 3) := std_logic_vector(tempWord(0 to 3) XOR rc_return(0 to 3));
-			tempWord(4 to 7) := std_logic_vector(tempWord(4 to 7) XOR rc_return(4 to 7));
-			
-			
-			--Step 4: add first column with new key		
-			
-			--report "round " & to_string(i) & " beforexor: " & to_hstring(tempWord);
-			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(0 to 7)));
-			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(8 to 15)));
-			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(16 to 23)));
-			tempWord(24 to 31) := std_logic_vector(unsigned(tempWord(24 to 31)) XOR unsigned(expansionMatrix(24 to 31)));	
-			
-			expansionMatrix(0 to 7) := tempWord(0 to 7);
-			expansionMatrix(8 to 15) := tempWord(8 to 15);
-			expansionMatrix(16 to 23) := tempWord(16 to 23);
-			expansionMatrix(24 to 31) := tempWord(24 to 31);  
-			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
-			
-			--Step 5: add second column with new key	 
-			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7))XOR unsigned(expansionMatrix(32 to 39)));
-			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(40 to 47)));
-			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(48 to 55)));
-			tempWord(24 to 31) := std_logic_vector(unsigned(tempWord(24 to 31)) XOR unsigned(expansionMatrix(56 to 63)));
-			
-			expansionMatrix(32 to 39) := tempWord(0 to 7);
-			expansionMatrix(40 to 47) := tempWord(8 to 15);
-			expansionMatrix(48 to 55) := tempWord(16 to 23);
-			expansionMatrix(56 to 63) := tempWord(24 to 31);   
-			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
-			
-			--Step 6: add third column with new key
-			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(64 to 71)));
-			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(72 to 79)));
-			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(80 to 87)));
-			tempWord(24 to 31) := std_logic_vector(unsigned(tempWord(24 to 31)) XOR unsigned(expansionMatrix(88 to 95)));
-			
-			expansionMatrix(64 to 71) := tempWord(0 to 7);
-			expansionMatrix(72 to 79) := tempWord(8 to 15);
-			expansionMatrix(80 to 87) := tempWord(16 to 23);
-			expansionMatrix(88 to 95) := tempWord(24 to 31); 
-			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
-			
-			--Step 7: add last column with new key
-			tempWord(0 to 7) := std_logic_vector(unsigned(tempWord(0 to 7)) XOR unsigned(expansionMatrix(96 to 103)));
-			tempWord(8 to 15) := std_logic_vector(unsigned(tempWord(8 to 15)) XOR unsigned(expansionMatrix(104 to 111)));
-			tempWord(16 to 23) := std_logic_vector(unsigned(tempWord(16 to 23)) XOR unsigned(expansionMatrix(112 to 119)));
-			tempWord(24 to 31) := std_logic_vector(unsigned(tempWord(24 to 31)) XOR unsigned(expansionMatrix(120 to 127)));
-			
-			expansionMatrix(96 to 103) := tempWord(0 to 7);
-			expansionMatrix(104 to 111) := tempWord(8 to 15);
-			expansionMatrix(112 to 119) := tempWord(16 to 23);
-			expansionMatrix(120 to 127) := tempWord(24 to 31); 	
-			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
-			roundKeys(i) := expansionMatrix;
-		   rc_count := rc_count + 1;
-			end loop;
-			key_expansion_complete := true;
 			--report "round key 1: " & to_hstring(roundKeys(1));
 			--key Expansion done.
 				
@@ -385,18 +261,14 @@ fullKey := std_logic_vector(to_unsigned (0, 128));
  dataLoadCount  := 0;
  dataOutCount:= 0;
  temp := std_logic_vector(to_unsigned (0, 128));
- tempWord := std_logic_vector(to_unsigned (0, 32));	
 
 
 tt  := 0;	  
-expansionMatrix := std_logic_vector(to_unsigned (0, 128));	
-rc_count  := 0;
 key_expansion_complete:= false;
 encryption_count  := 0; 
 sub_counter  := 0;
 temp_row := std_logic_vector(to_unsigned (0, 32));
-result_matrix:= std_logic_vector(to_unsigned (0, 128));	 
-mix_Matrix:= std_logic_vector(to_unsigned (0, 128));
+result_matrix:= std_logic_vector(to_unsigned (0, 128));
 col_count:= 0;  
 --roundKeys: key_store (0 to 9)(0 to 127);
 rotate_matrix:= std_logic_vector(to_unsigned (0, 128));
@@ -406,7 +278,6 @@ IV  := std_logic_vector(to_unsigned (0, 128));
 IV_load_count := 0;
 IV_load_complete := false;
 invert  := '0';
-rc_return:= std_logic_vector(to_unsigned (0, 8));
 	
 	end if;	
 	
