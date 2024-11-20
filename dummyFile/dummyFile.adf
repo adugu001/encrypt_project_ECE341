@@ -29,7 +29,7 @@ FullDebugModeSignalsFile=dummyFile.psl
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=aes_128_encrypt_f24_tb|TB_ARCHITECTURE|0       
+HierarchyInformation=aes_128_encrypt_f24_tb|TB_ARCHITECTURE|0
 ShowHide=ShowTopLevel
 Selected=
 
@@ -65,26 +65,6 @@ Extension8=alintws
 [Groups]
 TestBench=1
 
-[Files]
-/shiftRows.vhd=-1
-/Sbox.vhd=-1
-/dffreg.vhd=-1
-/function_package.vhd=-1
-/key_schedule.vhd=-1
-/aes_128_encrypt_f24.vhd=-1
-TestBench/aes_128_encrypt_f24_TB.vhd=-1
-TestBench/aes_128_encrypt_f24_TB_runtest.do=-1
-
-[Files.Data]
-.\src\shiftRows.vhd=VHDL Source Code
-.\src\Sbox.vhd=VHDL Source Code
-.\src\dffreg.vhd=VHDL Source Code
-.\src\function_package.vhd=VHDL Source Code
-.\src\key_schedule.vhd=VHDL Source Code
-.\src\aes_128_encrypt_f24.vhd=VHDL Source Code
-.\src\TestBench\aes_128_encrypt_f24_TB.vhd=VHDL Test Bench
-.\src\TestBench\aes_128_encrypt_f24_TB_runtest.do=Macro
-
 [LocalVhdlSets]
 NetlistCompilation=1
 EnableVHDL93Key=0
@@ -100,3 +80,26 @@ DisableRangeChecks=0
 ProtectLevel=0
 IncrementalCompilation=0
 AdditionalOptions=
+
+[Files]
+/shiftRows.vhd=-1
+/Sbox.vhd=-1
+/dffreg.vhd=-1
+/function_package.vhd=-1
+/key_schedule.vhd=-1
+/aes_128_encrypt_f24.vhd=-1
+/aes_128_test_package.vhd=-1
+TestBench/aes_128_encrypt_f24_TB.vhd=-1
+TestBench/aes_128_encrypt_f24_TB_runtest.do=-1
+
+[Files.Data]
+.\src\shiftRows.vhd=VHDL Source Code
+.\src\Sbox.vhd=VHDL Source Code
+.\src\dffreg.vhd=VHDL Source Code
+.\src\function_package.vhd=VHDL Source Code
+.\src\key_schedule.vhd=VHDL Source Code
+.\src\aes_128_encrypt_f24.vhd=VHDL Source Code
+.\src\aes_128_test_package.vhd=VHDL Source Code
+.\src\TestBench\aes_128_encrypt_f24_TB.vhd=VHDL Test Bench
+.\src\TestBench\aes_128_encrypt_f24_TB_runtest.do=Macro
+
