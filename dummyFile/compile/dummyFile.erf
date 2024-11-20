@@ -37,4 +37,4 @@ MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dum
 MESSAGE "Compile Entity "aes_128_encrypt_f24_tb"" 
 MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"" 
 MESSAGE "Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"" 
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  1.0 [s]" 
