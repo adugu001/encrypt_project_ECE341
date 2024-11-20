@@ -52,7 +52,7 @@ end entity AES_128_encrypt_f24;
 
 
 architecture behavioral of AES_128_encrypt_f24 is
-signal state, nextstate: integer range 0 to 6 := 0;
+signal state, nextstate: integer range 0 to 9 := 0;
   
 begin
 	
@@ -60,10 +60,12 @@ p1 : process(clk,reset) is
 
 variable fullKey : std_logic_vector(0 to 127);
 variable fullData : std_logic_vector(0 to 127);	
-variable result_matrix: std_logic_vector(0 to 127);	   
+variable result_matrix: std_logic_vector(0 to 127);
+variable temp: std_logic_vector(0 to 127);
 variable roundKeys: key_store;  
 variable IV : std_logic_vector(0 to 127) := std_logic_vector(to_unsigned (0, 128));	
 variable invert : std_logic := encrypt;
+variable load_key, load_data, load_IV: std_logic := '0';
 
 begin
 if (reset = '0') then
@@ -73,29 +75,21 @@ if (reset = '0') then
 			else nextstate <= 0;
 			end if;
 		when 1 => --load key
-			for i in 0 to 3 loop
-				fullKey(i*32 to i*32 + 31) := dataIn;	
-			end loop;
-			report "full key: " & to_hstring(fullKey);
-			if (IV_Load = '0') then nextstate <= 2;
-			else nextstate <= 3;
-			end if;
+			load_key := '1';
+			temp(0 to 31) := dataIn;	
+			nextstate <= 7;	 
 		 when 2 => --wait to load data
 		 	if (db_load = '0' OR stream = '0') then nextstate <= 3;
 			else nextstate <= 4;
 			end if;
 		when 3 =>  --load IV
-			for i in 0 to 3 loop
-				IV(i*32 to i*32 + 31) := dataIn;	
-			end loop;
-			report "full IV: " & to_hstring(IV);
-			nextstate <= 2;
+			load_IV := '1';
+			temp(0 to 31) := dataIn;	
+			nextstate <= 7;	
 		when 4 =>  --load full data
-			for i in 0 to 3 loop
-				fullData(i*32 to i*32+31) := dataIn;  
-			end loop;
-			report "full data: " & to_hstring(fullData);
-			nextstate <= 5;
+			load_Data := '1';
+			temp(0 to 31) := dataIn;	
+			nextstate <= 7;
 		when 5 => --encrypt/decrypt
 			if encrypt = '1' then
 				--key expansion--------------------------------------------------------------------------------------------------------  
@@ -135,12 +129,36 @@ if (reset = '0') then
 				nextstate <= 3;
 			else nextstate <= 0;
 			end if;
+		when 7 =>
+			temp(32 to 63) := dataIn;
+			nextstate <= 8;
+		when 8 =>
+			temp(64 to 95) := dataIn;
+			nextstate <= 9;
+		when 9 =>
+			temp(96 to 127) := dataIn;
+			if load_key = '1' then
+				fullkey := temp;
+				if (IV_Load = '0') then nextstate <= 2;
+				else nextstate <= 3;
+				end if;
+				load_key := '0';
+			elsif load_IV = '1' then
+				IV := temp;
+				nextstate <= 2;
+				load_IV := '0';
+			elsif load_data = '1' then
+				fulldata := temp;
+				nextstate <= 5;
+				load_data := '0';
+			end if;		
 	end case;		
 elsif(reset ='0') then		
 	fullKey := std_logic_vector(to_unsigned (0, 128));
 	fullData  := std_logic_vector(to_unsigned (0, 128));	  
 	result_matrix:= std_logic_vector(to_unsigned (0, 128));
-	IV  := std_logic_vector(to_unsigned (0, 128));	
+	IV  := std_logic_vector(to_unsigned (0, 128));
+	nextstate <= 0;
 end if;		
 
 end process;
