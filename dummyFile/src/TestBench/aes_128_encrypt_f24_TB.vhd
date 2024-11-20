@@ -131,6 +131,7 @@ begin
 		cipher(96 to 127) := dataOut;	
 		report "cipher chunk 4:" &  to_hstring(cipher);
 		
+		--Tests 10 seperate encryptions-----------------------------------------------------
 		for i in 0 to 9 loop
 			data := tests_128(i).plain;
 			key := 	tests_128(i).key;
@@ -140,38 +141,28 @@ begin
 			start <= '1';  
 			wait until clk'event AND clk = '1';
 			key_load <= '1';
-			dataIn(0 to 31) <= std_logic_vector(key(0 to 31));
-			wait until clk'event AND clk = '1';
-			dataIn(0 to 31) <= std_logic_vector(key(32 to 63));	
-			wait until clk'event AND clk = '1';
-			dataIn(0 to 31) <= std_logic_vector(key(64 to 95));
-			wait until clk'event AND clk = '1';
-			dataIn(0 to 31) <= std_logic_vector(key(96 to 127));
-			wait until clk'event AND clk = '1';		
+			
+			key_load_loop: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(key(i*32 to i*32 + 31));
+				wait until clk'event AND clk = '1';
+			end loop key_load_loop;	
+			
 			db_load <= '1';
-			dataIn(0 to 31) <= std_logic_vector(data(0 to 31));
-			wait until clk'event AND clk = '1';		
-			dataIn(0 to 31) <= std_logic_vector(data(32 to 63));
-			wait until clk'event AND clk = '1';		
-			dataIn(0 to 31) <= std_logic_vector(data(64 to 95));
-			wait until clk'event AND clk = '1';		
-			dataIn(0 to 31) <= std_logic_vector(data(96 to 127));
-			wait until clk'event AND clk = '1';
+			data_load_loop: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(data(i*32 to i*32 + 31));
+				wait until clk'event AND clk = '1';	
+			end loop data_load_loop;
+			
 			wait until clk'event AND clk = '1';	
 			if(done = '1') then
 				cipher(0 to 31) := dataOut;	
-			
 			end if; 
-				report "cipher chunk 1:" & to_hstring(cipher);
 			wait until clk'event AND clk = '1';	
 			cipher(32 to 63) := dataOut;	
-			report "cipher chunk 2:" &  to_hstring(cipher);
 			wait until clk'event AND clk = '1';	
 			cipher(64 to 95) := dataOut;	
-			report "cipher chunk 3:" &  to_hstring(cipher);
 			wait until clk'event AND clk = '1';	
 			cipher(96 to 127) := dataOut;	
-			report "cipher chunk 4:" &  to_hstring(cipher);
 			assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i);
 		end loop;
 		
@@ -183,18 +174,18 @@ end process;
 functionProcess: process
 variable testdata : std_logic_vector(0 to 127);
 variable a,b,c : std_logic_vector(0 to 7);
-	variable data : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 after shift rows
-							                                "00011000"&"00111101"&"11100011"&"10111110"&
+	variable data : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 
+							                                "00011001"&"00111101"&"11100011"&"10111110"&
 							                                "10100000"&"11110100"&"11100010"&"00101011"&
 															"10011010"&"11000110"&"10001101"&"00101010"&
 															"11101001"&"11111000"&"01001000"&"00001000";
-	variable afterSub : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 after shift rows
+	variable afterSub : std_logic_vector(0 to 127) :=         
 							                                "11010100"&"00100111"&"00010001"&"10101110"&
 							                                "11100000"&"10111111"&"10011000"&"11110001"&
 															"10111000"&"10110100"&"01011101"&"11100101"&
-															"00011110"&"00100001"&"01010010"&"00110000";
+															"00011110"&"01000001"&"01010010"&"00110000";
 															
-	variable afterShift : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 after shift rows
+	variable afterShift : std_logic_vector(0 to 127) :=            
 							                                "11010100"&"10111111"&"01011101"&"00110000"&
 							                                "11100000"&"10110100"&"01010010"&"10101110"&
 															"10111000"&"01000001"&"00010001"&"11110001"&
@@ -206,25 +197,24 @@ variable a,b,c : std_logic_vector(0 to 7);
 														    "01001000"&"11111000"&"11010011"&"01111010"&
 														    "00101000"&"00000110"&"00100110"&"01001100";																											
 	begin 
-		--ENCRYPTION
-		--substitute data
-
-		--testData := sbox(data, '0');
---		assert testdata = aftersub report "sbox failed";
---		
---		testData := shiftRows(aftersub, '0');
---		assert testdata = afterShift report "shift failed";
---		
---		testData := mixColumns(aftershift, '0');
---		assert testdata = aftermix report "mixcol failed";
+		--encrypt op
+		testData := sbox(data, '0');
+		assert testdata = aftersub report "sbox failed";		
+		testData := shiftRows(aftersub, '0');
+		assert testdata = afterShift report "shift failed";		
+		testData := mixColumns(aftershift, '0');
+		assert testdata = aftermix report "mixcol failed";
+		--decrypt op
+		testData := mixColumns(aftermix, '1');
+		assert testdata = aftershift report "invmixcol failed";
+		testData := shiftRows(aftershift, '1');
+		assert testdata = afterSub report "invshift failed";
+		testData := sbox(afterSub, '1');
+		assert testdata = data report "invsbox failed";
 		
-		--testData := addRoundKey(testdata, roundkey, '0');
---		assert(testData = mixed) report "mixcolumns failed";
-
-
 		
 		wait;
-end process;
+end process functionProcess;
 end TB_ARCHITECTURE;
 
 configuration TESTBENCH_FOR_aes_128_encrypt_f24 of aes_128_encrypt_f24_tb is

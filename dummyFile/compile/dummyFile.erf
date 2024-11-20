@@ -1,3 +1,35 @@
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd" 
+MESSAGE "Compile Entity "shiftRows"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "shiftRows"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd" 
+MESSAGE "Compile Entity "sBox"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "sBox"" 
+MESSAGE "Compile Architecture "dataflow" of Entity "sBox"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd" 
+MESSAGE "Compile Entity "dffreg"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "dffreg"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" 
+MESSAGE "Compile Package "function_package"" 
+MESSAGE "Compile Package Body "function_package"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd" 
+MESSAGE "Compile Entity "key_schedule"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "key_schedule"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" 
+BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+UPDATEPROGRESS 1
+MESSAGE "Compile Entity "AES_128_encrypt_f24"" 
+UPDATEPROGRESS 4
+UPDATEPROGRESS 12
+MESSAGE "Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"" 
+UPDATEPROGRESS 17
+UPDATEPROGRESS 20
+UPDATEPROGRESS 22
+UPDATEPROGRESS 26
+UPDATEPROGRESS 30
+UPDATEPROGRESS 98
+UPDATEPROGRESS 99
+UPDATEPROGRESS 100
+ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
 MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd" 
 BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
 UPDATEPROGRESS 1
@@ -7,4 +39,8 @@ UPDATEPROGRESS 4
 UPDATEPROGRESS 99
 UPDATEPROGRESS 100
 ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" 
+MESSAGE "Compile Entity "aes_128_encrypt_f24_tb"" 
+MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"" 
+MESSAGE "Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  0.4 [s]" 
