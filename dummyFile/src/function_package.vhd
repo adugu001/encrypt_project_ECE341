@@ -98,10 +98,10 @@ for i in 0 to 3 loop
 		blockMatrix(1,i) := data(32*i + 8  to 32*i + 15);
 		blockMatrix(2,i) := data(32*i + 16 to 32*i + 23);
 		blockMatrix(3,i) := data(32*i + 24 to 32*i + 31);
-	--1   5   9    13
-	--2	  6   10   14
-	--3	  7	  11   15
-	--4	  8   12   16
+	--1   5   9    13   >>  1   5   9    13 
+	--2	  6   10   14       6   10  14	 2
+	--3	  7	  11   15	    11  15	3    7   
+	--4	  8   12   16		16	4   8    12
 end loop;	
 for i in 0 to 3 loop
 	--Equate each column bytes based on row

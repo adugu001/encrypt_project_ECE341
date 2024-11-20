@@ -120,12 +120,23 @@ functionProcess: process
 variable testdata : std_logic_vector(0 to 127);
 variable a,b,c : std_logic_vector(0 to 7);
 	variable data : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 after shift rows
+							                                "00011000"&"00111101"&"11100011"&"10111110"&
+							                                "10100000"&"11110100"&"11100010"&"00101011"&
+															"10011010"&"11000110"&"10001101"&"00101010"&
+															"11101001"&"11111000"&"01001000"&"00001000";
+	variable afterSub : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 after shift rows
+							                                "11010100"&"00100111"&"00010001"&"10101110"&
+							                                "11100000"&"10111111"&"10011000"&"11110001"&
+															"10111000"&"10110100"&"01011101"&"11100101"&
+															"00011110"&"00100001"&"01010010"&"00110000";
+															
+	variable afterShift : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 after shift rows
 							                                "11010100"&"10111111"&"01011101"&"00110000"&
 							                                "11100000"&"10110100"&"01010010"&"10101110"&
 															"10111000"&"01000001"&"00010001"&"11110001"&
 															"00011110"&"00100111"&"10011000"&"11100101"; 														
 												   
-	variable mixed : std_logic_vector(0 to 127) := 			
+	variable aftermix : std_logic_vector(0 to 127) := 			
                                 							"00000100"&"01100110"&"10000001"&"11100101"&
 														    "11100000"&"11001011"&"00011001"&"10011010"&
 														    "01001000"&"11111000"&"11010011"&"01111010"&
@@ -133,17 +144,17 @@ variable a,b,c : std_logic_vector(0 to 7);
 	begin 
 		--ENCRYPTION
 		--substitute data
-		a := "00000001";
-		b := "01010111";
-		c := gfMult_byte(a, b);
-		assert b = c report "gf failed";
-		a := "10000011";
-		b := "01010111";
-		c := gfMult_byte(a, b);
-		assert c = "11000001" report "gf failed";
+		testData := sbox(data, '0');
+		assert testdata = aftersub report "sbox failed";
 		
-		testData := mixcolumns(data, '0');
-		assert(testData = mixed) report "mixcolumns failed";
+		testData := shiftRows(aftersub, '0');
+		assert testdata = afterShift report "shift failed";
+		
+		testData := mixColumns(aftershift, '0');
+		assert testdata = aftermix report "mixcol failed";
+		
+		--testData := addRoundKey(testdata, roundkey, '0');
+--		assert(testData = mixed) report "mixcolumns failed";
 
 		
 		wait;
