@@ -208,10 +208,10 @@ begin
 		s2 := data(32*i + 16 to 32*i + 23);
 		s3 := data(32*i + 24 to 32*i + 31);
 		
-		d0 := gfMult_byte("00001110", s0) XOR gfMult_byte("00001011", s1) XOR gfMult_byte("00001011", s2) XOR gfMult_byte("00001001", s3);
-		d1 := gfMult_byte("00001001", s0) XOR gfMult_byte("00001110", s1) XOR gfMult_byte("00001011", s2) XOR gfMult_byte("00001011", s3);
-		d2 := gfMult_byte("00001011", s0) XOR gfMult_byte("00001001", s1) XOR gfMult_byte("00001110", s2) XOR gfMult_byte("00001011", s3);
-		d3 := gfMult_byte("00001011", s0) XOR gfMult_byte("00001011", s1) XOR gfMult_byte("00001001", s2) XOR gfMult_byte("00001110", s3);
+		d0 := gfMult_byte("00001110", s0) XOR gfMult_byte("00001011", s1) XOR gfMult_byte("00001101", s2) XOR gfMult_byte("00001001", s3);
+		d1 := gfMult_byte("00001001", s0) XOR gfMult_byte("00001110", s1) XOR gfMult_byte("00001011", s2) XOR gfMult_byte("00001101", s3);
+		d2 := gfMult_byte("00001101", s0) XOR gfMult_byte("00001001", s1) XOR gfMult_byte("00001110", s2) XOR gfMult_byte("00001011", s3);
+		d3 := gfMult_byte("00001011", s0) XOR gfMult_byte("00001101", s1) XOR gfMult_byte("00001001", s2) XOR gfMult_byte("00001110", s3);
 		
 		output(  32*i    to 32*i + 7)  := d0;
 		output(32*i + 8  to 32*i + 15) := d1;
