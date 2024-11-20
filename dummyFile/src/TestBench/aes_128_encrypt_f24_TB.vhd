@@ -83,13 +83,15 @@ clockProcess:process
 variable data : std_logic_vector(0 to 127);	
 
 variable key : std_logic_vector(0 to 127);
+variable cipher : std_logic_vector(0 to 127);
 begin	 	 
 	data:= "00110010010000111111011010101000100010000101101000110000100011010011000100110001100110001010001011100000001101110000011100110100";
-	key:= "00101011011111100001010100010110001010001010111011010010101001101010101111110111000101011000100000001001110011110100111100111100";
+	key:= "00101011011111100001010100010110001010001010111011010010101001101010101111110111000101011000100000001001110011110100111100111100";	
 		wait until clk'event AND clk = '1';
 		reset <= '1';
 		wait until clk'event AND clk = '1';
-		reset <= '0';
+		reset <= '0';	 
+		iv_load <= '0';
 		wait until clk'event AND clk = '1';
 		start <= '1';  
 		wait until clk'event AND clk = '1';
@@ -110,8 +112,25 @@ begin
 		dataIn(0 to 31) <= std_logic_vector(data(64 to 95));
 		wait until clk'event AND clk = '1';		
 		dataIn(0 to 31) <= std_logic_vector(data(96 to 127));
-		wait until clk'event AND clk = '1';		
-
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';	
+		if(done = '1') then
+			cipher(0 to 31) := dataOut;	
+		
+		end if; 
+			report "cipher chunk 1:" & to_hstring(cipher);
+		wait until clk'event AND clk = '1';	
+		cipher(32 to 63) := dataOut;	
+		report "cipher chunk 2:" &  to_hstring(cipher);
+		wait until clk'event AND clk = '1';	
+		cipher(64 to 95) := dataOut;	
+		report "cipher chunk 3:" &  to_hstring(cipher);
+		wait until clk'event AND clk = '1';	
+		cipher(96 to 127) := dataOut;	
+		report "cipher chunk 4:" &  to_hstring(cipher);
+		
+		
+		
 		simulationactive<= false;
 		wait;
 end process;
@@ -144,6 +163,7 @@ variable a,b,c : std_logic_vector(0 to 7);
 	begin 
 		--ENCRYPTION
 		--substitute data
+
 		testData := sbox(data, '0');
 		assert testdata = aftersub report "sbox failed";
 		
@@ -155,6 +175,7 @@ variable a,b,c : std_logic_vector(0 to 7);
 		
 		--testData := addRoundKey(testdata, roundkey, '0');
 --		assert(testData = mixed) report "mixcolumns failed";
+
 
 		
 		wait;

@@ -127,7 +127,7 @@ type mult_matrix is array (0 to 3, 0 to 3) of integer;
   
   begin
 	
-p1 : process is  
+p1 : process(clk,reset) is  
 type key_store is array (natural range <>) of std_logic_vector;
 variable fullKey : std_logic_vector(0 to 127);
 variable key_load_complete : boolean := false;
@@ -156,31 +156,37 @@ variable rotate_matrix: std_logic_vector(0 to 127);
 variable done_enc: boolean := false;
 
 variable data_out_complete: boolean := false;
-variable IV : std_logic_vector(0 to 127);
+variable IV : std_logic_vector(0 to 127) := std_logic_vector(to_unsigned (0, 128));	
+variable IV_load_count : integer:= 0;
+variable IV_load_complete: boolean := false;
 
 variable invert : std_logic := '0';
 
 variable rc_return: std_logic_vector(0 to 7);
 begin	
 
---IVLOAD---------------------------------------------------------------------------------------------
-	if(iv_load = '1') then
-		for i in 0 to 3 loop
-			IV(i*32 to i*32 + 31) := dataIN;
-			wait until (CLK = '1' AND CLK'event);
-		end loop;
-	else IV := (others => '0');
-	end if;
---key expansion--------------------------------------------------------------------------------------------------------
-	--report "start";
-	--	 tt := sbox_LUT("00000000");
-	if (clk'event and clk = '1' and reset = '0')then 
-		
-		if(start = '1' AND key_loading = false AND key_load_complete = true) then
+
+	
+
+	
+if (clk'event and clk = '1' and reset = '0')then  
+		--START---------------------------------------------------------------------------------------------
+		if(start = '1' AND key_loading = false AND key_load_complete = true ) then
 			report "start";
 			key_loading := true;	
 			keyLoadCount := 0;
+		end if;	 	
+		
+		--IVLOAD---------------------------------------------------------------------------------------------
+		if(iv_load = '1' AND IV_load_complete = false) then		
+			IV(iv_load_count*32 to iv_load_count*32 + 31) := dataIn;
+			iv_load_count := iv_load_count + 1;
+			iF(iv_load_count = 3) then
+				iv_load_complete := true;	 
+			end if; 
 		end if;
+		
+		--load full key--------------------------------------------------------------------------------------------------------
 		if(key_load = '1' AND key_load_complete = false) then	  
 			report "start keyload";
 			if(keyLoadCount = 0) then
@@ -204,9 +210,10 @@ begin
 			end if;
 			keyLoadCount := keyLoadCount + 1; 
 			report "new count:= " & to_string(keyLoadCount);
-		end if;
+		end if;	   
+		--load full data--------------------------------------------------------------------------------------------------------
 		if(key_load_complete = true and data_load_complete = false AND done_enc = false) then
-			--unsure what IV does. leaving it out for now and loading db. will come back to it later.
+			
 			report "start data load";
 			if(dataLoadCount = 0) then
 				fullData(0 to 31) := dataIn;  
@@ -228,21 +235,19 @@ begin
 			dataLoadCount := dataLoadCount + 1;
 			end if;	  
 			
-			--at this point, assume that the data is fully loaded.
 			
-			--expand key
-		if(key_load_complete and data_load_complete and done_enc = false) then  
+		--key expansion--------------------------------------------------------------------------------------------------------
+		if(key_load_complete and data_load_complete and done_enc = false ) then  
 			
-			-- I will rework this to use loops and variables to simplify this. Initial run through was just to make sure the operational logic works.
 			
-			--Step 1: shift left 
+			
 
 			tempWord := fullKey(96 to 127);
 			expansionMatrix := fullKey;
-			--tempWord(0 to 31) := tempWord rol 8; 
+
 			
 			for i in 0 to 9 loop	
-				
+			--Step 1: shift left 	
 			tempWord := expansionMatrix(96 to 127);	 
 			report "round " & to_string(i) & " b4: " & to_hstring(tempWord);
 			tempWord(0 to 31) := tempWord rol 8;
@@ -259,11 +264,10 @@ begin
 			--Step 3: add round constant 
 			rc_return := rc_LUT(std_logic_vector(to_unsigned((rc_count*4),8)));		
 			report "round " & to_string(i) & " rc_return: " & to_hstring(rc_return);
-			tempWord(0 to 3) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(0 to 3))) + to_integer(unsigned(rc_return(0 to 3))), tempWord(0 to 3)'length));
-			tempWord(4 to 7) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(4 to 7))) + to_integer(unsigned(rc_return(4 to 7))), tempWord(0 to 3)'length));
-			tempWord(8 to 15) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(8 to 15))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+1,8))))), tempWord(8 to 15)'length));
-			tempWord(16 to 23) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(16 to 23))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+2,8))))), tempWord(16 to 23)'length));
-			tempWord(24 to 31) := std_logic_vector(to_unsigned(to_integer(unsigned(tempWord(24 to 31))) + to_integer(unsigned(rc_LUT(std_logic_vector(to_unsigned((rc_count*4)+3,8))))), tempWord(24 to 31)'length));
+			tempWord(0 to 3) := std_logic_vector(tempWord(0 to 3) XOR rc_return(0 to 3));
+			tempWord(4 to 7) := std_logic_vector(tempWord(4 to 7) XOR rc_return(4 to 7));
+			
+			
 			--Step 4: add first column with new key		
 			
 			report "round " & to_string(i) & " beforexor: " & to_hstring(tempWord);
@@ -331,32 +335,84 @@ begin
 				--substitute in sbox 
 				result_matrix := sbox(result_matrix, invert);
 				
+				report "round " & to_string(i) & " after sbox key : " & to_hstring(result_matrix);
 				--shift rows 
 				result_matrix := shiftRows(result_matrix, invert);
-
+				
+				report "round " & to_string(i) & " after shift key : " & to_hstring(result_matrix);
 				--mix columns
-				result_matrix := mixColumns(result_matrix, invert);
-				report "matrix after rotate: " & to_hstring(rotate_matrix);
-
-				--add round key	except last round
 				if(i  /=  9) then
-					result_matrix := addRoundKey(result_matrix, roundKeys(i)); 
+					result_matrix := mixColumns(result_matrix, invert);
 				end if;
+				report "round " & to_string(i) & " before key : " & to_hstring(result_matrix);
+				--add round key	except last round
+				
+					result_matrix := addRoundKey(result_matrix, roundKeys(i)); 
+					
+				report "round " & to_string(i) & " end value: " & to_hstring(result_matrix);
 			end loop;
 			done_enc := true;
 		end if;
 		
 --output ciphertext------------------------------------------------------------------------------------------------
-		if(done_enc = true) then
-			for i in 0 to 3 loop
-				wait until (CLK='1' and CLK'event);
-				dataOut <= result_matrix(i*32 to i*32 + 31);
-			end loop;
+if(done_enc = true) then
+	done <= '1'; 
+			--for i in 0 to 3 loop
+			--	wait until (CLK='1' and CLK'event);
+				dataOut <= result_matrix(dataOutCount*32 to dataOutCount*32 + 31);
+				dataOutCount := dataOutCount + 1;
+			--end loop;  				  
+			if(dataOutCount = 4 ) then
+				--reset all variables after done.
+				 	
+				dataOutCount := 0;
+				dataLoadCount := 0;
+				data_load_complete := false;
+				done_enc := false;	  
+				report "reset vars";
+				
+			end if;
 		end if;
 -------------------------------------------------------------------------------------------------------------------		
-		--reset all variables after done.
 		
-	end if;	 
+elsif(reset ='1') then		
+fullKey := std_logic_vector(to_unsigned (0, 128));
+ key_load_complete  := false;
+ data_load_complete  := false;
+ key_loading  := false;  
+ keyLoadCount  := 0;
+ fullData  := std_logic_vector(to_unsigned (0, 128));	
+ dataLoadCount  := 0;
+ dataOutCount:= 0;
+ temp := std_logic_vector(to_unsigned (0, 128));
+ tempWord := std_logic_vector(to_unsigned (0, 32));	
+
+
+tt  := 0;	  
+expansionMatrix := std_logic_vector(to_unsigned (0, 128));	
+rc_count  := 0;
+key_expansion_complete:= false;
+encryption_count  := 0; 
+sub_counter  := 0;
+temp_row := std_logic_vector(to_unsigned (0, 32));
+result_matrix:= std_logic_vector(to_unsigned (0, 128));	 
+mix_Matrix:= std_logic_vector(to_unsigned (0, 128));
+col_count:= 0;  
+--roundKeys: key_store (0 to 9)(0 to 127);
+rotate_matrix:= std_logic_vector(to_unsigned (0, 128));
+done_enc := false;
+data_out_complete := false;
+IV  := std_logic_vector(to_unsigned (0, 128));	
+IV_load_count := 0;
+IV_load_complete := false;
+invert  := '0';
+rc_return:= std_logic_vector(to_unsigned (0, 8));
+	
+	end if;	
+	
+	
+	
+	
 end process;
 
 
