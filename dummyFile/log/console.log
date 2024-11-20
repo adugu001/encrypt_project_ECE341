@@ -95,4 +95,500 @@ acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
 # Compile Entity "AES_128_encrypt_f24"
 # Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (293, 12): Unknown identifi
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (293, 12): Unknown identifier "cipher".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (293, 12): Cannot find object declaration.
+# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (293, 12): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
+# Error: COMP96_0301: aes_128_encrypt_f24.vhd : (135, 5): The choice 'others' must be present when all alternatives are not covered.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  63.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0301: aes_128_encrypt_f24.vhd : (135, 5): The choice 'others' must be present when all alternatives are not covered.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  32.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0664: aes_128_encrypt_f24.vhd : (280, 17): Value 7 out of range 0 to 6.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (161, 10): Unknown identifier "key_load_complete".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (161, 32): Unknown identifier "data_load_complete".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (161, 32): Cannot find object declaration.
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (161, 10): Cannot find object declaration.
+# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (161, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Too many errors - compilation terminated
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 43): Unknown identifier "key_store".
+# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (164, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (164, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (167, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (167, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (167, 20): Unknown identifier "expansionMatrix".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (168, 62): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (168, 62): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (168, 51): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (168, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (169, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 29): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (170, 62): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (170, 62): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (170, 51): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (170, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (173, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (173, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (173, 38): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (173, 38): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (174, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (174, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (174, 39): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (174, 39): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (175, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (175, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (175, 40): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (175, 40): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 40): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 40): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (178, 66): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (178, 66): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (178, 55): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (178, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (181, 58): Unknown identifier "rc_count".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (181, 58): Cannot find object declaration.
+# Error: COMP96_0104: aes_128_encrypt_f24.vhd : (181, 57): Undefined type of expression.
+# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (181, 70): The type of a parameter in a subprogram call does not match to a formal parameter of the "ieee.NUMERIC_STD.TO_UNSIGNED(ARG : NATURAL; SIZE_RES : UNRESOLVED_UNSIGNED) return UNRESOLVED_UNSIGNED" subprogram.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (183, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (183, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (183, 45): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (184, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (184, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (184, 45): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (189, 69): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (189, 69): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (189, 58): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (189, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 54): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 54): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 85): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 85): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 55): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 55): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 87): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 87): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 56): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 56): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 89): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 89): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 56): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 56): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 89): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 89): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (195, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (195, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (195, 35): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (196, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (196, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (196, 36): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (197, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (197, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (197, 37): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (198, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (198, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (198, 37): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (199, 70): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (199, 70): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (199, 59): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (199, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 54): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 54): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 84): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 84): Cannot find object declaration.
+# Compile failure 100 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Warning: ELAB1_0026: TestBench/aes_128_encrypt_f24_TB.vhd : (56, 0): There is no default binding for component "AES_128_encrypt_f24". (Port "ECB_mode" is not on the entity).
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Compile failure 5 Errors 1 Warnings  Analysis time :  0.1 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Too many errors - compilation terminated
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 43): Unknown identifier "key_store".
+# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (164, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (164, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (167, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (167, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (167, 20): Unknown identifier "expansionMatrix".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (168, 62): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (168, 62): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (168, 51): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (168, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (169, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 29): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (170, 62): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (170, 62): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (170, 51): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (170, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (173, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (173, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (173, 38): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (173, 38): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (174, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (174, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (174, 39): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (174, 39): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (175, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (175, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (175, 40): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (175, 40): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 40): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 40): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (178, 66): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (178, 66): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (178, 55): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (178, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (181, 58): Unknown identifier "rc_count".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (181, 58): Cannot find object declaration.
+# Error: COMP96_0104: aes_128_encrypt_f24.vhd : (181, 57): Undefined type of expression.
+# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (181, 70): The type of a parameter in a subprogram call does not match to a formal parameter of the "ieee.NUMERIC_STD.TO_UNSIGNED(ARG : NATURAL; SIZE_RES : UNRESOLVED_UNSIGNED) return UNRESOLVED_UNSIGNED" subprogram.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (183, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (183, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (183, 45): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (184, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (184, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (184, 45): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (189, 69): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (189, 69): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (189, 58): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (189, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 54): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 54): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 85): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 85): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 55): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 55): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 87): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 87): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 56): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 56): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 89): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 89): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 56): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 56): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 89): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 89): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (195, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (195, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (195, 35): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (196, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (196, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (196, 36): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (197, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (197, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (197, 37): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (198, 8): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (198, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (198, 37): Unknown identifier "tempWord".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (199, 70): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (199, 70): Cannot find object declaration.
+# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (199, 59): Cannot find function "to_hstring" for these actuals.
+# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (199, 15): String expected.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 8): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 8): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 54): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 54): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 84): Unknown identifier "expansionMatrix".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 84): Cannot find object declaration.
+# Compile failure 100 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 43): Unknown identifier "key_store".
+# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 21): Unknown identifier "generateroundkeys".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 39): Unknown identifier "key".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 39): Cannot find object declaration.
+# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (186, 54): Prefix of index must be an array.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 21): Unknown identifier "key_store".
+# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 21): Unknown identifier "generateroundkeys".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 39): Unknown identifier "key".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 39): Cannot find object declaration.
+# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (186, 54): Prefix of index must be an array.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 21): Unknown identifier "key_store".
+# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 21): Unknown identifier "generateroundkeys".
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 39): Unknown identifier "key".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 39): Cannot find object declaration.
+# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (186, 54): Prefix of index must be an array.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.4 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 39): Unknown identifier "key".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 39): Cannot find object declaration.
+# Error: COMP96_0104: aes_128_encrypt_f24.vhd : (163, 39): Undefined type of expression.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (69, 1): Keyword 'begin' expected.
+# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (69, 2): Design unit declaration expected.
+# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (241, 17): Identifier expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  32.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (88, 12): Unknown identifier "rc".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (88, 12): Cannot find object declaration.
+# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (88, 12): Prefix of index must be an array.
+# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (88, 12): Undefined type of expression. Expected type 'INTEGER'.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (122, 8): Unknown identifier "key_expansion_complete".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (122, 8): Cannot find object declaration.
+# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (122, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (166, 1): Unknown identifier "temp".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (166, 1): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 1): Unknown identifier "key_expansion_complete".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (169, 1): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (170, 1): Unknown identifier "encryption_count".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (170, 1): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (171, 1): Unknown identifier "sub_counter".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (171, 1): Cannot find object declaration.
+# Compile failure 11 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (149, 1): Unknown identifier "done_enc".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (149, 1): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (150, 1): Unknown identifier "data_out_complete".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (150, 1): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (152, 1): Unknown identifier "IV_load_count".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (152, 1): Cannot find object declaration.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (153, 1): Unknown identifier "IV_load_complete".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (153, 1): Cannot find object declaration.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0046: aes_128_encrypt_f24.vhd : (147, 40): Sequential statement expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
+# Compile Entity "shiftRows"
+# Compile Architecture "behavioral" of Entity "shiftRows"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Compile Architecture "dataflow" of Entity "sBox"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
+# Compile Entity "dffreg"
+# Compile Architecture "behavioral" of Entity "dffreg"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
+# Compile Entity "key_schedule"
+# Compile Architecture "behavioral" of Entity "key_schedule"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
+# Compile Package "aesTest"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Warning: ELAB1_0026: TestBench/aes_128_encrypt_f24_TB.vhd : (56, 0): There is no default binding for component "AES_128_encrypt_f24". (Port "ECB_mode" is not on the entity).
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Compile failure 5 Errors 1 Warnings  Analysis time :  1.0 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Warning: ELAB1_0026: TestBench/aes_128_encrypt_f24_TB.vhd : (56, 0): There is no default binding for component "AES_128_encrypt_f24". (Port "ECB_mode" is not on the entity).
+# Error: COMP96_0078: TestBench/aes_128_encrypt_f24_TB.vhd : (65, 15): Unknown identifier "encrypt".
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Compile failure 6 Errors 1 Warnings  Analysis time :  47.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Error: COMP96_0078: TestBench/aes_128_encrypt_f24_TB.vhd : (65, 15): Unknown identifier "encrypt".
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Compile failure 6 Errors 0 Warnings  Analysis time :  63.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
+# Compile Entity "shiftRows"
+# Compile Architecture "behavioral" of Entity "shiftRows"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Compile Architecture "dataflow" of Entity "sBox"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
+# Compile Entity "dffreg"
+# Compile Architecture "behavioral" of Entity "dffreg"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
+# Compile Entity "key_schedule"
+# Compile Architecture "behavioral" of Entity "key_schedule"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
+# Compile Package "aesTest"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Error: COMP96_0078: TestBench/aes_128_encrypt_f24_TB.vhd : (65, 15): Unknown identifier "encrypt".
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
+# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
+# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
+# Compile failure 6 Errors 0 Warnings  Analysis time :  0.7 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn

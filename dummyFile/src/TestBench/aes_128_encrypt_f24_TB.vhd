@@ -21,7 +21,7 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 		IV_load : in STD_LOGIC;
 		db_load : in STD_LOGIC;
 		stream : in STD_LOGIC;
-		ECB_mode : in STD_LOGIC;
+		encrypt : in STD_LOGIC;
 		CBC_mode : in STD_LOGIC;
 		dataIn : in STD_LOGIC_VECTOR(0 to 31);
 		dataOut : out STD_LOGIC_VECTOR(0 to 31);
@@ -36,7 +36,7 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 	signal IV_load : STD_LOGIC;
 	signal db_load : STD_LOGIC;
 	signal stream : STD_LOGIC;
-	signal ECB_mode : STD_LOGIC;
+	signal encrypt : STD_LOGIC;
 	signal CBC_mode : STD_LOGIC;
 	signal dataIn : STD_LOGIC_VECTOR(0 to 31);
 	-- Observed signals - signals mapped to the output ports of tested entity
@@ -62,7 +62,7 @@ begin
 			IV_load => IV_load,
 			db_load => db_load,
 			stream => stream,
-			ECB_mode => ECB_mode,
+			encrypt => encrypt,
 			CBC_mode => CBC_mode,
 			dataIn => dataIn,
 			dataOut => dataOut,

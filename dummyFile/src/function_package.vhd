@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 package function_package is	 
 	--TODO
-type key_store is array (0 to 9) of std_logic_vector(0 to 127);
+	type key_store is array (0 to 9) of std_logic_vector(0 to 127);
     impure function sbox( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
 	impure function sbox_byte( byte : std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector;
     impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
@@ -339,7 +339,7 @@ begin
 	
 			--report "round " & to_string(i) & "to expanded: " & to_hstring(expansionMatrix);
 			roundKeys(i) := expansionMatrix;
-		   rc_count := rc_count + 1;
+		    rc_count := rc_count + 1;
 			end loop;
 			return roundKeys;
 	end function generateRoundKeys;
