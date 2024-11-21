@@ -230,46 +230,45 @@ begin
 --		report "cipher chunk 4:" &  to_hstring(cipher);
 		
 		--Tests 10 seperate encryptions-----------------------------------------------------
-<<<<<<< HEAD
-		for i in 0 to 9 loop
-				data := tests_128(i).plain;
-				key := 	tests_128(i).key;
-				reset <= '1';
-				wait for 0ns;
-				reset<= '0';
-				wait for 0ns;
-			wait until clk'event AND clk = '1';	 
-			iv_load <= '0';
-			--wait until clk'event AND clk = '1';
-			start <= '1';  
-			key_load <= '1';
-			key_load_loop: for i in 0 to 3 loop
-				dataIn(0 to 31) <= std_logic_vector(key(i*32 to i*32 + 31));
-				wait until clk'event AND clk = '1';
-			end loop key_load_loop;	
-			db_load <= '1';
-			data_load_loop: for i in 0 to 3 loop
-				dataIn(0 to 31) <= std_logic_vector(data(i*32 to i*32 + 31));
-				wait until clk'event AND clk = '1';	
-			end loop data_load_loop;
-			wait until clk'event AND clk = '1';	
-			if(done = '1') then
-				cipher(0 to 31) := dataOut;	
-			end if; 
-			wait until clk'event AND clk = '1';	
-			cipher(32 to 63) := dataOut;	
-
-			wait until clk'event AND clk = '1';	
-			cipher(64 to 95) := dataOut;	
-			wait until clk'event AND clk = '1';	
-			cipher(96 to 127) := dataOut;	
-			 
-		
-		 report "Actual Output: " & to_hstring(cipher) & "     Expected: " & to_hstring(tests_128(i).expected);
-		 assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
+		--for i in 0 to 9 loop
+--				data := tests_128(i).plain;
+--				key := 	tests_128(i).key;
+--				reset <= '1';
+--				wait for 0ns;
+--				reset<= '0';
+--				wait for 0ns;
+--			wait until clk'event AND clk = '1';	 
+--			iv_load <= '0';
+--			--wait until clk'event AND clk = '1';
+--			start <= '1';  
+--			key_load <= '1';
+--			key_load_loop: for i in 0 to 3 loop
+--				dataIn(0 to 31) <= std_logic_vector(key(i*32 to i*32 + 31));
+--				wait until clk'event AND clk = '1';
+--			end loop key_load_loop;	
+--			db_load <= '1';
+--			data_load_loop: for i in 0 to 3 loop
+--				dataIn(0 to 31) <= std_logic_vector(data(i*32 to i*32 + 31));
+--				wait until clk'event AND clk = '1';	
+--			end loop data_load_loop;
+--			wait until clk'event AND clk = '1';	
+--			if(done = '1') then
+--				cipher(0 to 31) := dataOut;	
+--			end if; 
+--			wait until clk'event AND clk = '1';	
+--			cipher(32 to 63) := dataOut;	
+--
+--			wait until clk'event AND clk = '1';	
+--			cipher(64 to 95) := dataOut;	
+--			wait until clk'event AND clk = '1';	
+--			cipher(96 to 127) := dataOut;	
+--			 
+--		
+--		 report "Actual Output: " & to_hstring(cipher) & "     Expected: " & to_hstring(tests_128(i).expected);
+--		 assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
 			
-		end loop;
-=======
+	--	end loop;
+
 --		for i in 0 to 9 loop 
 --				data := tests_128(i).plain;
 --				key := 	tests_128(i).key;			
@@ -312,7 +311,7 @@ begin
 --		 assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
 --			
 --		end loop;
->>>>>>> 2bd7ecc (last minute adjustment to state switching)
+
 		
 		
 		--for i in 0 to 9 loop

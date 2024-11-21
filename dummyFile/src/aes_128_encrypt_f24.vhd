@@ -120,26 +120,19 @@ begin
 					dataOut <= result_Matrix(32 to 63);
 				else
 					temp(32 to 63) := dataIn;
-<<<<<<< HEAD
-				end if;
-=======
-					
-				end if;	
->>>>>>> 2bd7ecc (last minute adjustment to state switching)
+				end if;					
+			
+
 				nextstate <= 8;
 			when 8 =>
 				if output_data = '1' then
 					dataOut <= result_Matrix(64 to 95);
 				else
 					temp(64 to 95) := dataIn;
-<<<<<<< HEAD
+
 				end if;						 
 				nextstate <= 9;				
-=======
-					
-				end if;	  
-				nextstate <= 9;
->>>>>>> 2bd7ecc (last minute adjustment to state switching)
+
 			when 9 =>
 				temp(96 to 127) := dataIn;
 				if output_data = '1' then
