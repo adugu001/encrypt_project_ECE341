@@ -1,596 +1,285 @@
 # ELBREAD: Elaboration process.
 # ELBREAD: Elaboration time 0.0 [s].
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (104, 12): Unknown identifier "Sbox1".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (104, 12): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (104, 12): Prefix of index must be an array.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (104, 12): Undefined type of expression. Expected type 'INTEGER'.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  0.3 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (257, 24): Unknown identifier "sbox_LUT".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (257, 24): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (257, 24): Prefix of index must be an array.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (257, 24): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (258, 25): Unknown identifier "sbox_LUT".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (258, 25): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (258, 25): Prefix of index must be an array.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (258, 25): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (259, 26): Unknown identifier "sbox_LUT".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (259, 26): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (259, 26): Prefix of index must be an array.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (259, 26): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (260, 26): Unknown identifier "sbox_LUT".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (260, 26): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (260, 26): Prefix of index must be an array.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (260, 26): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Compile failure 16 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (430, 5): Keyword 'case' expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (433, 5): Keyword 'process' expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (436, 0): Keyword 'end' expected.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (168, 7): Unknown identifier "encrypt".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (168, 7): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (168, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (176, 5): Signal cannot be the target of a variable assignment.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 16): Unknown identifier "cipher".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 16): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (176, 16): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (178, 35): Unknown identifier "cipher".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (178, 35): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (178, 24): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (178, 11): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (181, 12): Unknown identifier "cipher".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (181, 12): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (181, 12): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0301: aes_128_encrypt_f24.vhd : (134, 4): The choice 'others' must be present when all alternatives are not covered.
-# Compile failure 15 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (328, 2): Keyword '<=' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (330, 6): ';' expected.
-# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (330, 8): Design unit declaration expected.
-# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (334, 17): Identifier expected.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  0.4 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (328, 2): Keyword 'begin' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (330, 6): ';' expected.
-# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (330, 8): Design unit declaration expected.
-# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (334, 17): Identifier expected.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (288, 5): Signal cannot be the target of a variable assignment.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (293, 12): Unknown identifier "cipher".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (293, 12): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (293, 12): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0301: aes_128_encrypt_f24.vhd : (135, 5): The choice 'others' must be present when all alternatives are not covered.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  93.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (293, 12): Unknown identifier "cipher".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (293, 12): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (293, 12): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
-# Error: COMP96_0301: aes_128_encrypt_f24.vhd : (135, 5): The choice 'others' must be present when all alternatives are not covered.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  63.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0301: aes_128_encrypt_f24.vhd : (135, 5): The choice 'others' must be present when all alternatives are not covered.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  32.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0664: aes_128_encrypt_f24.vhd : (280, 17): Value 7 out of range 0 to 6.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  0.2 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (161, 10): Unknown identifier "key_load_complete".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (161, 32): Unknown identifier "data_load_complete".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (161, 32): Cannot find object declaration.
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (161, 10): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (161, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  0.2 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Too many errors - compilation terminated
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 43): Unknown identifier "key_store".
-# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (164, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (164, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (167, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (167, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (167, 20): Unknown identifier "expansionMatrix".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (168, 62): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (168, 62): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (168, 51): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (168, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (169, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 29): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (170, 62): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (170, 62): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (170, 51): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (170, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (173, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (173, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (173, 38): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (173, 38): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (174, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (174, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (174, 39): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (174, 39): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (175, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (175, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (175, 40): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (175, 40): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 40): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 40): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (178, 66): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (178, 66): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (178, 55): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (178, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (181, 58): Unknown identifier "rc_count".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (181, 58): Cannot find object declaration.
-# Error: COMP96_0104: aes_128_encrypt_f24.vhd : (181, 57): Undefined type of expression.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (181, 70): The type of a parameter in a subprogram call does not match to a formal parameter of the "ieee.NUMERIC_STD.TO_UNSIGNED(ARG : NATURAL; SIZE_RES : UNRESOLVED_UNSIGNED) return UNRESOLVED_UNSIGNED" subprogram.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (183, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (183, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (183, 45): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (184, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (184, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (184, 45): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (189, 69): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (189, 69): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (189, 58): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (189, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 54): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 54): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 85): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 85): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 55): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 55): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 87): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 87): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 56): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 56): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 89): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 89): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 56): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 56): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 89): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 89): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (195, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (195, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (195, 35): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (196, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (196, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (196, 36): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (197, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (197, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (197, 37): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (198, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (198, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (198, 37): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (199, 70): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (199, 70): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (199, 59): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (199, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 54): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 54): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 84): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 84): Cannot find object declaration.
-# Compile failure 100 Errors 0 Warnings  Analysis time :  0.2 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Warning: ELAB1_0026: TestBench/aes_128_encrypt_f24_TB.vhd : (56, 0): There is no default binding for component "AES_128_encrypt_f24". (Port "ECB_mode" is not on the entity).
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Compile failure 5 Errors 1 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Too many errors - compilation terminated
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 43): Unknown identifier "key_store".
-# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (164, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (164, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (167, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (167, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (167, 20): Unknown identifier "expansionMatrix".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (168, 62): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (168, 62): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (168, 51): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (168, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (169, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 29): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (170, 62): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (170, 62): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (170, 51): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (170, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (173, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (173, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (173, 38): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (173, 38): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (174, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (174, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (174, 39): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (174, 39): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (175, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (175, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (175, 40): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (175, 40): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (176, 40): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (176, 40): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (178, 66): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (178, 66): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (178, 55): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (178, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (181, 58): Unknown identifier "rc_count".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (181, 58): Cannot find object declaration.
-# Error: COMP96_0104: aes_128_encrypt_f24.vhd : (181, 57): Undefined type of expression.
-# Error: COMP96_0093: aes_128_encrypt_f24.vhd : (181, 70): The type of a parameter in a subprogram call does not match to a formal parameter of the "ieee.NUMERIC_STD.TO_UNSIGNED(ARG : NATURAL; SIZE_RES : UNRESOLVED_UNSIGNED) return UNRESOLVED_UNSIGNED" subprogram.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (183, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (183, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (183, 45): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (184, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (184, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (184, 45): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (189, 69): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (189, 69): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (189, 58): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (189, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 54): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 54): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (190, 85): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (190, 85): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 55): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 55): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (191, 87): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (191, 87): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 56): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 56): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (192, 89): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (192, 89): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 56): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 56): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (193, 89): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (193, 89): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (195, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (195, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (195, 35): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (196, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (196, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (196, 36): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (197, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (197, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (197, 37): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (198, 8): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (198, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (198, 37): Unknown identifier "tempWord".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (199, 70): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (199, 70): Cannot find object declaration.
-# Error: COMP96_0305: aes_128_encrypt_f24.vhd : (199, 59): Cannot find function "to_hstring" for these actuals.
-# Error: COMP96_0086: aes_128_encrypt_f24.vhd : (199, 15): String expected.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 8): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 8): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 54): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 54): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (202, 84): Unknown identifier "expansionMatrix".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (202, 84): Cannot find object declaration.
-# Compile failure 100 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 43): Unknown identifier "key_store".
-# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 21): Unknown identifier "generateroundkeys".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 39): Unknown identifier "key".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 39): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (186, 54): Prefix of index must be an array.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 21): Unknown identifier "key_store".
-# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 21): Unknown identifier "generateroundkeys".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 39): Unknown identifier "key".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 39): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (186, 54): Prefix of index must be an array.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (116, 21): Unknown identifier "key_store".
-# Error: COMP96_0064: aes_128_encrypt_f24.vhd : (116, 21): Unknown type.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 21): Unknown identifier "generateroundkeys".
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 39): Unknown identifier "key".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 39): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (186, 54): Prefix of index must be an array.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_package.vhd
+asim -O5 +access +r +m+testbench_for_aes_128_encrypt_f24 testbench_for_aes_128_encrypt_f24
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6387 kB (elbread=256 elab2=5980 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  9:26 PM, Wednesday, November 20, 2024
+#  Simulation has been initialized
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run @100ns
+# EXECUTION:: NOTE   : cipher chunk 1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 23 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 2:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 25 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 3:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 27 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 4:XXXXXXXXXXXXXXXXXXXXXXXX00000000
+# EXECUTION:: Time: 29 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# KERNEL: Stopped at time 29 ns + 1.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 134 in process of instance "/aes_128_encrypt_f24_tb/clockProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+testbench_for_aes_128_encrypt_f24 testbench_for_aes_128_encrypt_f24
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6387 kB (elbread=256 elab2=5980 kernel=149 sdf=0)
+# ASDB: Error: remove: "C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdbw\current": Access is denied. 
+# VSIM: Error: Fatal error occurred during simulation.
+asim -O5 +access +r +m+testbench_for_aes_128_encrypt_f24 testbench_for_aes_128_encrypt_f24
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6387 kB (elbread=256 elab2=5980 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  9:29 PM, Wednesday, November 20, 2024
+#  Simulation has been initialized
+run @100ns
+# EXECUTION:: NOTE   : cipher chunk 1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 23 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 2:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 25 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 3:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 27 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 4:XXXXXXXXXXXXXXXXXXXXXXXX00000000
+# EXECUTION:: Time: 29 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# KERNEL: Stopped at time 29 ns + 1.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 134 in process of instance "/aes_128_encrypt_f24_tb/clockProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
+# Compile Entity "shiftRows"
+# Compile Architecture "behavioral" of Entity "shiftRows"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Compile Architecture "dataflow" of Entity "sBox"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
+# Compile Entity "dffreg"
+# Compile Architecture "behavioral" of Entity "dffreg"
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
 # Compile Package "function_package"
 # Compile Package Body "function_package"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.4 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
+# Compile Entity "key_schedule"
+# Compile Architecture "behavioral" of Entity "key_schedule"
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
 # Compile Entity "AES_128_encrypt_f24"
 # Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (163, 39): Unknown identifier "key".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (163, 39): Cannot find object declaration.
-# Error: COMP96_0104: aes_128_encrypt_f24.vhd : (163, 39): Undefined type of expression.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
+# Compile Package "aesTest"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  1.0 [s]
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6387 kB (elbread=256 elab2=5980 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  9:32 PM, Wednesday, November 20, 2024
+#  Simulation has been initialized
+run @100ns
+# EXECUTION:: NOTE   : cipher chunk 1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 23 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 2:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 25 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 3:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 27 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 4:XXXXXXXXXXXXXXXXXXXXXXXX00000000
+# EXECUTION:: Time: 29 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# KERNEL: Stopped at time 29 ns + 1.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 138 in process of instance "/aes_128_encrypt_f24_tb/clockProcess".
+step -over
+step -over
+step -over
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
+# Compile Entity "shiftRows"
+# Compile Architecture "behavioral" of Entity "shiftRows"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Compile Architecture "dataflow" of Entity "sBox"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
+# Compile Entity "dffreg"
+# Compile Architecture "behavioral" of Entity "dffreg"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
+# Compile Entity "key_schedule"
+# Compile Architecture "behavioral" of Entity "key_schedule"
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
 # Compile Entity "AES_128_encrypt_f24"
 # Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (215, 1): Unknown identifier "tempWord".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (215, 1): Cannot find object declaration.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  15.0 [ms]
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
+# Compile Package "aesTest"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.9 [s]
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6387 kB (elbread=256 elab2=5980 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  9:35 PM, Wednesday, November 20, 2024
+#  Simulation has been initialized
+run @100ns
+# EXECUTION:: NOTE   : cipher chunk 1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 23 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 2:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 25 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 3:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 27 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 4:XXXXXXXXXXXXXXXXXXXXXXXX00000000
+# EXECUTION:: Time: 29 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# KERNEL: Stopped at time 29 ns + 1.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 138 in process of instance "/aes_128_encrypt_f24_tb/clockProcess".
+step -over
+run
+# KERNEL: Stopped at time 34 ns + 1.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" at line 138 in process of instance "/aes_128_encrypt_f24_tb/UUT/p1".
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" at line 138 in process of instance "/aes_128_encrypt_f24_tb/UUT/p1".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
 acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
 # Compile Entity "AES_128_encrypt_f24"
 # Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
 # Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (69, 1): Keyword 'begin' expected.
-# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (69, 2): Design unit declaration expected.
-# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (241, 17): Identifier expected.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  32.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (88, 12): Unknown identifier "rc".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (88, 12): Cannot find object declaration.
-# Error: COMP96_0289: aes_128_encrypt_f24.vhd : (88, 12): Prefix of index must be an array.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (88, 12): Undefined type of expression. Expected type 'INTEGER'.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (122, 8): Unknown identifier "key_expansion_complete".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (122, 8): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (122, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (166, 1): Unknown identifier "temp".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (166, 1): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (169, 1): Unknown identifier "key_expansion_complete".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (169, 1): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (170, 1): Unknown identifier "encryption_count".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (170, 1): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (171, 1): Unknown identifier "sub_counter".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (171, 1): Cannot find object declaration.
-# Compile failure 11 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (149, 1): Unknown identifier "done_enc".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (149, 1): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (150, 1): Unknown identifier "data_out_complete".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (150, 1): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (152, 1): Unknown identifier "IV_load_count".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (152, 1): Cannot find object declaration.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (153, 1): Unknown identifier "IV_load_complete".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (153, 1): Cannot find object declaration.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0046: aes_128_encrypt_f24.vhd : (147, 40): Sequential statement expected.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
-# Compile Entity "shiftRows"
-# Compile Architecture "behavioral" of Entity "shiftRows"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
-# Compile Entity "sBox"
-# Compile Architecture "behavioral" of Entity "sBox"
-# Compile Architecture "dataflow" of Entity "sBox"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
-# Compile Entity "dffreg"
-# Compile Architecture "behavioral" of Entity "dffreg"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
-# Compile Entity "key_schedule"
-# Compile Architecture "behavioral" of Entity "key_schedule"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
-# Compile Package "aesTest"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Warning: ELAB1_0026: TestBench/aes_128_encrypt_f24_TB.vhd : (56, 0): There is no default binding for component "AES_128_encrypt_f24". (Port "ECB_mode" is not on the entity).
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Compile failure 5 Errors 1 Warnings  Analysis time :  1.0 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Warning: ELAB1_0026: TestBench/aes_128_encrypt_f24_TB.vhd : (56, 0): There is no default binding for component "AES_128_encrypt_f24". (Port "ECB_mode" is not on the entity).
-# Error: COMP96_0078: TestBench/aes_128_encrypt_f24_TB.vhd : (65, 15): Unknown identifier "encrypt".
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Compile failure 6 Errors 1 Warnings  Analysis time :  47.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Error: COMP96_0078: TestBench/aes_128_encrypt_f24_TB.vhd : (65, 15): Unknown identifier "encrypt".
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Compile failure 6 Errors 0 Warnings  Analysis time :  63.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
-# Compile Entity "shiftRows"
-# Compile Architecture "behavioral" of Entity "shiftRows"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
-# Compile Entity "sBox"
-# Compile Architecture "behavioral" of Entity "sBox"
-# Compile Architecture "dataflow" of Entity "sBox"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
-# Compile Entity "dffreg"
-# Compile Architecture "behavioral" of Entity "dffreg"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
-# Compile Entity "key_schedule"
-# Compile Architecture "behavioral" of Entity "key_schedule"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
-# Compile Package "aesTest"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Error: COMP96_0078: TestBench/aes_128_encrypt_f24_TB.vhd : (65, 15): Unknown identifier "encrypt".
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (266, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Error: COMP96_0203: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 4): Binding indication has neither a generic map aspect nor a port map aspect.
-# Error: ELAB1_0011: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "Encrypt" is on entity "AES_128_encrypt_f24" but not on the component declaration.
-# Error: ELAB1_0030: TestBench/aes_128_encrypt_f24_TB.vhd : (267, 0): Port "ECB_mode" is on component "AES_128_encrypt_f24" but not on the entity "AES_128_encrypt_f24".
-# Compile failure 6 Errors 0 Warnings  Analysis time :  0.7 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
 acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
 # File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
 # Compile Entity "shiftRows"
@@ -617,143 +306,232 @@ acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd
 # Compile Entity "aes_128_encrypt_f24_tb"
 # Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
 # Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.7 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (145, 4): Keyword 'end' expected.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 18): ':' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 27): ';' expected.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  0.4 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 18): ':' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 27): ';' expected.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 18): ':' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 27): ';' expected.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 18): ':' expected.
-# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 27): ';' expected.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (57, 83): Keyword 'begin' expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (58, 1): Keyword 'end' expected.
-# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (58, 10): Design unit declaration expected.
-# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (166, 17): Identifier expected.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (57, 83): Keyword 'begin' expected.
-# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (58, 1): Keyword 'end' expected.
-# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (58, 10): Design unit declaration expected.
-# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (166, 17): Identifier expected.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
-# Compile Entity "shiftRows"
-# Compile Architecture "behavioral" of Entity "shiftRows"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
-# Compile Entity "sBox"
-# Compile Architecture "behavioral" of Entity "sBox"
-# Compile Architecture "dataflow" of Entity "sBox"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
-# Compile Entity "dffreg"
-# Compile Architecture "behavioral" of Entity "dffreg"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
-# Compile Package "function_package"
-# Compile Package Body "function_package"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
-# Compile Entity "key_schedule"
-# Compile Architecture "behavioral" of Entity "key_schedule"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
-# Compile Package "aesTest"
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# Compile Entity "aes_128_encrypt_f24_tb"
-# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
-# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  2.0 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (113, 4): Unknown identifier "output_data".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (113, 4): Cannot find object declaration.
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (114, 4): Signal cannot be the target of a variable assignment.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (117, 7): Unknown identifier "output_data".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (117, 7): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (117, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (124, 7): Unknown identifier "output_data".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (124, 7): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (124, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (132, 7): Unknown identifier "output_data".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (132, 7): Cannot find object declaration.
-# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (132, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (133, 5): Unknown identifier "output_data".
-# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (133, 5): Cannot find object declaration.
-# Compile failure 14 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (114, 4): Signal cannot be the target of a variable assignment.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
-# Compile Entity "AES_128_encrypt_f24"
-# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
-# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
-# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
-# Compile Entity "shiftRows"
-# Compile Architecture "behavioral" of Entity "shiftRows"
-# File: C:/Users/andre/OneDr
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.8 [s]
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6387 kB (elbread=256 elab2=5980 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  9:38 PM, Wednesday, November 20, 2024
+#  Simulation has been initialized
+run @100ns
+# EXECUTION:: NOTE   : cipher chunk 1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 23 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 2:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 25 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 3:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 27 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 4:XXXXXXXXXXXXXXXXXXXXXXXX00000000
+# EXECUTION:: Time: 29 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# KERNEL: Stopped at time 29 ns + 1.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 138 in process of instance "/aes_128_encrypt_f24_tb/clockProcess".
+step -over
+step -over
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6387 kB (elbread=256 elab2=5980 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  9:39 PM, Wednesday, November 20, 2024
+#  Simulation has been initialized
+run @100ns
+# EXECUTION:: NOTE   : cipher chunk 1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 23 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 2:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 25 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# EXECUTION:: NOTE   : cipher chunk 3:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 27 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# KERNEL: Stopped at time 29 ns + 1.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 130 in process of instance "/aes_128_encrypt_f24_tb/clockProcess".
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6387 kB (elbread=256 elab2=5980 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\wave.asdb
+#  9:40 PM, Wednesday, November 20, 2024
+#  Simulation has been initialized
+run @100ns
+# KERNEL: Stopped at time 0 ps + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 92 in process of instance "/aes_128_encrypt_f24_tb/clockProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# KERNEL: Stopped at time 5 ns + 1.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 98 in process of instance "/aes_128_encrypt_f24_tb/clockProcess".
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# KERNEL: Stopped at time 9 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+step -over
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+step -over
+run
+# KERNEL: Stopped at time 11 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 11 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 13 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 13 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 15 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 15 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 17 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 17 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 19 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 19 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 21 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 21 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 23 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 23 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# EXECUTION:: NOTE   : cipher chunk 1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# EXECUTION:: Time: 23 ns,  Iteration: 1,  Instance: /aes_128_encrypt_f24_tb,  Process: clockProcess.
+# KERNEL: Stopped at time 25 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+run
+# KERNEL: Stopped at time 25 ns + 0.
+# Stopped in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" at line 76 in process of instance "/aes_128_encrypt_f24_tb/line__72".
+endsim
+# VSIM: Simulation has finished.

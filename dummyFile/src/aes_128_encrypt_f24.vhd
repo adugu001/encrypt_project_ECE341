@@ -60,7 +60,6 @@ variable invert : std_logic := encrypt;
 variable load_key, load_data, load_IV, output_data: std_logic := '0';
 
 begin
-if (reset = '0') then
 	   	case state is --start experimental code
 		   when 0 => --wait for start signal
 		   		if (start = '1' AND key_load = '1') then nextstate <= 1;
@@ -118,15 +117,15 @@ if (reset = '0') then
 					dataOut <= result_Matrix(32 to 63);
 				else
 					temp(32 to 63) := dataIn;
-					nextstate <= 8;
 				end if;
+				nextstate <= 8;
 			when 8 =>
 				if output_data = '1' then
 					dataOut <= result_Matrix(64 to 95);
 				else
 					temp(64 to 95) := dataIn;
-					nextstate <= 9;
-				end if;
+				end if;						 
+				nextstate <= 9;				
 			when 9 =>
 				temp(96 to 127) := dataIn;
 				if output_data = '1' then
@@ -152,7 +151,7 @@ if (reset = '0') then
 					load_data := '0';			
 				end if;		
 		end case;		
-elsif(reset ='0') then		
+if(reset ='1') then		
 		fullKey := std_logic_vector(to_unsigned (0, 128));
 		fullData  := std_logic_vector(to_unsigned (0, 128));	  
 		result_matrix:= std_logic_vector(to_unsigned (0, 128));

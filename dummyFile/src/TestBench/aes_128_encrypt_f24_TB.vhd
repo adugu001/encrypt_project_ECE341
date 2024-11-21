@@ -30,14 +30,14 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 
 	-- Stimulus signals - signals mapped to the input and inout ports of tested entity
 	signal clk : STD_LOGIC;
-	signal reset : STD_LOGIC;
+	signal reset : STD_LOGIC := '0';
 	signal start : STD_LOGIC;
 	signal key_load : STD_LOGIC;
 	signal IV_load : STD_LOGIC;
 	signal db_load : STD_LOGIC;
 	signal stream : STD_LOGIC;
-	signal encrypt : STD_LOGIC;
-	signal CBC_mode : STD_LOGIC;
+	signal encrypt : STD_LOGIC := '0';
+	signal CBC_mode : STD_LOGIC := '0';
 	signal dataIn : STD_LOGIC_VECTOR(0 to 31);
 	-- Observed signals - signals mapped to the output ports of tested entity
 	signal dataOut : STD_LOGIC_VECTOR(0 to 31);
@@ -133,10 +133,12 @@ begin
 		--Tests 10 seperate encryptions-----------------------------------------------------
 		for i in 0 to 9 loop
 				data := tests_128(i).plain;
-				key := 	tests_128(i).key;			
-			reset <= '1';
-			wait until clk'event AND clk = '1';
-			reset <= '0';	 
+				key := 	tests_128(i).key;
+				reset <= '1';
+				wait for 0ns;
+				reset<= '0';
+				wait for 0ns;
+			wait until clk'event AND clk = '1';	 
 			iv_load <= '0';
 			--wait until clk'event AND clk = '1';
 			start <= '1';  
