@@ -85,7 +85,6 @@ variable key : std_logic_vector(0 to 127);
 variable data1 : std_logic_vector(0 to 127);	
 variable key1 : std_logic_vector(0 to 127); 
 variable cipher : std_logic_vector(0 to 127);
-
 begin
 	
 	data:= "00110010010000111111011010101000100010000101101000110000100011010011000100110001100110001010001011100000001101110000011100110100";
@@ -118,8 +117,7 @@ begin
 		wait until clk'event AND clk = '1';
 		wait until clk'event AND clk = '1';	
 		if(done = '1') then
-			cipher(0 to 31) := dataOut;	
-		
+			cipher(0 to 31) := dataOut;			
 		end if; 
 			report "cipher chunk 1:" & to_hstring(cipher);
 		wait until clk'event AND clk = '1';	
@@ -135,8 +133,7 @@ begin
 		--Tests 10 seperate encryptions-----------------------------------------------------
 		for i in 0 to 9 loop
 				data := tests_128(i).plain;
-				key := 	tests_128(i).key;
-			
+				key := 	tests_128(i).key;			
 			reset <= '1';
 			wait until clk'event AND clk = '1';
 			reset <= '0';	 
