@@ -164,6 +164,7 @@ if(reset ='1') then
 		result_matrix:= std_logic_vector(to_unsigned (0, 128));
 		IV  := std_logic_vector(to_unsigned (0, 128));
 		nextstate <= 0;
+		temp := (others => '0');
 end if;		
 end process;
 
