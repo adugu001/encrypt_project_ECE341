@@ -56,7 +56,7 @@ begin
 p1 : process(clk,reset) is  
 variable fullData, fullkey, result_matrix, IV, temp : std_logic_vector(0 to 127) := (others => '0');
 variable roundKeys: key_store;  	
-variable invert : std_logic := encrypt;
+variable invert : std_logic := '0';
 variable load_key, load_data, load_IV, output_data: std_logic := '0';
 
 begin
@@ -77,10 +77,13 @@ begin
 				load_IV := '1';
 				temp(0 to 31) := dataIn;	
 				nextstate <= 7;	
-			when 4 =>  --load full data
+			when 4 =>  --load full data	
+			--needs to wait for db_load signal
+				if(db_load = '1') then
 				load_Data := '1';
 				temp(0 to 31) := dataIn;	
-				nextstate <= 7;
+				nextstate <= 7;		 
+				end if;
 			when 5 => --encrypt/decrypt
 				if encrypt = '1' then
 					--key expansion--------------------------------------------------------------------------------------------------------  
@@ -117,15 +120,26 @@ begin
 					dataOut <= result_Matrix(32 to 63);
 				else
 					temp(32 to 63) := dataIn;
+<<<<<<< HEAD
 				end if;
+=======
+					
+				end if;	
+>>>>>>> 2bd7ecc (last minute adjustment to state switching)
 				nextstate <= 8;
 			when 8 =>
 				if output_data = '1' then
 					dataOut <= result_Matrix(64 to 95);
 				else
 					temp(64 to 95) := dataIn;
+<<<<<<< HEAD
 				end if;						 
 				nextstate <= 9;				
+=======
+					
+				end if;	  
+				nextstate <= 9;
+>>>>>>> 2bd7ecc (last minute adjustment to state switching)
 			when 9 =>
 				temp(96 to 127) := dataIn;
 				if output_data = '1' then
