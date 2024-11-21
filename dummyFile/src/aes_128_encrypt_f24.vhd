@@ -49,125 +49,123 @@ end entity AES_128_encrypt_f24;
 -- Advanced challenge 1: use a single bidirectional data bus instead of separate input and output busses.
 --      You are permitted to add control signals.
 
-
-
 architecture behavioral of AES_128_encrypt_f24 is
 signal state, nextstate: integer range 0 to 9 := 0;
   
-begin
-	
+begin	
 p1 : process(clk,reset) is  
-
-variable fullKey : std_logic_vector(0 to 127);
-variable fullData : std_logic_vector(0 to 127);	
-variable result_matrix: std_logic_vector(0 to 127);
-variable temp: std_logic_vector(0 to 127);
-variable roundKeys: key_store;  
-variable IV : std_logic_vector(0 to 127) := std_logic_vector(to_unsigned (0, 128));	
+variable fullData, fullkey, result_matrix, IV, temp : std_logic_vector(0 to 127) := (others => '0');
+variable roundKeys: key_store;  	
 variable invert : std_logic := encrypt;
-variable load_key, load_data, load_IV: std_logic := '0';
+variable load_key, load_data, load_IV, output_data: std_logic := '0';
 
 begin
 if (reset = '0') then
-   	case state is --start experimental code
-	   when 0 => --wait for start signal
-	   		if (start = '1' AND key_load = '1') then nextstate <= 1;
-			else nextstate <= 0;
-			end if;
-		when 1 => --load key
-			load_key := '1';
-			temp(0 to 31) := dataIn;	
-			nextstate <= 7;	 
-		 when 2 => --wait to load data
-		 	if (db_load = '0' OR stream = '0') then nextstate <= 3;
-			else nextstate <= 4;
-			end if;
-		when 3 =>  --load IV
-			load_IV := '1';
-			temp(0 to 31) := dataIn;	
-			nextstate <= 7;	
-		when 4 =>  --load full data
-			load_Data := '1';
-			temp(0 to 31) := dataIn;	
-			nextstate <= 7;
-		when 5 => --encrypt/decrypt
-			if encrypt = '1' then
-				--key expansion--------------------------------------------------------------------------------------------------------  
-				roundkeys := generateroundkeys(fullkey);
-				--encryption loop---------------------------------------------------------------------------------------------
-				result_matrix := addRoundkey(fullData, fullkey);
-				for i in 0 to 9 loop
-					report "round " & to_string(i) & "====================";
-					--substitute in sbox 
-					result_matrix := sbox(result_matrix, invert);
-					report "   after sbox : " & to_hstring(result_matrix);
-					--shift rows 
-					result_matrix := shiftRows(result_matrix, invert);
-					report "   after shift : " & to_hstring(result_matrix);
-					--mix columns
-					if(i  /=  9) then
-						result_matrix := mixColumns(result_matrix, invert);
+	   	case state is --start experimental code
+		   when 0 => --wait for start signal
+		   		if (start = '1' AND key_load = '1') then nextstate <= 1;
+				else nextstate <= 0;
+				end if;
+			when 1 => --load key
+				load_key := '1';
+				temp(0 to 31) := dataIn;	
+				nextstate <= 7;	 
+			 when 2 => --wait to load data
+			 	if (db_load = '0' OR stream = '0') then nextstate <= 3;
+				else nextstate <= 4;
+				end if;
+			when 3 =>  --load IV
+				load_IV := '1';
+				temp(0 to 31) := dataIn;	
+				nextstate <= 7;	
+			when 4 =>  --load full data
+				load_Data := '1';
+				temp(0 to 31) := dataIn;	
+				nextstate <= 7;
+			when 5 => --encrypt/decrypt
+				if encrypt = '1' then
+					--key expansion--------------------------------------------------------------------------------------------------------  
+					roundkeys := generateroundkeys(fullkey);
+					--encryption loop---------------------------------------------------------------------------------------------
+					result_matrix := addRoundkey(fullData, fullkey);
+					for i in 0 to 9 loop
+						report "round " & to_string(i) & "====================";
+						--substitute in sbox 
+						result_matrix := sbox(result_matrix, invert);
+						report "   after sbox : " & to_hstring(result_matrix);
+						--shift rows 
+						result_matrix := shiftRows(result_matrix, invert);
+						report "   after shift : " & to_hstring(result_matrix);
+						--mix columns
+						if(i  /=  9) then
+							result_matrix := mixColumns(result_matrix, invert);
+						end if;
+						report "   after mix : " & to_hstring(result_matrix);
+						--add round key	except last round
+						result_matrix := addRoundKey(result_matrix, roundKeys(i)); 	
+						report "   end value: " & to_hstring(result_matrix);
+					end loop;																						
+				else  --start decryption
+				end if;
+				nextstate <= 6;
+			when 6 => --output
+				done <= '1';
+				output_data := '1';
+				dataOut <= result_matrix(0 to 31);	
+				nextstate <= 7;
+			when 7 =>
+				if output_data = '1' then
+					dataOut <= result_Matrix(32 to 63);
+				else
+					temp(32 to 63) := dataIn;
+					nextstate <= 8;
+				end if;
+			when 8 =>
+				if output_data = '1' then
+					dataOut <= result_Matrix(64 to 95);
+				else
+					temp(64 to 95) := dataIn;
+					nextstate <= 9;
+				end if;
+			when 9 =>
+				temp(96 to 127) := dataIn;
+				if output_data = '1' then
+					output_data := '0';
+					dataOut <= result_Matrix(96 to 127);
+					if stream = '1' then
+						if CBC_Mode = '1' then IV := result_matrix; end if;
+						nextstate <= 4;
+					else nextstate <= 0; end if;
+				elsif load_key = '1' then
+					fullkey := temp;
+					if (IV_Load = '0') then nextstate <= 2;
+					else nextstate <= 3;
 					end if;
-					report "   after mix : " & to_hstring(result_matrix);
-					--add round key	except last round
-					result_matrix := addRoundKey(result_matrix, roundKeys(i)); 	
-					report "   end value: " & to_hstring(result_matrix);
-				end loop;																						
-			else  --start decryption
-			end if;
-			nextstate <= 6;
-		when 6 => --output
-			done <= '1';
-			for i in 0 to 3 loop
-				dataout <= result_matrix(i*32 to i*32+31);
-			end loop;
-			report "output: " & to_hstring(result_matrix);
-			if stream = '1' then
-				if CBC_Mode = '1' then
-					IV := result_matrix;
-				end if;
-				nextstate <= 3;
-			else nextstate <= 0;
-			end if;
-		when 7 =>
-			temp(32 to 63) := dataIn;
-			nextstate <= 8;
-		when 8 =>
-			temp(64 to 95) := dataIn;
-			nextstate <= 9;
-		when 9 =>
-			temp(96 to 127) := dataIn;
-			if load_key = '1' then
-				fullkey := temp;
-				if (IV_Load = '0') then nextstate <= 2;
-				else nextstate <= 3;
-				end if;
-				load_key := '0';
-			elsif load_IV = '1' then
-				IV := temp;
-				nextstate <= 2;
-				load_IV := '0';
-			elsif load_data = '1' then
-				fulldata := temp;
-				nextstate <= 5;
-				load_data := '0';
-			end if;		
-	end case;		
+					load_key := '0';
+				elsif load_IV = '1' then
+					IV := temp;
+					nextstate <= 2;
+					load_IV := '0';
+				elsif load_data = '1' then
+					fulldata := temp;
+					nextstate <= 5;
+					load_data := '0';			
+				end if;		
+		end case;		
 elsif(reset ='0') then		
-	fullKey := std_logic_vector(to_unsigned (0, 128));
-	fullData  := std_logic_vector(to_unsigned (0, 128));	  
-	result_matrix:= std_logic_vector(to_unsigned (0, 128));
-	IV  := std_logic_vector(to_unsigned (0, 128));
-	nextstate <= 0;
+		fullKey := std_logic_vector(to_unsigned (0, 128));
+		fullData  := std_logic_vector(to_unsigned (0, 128));	  
+		result_matrix:= std_logic_vector(to_unsigned (0, 128));
+		IV  := std_logic_vector(to_unsigned (0, 128));
+		nextstate <= 0;
 end if;		
-
 end process;
 
 CLK_process: process(CLK)
-begin
-	if CLK'event and CLK = '1' then
-		state <= nextstate;
-	end if;
+		begin
+			if CLK'event and CLK = '1' then
+				state <= nextstate;
+			end if;
 end process CLK_process; 
 
 

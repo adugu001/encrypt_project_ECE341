@@ -591,4 +591,169 @@ acom -dbg -e 100 -work dummyFile -2019  $dsn/src/TestBench/aes_128_encrypt_f24_T
 # Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
 # Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
 # Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
-acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
+# Compile Entity "shiftRows"
+# Compile Architecture "behavioral" of Entity "shiftRows"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Compile Architecture "dataflow" of Entity "sBox"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
+# Compile Entity "dffreg"
+# Compile Architecture "behavioral" of Entity "dffreg"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
+# Compile Entity "key_schedule"
+# Compile Architecture "behavioral" of Entity "key_schedule"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
+# Compile Package "aesTest"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.7 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (145, 4): Keyword 'end' expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 18): ':' expected.
+# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 27): ';' expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.4 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 18): ':' expected.
+# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 27): ';' expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 18): ':' expected.
+# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 27): ';' expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 18): ':' expected.
+# Error: COMP96_0015: aes_128_encrypt_f24.vhd : (57, 27): ';' expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (57, 83): Keyword 'begin' expected.
+# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (58, 1): Keyword 'end' expected.
+# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (58, 10): Design unit declaration expected.
+# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (166, 17): Identifier expected.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (57, 83): Keyword 'begin' expected.
+# Error: COMP96_0019: aes_128_encrypt_f24.vhd : (58, 1): Keyword 'end' expected.
+# Error: COMP96_0016: aes_128_encrypt_f24.vhd : (58, 10): Design unit declaration expected.
+# Error: COMP96_0018: aes_128_encrypt_f24.vhd : (166, 17): Identifier expected.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
+# Compile Entity "shiftRows"
+# Compile Architecture "behavioral" of Entity "shiftRows"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd
+# Compile Entity "sBox"
+# Compile Architecture "behavioral" of Entity "sBox"
+# Compile Architecture "dataflow" of Entity "sBox"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd
+# Compile Entity "dffreg"
+# Compile Architecture "behavioral" of Entity "dffreg"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+# Compile Package "function_package"
+# Compile Package Body "function_package"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd
+# Compile Entity "key_schedule"
+# Compile Architecture "behavioral" of Entity "key_schedule"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
+# Compile Package "aesTest"
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# Compile Entity "aes_128_encrypt_f24_tb"
+# Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"
+# Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  2.0 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (113, 4): Unknown identifier "output_data".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (113, 4): Cannot find object declaration.
+# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (114, 4): Signal cannot be the target of a variable assignment.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (117, 7): Unknown identifier "output_data".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (117, 7): Cannot find object declaration.
+# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (117, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (124, 7): Unknown identifier "output_data".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (124, 7): Cannot find object declaration.
+# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (124, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (132, 7): Unknown identifier "output_data".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (132, 7): Cannot find object declaration.
+# Error: COMP96_0077: aes_128_encrypt_f24.vhd : (132, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: aes_128_encrypt_f24.vhd : (133, 5): Unknown identifier "output_data".
+# Error: COMP96_0133: aes_128_encrypt_f24.vhd : (133, 5): Cannot find object declaration.
+# Compile failure 14 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Error: COMP96_0110: aes_128_encrypt_f24.vhd : (114, 4): Signal cannot be the target of a variable assignment.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/aes_128_encrypt_f24.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+# Compile Entity "AES_128_encrypt_f24"
+# Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/shiftRows.vhd $dsn/src/Sbox.vhd $dsn/src/dffreg.vhd $dsn/src/function_package.vhd $dsn/src/key_schedule.vhd $dsn/src/aes_128_encrypt_f24.vhd $dsn/src/aes_128_test_package.vhd $dsn/src/TestBench/aes_128_encrypt_f24_TB.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd
+# Compile Entity "shiftRows"
+# Compile Architecture "behavioral" of Entity "shiftRows"
+# File: C:/Users/andre/OneDr
