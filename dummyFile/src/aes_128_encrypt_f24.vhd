@@ -50,10 +50,10 @@ end entity AES_128_encrypt_f24;
 --      You are permitted to add control signals.
 
 architecture behavioral of AES_128_encrypt_f24 is
-signal state, nextstate: integer range 0 to 9 := 0;
-  
+signal state, nextstate, NextStateReset: integer := 0;
+signal stale : std_logic := '0';  
 begin	
-p1 : process(clk,reset) is  
+p1 : process(state, stale, reset) is  
 variable fullData, fullkey, result_matrix, IV, temp : std_logic_vector(0 to 127) := (others => '0');
 variable roundKeys: key_store;  	
 variable invert : std_logic := '0';
@@ -62,28 +62,34 @@ variable load_key, load_data, load_IV, output_data: std_logic := '0';
 begin
 	   	case state is --start experimental code
 		   when 0 => --wait for start signal
-		   		if (start = '1' AND key_load = '1') then nextstate <= 1;
+		   if (start = '1' AND key_load = '1') then 
+			   nextstate <= 1;
 				else nextstate <= 0;
-				end if;
+				end if;	
+				--report "state 0";
 			when 1 => --load key
 				load_key := '1';
 				temp(0 to 31) := dataIn;	
-				nextstate <= 7;	 
+				nextstate <= 7;	
+				--report "state 1";
 			 when 2 => --wait to load data
 			 	if (db_load = '0' OR stream = '0') then nextstate <= 3;
 				else nextstate <= 4;
-				end if;
+				end if;	 
+				--report "state 2";
 			when 3 =>  --load IV
 				load_IV := '1';
 				temp(0 to 31) := dataIn;	
 				nextstate <= 7;	
+				--report "state 3";
 			when 4 =>  --load full data	
 			--needs to wait for db_load signal
 				if(db_load = '1') then
 				load_Data := '1';
 				temp(0 to 31) := dataIn;	
 				nextstate <= 7;		 
-				end if;
+				end if;	 
+				--report "state 4";
 			when 5 => --encrypt/decrypt
 				if encrypt = '1' then
 					--key expansion--------------------------------------------------------------------------------------------------------  
@@ -91,30 +97,32 @@ begin
 					--encryption loop---------------------------------------------------------------------------------------------
 					result_matrix := addRoundkey(fullData, fullkey);
 					for i in 0 to 9 loop
-						report "round " & to_string(i) & "====================";
+						--report "round " & to_string(i) & "====================";
 						--substitute in sbox 
 						result_matrix := sbox(result_matrix, invert);
-						report "   after sbox : " & to_hstring(result_matrix);
+						--report "   after sbox : " & to_hstring(result_matrix);
 						--shift rows 
 						result_matrix := shiftRows(result_matrix, invert);
-						report "   after shift : " & to_hstring(result_matrix);
+						--report "   after shift : " & to_hstring(result_matrix);
 						--mix columns
 						if(i  /=  9) then
 							result_matrix := mixColumns(result_matrix, invert);
 						end if;
-						report "   after mix : " & to_hstring(result_matrix);
+						--report "   after mix : " & to_hstring(result_matrix);
 						--add round key	except last round
 						result_matrix := addRoundKey(result_matrix, roundKeys(i)); 	
-						report "   end value: " & to_hstring(result_matrix);
+						--report "   end value: " & to_hstring(result_matrix);
 					end loop;																						
 				else  --start decryption
 				end if;
 				nextstate <= 6;
+				--report "state 5";
 			when 6 => --output
 				done <= '1';
 				output_data := '1';
 				dataOut <= result_matrix(0 to 31);	
-				nextstate <= 7;
+				nextstate <= 7;	 
+				--report "state 6";
 			when 7 =>
 				if output_data = '1' then
 					dataOut <= result_Matrix(32 to 63);
@@ -122,7 +130,7 @@ begin
 					temp(32 to 63) := dataIn;
 				end if;					
 			
-
+				--report "state 7";
 				nextstate <= 8;
 			when 8 =>
 				if output_data = '1' then
@@ -132,14 +140,16 @@ begin
 
 				end if;						 
 				nextstate <= 9;				
-
+				--report "state 8";
 			when 9 =>
 				temp(96 to 127) := dataIn;
 				if output_data = '1' then
 					output_data := '0';
 					dataOut <= result_Matrix(96 to 127);
 					if stream = '1' then
-						if CBC_Mode = '1' then IV := result_matrix; end if;
+						if CBC_Mode = '1' then 
+							IV := result_matrix; 
+						end if;
 						nextstate <= 4;
 					else nextstate <= 0; end if;
 				elsif load_key = '1' then
@@ -156,9 +166,10 @@ begin
 					fulldata := temp;
 					nextstate <= 5;
 					load_data := '0';			
-				end if;		
-		end case;		
-if(reset ='1') then		
+				end if;
+				--report "state 9"; 
+				when 10 =>
+				if(reset ='1') then		
 		fullKey := std_logic_vector(to_unsigned (0, 128));
 		fullData  := std_logic_vector(to_unsigned (0, 128));	  
 		result_matrix:= std_logic_vector(to_unsigned (0, 128));
@@ -166,12 +177,22 @@ if(reset ='1') then
 		nextstate <= 0;
 		temp := (others => '0');
 end if;		
+				when others => null;
+		end case;		
+		
 end process;
 
 CLK_process: process(CLK)
-		begin
-			if CLK'event and CLK = '1' then
-				state <= nextstate;
+begin
+		if RESET = '1' then
+			State <= 10;
+			NextStateReset <= 1;
+		elsif CLK'event and CLK = '1' then
+			if (state = nextState)then
+				stale <= not stale;
+				else
+				state <= nextstate;	  
+				end if;
 			end if;
 end process CLK_process; 
 
