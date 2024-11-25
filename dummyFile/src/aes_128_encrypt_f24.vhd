@@ -73,7 +73,8 @@ begin
 				nextstate <= 7;	
 				--report "state 1";
 			 when 2 => --wait to load data
-			 	if (db_load = '0' OR stream = '0') then nextstate <= 3;
+			 if (db_load = '0' OR stream = '0') then 
+				 nextstate <= 3;
 				else nextstate <= 4;
 				end if;	 
 				--report "state 2";
@@ -90,10 +91,11 @@ begin
 				nextstate <= 7;		 
 				end if;	 
 				--report "state 4";
-			when 5 => --encrypt/decrypt
+			when 5 => --encrypt/decrypt	
+				roundkeys := generateroundkeys(fullkey, not encrypt);
 				if encrypt = '1' then
 					--key expansion--------------------------------------------------------------------------------------------------------  
-					roundkeys := generateroundkeys(fullkey);
+					
 					--encryption loop---------------------------------------------------------------------------------------------
 					result_matrix := addRoundkey(fullData, fullkey);
 					for i in 0 to 9 loop
@@ -113,7 +115,21 @@ begin
 						result_matrix := addRoundKey(result_matrix, roundKeys(i)); 	
 						--report "   end value: " & to_hstring(result_matrix);
 					end loop;																						
-				else  --start decryption
+				else --start decryption	 
+					result_matrix:= fullData;
+					for i in 0 to 9 loop					 
+						report "round " & to_string(i) & "====================";
+						result_matrix := addRoundKey(result_matrix, roundKeys(i));
+						report "after key value: " & to_hstring(result_matrix);
+						if(i  /=  0) then
+							result_matrix := mixColumns(result_matrix,(not encrypt));
+						end if;		
+						report "   after mix : " & to_hstring(result_matrix);
+						result_matrix := shiftRows(result_matrix, not encrypt);
+					   	result_matrix := sbox(result_matrix, not encrypt);
+						report "   after sbox : " & to_hstring(result_matrix);
+					end loop; 
+					result_matrix := addRoundkey(result_matrix, fullkey);
 				end if;
 				nextstate <= 6;
 				--report "state 5";

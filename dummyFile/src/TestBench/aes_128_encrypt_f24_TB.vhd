@@ -81,7 +81,8 @@ end process;
 	-- Add your stimulus here ...
 clockProcess:process  
 variable data : std_logic_vector(0 to 127);	
-variable key : std_logic_vector(0 to 127); 
+variable key : std_logic_vector(0 to 127); 	 
+variable expect : std_logic_vector(0 to 127); 
 variable data1 : std_logic_vector(0 to 127);	
 variable key1 : std_logic_vector(0 to 127);    
 variable data2 : std_logic_vector(0 to 127);	
@@ -90,6 +91,7 @@ variable cipher : std_logic_vector(0 to 127);
 begin
 	
 	data:= "00110010010000111111011010101000100010000101101000110000100011010011000100110001100110001010001011100000001101110000011100110100";
+	expect:= "00111001001001011000010000011101000000101101110000001001111110111101110000010001100001011001011100011001011010100000101100110010";
 	key:= "00101011011111100001010100010110001010001010111011010010101001101010101111110111000101011000100000001001110011110100111100111100";	
 	key1:= "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 	data1:= "11110011010001001000000111101100001111001100011000100111101110101100110101011101110000111111101100001000111100100111001111100110";
@@ -105,6 +107,7 @@ begin
 		key_load <= '1';
 		encrypt <= '1';	  
 		stream<= '1';
+		--CBC_mode <= '1';
 		wait until clk'event AND clk = '1';	 
 
 		dataIn(0 to 31) <= std_logic_vector(key(0 to 31));
@@ -139,7 +142,8 @@ begin
 		wait until clk'event AND clk = '1';	
 		cipher(96 to 127) := dataOut;	
 		report "cipher chunk 4:" &  to_hstring(cipher);
-		report "out " & to_hstring(cipher) & " : " & "3925841D02DC09FBDC118597196A0B32";   
+		report "out " & to_hstring(cipher) & " : " & "3925841D02DC09FBDC118597196A0B32"; 
+		
 		
 		
 		wait until clk'event AND clk = '1';	 
@@ -192,65 +196,80 @@ begin
 		
 		
 		
-		--reset <= '1';
---		wait until clk'event AND clk = '1';
---		reset <= '0';	 
---		iv_load <= '0';
---		wait until clk'event AND clk = '1';
---		start <= '1';
---		key_load <= '1';
---		encrypt <= '1';	 
---		wait until clk'event AND clk = '1';	 
---
---		dataIn(0 to 31) <= std_logic_vector(key(0 to 31));
---		wait until clk'event AND clk = '1';		  
---		key_load <= '0';
---		dataIn(0 to 31) <= std_logic_vector(key(32 to 63));	
---		wait until clk'event AND clk = '1';
---		dataIn(0 to 31) <= std_logic_vector(key(64 to 95));
---		wait until clk'event AND clk = '1';
---		dataIn(0 to 31) <= std_logic_vector(key(96 to 127));
---		wait until clk'event AND clk = '1';		
---		db_load <= '1';		  
---		wait until clk'event AND clk = '1';
---		dataIn(0 to 31) <= std_logic_vector(data(0 to 31));
---		wait until clk'event AND clk = '1';		
---		dataIn(0 to 31) <= std_logic_vector(data(32 to 63));
---		wait until clk'event AND clk = '1';		
---		dataIn(0 to 31) <= std_logic_vector(data(64 to 95));
---		wait until clk'event AND clk = '1';		
---		dataIn(0 to 31) <= std_logic_vector(data(96 to 127));
---		wait until clk'event AND clk = '1';
---		wait until clk'event AND clk = '1';
---		wait until clk'event AND clk = '1';
---		if(done = '1') then
---			cipher(0 to 31) := dataOut;			
---		end if; 
---			report "cipher chunk 1:" & to_hstring(cipher);
---		wait until clk'event AND clk = '1';	
---		cipher(32 to 63) := dataOut;	
---		report "cipher chunk 2:" &  to_hstring(cipher);
---		wait until clk'event AND clk = '1';	
---		cipher(64 to 95) := dataOut;	
---		report "cipher chunk 3:" &  to_hstring(cipher);
---		wait until clk'event AND clk = '1';	
---		cipher(96 to 127) := dataOut;	
---		report "cipher chunk 4:" &  to_hstring(cipher);
+
 		
 		--Tests 10 seperate encryptions-----------------------------------------------------
 		for i in 0 to 9 loop
-				data := tests_128(i).plain;
-				key := 	tests_128(i).key;
-wait until clk'event AND clk = '1';	 
+				data1 := tests_128(i).plain;
+				key1 := 	tests_128(i).key;
+			wait until clk'event AND clk = '1';	 
+			reset <= '1';
+			wait until clk'event AND clk = '1';	 
+			iv_load <= '0';
+			reset <= '0'; 
+			wait until clk'event AND clk = '1';
+			start <= '1';
+			key_load <= '1';
+			encrypt <= '1';	   
+			wait until clk'event AND clk = '1';	
+			dataIn(0 to 31) <= std_logic_vector(key1(0 to 31));
+			wait until clk'event AND clk = '1';		  
+			--key_load <= '0';
+			dataIn(0 to 31) <= std_logic_vector(key1(32 to 63));	
+			wait until clk'event AND clk = '1';
+			dataIn(0 to 31) <= std_logic_vector(key1(64 to 95));
+			wait until clk'event AND clk = '1';
+			dataIn(0 to 31) <= std_logic_vector(key1(96 to 127));
+			wait until clk'event AND clk = '1';		
+			
+			db_load <= '1';		  
+			wait until clk'event AND clk = '1';
+			dataIn(0 to 31) <= std_logic_vector(data1(0 to 31));
+			wait until clk'event AND clk = '1';		
+			dataIn(0 to 31) <= std_logic_vector(data1(32 to 63));
+			wait until clk'event AND clk = '1';		
+			dataIn(0 to 31) <= std_logic_vector(data1(64 to 95));
+			wait until clk'event AND clk = '1';		
+			dataIn(0 to 31) <= std_logic_vector(data1(96 to 127)); 
+			
+			wait until clk'event AND clk = '1'; 
+			wait until clk'event AND clk = '1';
+			wait until clk'event AND clk = '1';
+			--if(done = '1') then
+				cipher(0 to 31) := dataOut;			
+			--end if; 
+			--	report "cipher chunk 1:" & to_hstring(cipher);
+			wait until clk'event AND clk = '1';	
+			cipher(32 to 63) := dataOut;	
+			--report "cipher chunk 2:" &  to_hstring(cipher);
+			wait until clk'event AND clk = '1';	
+			cipher(64 to 95) := dataOut;	
+			--report "cipher chunk 3:" &  to_hstring(cipher);
+			wait until clk'event AND clk = '1';	
+			cipher(96 to 127) := dataOut;	
+			--report "cipher chunk 4:" &  to_hstring(cipher);	
+			--report "out" & to_hstring(cipher) & ":" & "0336763E966D92595A567CC9CE537F5E";
+		 report "Actual Output: " & to_hstring(cipher) & "     Expected: " & to_hstring(tests_128(i).expected);
+		 assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
+			
+		end loop;	   
+		
+		
+		
+		
+		
+		 --DECRYPTION TEST SINGLE BLOCK
 		reset <= '1';
-		wait until clk'event AND clk = '1';	 
+		wait until clk'event AND clk = '1';
+		reset <= '0';	 
 		iv_load <= '0';
-		reset <= '0'; 
 		wait until clk'event AND clk = '1';
 		start <= '1';
 		key_load <= '1';
-		encrypt <= '1';	   
-		wait until clk'event AND clk = '1';	
+		encrypt <= '0';	  
+		--stream<= '1';
+		wait until clk'event AND clk = '1';	 
+
 		dataIn(0 to 31) <= std_logic_vector(key(0 to 31));
 		wait until clk'event AND clk = '1';		  
 		--key_load <= '0';
@@ -260,40 +279,35 @@ wait until clk'event AND clk = '1';
 		wait until clk'event AND clk = '1';
 		dataIn(0 to 31) <= std_logic_vector(key(96 to 127));
 		wait until clk'event AND clk = '1';		
-		
 		db_load <= '1';		  
 		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(data(0 to 31));
+		dataIn(0 to 31) <= std_logic_vector(expect(0 to 31));
 		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data(32 to 63));
+		dataIn(0 to 31) <= std_logic_vector(expect(32 to 63));
 		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data(64 to 95));
+		dataIn(0 to 31) <= std_logic_vector(expect(64 to 95));
 		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data(96 to 127)); 
-		
-		wait until clk'event AND clk = '1'; 
-		wait until clk'event AND clk = '1';
-		wait until clk'event AND clk = '1';
+		dataIn(0 to 31) <= std_logic_vector(expect(96 to 127));
+		wait until clk'event AND clk = '1' AND done ='1';	  
+		wait until clk'event AND clk = '1' AND done ='1';
+		wait until clk'event AND clk = '1' AND done ='1';
 		--if(done = '1') then
 			cipher(0 to 31) := dataOut;			
 		--end if; 
-		--	report "cipher chunk 1:" & to_hstring(cipher);
+			report "cipher chunk 1:" & to_hstring(cipher);
 		wait until clk'event AND clk = '1';	
 		cipher(32 to 63) := dataOut;	
-		--report "cipher chunk 2:" &  to_hstring(cipher);
+		report "cipher chunk 2:" &  to_hstring(cipher);
 		wait until clk'event AND clk = '1';	
 		cipher(64 to 95) := dataOut;	
-		--report "cipher chunk 3:" &  to_hstring(cipher);
+		report "cipher chunk 3:" &  to_hstring(cipher);
 		wait until clk'event AND clk = '1';	
 		cipher(96 to 127) := dataOut;	
-		--report "cipher chunk 4:" &  to_hstring(cipher);	
-		--report "out" & to_hstring(cipher) & ":" & "0336763E966D92595A567CC9CE537F5E";
-			 
+		report "cipher chunk 4:" &  to_hstring(cipher);
+		report "out " & to_hstring(cipher) & " : " & "3243f6a8885a308d313198a2e0370734";   
 		
-		 report "Actual Output: " & to_hstring(cipher) & "     Expected: " & to_hstring(tests_128(i).expected);
-		 assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
-			
-		end loop;
+		
+		
 
 --		for i in 0 to 9 loop 
 --				data := tests_128(i).plain;
