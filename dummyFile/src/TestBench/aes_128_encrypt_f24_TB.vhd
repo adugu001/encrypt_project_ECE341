@@ -44,15 +44,7 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 	signal Done : STD_LOGIC;
    	signal SIMULATIONACTIVE:BOOLEAN:=TRUE;		 
 
-	-- Add your code here ...
-
 begin
-
-	-- Unit Under Test port map
-
-
-
-
 	UUT : aes_128_encrypt_f24
 		port map (
 			clk => clk,
@@ -77,352 +69,164 @@ process
 		end loop;
 		wait;	
 end process;
-		
-	-- Add your stimulus here ...
+
 clockProcess:process  
-variable data : std_logic_vector(0 to 127);	
-variable key : std_logic_vector(0 to 127); 	 
-variable expect : std_logic_vector(0 to 127); 
-variable data1 : std_logic_vector(0 to 127);	
-variable key1 : std_logic_vector(0 to 127);    
-variable data2 : std_logic_vector(0 to 127);	
-variable key2 : std_logic_vector(0 to 127); 
-variable cipher : std_logic_vector(0 to 127);
+variable expect : std_logic_vector(0 to 127) := "00111001"&"00100101"&"10000100"&"00011101"&
+												"00000010"&"11011100"&"00001001"&"11111011"&
+												"11011100"&"00010001"&"10000101"&"10010111"&
+												"00011001"&"01101010"&"00001011"&"00110010";
+variable data0 : std_logic_vector(0 to 127)  :=	"00110010"&"01000011"&"11110110"&"10101000"&
+												"10001000"&"01011010"&"00110000"&"10001101"&
+												"00110001"&"00110001"&"10011000"&"10100010"&
+												"11100000"&"00110111"&"00000111"&"00110100";	
+variable data1 : std_logic_vector(0 to 127):= 	"11110011"&"01000100"&"10000001"&"11101100"&
+												"00111100"&"11000110"&"00100111"&"10111010"&
+												"11001101"&"01011101"&"11000011"&"11111011"&
+												"00001000"&"11110010"&"01110011"&"11100110";	    
+variable key0 : std_logic_vector(0 to 127):= 	"00101011"&"01111110"&"00010101"&"00010110"&
+												"00101000"&"10101110"&"11010010"&"10100110"&
+												"10101011"&"11110111"&"00010101"&"10001000"&
+												"00001001"&"11001111"&"01001111"&"00111100"; 	  
+variable key1 : std_logic_vector(0 to 127) := (others => '0');
+variable temp_data, temp_key, cipher, expected : std_logic_vector(0 to 127);
+type stream_store is array (1 to 3) of std_logic_vector(0 to 127);
+variable CBC_file, ECB_file: stream_store;
 begin
-	
-	data:= "00110010010000111111011010101000100010000101101000110000100011010011000100110001100110001010001011100000001101110000011100110100";
-	expect:= "00111001001001011000010000011101000000101101110000001001111110111101110000010001100001011001011100011001011010100000101100110010";
-	key:= "00101011011111100001010100010110001010001010111011010010101001101010101111110111000101011000100000001001110011110100111100111100";	
-	key1:= "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-	data1:= "11110011010001001000000111101100001111001100011000100111101110101100110101011101110000111111101100001000111100100111001111100110";
-	key2:= "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-	data2:= "11110011010001001000000111101100001111001100011000100111101110101100110101011101110000111111101100001000111100100111001111100110";
-	--wait until clk'event AND clk = '1';
-	--	reset <= '1';
-	--	wait until clk'event AND clk = '1';
-	--	reset <= '0';	 
-		iv_load <= '0';
 		wait until clk'event AND clk = '1';
-		start <= '1';
-		key_load <= '1';
-		encrypt <= '1';	  
-		stream<= '1';
-		--CBC_mode <= '1';
-		wait until clk'event AND clk = '1';	 
-
-		dataIn(0 to 31) <= std_logic_vector(key(0 to 31));
-		wait until clk'event AND clk = '1';		  
-		--key_load <= '0';
-		dataIn(0 to 31) <= std_logic_vector(key(32 to 63));	
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(key(64 to 95));
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(key(96 to 127));
-		wait until clk'event AND clk = '1';		
-		db_load <= '1';		  
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(data(0 to 31));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data(32 to 63));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data(64 to 95));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data(96 to 127));
-		wait until clk'event AND clk = '1' AND done ='1';
-		--if(done = '1') then
-			cipher(0 to 31) := dataOut;			
-		--end if; 
-			report "cipher chunk 1:" & to_hstring(cipher);
+		encrypt <= '1'; iv_load <= '0'; 
+		
 		wait until clk'event AND clk = '1';	
-		cipher(32 to 63) := dataOut;	
-		report "cipher chunk 2:" &  to_hstring(cipher);
-		wait until clk'event AND clk = '1';	
-		cipher(64 to 95) := dataOut;	
-		report "cipher chunk 3:" &  to_hstring(cipher);
-		wait until clk'event AND clk = '1';	
-		cipher(96 to 127) := dataOut;	
-		report "cipher chunk 4:" &  to_hstring(cipher);
-		report "out " & to_hstring(cipher) & " : " & "3925841D02DC09FBDC118597196A0B32"; 
-		
-		
-		
-		wait until clk'event AND clk = '1';	 
-		reset <= '1';
-		wait until clk'event AND clk = '1';	 
-		iv_load <= '0';
-		reset <= '0'; 
-		wait until clk'event AND clk = '1';
-		start <= '1';
-		key_load <= '1';
-		encrypt <= '1';	   
-		wait until clk'event AND clk = '1';	
-		dataIn(0 to 31) <= std_logic_vector(key1(0 to 31));
-		wait until clk'event AND clk = '1';		  
-		--key_load <= '0';
-		dataIn(0 to 31) <= std_logic_vector(key1(32 to 63));	
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(key1(64 to 95));
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(key1(96 to 127));
-		wait until clk'event AND clk = '1';		
-		
-		db_load <= '1';		  
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(data1(0 to 31));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data1(32 to 63));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data1(64 to 95));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(data1(96 to 127)); 
-		
-		wait until clk'event AND clk = '1'; 
-		wait until clk'event AND clk = '1';
-		wait until clk'event AND clk = '1';
-		--if(done = '1') then
-			cipher(0 to 31) := dataOut;			
-		--end if; 
-			report "cipher chunk 1:" & to_hstring(cipher);
-		wait until clk'event AND clk = '1';	
-		cipher(32 to 63) := dataOut;	
-		report "cipher chunk 2:" &  to_hstring(cipher);
-		wait until clk'event AND clk = '1';	
-		cipher(64 to 95) := dataOut;	
-		report "cipher chunk 3:" &  to_hstring(cipher);
-		wait until clk'event AND clk = '1';	
-		cipher(96 to 127) := dataOut;	
-		report "cipher chunk 4:" &  to_hstring(cipher);	
-		report "out" & to_hstring(cipher) & ":" & "0336763E966D92595A567CC9CE537F5E";
-		
-		
-		
-
-		
-		--Tests 10 seperate encryptions-----------------------------------------------------
-		for i in 0 to 9 loop
-				data1 := tests_128(i).plain;
-				key1 := 	tests_128(i).key;
-			wait until clk'event AND clk = '1';	 
-			reset <= '1';
-			wait until clk'event AND clk = '1';	 
-			iv_load <= '0';
-			reset <= '0'; 
+		--ENCRYPTION ON INDIVIDUAL BLOCKS------------------------------------------------------------
+		straight_encryption: for k in 0 to 11 loop			  
+			if k=0 then temp_key := key0; temp_data := data0; expected := X"3925841D02DC09FBDC118597196A0B32";
+			elsif k=1 then 
+				temp_key := key1; 
+				temp_data := data1; 
+				expected := X"0336763E966D92595A567CC9CE537F5E";
+			else temp_key := tests_128(k).key; temp_data := tests_128(k).plain; expected := tests_128(k).expected;
+			end if;
+			
+			stream <= '1'; start <= '1';
 			wait until clk'event AND clk = '1';
-			start <= '1';
+			
 			key_load <= '1';
-			encrypt <= '1';	   
-			wait until clk'event AND clk = '1';	
-			dataIn(0 to 31) <= std_logic_vector(key1(0 to 31));
-			wait until clk'event AND clk = '1';		  
-			--key_load <= '0';
-			dataIn(0 to 31) <= std_logic_vector(key1(32 to 63));	
-			wait until clk'event AND clk = '1';
-			dataIn(0 to 31) <= std_logic_vector(key1(64 to 95));
-			wait until clk'event AND clk = '1';
-			dataIn(0 to 31) <= std_logic_vector(key1(96 to 127));
-			wait until clk'event AND clk = '1';		
+			load_key: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
+				wait until clk'event AND clk = '1';					
+			end loop load_key;
 			
-			db_load <= '1';		  
-			wait until clk'event AND clk = '1';
-			dataIn(0 to 31) <= std_logic_vector(data1(0 to 31));
-			wait until clk'event AND clk = '1';		
-			dataIn(0 to 31) <= std_logic_vector(data1(32 to 63));
-			wait until clk'event AND clk = '1';		
-			dataIn(0 to 31) <= std_logic_vector(data1(64 to 95));
-			wait until clk'event AND clk = '1';		
-			dataIn(0 to 31) <= std_logic_vector(data1(96 to 127)); 
-			
+			db_load <= '1'; wait until clk'event AND clk = '1';
+			load_data: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
+				wait until clk'event AND clk = '1';
+			end loop load_data;
+			  
+			wait until clk'event AND clk = '1';	--eating clk cycles to encrypt
 			wait until clk'event AND clk = '1'; 
-			wait until clk'event AND clk = '1';
-			wait until clk'event AND clk = '1';
-			--if(done = '1') then
-				cipher(0 to 31) := dataOut;			
-			--end if; 
-			--	report "cipher chunk 1:" & to_hstring(cipher);
-			wait until clk'event AND clk = '1';	
-			cipher(32 to 63) := dataOut;	
-			--report "cipher chunk 2:" &  to_hstring(cipher);
-			wait until clk'event AND clk = '1';	
-			cipher(64 to 95) := dataOut;	
-			--report "cipher chunk 3:" &  to_hstring(cipher);
-			wait until clk'event AND clk = '1';	
-			cipher(96 to 127) := dataOut;	
-			--report "cipher chunk 4:" &  to_hstring(cipher);	
-			--report "out" & to_hstring(cipher) & ":" & "0336763E966D92595A567CC9CE537F5E";
-		 report "Actual Output: " & to_hstring(cipher) & "     Expected: " & to_hstring(tests_128(i).expected);
-		 assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
+
+			stream <= '0'; start <= '0';
+			cipher_out: for i in 0 to 3 loop
+				cipher(i*32 to i*32 + 31) := dataOut;
+				wait until clk'event AND clk = '1';
+			end loop cipher_out;
+			assert cipher = expected report "Actual Output: " & to_hstring(cipher) & character'val(10) & "                          Expected: " & to_hstring(expected);	 
 			
-		end loop;	   
+		end loop straight_encryption;	   
+		--ENCRYPTION ON CHAINED BLOCKS------------------------------------------------------------
+		temp_key := tests_128(7).key; temp_data := tests_128(7).plain; expected := tests_128(7).expected;
 		
-		
-		
-		
-		
-		 --DECRYPTION TEST SINGLE BLOCK
+		CBC_encryption: for k in 0 to 1 loop
+			if k = 0 then CBC_mode <= '0';
+			else CBC_mode <= '1'; end if;
+			stream <= '1'; start <= '1';
+			wait until clk'event AND clk = '1';			
+			start <= '0';
+			load_key: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
+				wait until clk'event AND clk = '1';					
+			end loop load_key;
+			
+			for j in 1 to 3 loop									
+					db_load <= '1'; wait for 0ns;
+					wait until clk'event AND clk = '1';
+					load_data: for i in 0 to 3 loop
+						dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
+						wait until clk'event AND clk = '1';
+					end loop load_data;
+					db_load <= '0';  
+					wait until clk'event AND clk = '1';	--eating clk cycles to encrypt
+
+					wait until clk'event AND clk = '1'; 
+					
+					if j = 3 then stream <= '0'; end if;
+					cipher_out: for i in 0 to 3 loop
+						if k = 0 then ECB_file(j)(i*32 to i*32 + 31) := dataOut;
+						else 		  CBC_file(j)(i*32 to i*32 + 31) := dataOut; end if;
+						wait until clk'event AND clk = '1';
+					end loop cipher_out;
+			end loop;				
+		end loop CBC_encryption;
+		assert (ECB_file(1) = ECB_file(2) AND ECB_file(1) = ECB_file(3)) report "ecb output not repeated";
+		assert CBC_file(1) /= CBC_file(2) AND CBC_file(1) /= CBC_file(3) AND CBC_file(2) /= CBC_file(3) report "CBC has repeated outputs";
+		assert CBC_file(1) = ECB_file(1) report "ECB and CBC initial encryption differ";
+
+		--DECRYPTION ON INDIVIDUAL BLOCKS----------------------------------------------------------------------
+		temp_key := key0; temp_data := expect; expected := X"3243f6a8885a308d313198a2e0370734";
 		reset <= '1';
 		wait until clk'event AND clk = '1';
-		reset <= '0';	 
-		iv_load <= '0';
+		reset <= '0'; iv_load <= '0';
 		wait until clk'event AND clk = '1';
-		start <= '1';
-		key_load <= '1';
-		encrypt <= '0';	  
+		start <= '1'; key_load <= '1'; encrypt <= '0';	  
 		--stream<= '1';
 		wait until clk'event AND clk = '1';	 
-
-		dataIn(0 to 31) <= std_logic_vector(key(0 to 31));
-		wait until clk'event AND clk = '1';		  
-		--key_load <= '0';
-		dataIn(0 to 31) <= std_logic_vector(key(32 to 63));	
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(key(64 to 95));
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(key(96 to 127));
-		wait until clk'event AND clk = '1';		
-		db_load <= '1';		  
-		wait until clk'event AND clk = '1';
-		dataIn(0 to 31) <= std_logic_vector(expect(0 to 31));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(expect(32 to 63));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(expect(64 to 95));
-		wait until clk'event AND clk = '1';		
-		dataIn(0 to 31) <= std_logic_vector(expect(96 to 127));
-		wait until clk'event AND clk = '1' AND done ='1';	  
-		wait until clk'event AND clk = '1' AND done ='1';
-		wait until clk'event AND clk = '1' AND done ='1';
-		--if(done = '1') then
-			cipher(0 to 31) := dataOut;			
-		--end if; 
-			report "cipher chunk 1:" & to_hstring(cipher);
-		wait until clk'event AND clk = '1';	
-		cipher(32 to 63) := dataOut;	
-		report "cipher chunk 2:" &  to_hstring(cipher);
-		wait until clk'event AND clk = '1';	
-		cipher(64 to 95) := dataOut;	
-		report "cipher chunk 3:" &  to_hstring(cipher);
-		wait until clk'event AND clk = '1';	
-		cipher(96 to 127) := dataOut;	
-		report "cipher chunk 4:" &  to_hstring(cipher);
-		report "out " & to_hstring(cipher) & " : " & "3243f6a8885a308d313198a2e0370734";   
 		
 		
+		load_key: for i in 0 to 3 loop
+			dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
+			wait until clk'event AND clk = '1';					
+		end loop load_key;
 		
-
---		for i in 0 to 9 loop 
---				data := tests_128(i).plain;
---				key := 	tests_128(i).key;			
---			reset <= '1';
---			wait until clk'event AND clk = '1';
---			reset <= '0';	 
---			iv_load <= '0';
---			wait until clk'event AND clk = '1';
---			start <= '1';  
---			key_load <= '1'; 
---			wait until clk'event AND clk = '1';	
---			key_load_loop: for i in 0 to 3 loop	
---				wait until clk'event AND clk = '1';
---				dataIn(0 to 31) <= std_logic_vector(key(i*32 to i*32 + 31));
---				
---			end loop key_load_loop;	   
---			wait until clk'event AND clk = '1';
---			db_load <= '1';	  
---			wait until clk'event AND clk = '1';
---			data_load_loop: for i in 0 to 3 loop 
---				wait until clk'event AND clk = '1';
---				dataIn(0 to 31) <= std_logic_vector(data(i*32 to i*32 + 31));
---			end loop data_load_loop;
---			wait until clk'event AND clk = '1';	
---			wait until clk'event AND clk = '1';
---			wait until clk'event AND clk = '1';	
---			if(done = '1') then
---				cipher(0 to 31) := dataOut;	
---			end if; 
---			wait until clk'event AND clk = '1';	
---			cipher(32 to 63) := dataOut;	
---
---			wait until clk'event AND clk = '1';	
---			cipher(64 to 95) := dataOut;	
---			wait until clk'event AND clk = '1';	
---			cipher(96 to 127) := dataOut;	
---			 
---		
---		 report "Actual Output: " & to_hstring(cipher) & "     Expected: " & to_hstring(tests_128(i).expected);
---		 assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
---			
---		end loop;
-
+		db_load <= '1'; wait until clk'event AND clk = '1';
+		load_data: for i in 0 to 3 loop
+			dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
+			wait until clk'event AND clk = '1';
+		end loop load_data;
+		  
+		wait until clk'event AND clk = '1' AND done ='1';	--eating clk cycles for some reason
+		wait until clk'event AND clk = '1' AND done ='1'; 
 		
-		
-		--for i in 0 to 9 loop
---			data := tests_128(i).plain;
---			key := 	tests_128(i).key;
---			
---			
---			reset <= '1'; 
---			wait until clk'event AND clk = '1';
---			reset <= '0'; 
---			iv_load <= '0';
---				start <= '1';  
---			key_load <= '1';
---			
---			key_load_loop: for i in 0 to 3 loop
---				dataIn(0 to 31) <= std_logic_vector(key(i*32 to i*32 + 31));
---				wait until clk'event AND clk = '1';
---			end loop key_load_loop;	
---			
---			db_load <= '1';
---			data_load_loop: for i in 0 to 3 loop
---				dataIn(0 to 31) <= std_logic_vector(data(i*32 to i*32 + 31));
---				wait until clk'event AND clk = '1';	
---			end loop data_load_loop;
---			
---			wait until clk'event AND clk = '1';	
---			if(done = '1') then
---				cipher(0 to 31) := dataOut;	
---			end if; 
---			wait until clk'event AND clk = '1';	
---			cipher(32 to 63) := dataOut;	
---			wait until clk'event AND clk = '1';	
---			cipher(64 to 95) := dataOut;	
---			wait until clk'event AND clk = '1';	
---			cipher(96 to 127) := dataOut;	
---			report "out" & to_hstring(cipher) & ":" & to_hstring(tests_128(i).expected);
---			assert cipher =	tests_128(i).expected report "test_128 failed. Round "&to_string(i); 
---			
---		end loop;
-		
-		
+		wait until done = '1';
+		cipher_out: for i in 0 to 3 loop
+				cipher(i*32 to i*32 + 31) := dataOut;
+				wait until clk'event AND clk = '1';
+				report "cipher chunk " & to_string(i) & ": " & to_hstring(cipher); --debug purpose
+		end loop cipher_out;
+		assert cipher = data0 report "Actual Output: " & to_hstring(cipher) & character'val(10) & "Expected: " & to_hstring(expected);	 
+		--DECRYPTION ON CHAINED BLOCKS----------------------------------------------------------------------
+			--TODO
 		simulationactive<= false;
 		wait;
 end process;
                                                     
-functionProcess: process
+functionProcess: process------------------------------------------------------------------------------------------------------------------------------
 variable testdata : std_logic_vector(0 to 127);
-variable a,b,c : std_logic_vector(0 to 7);
-	variable data : std_logic_vector(0 to 127) :=            --NIST.FIPS.197-upd1::pg34::round #1 
-							                                "00011001"&"00111101"&"11100011"&"10111110"&
-							                                "10100000"&"11110100"&"11100010"&"00101011"&
-															"10011010"&"11000110"&"10001101"&"00101010"&
-															"11101001"&"11111000"&"01001000"&"00001000";
-	variable afterSub : std_logic_vector(0 to 127) :=         
-							                                "11010100"&"00100111"&"00010001"&"10101110"&
-							                                "11100000"&"10111111"&"10011000"&"11110001"&
-															"10111000"&"10110100"&"01011101"&"11100101"&
-															"00011110"&"01000001"&"01010010"&"00110000";
-															
-	variable afterShift : std_logic_vector(0 to 127) :=            
-							                                "11010100"&"10111111"&"01011101"&"00110000"&
-							                                "11100000"&"10110100"&"01010010"&"10101110"&
-															"10111000"&"01000001"&"00010001"&"11110001"&
-															"00011110"&"00100111"&"10011000"&"11100101"; 														
-												   
-	variable aftermix : std_logic_vector(0 to 127) := 			
-                                							"00000100"&"01100110"&"10000001"&"11100101"&
-														    "11100000"&"11001011"&"00011001"&"10011010"&
-														    "01001000"&"11111000"&"11010011"&"01111010"&
-														    "00101000"&"00000110"&"00100110"&"01001100";																											
-	begin 
+variable data : std_logic_vector(0 to 127) :=   	"00011001"&"00111101"&"11100011"&"10111110"&  --NIST.FIPS.197-upd1::pg34::round #1 
+					                                "10100000"&"11110100"&"11100010"&"00101011"&
+													"10011010"&"11000110"&"10001101"&"00101010"&
+													"11101001"&"11111000"&"01001000"&"00001000";
+variable afterSub : std_logic_vector(0 to 127) :=   "11010100"&"00100111"&"00010001"&"10101110"&
+					                                "11100000"&"10111111"&"10011000"&"11110001"&
+													"10111000"&"10110100"&"01011101"&"11100101"&
+													"00011110"&"01000001"&"01010010"&"00110000";														
+variable afterShift : std_logic_vector(0 to 127) := "11010100"&"10111111"&"01011101"&"00110000"&
+					                                "11100000"&"10110100"&"01010010"&"10101110"&
+													"10111000"&"01000001"&"00010001"&"11110001"&
+													"00011110"&"00100111"&"10011000"&"11100101"; 																									   
+variable aftermix : std_logic_vector(0 to 127) := 	"00000100"&"01100110"&"10000001"&"11100101"&
+												    "11100000"&"11001011"&"00011001"&"10011010"&
+												    "01001000"&"11111000"&"11010011"&"01111010"&
+												    "00101000"&"00000110"&"00100110"&"01001100";																											
+begin 
 		--encrypt op
 		testData := sbox(data, '0');
 		assert testdata = aftersub report "sbox failed";		
@@ -437,8 +241,6 @@ variable a,b,c : std_logic_vector(0 to 7);
 		assert testdata = afterSub report "invshift failed";
 		testData := sbox(afterSub, '1');
 		assert testdata = data report "invsbox failed";
-		
-		
 		wait;
 end process functionProcess;
 end TB_ARCHITECTURE;

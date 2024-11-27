@@ -62,20 +62,21 @@ variable load_key, load_data, load_IV, output_data: std_logic := '0';
 begin
 	   	case state is --start experimental code
 		   when 0 => --wait for start signal
-		   if (start = '1' AND key_load = '1') then 
-			   nextstate <= 1;
+			    if (start = '1') then nextstate <= 1;
 				else nextstate <= 0;
 				end if;	
 				--report "state 0";
 			when 1 => --load key
-				load_key := '1';
-				temp(0 to 31) := dataIn;	
-				nextstate <= 7;	
-				--report "state 1";
+				if key_load = '1' then
+					load_key := '1';
+					temp(0 to 31) := dataIn;	
+					nextstate <= 7;
+				else nextstate <= 1;
+				end if;
 			 when 2 => --wait to load data
-			 if (db_load = '0' OR stream = '0') then 
-				 nextstate <= 3;
-				else nextstate <= 4;
+			 	if (db_load = '1' AND stream = '1') then 
+				 	nextstate <= 4;
+				else nextstate <= 2;
 				end if;	 
 				--report "state 2";
 			when 3 =>  --load IV
@@ -84,7 +85,6 @@ begin
 				nextstate <= 7;	
 				--report "state 3";
 			when 4 =>  --load full data	
-			--needs to wait for db_load signal
 				if(db_load = '1') then
 				load_Data := '1';
 				temp(0 to 31) := dataIn;	
@@ -92,7 +92,8 @@ begin
 				end if;	 
 				--report "state 4";
 			when 5 => --encrypt/decrypt	
-				roundkeys := generateroundkeys(fullkey, not encrypt);
+			roundkeys := generateroundkeys(fullkey, not encrypt);
+			fullData := fullData XOR IV;
 				if encrypt = '1' then
 					--key expansion--------------------------------------------------------------------------------------------------------  
 					
@@ -160,13 +161,14 @@ begin
 			when 9 =>
 				temp(96 to 127) := dataIn;
 				if output_data = '1' then
-					output_data := '0';
+					output_data := '0';	
+					done <= '0';
 					dataOut <= result_Matrix(96 to 127);
 					if stream = '1' then
 						if CBC_Mode = '1' then 
 							IV := result_matrix; 
 						end if;
-						nextstate <= 4;
+						nextstate <= 2;
 					else nextstate <= 0; end if;
 				elsif load_key = '1' then
 					fullkey := temp;

@@ -13,7 +13,7 @@ package function_package is
 	impure function mixColumns( data : in std_logic_vector(0 to 127); invert : in std_logic) return std_logic_vector;
 	impure function to_INT( data : std_logic_vector(0 to 7)) return integer;
 	impure function to_byte( data : integer ) return std_logic_vector;	
-	impure function generateRoundKeys(fullKey : std_logic_vector) return key_store;
+	impure function generateRoundKeys(fullKey : std_logic_vector; encrypt : std_logic) return key_store;
 end package function_package;	 	
 
 package body function_package is																   
@@ -280,7 +280,7 @@ impure function sbox_LUT ( byteIn : in std_logic_vector(0 to 7))
 
 -------------------------------------------------------------------------------------------------------------------------------------- 
 
-impure function generateRoundKeys(fullKey : std_logic_vector) return key_store is 
+impure function generateRoundKeys(fullKey : std_logic_vector; encrypt : std_logic) return key_store is 
 variable roundKeys: key_store;  
 variable tempWord : std_logic_vector(0 to 31);
 variable expansionMatrix : std_logic_vector(0 to 127);
