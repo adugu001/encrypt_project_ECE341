@@ -87,7 +87,7 @@ return output;
 end function sbox;
   
 --------------------------------------------------------------------------------------------------------------------------------------	
---This actually need to change to a signal.
+
 impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
 variable temp, old1, old2, old3, new0, new1, new2, new3 : std_logic_vector(0 to 7);
 variable output : std_logic_vector(0 to 127);
@@ -96,82 +96,44 @@ variable blockMatrix : matrix;
 
 begin	   
 	if(invert = '0') then
-	output(8*15 - 1 to 8*16) <= data(8*11  to 8*12 -1);
-	output(8*14 to 8*15 - 1) <= data(8*6 - 1 to 8*7 - 1);
-	output(8*13 to 8*14 -1) <= data(8*1   to  8*2 - 1); 
-	output(8*12 to 8*13) <= data(8*12  to  8*13 - 1);
-	output(8*11 to 8*12 - 1) <= data(8*7   to  8*8 -1);
-	output(8*10 to 8*11 - 1) <= data(8*2   to  8*3 - 1); 
-	output(8*9 to 8*10-1) <= data(8*13  to  8*14-1);
-	output(8*8 to 8*9-1) <= data(8*8   to  8*9-1);
-	output(8*7 to 8*8-1) <= data(8*3   to  8*4-1);
-	output(8*6 to 8*7-1) <= data(8*14  to  8*15-1);
-	output(8*5 to 8*6-1) <= data(8*9  to  8*10-1);
-	output(8*4 to 8*5-1) <= data(8*4   to  8*5-1);
-	output(8*3 to 8*4-1) <= data(8*15  to  8*16-1);
-	output(8*2 to 8*3-1) <= data(8*10  to  8*11-1);
-	output(8*1 to 8*2-1) <= data(8*5   to  8*6-1);
-	output(8*0 to 8*1-1) <= data(8*0   to  8*1-1); 
+		output(8*15 to 8*16- 1) := data(8*11  to 8*12 -1);
+		output(8*14 to 8*15 - 1) := data(8*6 to 8*7 - 1);
+		output(8*13 to 8*14 -1) := data(8*1   to  8*2 - 1); 
+		output(8*12 to 8*13 - 1) := data(8*12  to  8*13 - 1);
+		output(8*11 to 8*12 - 1) := data(8*7   to  8*8 -1);
+		output(8*10 to 8*11 - 1) := data(8*2   to  8*3 - 1); 
+		output(8*9 to 8*10-1) := data(8*13  to  8*14-1);
+		output(8*8 to 8*9-1) := data(8*8   to  8*9-1);
+		output(8*7 to 8*8-1) := data(8*3   to  8*4-1);
+		output(8*6 to 8*7-1) := data(8*14  to  8*15-1);
+		output(8*5 to 8*6-1) := data(8*9  to  8*10-1);
+		output(8*4 to 8*5-1) := data(8*4   to  8*5-1);
+		output(8*3 to 8*4-1) := data(8*15  to  8*16-1);
+		output(8*2 to 8*3-1) := data(8*10  to  8*11-1);
+		output(8*1 to 8*2-1) := data(8*5   to  8*6-1);
+		output(8*0 to 8*1-1) := data(8*0   to  8*1-1); 
 	return output;			 
 	else
-		--finish inverted
+		output(8*11  to 8*12 -1) := data(8*15 to 8*16- 1);
+		output(8*6 to 8*7 - 1) := data(8*14 to 8*15 - 1) ;
+		output(8*1   to  8*2 - 1) := data(8*13 to 8*14 -1) ; 
+		output(8*12  to  8*13 - 1) := data(8*12 to 8*13 - 1) ;
+		output(8*7   to  8*8 -1) := data(8*11 to 8*12 - 1);
+		output(8*2   to  8*3 - 1)  := output(8*7   to  8*8 -1) ; 
+		output(8*13  to  8*14-1) := data(8*9 to 8*10-1) ;
+		output(8*8   to  8*9-1) := data(8*8 to 8*9-1);
+		output(8*3   to  8*4-1) := data(8*7 to 8*8-1);
+		output(8*14  to  8*15-1) := data(8*6 to 8*7-1);
+		output(8*9  to  8*10-1) := data(8*5 to 8*6-1);
+		output(8*4   to  8*5-1) := data(8*4 to 8*5-1);
+		output(8*15  to  8*16-1) := data(8*3 to 8*4-1);
+		output(8*10  to  8*11-1) := data(8*2 to 8*3-1);
+		output(8*5   to  8*6-1) := data(8*1 to 8*2-1);
+		output(8*0   to  8*1-1) := data(8*0 to 8*1-1); 
 		return output;
 		end if;
 end function shiftRows;	   
---------------------------------------------------------------------------------------------------------------------------------------
-impure function shiftRows( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector is
-variable temp, old1, old2, old3, new0, new1, new2, new3 : std_logic_vector(0 to 7);
-variable output : std_logic_vector(0 to 127);
-type matrix is array(0 to 3, 0 to 3) of std_logic_vector(0 to 7);
-variable blockMatrix : matrix;
 
-begin
-for i in 0 to 3 loop  
-		
-		blockMatrix(0,i) := data(  32*i    to 32*i + 7);
-		blockMatrix(1,i) := data(32*i + 8  to 32*i + 15);
-		blockMatrix(2,i) := data(32*i + 16 to 32*i + 23);
-		blockMatrix(3,i) := data(32*i + 24 to 32*i + 31);
-	--1   5   9    13   >>  1   5   9    13 
-	--2	  6   10   14       6   10  14	 2
-	--3	  7	  11   15	    11  15	3    7   
-	--4	  8   12   16		16	4   8    12
-end loop;	
-for i in 0 to 3 loop
-	--Equate each column bytes based on row
-	
-	--note: rotate 1 column left = rotate 3 columns right. Therefore below conditions can 
-	--act as forward and reverse operations depending on i and inverse
-	if((i = 1 AND invert = '0') OR (i = 3 AND invert = '1')) then
-		temp := blockMatrix(i,0);
-		blockMatrix(i,0) := blockMatrix(i,1);
-		blockMatrix(i,1) := blockMatrix(i,2);
-		blockMatrix(i,2) := blockMatrix(i,3);
-		blockMatrix(i,3) := temp;
-	elsif(i=2) then	
-		temp := blockMatrix(i,0);
-		blockMatrix(i,0) := blockMatrix(i,2);
-		blockMatrix(i,2) := temp;
-		temp := blockMatrix(i,1);
-		blockMatrix(i,1) := blockMatrix(i,3);
-		blockMatrix(i,3) := temp;
-	elsif((i = 3 AND invert = '0') OR (i = 1 AND invert = '1')) then
-		temp := blockMatrix(i,0);
-		blockMatrix(i,0) := blockMatrix(i,3);
-		blockMatrix(i,3) := blockMatrix(i,2);
-		blockMatrix(i,2) := blockMatrix(i,1);
-		blockMatrix(i,1) := temp;
-	end if;
-end loop;
-	--assign rotated bits to the corresponding indices on the 128 bit array
-for i in 0 to 3 loop
-	 output(  32*i    to 32*i + 7)  := blockMatrix(0,i);
-	 output(32*i + 8  to 32*i + 15) := blockMatrix(1,i);
-	 output(32*i + 16 to 32*i + 23) := blockMatrix(2,i);
-	 output(32*i + 24 to 32*i + 31) := blockMatrix(3,i);
-end loop;
-		return output;
-end function shiftRows;
 --------------------------------------------------------------------------------------------------------------------------------------
 impure function addRoundKey( data : std_logic_vector(0 to 127); key : std_logic_vector(0 to 127)) return std_logic_vector is
 variable output : std_logic_vector(0 to 127);
