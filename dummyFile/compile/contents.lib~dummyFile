@@ -1,6 +1,7 @@
-284
+304
 ~E 1 "../src/aes_128_encrypt_f24.vhd" 6 AES_128_encrypt_f24
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 52 behavioral
+~A 1 "../src/aes_128_encrypt_f24.vhd" 220 dataFlow
 ~E 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 10 aes_128_encrypt_f24_tb
 ~A 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 13 TB_ARCHITECTURE
 ~E 1 "../src/dffreg.vhd" 6 dffreg

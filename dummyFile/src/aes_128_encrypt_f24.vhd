@@ -215,6 +215,74 @@ begin
 end process CLK_process; 
 
 
-end architecture;
+end architecture behavioral; 
+
+architecture dataFlow of AES_128_encrypt_f24 is
+signal A,B,C,D,E: std_logic;
+signal state : std_logic_vector(0 to 4);
+begin
+	state <= a & b & c & d & e when (clk'event and clk = '1');
+	A <= '0' when reset = '0'
+		 else '1' when 	state = (   "01111"	or
+									"10000"	or
+									"10001"	or
+									"10010"	or
+									"10011") or
+					(state = "01110" and encrypt = '1')
+		 else '0';	
+	B <= '0' when reset = '0'
+		 else '1' when 	state = (	"00111" or
+									"01000" or
+									"01001" or
+									"01010" or
+									"01011" or
+									"01100" or
+									"01101") or
+					(state = "00101" and IV_load = '1') or
+					(state = "01110" and encrypt = '0') or
+					(state = "10100" and stream = '1')
+		  else '0';
+	C <=  '0' when reset = '0'
+		  else '1' when   state = (   "00011" or
+									"00100" or
+									"00110" or
+									"01011" or
+									"01100" or
+									"01101" or
+									"10011"	) or
+					(state = "00101" and IV_load = '0') or
+					(state = "01110" and encrypt = '0')
+		 else '0'; 
+	D <= '0' when reset = '0'
+		 else '1' when   state = (   "00010" or
+									"00101" or
+									"00110" or
+									"01001" or
+									"01010" or
+									"01101"	or
+									"10001" or
+									"10010"
+							) or
+					(state = "00001" and key_load = '1') or
+					(state = "01110" and encrypt = '0') or
+					(state = "10100" and stream = '1')
+		 else '0';
+	E <= '0' when reset = '0'
+		 else '1' when   state = (   "00010" or
+								"00100" or
+								"00110" or
+								"01000"	or
+								"01100"	or
+								"01111" or
+								"10000" or
+								"10010"
+							) or
+					(state = "00000" and start = '1') or
+					(state = "00001" and key_load = '0') or
+					(state = "01010" and db_load = '1') or
+					(state = "01110" and encrypt = '0')
+		 else '0';
+
+end architecture dataflow;
 -- Advanced challenge 2: use a single entity for both encryption and decryption.
 --      You are permitted to add additional control signals.
