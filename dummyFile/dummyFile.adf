@@ -29,7 +29,7 @@ FullDebugModeSignalsFile=dummyFile.psl
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=aes_128_encrypt_f24_tb|testbench_for_aes_128_encrypt_f24|1   
+HierarchyInformation=aes_128_encrypt_f24_tb|testbench_for_aes_128_encrypt_f24|1    
 ShowHide=ShowTopLevel
 Selected=
 
