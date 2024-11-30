@@ -9,33 +9,35 @@ entity key_schedule is
 	port (
 		clk : in std_logic;
 		reset : in std_logic; --assuming we need a reset
-		key : in std_logic_vector(127 downto 0);	--full key
-		round_const : in std_logic_vector(7 downto 0);	--single round byte (unimplemented so far)
-		round_key : out std_logic_vector(127 downto 0) --output. Initially the input key, then round keys
+		key : in std_logic_vector(0 to 127);	--full key
+		round_const : in std_logic_vector(0 to 7);	--single round byte (unimplemented so far)
+		round_key : out std_logic_vector(0 to 127) --output one round key 
 	);
 end key_schedule;
   
 
 architecture behavioral of key_schedule is			
-	--these signals should all be intermediate signals. I think we should load the key from the controller.
-	signal subkey : std_logic_vector(127 downto 0);
-	signal reg_in : std_logic_vector(127 downto 0);
-	signal reg_out : std_logic_vector(127 downto 0);
-	
-	
+
+	signal reg_in : std_logic_vector(0 to 127);
+	signal reg_out : std_logic_vector(0 to 127);
+	signal previous_round_key : std_logic_vector(0 to 127);	
 	
 begin
-reg_in <= key when reset = '0' else subkey;	  
-	--store full key in generic register map
-	reg_inst : entity work.dffreg
-		generic map(
-			size => 128)
-		port map(
-			clk => clk,
-			d   => reg_in,
-			q   => reg_out);	
+	--Should I convert this to something with a process?
 			
-
+	reg_in <= key when reset = '0' else previous_round_key;	  
+	--store full key in generic register map
+	registers : entity work.dffreg			  
+		generic map(size => 128) port map(clk => clk,d   => reg_in,q   => reg_out);	
+			
+		round_key_generator_entity : entity work.round_key_generator
+		port map(
+			inputKey      => reg_out,
+			round_constant => round_const,
+			next_key => previous_round_key
+		);	 
+		
+	round_key <= reg_out;
 			
 			
 			

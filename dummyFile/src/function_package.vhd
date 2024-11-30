@@ -14,6 +14,7 @@ package function_package is
 	impure function to_INT( data : std_logic_vector(0 to 7)) return integer;
 	impure function to_byte( data : integer ) return std_logic_vector;	
 	impure function generateRoundKeys(fullKey : std_logic_vector; encrypt : std_logic) return key_store;
+	signal shiftedword, sboxword, word0, word1, word3: std_logic_vector(0 to 31);
 end package function_package;	 	
 
 package body function_package is																   
@@ -271,24 +272,43 @@ impure function sbox_LUT ( byteIn : in std_logic_vector(0 to 7))
 	(3,1,1,2)
 	); 
 
+------------
+impure function sbox_LUT_sig ( byteIn : in std_logic_vector(0 to 7))
+    return std_logic_vector is	
+	variable count : integer := 0;
+	variable newVector : std_logic_vector(0 to 7);	
+	begin 
+		newVector := sbox_byte(byteIn(0 to 7), '0' ) ;
+    return std_logic_vector(newVector);	   
+  end function; 
+
+
 
 -------------------------------------------------------------------------------------------------------------------------------------- 
 
 impure function generateRoundKeys(fullKey : std_logic_vector; encrypt : std_logic) return key_store is 
 variable roundKeys: key_store;  
 variable tempWord : std_logic_vector(0 to 31);
-variable expansionMatrix : std_logic_vector(0 to 127);
+variable expansionMatrix : std_logic_vector(0 to 127);	 
+
+
 variable rc_return: std_logic_vector(0 to 7);
 variable rc_count : integer := 0;
-begin
-	 tempWord := fullKey(96 to 127);
-			expansionMatrix := fullKey;
-
+begin		  
 			
+	 		tempWord := fullKey(96 to 127);
+			expansionMatrix := fullKey;
+			
+			 
 			for i in 0 to 9 loop	
 			--Step 1: shift left 	
-			tempWord := expansionMatrix(96 to 127);	 
+			tempWord := expansionMatrix(96 to 127);
+			
+			
+			--shiftedword <= substitued_sk(7 downto 0) & substitued_sk(31 downto 8);  
+			
 			tempWord(0 to 31) := tempWord rol 8;
+			--sboxword <= sbox_LUT(tempWord(i*8 to (i*8)+7));	 
 			
 			--Step 2: Sub bytes for those in sBox 
 			for i in 0 to 3 loop
@@ -336,5 +356,10 @@ begin
 		    rc_count := rc_count + 1;
 			end loop;
 			return roundKeys;
-	end function generateRoundKeys;
-end package body;
+	end function generateRoundKeys;		  
+	
+	
+
+end package body;  
+
+
