@@ -29,7 +29,7 @@ FullDebugModeSignalsFile=dummyFile.psl
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=aes_128_encrypt_f24_tb|testbench_for_aes_128_encrypt_f24|1    
+HierarchyInformation=aes_128_encrypt_f24_tb|testbench_for_aes_128_encrypt_f24|1 
 ShowHide=ShowTopLevel
 Selected=
 
@@ -89,6 +89,9 @@ AdditionalOptions=
 /key_schedule.vhd=-1
 /aes_128_encrypt_f24.vhd=-1
 /aes_128_test_package.vhd=-1
+/round_key_generator.vhd=-1
+/counter.vhd=-1
+/GF_Multiplier.vhd=-1
 TestBench/aes_128_encrypt_f24_TB.vhd=-1
 TestBench/aes_128_encrypt_f24_TB_runtest.do=-1
 
@@ -100,6 +103,9 @@ TestBench/aes_128_encrypt_f24_TB_runtest.do=-1
 .\src\key_schedule.vhd=VHDL Source Code
 .\src\aes_128_encrypt_f24.vhd=VHDL Source Code
 .\src\aes_128_test_package.vhd=VHDL Source Code
+.\src\round_key_generator.vhd=VHDL Source Code
+.\src\counter.vhd=VHDL Source Code
+.\src\GF_Multiplier.vhd=VHDL Source Code
 .\src\TestBench\aes_128_encrypt_f24_TB.vhd=VHDL Test Bench
 .\src\TestBench\aes_128_encrypt_f24_TB_runtest.do=Macro
 

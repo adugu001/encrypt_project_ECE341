@@ -42,7 +42,8 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 	-- Observed signals - signals mapped to the output ports of tested entity
 	signal dataOut : STD_LOGIC_VECTOR(0 to 31);
 	signal Done : STD_LOGIC;
-   	signal SIMULATIONACTIVE:BOOLEAN:=TRUE;		 
+   	signal SIMULATIONACTIVE:BOOLEAN:=TRUE;	
+	signal tempByte2, a, b : std_logic_vector(0 to 7) := (others =>'0');
 
 begin
 	UUT : aes_128_encrypt_f24
@@ -60,7 +61,13 @@ begin
 			dataOut => dataOut,
 			Done => Done
 		);
-		
+	GF_MULT_ENTITY : entity work.GF_Multiplier 
+			port map(
+				clk => clk,
+				a => a,  
+				b => b,
+				product => tempbyte2
+			);	
 process
 	begin
 		while simulationActive loop
@@ -225,8 +232,30 @@ variable afterShift : std_logic_vector(0 to 127) := "11010100"&"10111111"&"01011
 variable aftermix : std_logic_vector(0 to 127) := 	"00000100"&"01100110"&"10000001"&"11100101"&
 												    "11100000"&"11001011"&"00011001"&"10011010"&
 												    "01001000"&"11111000"&"11010011"&"01111010"&
-												    "00101000"&"00000110"&"00100110"&"01001100";																											
+												    "00101000"&"00000110"&"00100110"&"01001100";
+variable testByte1 : std_logic_vector(0 to 7) := X"A2";	
+variable testByte2 : std_logic_vector(0 to 7) := X"55";
+variable testByte3 : std_logic_vector(0 to 7) := X"ff";
+variable testByte4 : std_logic_vector(0 to 7) := "10000000";
+variable tempByte1 : std_logic_vector(0 to 7);
 begin 
+	testByte4(7) := '1';
+	a <= X"AA";
+	b <= X"FF";	
+	wait for 0ns;
+	tempByte1 := gfMult_byte(testByte1, testByte2);
+	wait for 0 ns; 
+	wait for 0 ns;
+	wait for 0 ns;
+	wait until clk'event AND clk = '1';
+	a<= testByte1;
+	b<= testbyte3;
+	tempByte1 := gfMult_byte(testByte1, testByte3);
+	wait until clk'event AND clk = '1';	  
+	a<= testByte3;
+	b<= testbyte2;
+	tempByte1 := gfMult_byte(testByte3, testByte2);
+	wait until clk'event AND clk = '1';
 		--encrypt op
 		testData := sbox(data, '0');
 		assert testdata = aftersub report "sbox failed";		

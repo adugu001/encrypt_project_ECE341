@@ -156,18 +156,17 @@ begin
 		if (bitmask1 AND a) /= "00000000" then
 			sum :=temp_B xor sum;
 		end if;
-		while (to_integer(unsigned(sum)) > 255) loop   --Looped subtraction in place of division by irreducible polynomial
+		------ DONT THINK IS NEEDED while (to_integer(unsigned(sum)) > 255) loop   --Looped subtraction in place of division by irreducible polynomial
 			
-			for i in 0 to 7 loop
-				if (bitmask2 and sum) /= "0000000000000000" then
-					sum := sum xor irreducible;
-				end if;
-				irreducible := irreducible srl 1;
-				bitmask2 := bitmask2 srl 1;
-			end loop;
-			bitmask2 := "1000000000000000";
-			irreducible := "1000110110000000";
+		for i in 0 to 7 loop
+			if (bitmask2 and sum) /= "0000000000000000" then
+				sum := sum xor irreducible;
+			end if;
+			irreducible := irreducible srl 1;
+			bitmask2 := bitmask2 srl 1;
 		end loop;
+		bitmask2 := "1000000000000000";
+		irreducible := "1000110110000000";
 		bitmask1 := bitmask1 sll 1;
 		temp_b := temp_b sll 1;
 	end loop;

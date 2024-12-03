@@ -1,5 +1,90 @@
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/shiftRows.vhd" 
+MESSAGE "Compile Entity "shiftRows"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "shiftRows"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/Sbox.vhd" 
+MESSAGE "Compile Entity "sBox"" 
+MESSAGE "Compile Architecture "struct" of Entity "sBox"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/dffreg.vhd" 
+MESSAGE "Compile Entity "dffreg"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "dffreg"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" 
+BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+UPDATEPROGRESS 1
+MESSAGE "Compile Package "function_package"" 
+UPDATEPROGRESS 2
+UPDATEPROGRESS 3
+UPDATEPROGRESS 4
+UPDATEPROGRESS 5
+MESSAGE "Compile Package Body "function_package"" 
+UPDATEPROGRESS 6
+UPDATEPROGRESS 21
+UPDATEPROGRESS 25
+UPDATEPROGRESS 37
+UPDATEPROGRESS 39
+UPDATEPROGRESS 48
+UPDATEPROGRESS 60
+UPDATEPROGRESS 61
+UPDATEPROGRESS 62
+UPDATEPROGRESS 63
+UPDATEPROGRESS 66
+UPDATEPROGRESS 70
+UPDATEPROGRESS 72
+UPDATEPROGRESS 73
+UPDATEPROGRESS 75
+UPDATEPROGRESS 78
+UPDATEPROGRESS 99
+UPDATEPROGRESS 100
+ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_schedule.vhd" 
+MESSAGE "Compile Entity "key_schedule"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "key_schedule"" 
 MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" 
+BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+UPDATEPROGRESS 1
 MESSAGE "Compile Entity "AES_128_encrypt_f24"" 
+UPDATEPROGRESS 5
+UPDATEPROGRESS 14
 MESSAGE "Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"" 
+UPDATEPROGRESS 15
+UPDATEPROGRESS 57
+UPDATEPROGRESS 58
+UPDATEPROGRESS 61
+UPDATEPROGRESS 62
 MESSAGE "Compile Architecture "dataFlow" of Entity "AES_128_encrypt_f24"" 
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]" 
+UPDATEPROGRESS 63
+UPDATEPROGRESS 64
+UPDATEPROGRESS 71
+UPDATEPROGRESS 74
+UPDATEPROGRESS 77
+UPDATEPROGRESS 81
+UPDATEPROGRESS 85
+UPDATEPROGRESS 91
+UPDATEPROGRESS 92
+UPDATEPROGRESS 93
+UPDATEPROGRESS 94
+UPDATEPROGRESS 99
+UPDATEPROGRESS 100
+ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd" 
+BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
+UPDATEPROGRESS 1
+MESSAGE "Compile Package "aesTest"" 
+UPDATEPROGRESS 2
+UPDATEPROGRESS 4
+UPDATEPROGRESS 99
+UPDATEPROGRESS 100
+ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_test_package.vhd
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/round_key_generator.vhd" 
+MESSAGE "Compile Entity "round_key_generator"" 
+MESSAGE "Compile Architecture "struct" of Entity "round_key_generator"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/counter.vhd" 
+MESSAGE "Compile Entity "counter"" 
+MESSAGE "Compile Architecture "dataFlow" of Entity "counter"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/GF_Multiplier.vhd" 
+MESSAGE "Compile Entity "GF_Multiplier"" 
+MESSAGE "Compile Architecture "dataFlow" of Entity "GF_Multiplier"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" 
+MESSAGE "Compile Entity "aes_128_encrypt_f24_tb"" 
+MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"" 
+MESSAGE "Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  1.0 [s]" 
