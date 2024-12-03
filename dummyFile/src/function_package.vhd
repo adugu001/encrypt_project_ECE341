@@ -14,6 +14,7 @@ package function_package is
 	impure function to_INT( data : std_logic_vector(0 to 7)) return integer;
 	impure function to_byte( data : integer ) return std_logic_vector;	
 	impure function generateRoundKeys(fullKey : std_logic_vector; encrypt : std_logic) return key_store;
+	
 	signal shiftedword, sboxword, word0, word1, word3: std_logic_vector(0 to 31);
 end package function_package;	 	
 

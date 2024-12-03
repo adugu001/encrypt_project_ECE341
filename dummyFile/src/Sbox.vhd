@@ -3,14 +3,15 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity sBox is
-	port(x : in std_logic_vector(0 to 7); 
+	port(x : in std_logic_vector(0 to 7);
+		s : in std_logic;
 		y : in std_logic;
 	z : out std_logic_vector(0 to 7));
 end entity sBox;
 
 architecture struct of sBox is
 type ROM is array (0 to 15, 0 to 15) of integer;
-signal Sbox : ROM := (
+ constant Sbox : ROM := (
     (16#63#, 16#7c#, 16#77#, 16#7b#, 16#f2#, 16#6b#, 16#6f#, 16#c5#, 16#30#, 16#01#, 16#67#, 16#2b#, 16#fe#, 16#d7#, 16#ab#, 16#76#),
     (16#ca#, 16#82#, 16#c9#, 16#7d#, 16#fa#, 16#59#, 16#47#, 16#f0#, 16#ad#, 16#d4#, 16#a2#, 16#af#, 16#9c#, 16#a4#, 16#72#, 16#c0#),
     (16#b7#, 16#fd#, 16#93#, 16#26#, 16#36#, 16#3f#, 16#f7#, 16#cc#, 16#34#, 16#a5#, 16#e5#, 16#f1#, 16#71#, 16#d8#, 16#31#, 16#15#),
@@ -47,17 +48,18 @@ signal decrypt_substitution : ROM := (
 (16#17#, 16#2b#, 16#04#, 16#7e#, 16#ba#, 16#77#, 16#d6#, 16#26#, 16#e1#, 16#69#, 16#14#, 16#63#, 16#55#, 16#21#, 16#0c#, 16#7d#)
 );	
 
-signal i: integer;	 
-signal j: integer;
+
 begin	
 	process(x)
-	variable i : integer := to_integer(unsigned(x(0 to 3)));
-	variable j : integer := to_integer(unsigned(x(4 to 7)));
-	begin	 
-		case y is 
-			when '1' => --encrypt
+		variable i: integer;	 
+variable j: integer;
+	begin	 	 
+		i := to_integer(unsigned(std_logic_vector(x(0 to 3))));
+		j := to_integer(unsigned(std_logic_vector(x(4 to 7))));
+		case y&s is 
+			when "11"=> --encrypt
 		z <= std_logic_vector(to_unsigned(Sbox(i, j), z'length));	
-			when '0'  => --decrypt
+			when "01" => --decrypt
 			z <= std_logic_vector(to_unsigned(decrypt_substitution(i, j), z'length));
 			when others => null;   
 			end case;

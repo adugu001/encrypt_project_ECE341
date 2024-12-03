@@ -1,4 +1,3 @@
---IGNORE THIS FOR NOW. NOT BEHAVIORAL
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -7,7 +6,8 @@ use ieee.numeric_std.all;
 
 entity key_schedule is
 	port (
-		clk : in std_logic;
+	clk : in std_logic;
+	start : in std_logic;
 		reset : in std_logic; --assuming we need a reset
 		key : in std_logic_vector(0 to 127);	--full key
 		round_const : in std_logic_vector(0 to 7);	--single round byte (unimplemented so far)
@@ -30,14 +30,16 @@ begin
 	registers : entity work.dffreg			  
 		generic map(size => 128) port map(clk => clk,d   => reg_in,q   => reg_out);	
 			
-		round_key_generator_entity : entity work.round_key_generator
-		port map(
-			inputKey      => reg_out,
-			round_constant => round_const,
-			next_key => previous_round_key
-		);	 
+		--round_key_generator_entity : entity work.round_key_generator
+--		port map(
+--		clk => clk,
+--		start => start,
+--			inputKey      => reg_out,
+--			round_constant => round_const,
+--			next_key => previous_round_key
+--		);	 
 		
-	round_key <= reg_out;
+	round_key <= reg_out when start = '1';
 			
 			
 			
