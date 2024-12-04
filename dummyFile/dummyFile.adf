@@ -20,7 +20,7 @@ LANGUAGE=VHDL
 REFRESH_FLOW=1
 FLOWTOOLS=NONE
 FAMILY=
-fileopenfolder=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src
+fileopenfolder=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\TestBench
 EnableFullDebugMode=0
 EnableSSEvent=0
 FullDebugModeSignalsFile=dummyFile.psl
@@ -29,7 +29,7 @@ FullDebugModeSignalsFile=dummyFile.psl
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=aes_128_encrypt_f24_tb|testbench_for_aes_128_encrypt_f24|1 
+HierarchyInformation=aes_128_encrypt_f24_tb|TB_ARCHITECTURE|0
 ShowHide=ShowTopLevel
 Selected=
 
@@ -62,9 +62,6 @@ Name8=ALINT-PRO Workspaces
 Directory8=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\
 Extension8=alintws
 
-[Groups]
-TestBench=1
-
 [LocalVhdlSets]
 NetlistCompilation=1
 EnableVHDL93Key=0
@@ -81,31 +78,38 @@ ProtectLevel=0
 IncrementalCompilation=0
 AdditionalOptions=
 
+[Groups]
+TestBench=1
+function_entities=1
+
 [Files]
-/shiftRows.vhd=-1
-/Sbox.vhd=-1
-/dffreg.vhd=-1
 /function_package.vhd=-1
-/key_schedule.vhd=-1
 /aes_128_encrypt_f24.vhd=-1
-/aes_128_test_package.vhd=-1
-/round_key_generator.vhd=-1
-/counter.vhd=-1
-/GF_Multiplier.vhd=-1
+TestBench/aes_128_test_package.vhd=-1
 TestBench/aes_128_encrypt_f24_TB.vhd=-1
+TestBench/controller_TB.vhd=-1
+TestBench/controller_TB_runtest.do=-1
 TestBench/aes_128_encrypt_f24_TB_runtest.do=-1
+function_entities/mix_columns.vhd=-1
+function_entities/key_schedule.vhd=-1
+function_entities/key_controller.vhd=-1
+function_entities/GF_Multiplier.vhd=-1
+function_entities/shiftRows.vhd=-1
+function_entities/Sbox.vhd=-1
 
 [Files.Data]
-.\src\shiftRows.vhd=VHDL Source Code
-.\src\Sbox.vhd=VHDL Source Code
-.\src\dffreg.vhd=VHDL Source Code
+.\src\ffreg.vhd=VHDL Source Code
 .\src\function_package.vhd=VHDL Source Code
-.\src\key_schedule.vhd=VHDL Source Code
 .\src\aes_128_encrypt_f24.vhd=VHDL Source Code
-.\src\aes_128_test_package.vhd=VHDL Source Code
-.\src\round_key_generator.vhd=VHDL Source Code
-.\src\counter.vhd=VHDL Source Code
-.\src\GF_Multiplier.vhd=VHDL Source Code
+.\src\TestBench\aes_128_test_package.vhd=VHDL Source Code
 .\src\TestBench\aes_128_encrypt_f24_TB.vhd=VHDL Test Bench
+.\src\TestBench\controller_TB.vhd=VHDL Source Code
+.\src\TestBench\controller_TB_runtest.do=Macro
 .\src\TestBench\aes_128_encrypt_f24_TB_runtest.do=Macro
+.\src\function_entities\mix_columns.vhd=VHDL Source Code
+.\src\function_entities\key_schedule.vhd=VHDL Source Code
+.\src\function_entities\key_controller.vhd=VHDL Source Code
+.\src\function_entities\GF_Multiplier.vhd=VHDL Source Code
+.\src\function_entities\shiftRows.vhd=VHDL Source Code
+.\src\function_entities\Sbox.vhd=VHDL Source Code
 
