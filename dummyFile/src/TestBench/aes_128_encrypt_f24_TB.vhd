@@ -61,10 +61,10 @@ begin
 			dataOut => dataOut,
 			Done => Done
 		);
-	mix_col_entity : entity work.mix_columns 
+	sub_box_entity : entity work.sub_box 
 			port map( 
 				datain => a,  
-				invert => encrypt,
+				encrypt => encrypt,
 				dataout => c
 			);	
 process
@@ -234,34 +234,35 @@ variable aftermix : std_logic_vector(0 to 127) := 	"00000100"&"01100110"&"100000
 												    "00101000"&"00000110"&"00100110"&"01001100";
 											
 begin 	
-	--encrypt op
-		
+	--encrypt op 
 		testData := sbox(data, '0');
-		assert testdata = aftersub report "sbox failed";		
-		testData := shiftRows(aftersub, '0');
-		assert testdata = afterShift report "shift failed";	
-		
 		encrypt <= '0';
-		a <= afterShift;
+		a <= data;
 		for i in 0 to 10 loop
 			wait for 1 ns;		  
 		end loop;
+		assert testdata = aftersub report "sbox failed";
+		
+		testData := shiftRows(aftersub, '0');
+		assert testdata = afterShift report "shift failed";	
 		testData := mixColumns(aftershift, '0');
 		assert testdata = aftermix report "mixcol failed";
 		
 		--decrypt op
-		encrypt <= '1';
-		a<= aftermix; 
-		for i in 0 to 10 loop
-			wait for 1 ns;		  
-		end loop;
 		testData := mixColumns(aftermix, '1');		
-		assert testdata = aftershift report "invmixcol failed";	 
-		
+		assert testdata = aftershift report "invmixcol failed";	 		
 		testData := shiftRows(aftershift, '1');
 		assert testdata = afterSub report "invshift failed";
+		
 		testData := sbox(afterSub, '1');
+		encrypt <= '1';
+		a<= afterSub; 
+		for i in 0 to 10 loop
+			wait for 1 ns;		  
+		end loop;		
 		assert testdata = data report "invsbox failed";
+		
+		
 		wait;
 end process functionProcess;
 end TB_ARCHITECTURE;

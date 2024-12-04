@@ -4,6 +4,8 @@
 .\src\TestBench\aes_128_test_package.vhd
 .\src\TestBench\aes_128_encrypt_f24_TB.vhd
 .\src\TestBench\controller_TB.vhd
+.\src\function_entities\blackBox.vhd
+.\src\function_entities\Sub_Box.vhd
 .\src\function_entities\mix_columns.vhd
 .\src\function_entities\key_schedule.vhd
 .\src\function_entities\GF_Multiplier.vhd

@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package function_package is	 
+	type dataStore is array (0 to 10) of std_logic_vector(0 to 127);
 	type key_store is array (0 to 9) of std_logic_vector(0 to 127);
     impure function sbox( data : std_logic_vector(0 to 127); invert : std_logic) return std_logic_vector;
 	impure function sbox_byte( byte : std_logic_vector(0 to 7);  invert : std_logic ) return std_logic_vector;

@@ -27,10 +27,9 @@ begin
 	generate_sbox : for i in 12 to 15 generate
 		sbox_entity : entity work.Sbox	   
 			port map(
-			x  => init_key(i*8 to (i + 1)*8 - 1),
-			s => start,
-			y => '1',
-				z => substituted_round_key((i - 12)*8 to (i + 1 - 12)*8 - 1)
+				dataIn  => init_key(i*8 to (i + 1)*8 - 1),
+				encrypt => '0',
+				dataOut => substituted_round_key((i - 12)*8 to (i + 1 - 12)*8 - 1)
 			);			
 	end generate generate_sbox; 
 	

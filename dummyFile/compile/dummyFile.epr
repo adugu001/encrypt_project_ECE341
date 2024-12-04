@@ -1,12 +1,2 @@
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_test_package.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/controller_TB.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/mix_columns.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/key_schedule.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/key_controller.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/GF_Multiplier.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/shiftRows.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
-"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/Sbox.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
+"C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/blackBox.vhd" VHDL dummyFile 1 0 0 -02 -08 -18
 . . 0 0 0

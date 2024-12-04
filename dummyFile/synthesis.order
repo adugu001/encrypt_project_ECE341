@@ -11,3 +11,5 @@ i<>.\src\GF_Multiplier.vhd
 i<>.\src\key_controller.vhd
 i<>.\src\controller_TB.vhd
 i<>.\src\mix_columns.vhd
+i<>.\src\Sub_Box.vhd
+i<>.\src\blackBox.vhd
