@@ -91,7 +91,8 @@ begin
 	load_key <= '0';
 	wait until clk'event AND clk = '1'; 
 	end loop;
-		
+	simulationActive <= false;
+	wait;	
 		
 end process;
 
