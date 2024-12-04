@@ -39,8 +39,8 @@ begin
 				& (init_key(96 to 127) XOR init_key(64 to 95) XOR init_key(32 to 63) XOR (init_key(0 to 7) XOR round_constants(  (8*to_integer(unsigned(round_constant))) to (to_integer(unsigned(round_constant)) + 1)*8  - 1) XOR substituted_round_key(8 to 15)) & (init_key(8 to 31) XOR (substituted_round_key(16 to 31) & substituted_round_key(0 to 7)))) after 25ps;
 
 	
-	process(clk,load_key,reset) is
-	begin	
+--	process(clk,load_key,reset) is
+--	begin	
 	--counter <= 0 when (reset = '1' or counter = 10)  else  counter +1 when( clk'event and clk = '1' and load_key'event and load_key ='1');	
 	--	key_out <= (init_key(0 to 7) XOR round_constants(  (8*counter) to (counter + 1)*8  - 1) XOR substituted_round_key(8 to 15)) & (init_key(8 to 31) XOR (substituted_round_key(16 to 31) & substituted_round_key(0 to 7)))
 --				& (init_key(32 to 63) XOR (init_key(0 to 7) XOR round_constants(  (8*counter) to (counter + 1)*8  - 1) XOR substituted_round_key(8 to 15)) & (init_key(8 to 31) XOR (substituted_round_key(16 to 31) & substituted_round_key(0 to 7))))
@@ -50,6 +50,6 @@ begin
 	--key_done <= '1' when ( load_key = '1' AND round_constant = round_constants(  (8*counter) to (counter + 1)*8  - 1)) else '0';		
 	
 	--done <= '1' when round_constant = x"36" else '0';
-	end process;  		
+--	end process;  		
 		
 end architecture dataflow;

@@ -27,8 +27,8 @@ begin
 			
 	reg_in <= key when reset = '0' else previous_round_key;	  
 	--store full key in generic register map
-	registers : entity work.dffreg			  
-		generic map(size => 128) port map(clk => clk,d   => reg_in,q   => reg_out);	
+	--registers : entity work.dffreg			  
+	--	generic map(size => 128) port map(clk => clk,d   => reg_in,q   => reg_out);	
 			
 		--round_key_generator_entity : entity work.round_key_generator
 --		port map(

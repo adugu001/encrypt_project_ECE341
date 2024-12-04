@@ -13,7 +13,7 @@ architecture TB_ARCHITECTURE of encrypter_decrypter_tb is
 	port(
 		clk : in STD_LOGIC;
 		reset : in STD_LOGIC;
-		invert : in STD_LOGIC;
+		encrypt : in STD_LOGIC;
 		data_in : in STD_LOGIC_VECTOR(0 to 127);
 		start : in STD_LOGIC;  
 		start_a : in STD_LOGIC;
@@ -24,7 +24,7 @@ architecture TB_ARCHITECTURE of encrypter_decrypter_tb is
 	-- Stimulus signals - signals mapped to the input and inout ports of tested entity
 	signal clk : STD_LOGIC;
 	signal reset : STD_LOGIC;
-	signal invert : STD_LOGIC;
+	signal encrypt : STD_LOGIC;
 	signal data_in : STD_LOGIC_VECTOR(0 to 127);
 	signal start : STD_LOGIC;	
 		signal start_a : STD_LOGIC;
@@ -41,7 +41,7 @@ begin
 		port map (
 			clk => clk,
 			reset => reset,
-			invert => invert,
+			encrypt => encrypt,
 			data_in => data_in,
 			start => start,
 			start_a => start_a,
@@ -67,11 +67,15 @@ variable key0 : std_logic_vector(0 to 127):= 	"00101011"&"01111110"&"00010101"&"
 												"00101000"&"10101110"&"11010010"&"10100110"&
 												"10101011"&"11110111"&"00010101"&"10001000"&
 												"00001001"&"11001111"&"01001111"&"00111100"; 
+variable data0 : std_logic_vector(0 to 127):= "00110010010000111111011010101000100010000101101000110000100011010011000100110001100110001010001011100000001101110000011100110100";
+												
 variable tempKey : std_logic_vector(0 to 127);
 begin	 
 	reset <= '1';
 	wait until clk'event AND clk = '1';
-	reset <= '0';
+	reset <= '0'; 
+	data_in <= data0;
+	encrypt<= '1';
 	init_key <= key0;
 	start_a <= '1';
 	start <= '1';
@@ -84,7 +88,18 @@ begin
 	wait until clk'event AND clk = '1';
 	wait until clk'event AND clk = '1';
 	wait until clk'event AND clk = '1';
-		wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';	
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	wait until clk'event AND clk = '1';
+	
 --	tempKey := key_out;	
 --	report "out: " & to_hstring(tempKey);
 --	load_key <= '0';

@@ -21,13 +21,16 @@ architecture dataflow of encrypter_decrypter is
 
 signal state, nextState : integer := 0;
 signal startKeyGen, finished_key : std_logic := '0';
-type key_store is array (0 to 9) of std_logic_vector(0 to 127);	
-signal roundKeys: key_store;  
+signal roundKeys: work.function_package.dataStore;  
 signal returned_key : std_logic_vector(0 to 127); 
 signal temp_key : std_logic_vector(0 to 127); 
-signal all_keys_done,stale : std_logic;
+signal temp_data : std_logic_vector(0 to 127);
+signal all_keys_done : std_logic;
+signal stale : std_logic := '0';
 signal key_counter : integer := 0;
-
+signal enc_dec: std_logic;
+signal data_return: std_logic_vector(0 to 127);
+signal test : std_logic_vector(0 to 127);
 begin
 	key_controller : entity work.key_controller
 	port map(	
@@ -41,6 +44,13 @@ begin
 		done => all_keys_done, 
 		round_constant => std_logic_vector(to_unsigned(key_counter,8))
 		); 
+	blackBox : entity work.blackBox
+	port map(	
+			dataIn => temp_data,
+			encrypt => encrypt,
+			roundKey => roundKeys, 
+			dataOut => data_return
+		); 	
 	
 	
 p1: process(state,stale) is  
@@ -48,6 +58,8 @@ begin
 case state is
 	when 0 => --start	
 	temp_key <= init_key;
+	
+		enc_dec <= encrypt;
 		nextState <= 1 when start_a = '1' else 0;
 	when 1 => --load and forward key   
 		startKeyGen<= '1';
@@ -55,14 +67,15 @@ case state is
 		 nextState <= 2;
 	when 2 => --hold in state 2 load keys until 10 keys
 		  roundKeys(key_counter) <= returned_key;
-		  key_counter<= key_counter +1 ;
-			nextState <= 3 when key_counter = 10 else 1;
+		  key_counter<= key_counter +1 when key_counter <9;
+			nextState <= 3 when key_counter = 9 else 2;
 			temp_key <= returned_key;
 	when 3 => --start encrypt/decrypt 
-	
+	temp_data <= data_in;
+	test <= data_return;
 		nextState <=1;
 	when 10 => --reset 
-	
+		
 		nextState <= 0;
 	when others => null;
 	end case;
