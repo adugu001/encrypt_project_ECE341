@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-
+--60ns
 entity blackBox is
 	port(
 			dataIn: in std_logic_vector(0 to 127);

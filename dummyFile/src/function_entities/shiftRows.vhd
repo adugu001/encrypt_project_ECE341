@@ -9,51 +9,38 @@ end entity shiftRows;
 
 architecture behavioral of shiftRows is
 	
---| r0  |  0-7  |  8-15 | 16-23 | 24-31 |
---| r1  | 32-39 | 40-47 | 48-55 | 56-63 |
---| r2  | 64-71 | 72-79 | 80-87 | 88-95 |
---| r3  | 96-103|104-111|112-119|120-127|	
---	\/ \/ \/ 		   /\ /\ /\
---	\/ \/ \/		   /\ /\ /\
---| r0  |  0-7  |  8-15 | 16-23 | 24-31 |
---| r1  | 40-47 | 48-55 | 56-63 | 32-39 | 
---| r2  | 80-87 | 88-95 | 64-71 | 72-79 |
---| r3  |120-127| 96-103|104-111|112-119|		
+	
+		
 
 begin	
-
-			dataOut(8*15 to 8*16- 1) 	<= dataIn(8*11  to 8*12 -1) when encrypt = '0';
-			dataOut(8*14 to 8*15 - 1)	<= dataIn(8*6 to 8*7 - 1) when encrypt = '0';
-			dataOut(8*13 to 8*14 -1) 	<= dataIn(8*1   to  8*2 - 1) when encrypt = '0'; 
-			dataOut(8*12 to 8*13 - 1) 	<= dataIn(8*12  to  8*13 - 1) when encrypt = '0';
-			dataOut(8*11 to 8*12 - 1) 	<= dataIn(8*7   to  8*8 -1) when encrypt = '0';
-			dataOut(8*10 to 8*11 - 1) 	<= dataIn(8*2   to  8*3 - 1) when encrypt = '0'; 
-			dataOut(8*9 to 8*10-1) 		<= dataIn(8*13  to  8*14-1) when encrypt = '0';
-			dataOut(8*8 to 8*9-1) 		<= dataIn(8*8   to  8*9-1) when encrypt = '0';
-			dataOut(8*7 to 8*8-1) 		<= dataIn(8*3   to  8*4-1) when encrypt = '0';
-			dataOut(8*6 to 8*7-1) 		<= dataIn(8*14  to  8*15-1) when encrypt = '0';
-			dataOut(8*5 to 8*6-1) 		<= dataIn(8*9  to  8*10-1) when encrypt = '0';
-			dataOut(8*4 to 8*5-1) 		<= dataIn(8*4   to  8*5-1) when encrypt = '0';
-			dataOut(8*3 to 8*4-1) 		<= dataIn(8*15  to  8*16-1) when encrypt = '0';
-			dataOut(8*2 to 8*3-1) 		<= dataIn(8*10  to  8*11-1) when encrypt = '0';
-			dataOut(8*1 to 8*2-1) 		<= dataIn(8*5   to  8*6-1) when encrypt = '0';
-			dataOut(8*0 to 8*1-1) 		<= dataIn(8*0   to  8*1-1) when encrypt = '0'; 			 
-			
-			dataOut(8*11  to 8*12 -1) 	<= dataIn(8*15 to 8*16- 1) when encrypt = '1';
-			dataOut(8*6 to 8*7 - 1) 	<= dataIn(8*14 to 8*15 - 1) when encrypt = '1';
-			dataOut(8*1   to  8*2 - 1) 	<= dataIn(8*13 to 8*14 -1) when encrypt = '1'; 
-			dataOut(8*12  to  8*13 - 1) <= dataIn(8*12 to 8*13 - 1) when encrypt = '1';
-			dataOut(8*7   to  8*8 -1) 	<= dataIn(8*11 to 8*12 - 1) when encrypt = '1';
-			dataOut(8*2   to  8*3 - 1)  <= dataIn(8*7   to  8*8 -1) when encrypt = '1'; 
-			dataOut(8*13  to  8*14-1) 	<= dataIn(8*9 to 8*10-1) when encrypt = '1';
-			dataOut(8*8   to  8*9-1) 	<= dataIn(8*8 to 8*9-1) when encrypt = '1';
-			dataOut(8*3   to  8*4-1) 	<= dataIn(8*7 to 8*8-1) when encrypt = '1';
-			dataOut(8*14  to  8*15-1) 	<= dataIn(8*6 to 8*7-1) when encrypt = '1';
-			dataOut(8*9  to  8*10-1) 	<= dataIn(8*5 to 8*6-1) when encrypt = '1';
-			dataOut(8*4   to  8*5-1) 	<= dataIn(8*4 to 8*5-1) when encrypt = '1';
-			dataOut(8*15  to  8*16-1) 	<= dataIn(8*3 to 8*4-1) when encrypt = '1';
-			dataOut(8*10  to  8*11-1) 	<= dataIn(8*2 to 8*3-1) when encrypt = '1';
-			dataOut(8*5   to  8*6-1) 	<= dataIn(8*1 to 8*2-1) when encrypt = '1';
-			dataOut(8*0   to  8*1-1) 	<= dataIn(8*0 to 8*1-1) when encrypt = '1'; 
+		
+	dataOut( 0 to 7 )	<=  dataIn( 0  to 7);
+	dataOut(32 to 39)	<=  dataIn(32  to 39);							
+	dataOut(64 to 71)	<=  dataIn(64  to 71);
+	dataOut(96 to 103)	<=  dataIn(96  to 103);		
+	dataOut(8  to 15)	<=  dataIn(40  to 47) when encrypt = '0' else
+							dataIn(104 to 111);		 		
+	dataOut(40 to 47)	<=  dataIn(72  to 79) when encrypt = '0' else
+							dataIn( 8  to 15);
+	dataOut(72 to 79)	<=  dataIn(104 to 111) when encrypt = '0' else
+							dataIn(40  to 47);		
+	dataOut(104 to 111)	<=  dataIn(8   to 15) when encrypt = '0' else
+							dataIn(72  to 79);
+	dataOut(16 to 23)	<=  dataIn(80  to 87);
+	dataOut(48 to 55)	<=  dataIn(112 to 119);							
+	dataOut(80 to 87)	<=  dataIn(16  to 23);
+	dataOut(112 to 119)	<=  dataIn(48  to 55);
+	dataOut(24 to 31)	<=  dataIn(120 to 127) when encrypt = '0' else
+							dataIn(56  to 63);
+	dataOut(56 to 63)	<=  dataIn(24  to 31) when encrypt = '0' else
+							dataIn(88  to 95);
+	dataOut(88 to 95)	<=  dataIn(56  to 63) when encrypt = '0' else
+							dataIn(120 to 127);
+	dataOut(120 to 127)	<=  dataIn(88  to 95) when encrypt = '0' else
+							dataIn(24  to 31); 
+		
+	
+	
+	
 
 end behavioral; 
