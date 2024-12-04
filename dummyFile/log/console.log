@@ -2168,4 +2168,49 @@ acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_entities/blackBox.vhd
 # Error: COMP96_0078: function_entities/blackBox.vhd : (15, 54): Unknown identifier "dataStore".
 # Error: COMP96_0064: function_entities/blackBox.vhd : (15, 54): Unknown type.
 # Error: COMP96_0289: function_entities/blackBox.vhd : (18, 1): Prefix of index must be an array.
-# E
+# Error: COMP96_0289: function_entities/blackBox.vhd : (21, 59): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (21, 106): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (22, 62): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (22, 106): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (23, 62): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (23, 108): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (24, 2): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (27, 60): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (27, 105): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (28, 61): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (28, 106): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (29, 30): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (29, 12): Prefix of index must be an array.
+# Error: COMP96_0077: function_entities/blackBox.vhd : (29, 12): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
+# Compile failure 17 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_entities/blackBox.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/blackBox.vhd
+# Compile Entity "blackBox"
+# Compile Architecture "dataflow" of Entity "blackBox"
+# Error: COMP96_0078: function_entities/blackBox.vhd : (15, 59): Unknown identifier "dataStore".
+# Error: COMP96_0064: function_entities/blackBox.vhd : (15, 54): Unknown type.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (18, 1): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (21, 59): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (21, 106): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (22, 62): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (22, 106): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (23, 62): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (23, 108): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (24, 2): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (27, 60): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (27, 105): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (28, 61): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (28, 106): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (29, 30): Prefix of index must be an array.
+# Error: COMP96_0289: function_entities/blackBox.vhd : (29, 12): Prefix of index must be an array.
+# Error: COMP96_0077: function_entities/blackBox.vhd : (29, 12): Undefined type of expression. Expected type 'STD_ULOGIC_VECTOR'.
+# Compile failure 17 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_entities/blackBox.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/blackBox.vhd
+# Compile Entity "blackBox"
+# Compile Architecture "dataflow" of Entity "blackBox"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -dbg -e 100 -work dummyFile -2019  $dsn/src/function_entities/blackBox.vhd
+# File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/blackBox.vhd
+# Compile Entity "blackBox"
+# Co
