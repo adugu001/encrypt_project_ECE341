@@ -6,6 +6,8 @@ i<>.\src\key_schedule.vhd
 i<>.\src\function_package.vhd
 i<>.\src\TestBench\aes_128_encrypt_f24_TB.vhd
 i<>.\src\aes_128_test_package.vhd
-i<>.\src\round_key_generator.vhd
 i<>.\src\counter.vhd
 i<>.\src\GF_Multiplier.vhd
+i<>.\src\key_controller.vhd
+i<>.\src\controller_TB.vhd
+i<>.\src\mix_columns.vhd
