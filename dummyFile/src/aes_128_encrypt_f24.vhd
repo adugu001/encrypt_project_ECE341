@@ -219,11 +219,12 @@ end architecture behavioral;
 
 architecture dataFlow of AES_128_encrypt_f24 is
 type key_store is array (0 to 9) of std_logic_vector(0 to 127);
-signal A,B,C,D,E,start_key_gen, start_encrypt, encryption_done: std_logic;
-signal IR_IV, IR_KEY, IR_DATA, IR_OUTPUT, IR_CURRENT_ROUND_KEY : std_logic_vector(0 to 127);
+signal A,B,C,D,E,start_key_gen, keys_done, start_encrypt, encryption_done, key_retrieval_forward: std_logic;
+signal IR_IV, IR_KEY, IR_DATA, IR_OUTPUT, IR_CURRENT_ROUND_KEY : std_logic_vector(0 to 127);  
+signal roung_key_counter: integer := 0;
 signal state : std_logic_vector(0 to 4);
 
---round_key_generator_entity : entity work.round_key_generator
+--round_controller_entity : entity work.key_controller
 --		port map(
 --			clk => CLK;
 --			reset => reset; --assuming we need a reset
@@ -330,7 +331,7 @@ begin
 	IR_DATA(96 to 127) <= datain when state = "01110"; 
 	
 	--	key gen
---	start_key_gen <= '1' when state = "01111" or "10000" else '0';
+	--start_key_gen <= '1' when state = "01111" or "10000" else '0';
 --		
 --	--only stores final manipulated data when count signal.
 --	--Count signal is the counters indiciation it went through all keygen and encryption steps
