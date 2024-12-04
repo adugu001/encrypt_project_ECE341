@@ -29,7 +29,7 @@ FullDebugModeSignalsFile=dummyFile.psl
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=aes_128_encrypt_f24_tb|TB_ARCHITECTURE|0
+HierarchyInformation=aes_128_encrypt_f24_tb|TB_ARCHITECTURE|0 
 ShowHide=ShowTopLevel
 Selected=
 
@@ -78,24 +78,6 @@ ProtectLevel=0
 IncrementalCompilation=0
 AdditionalOptions=
 
-[Files.Data]
-.\src\function_package.vhd=VHDL Source Code
-.\src\aes_128_encrypt_f24.vhd=VHDL Source Code
-.\src\key_controller.vhd=VHDL Source Code
-.\src\blackBox.vhd=VHDL Source Code
-.\src\TestBench\aes_128_test_package.vhd=VHDL Source Code
-.\src\TestBench\aes_128_encrypt_f24_TB.vhd=VHDL Test Bench
-.\src\TestBench\controller_TB.vhd=VHDL Source Code
-.\src\TestBench\controller_TB_runtest.do=Macro
-.\src\TestBench\aes_128_encrypt_f24_TB_runtest.do=Macro
-.\src\function_entities\Sub_Box.vhd=VHDL Source Code
-.\src\function_entities\mix_columns.vhd=VHDL Source Code
-.\src\function_entities\key_schedule.vhd=VHDL Source Code
-.\src\function_entities\GF_Multiplier.vhd=VHDL Source Code
-.\src\function_entities\shiftRows.vhd=VHDL Source Code
-.\src\function_entities\Sbox.vhd=VHDL Source Code
-.\src\function_entities\blackBox.vhd=VHDL Source Code
-
 [Groups]
 TestBench=1
 function_entities=1
@@ -116,4 +98,21 @@ function_entities/key_schedule.vhd=-1
 function_entities/GF_Multiplier.vhd=-1
 function_entities/shiftRows.vhd=-1
 function_entities/Sbox.vhd=-1
+
+[Files.Data]
+.\src\function_package.vhd=VHDL Source Code
+.\src\aes_128_encrypt_f24.vhd=VHDL Source Code
+.\src\key_controller.vhd=VHDL Source Code
+.\src\TestBench\aes_128_test_package.vhd=VHDL Source Code
+.\src\TestBench\aes_128_encrypt_f24_TB.vhd=VHDL Test Bench
+.\src\TestBench\controller_TB.vhd=VHDL Source Code
+.\src\TestBench\controller_TB_runtest.do=Macro
+.\src\TestBench\aes_128_encrypt_f24_TB_runtest.do=Macro
+.\src\function_entities\blackBox.vhd=VHDL Source Code
+.\src\function_entities\Sub_Box.vhd=VHDL Source Code
+.\src\function_entities\mix_columns.vhd=VHDL Source Code
+.\src\function_entities\key_schedule.vhd=VHDL Source Code
+.\src\function_entities\GF_Multiplier.vhd=VHDL Source Code
+.\src\function_entities\shiftRows.vhd=VHDL Source Code
+.\src\function_entities\Sbox.vhd=VHDL Source Code
 

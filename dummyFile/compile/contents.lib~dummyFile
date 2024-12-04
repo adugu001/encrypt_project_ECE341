@@ -1,4 +1,4 @@
-458
+483
 ~E 1 "../src/aes_128_encrypt_f24.vhd" 6 AES_128_encrypt_f24
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 52 behavioral
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 220 dataFlow
@@ -15,6 +15,8 @@
 ~E 1 "../src/dffreg.vhd" 6 dffreg
 ~E 1 "../src/function_entities/GF_Multiplier.vhd" 6 GF_Multiplier
 ~A 1 "../src/function_entities/GF_Multiplier.vhd" 14 dataFlow
+~E 1 "../src/key_controller.vhd" 5 key_controller
+~A 1 "../src/key_controller.vhd" 19 dataflow
 ~E 1 "../src/key_schedule.vhd" 7 key_schedule
 ~A 1 "../src/function_entities/key_schedule.vhd" 19 behavioral
 ~E 1 "../src/function_entities/mix_columns.vhd" 5 mix_columns
@@ -29,5 +31,5 @@
 ~A 1 "../src/function_entities/shiftRows.vhd" 10 behavioral
 ~E 1 "../src/function_entities/Sub_Box.vhd" 5 Sub_box
 ~A 1 "../src/function_entities/Sub_Box.vhd" 13 dataflow
-~C 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 270 testbench_for_aes_128_encrypt_f24
+~C 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 286 testbench_for_aes_128_encrypt_f24
 ~C 1 "../src/TestBench/controller_TB.vhd" 101 testbench_for_controller

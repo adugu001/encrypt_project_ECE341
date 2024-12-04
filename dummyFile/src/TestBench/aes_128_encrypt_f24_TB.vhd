@@ -43,7 +43,7 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 	signal dataOut : STD_LOGIC_VECTOR(0 to 31);
 	signal Done : STD_LOGIC;
    	signal SIMULATIONACTIVE:BOOLEAN:=TRUE;	
-	signal c, a, b : std_logic_vector(0 to 127) := (others =>'0');
+	signal a1, a2, a3, b1, b2, b3, c1, c2, c3 : std_logic_vector(0 to 127) := (others =>'0');
 
 begin
 	UUT : aes_128_encrypt_f24
@@ -61,12 +61,13 @@ begin
 			dataOut => dataOut,
 			Done => Done
 		);
-	sub_box_entity : entity work.sub_box 
-			port map( 
-				datain => a,  
-				encrypt => encrypt,
-				dataout => c
-			);	
+	sub_box_entity : entity work.sub_box 	
+		port map(datain => a1,  encrypt => encrypt, dataout => b1);
+	shiftRow_entity: entity work.shiftRows 	 
+		port map(dataIn => a2, 	encrypt => encrypt, dataOut => b2);	--1ns
+	mix_col_entity : entity work.mix_columns 
+		port map(datain => a3,  encrypt => encrypt, dataout => b3);	--4ns
+	
 process
 	begin
 		while simulationActive loop
@@ -235,32 +236,47 @@ variable aftermix : std_logic_vector(0 to 127) := 	"00000100"&"01100110"&"100000
 											
 begin 	
 	--encrypt op 
-		testData := sbox(data, '0');
 		encrypt <= '0';
-		a <= data;
-		for i in 0 to 10 loop
+		
+		testData := sbox(data, '0');
+		a1 <= data;--1ns, erratic at 50 ns
+		for i in 0 to 3 loop
+			wait for 1 ns;		  
+		end loop;		  
+		assert testdata = b1 report "sbox failed";
+		
+		testData := shiftRows(aftersub, '0');  --1ns
+		a2 <= afterSub;
+		wait for 1 ns;		  
+		assert testdata = b2 report "shiftRow failed";
+		
+		testData := mixColumns(aftershift, '0'); --4ns
+		a3 <= aftershift;
+		for i in 0 to 3 loop
 			wait for 1 ns;		  
 		end loop;
-		assert testdata = aftersub report "sbox failed";
+		assert testdata = b3 report "mixcol failed";
 		
-		testData := shiftRows(aftersub, '0');
-		assert testdata = afterShift report "shift failed";	
-		testData := mixColumns(aftershift, '0');
-		assert testdata = aftermix report "mixcol failed";
-		
-		--decrypt op
-		testData := mixColumns(aftermix, '1');		
-		assert testdata = aftershift report "invmixcol failed";	 		
-		testData := shiftRows(aftershift, '1');
-		assert testdata = afterSub report "invshift failed";
-		
-		testData := sbox(afterSub, '1');
+		--decrypt op 
 		encrypt <= '1';
-		a<= afterSub; 
-		for i in 0 to 10 loop
+		
+		testData := mixColumns(aftermix, '1');	--4
+		a3 <= afterMix;
+		for i in 0 to 3 loop
 			wait for 1 ns;		  
-		end loop;		
-		assert testdata = data report "invsbox failed";
+		end loop;
+		assert testdata = b3 report "inv mixcol failed";
+		
+		testData := shiftRows(aftershift, '1');
+		a2 <= aftershift;
+		wait for 1ns;
+		assert testdata = b2 report "inv shiftRows failed";
+		
+		testData := sbox(afterSub, '1');	 --1
+		a1 <= afterSub; 
+		wait for 1ns;
+		assert testdata = b1 report "inv sbox failed";
+
 		
 		
 		wait;

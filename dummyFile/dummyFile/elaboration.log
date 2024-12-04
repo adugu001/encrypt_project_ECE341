@@ -1,4 +1,4 @@
-Active-HDL 12.0.118.7745 2024-12-04 13:45:11
+Active-HDL 12.0.118.7745 2024-12-04 18:52:58
 
 Elaboration top modules:
 Architecture                  TB_ARCHITECTURE(aes_128_encrypt_f24_tb)
@@ -10,7 +10,10 @@ Entity                 | Architecture    | Library   | Info | Compiler Version  
 aes_128_encrypt_f24_tb | TB_ARCHITECTURE | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
 AES_128_encrypt_f24    | dataFlow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
 Sub_box                | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+shiftRows              | behavioral      | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+mix_columns            | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
 Sbox                   | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+GF_Multiplier          | dataFlow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
 ------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------
@@ -31,3 +34,9 @@ dummyfile                                | None
 ieee                                     | Standard IEEE packages library
 std                                      | Standard VHDL library
 ------------------------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -O5 +access +r +m+aes_128_encrypt_f24_tb aes_128_encrypt_f24_tb TB_ARCHITECTURE
+
+
+The performance of simulation is reduced. Version EDU Edition
