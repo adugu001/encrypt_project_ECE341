@@ -78,25 +78,6 @@ ProtectLevel=0
 IncrementalCompilation=0
 AdditionalOptions=
 
-[Groups]
-TestBench=1
-function_entities=1
-
-[Files]
-/function_package.vhd=-1
-/aes_128_encrypt_f24.vhd=-1
-TestBench/aes_128_test_package.vhd=-1
-TestBench/aes_128_encrypt_f24_TB.vhd=-1
-TestBench/controller_TB.vhd=-1
-TestBench/controller_TB_runtest.do=-1
-TestBench/aes_128_encrypt_f24_TB_runtest.do=-1
-function_entities/mix_columns.vhd=-1
-function_entities/key_schedule.vhd=-1
-function_entities/key_controller.vhd=-1
-function_entities/GF_Multiplier.vhd=-1
-function_entities/shiftRows.vhd=-1
-function_entities/Sbox.vhd=-1
-
 [Files.Data]
 .\src\ffreg.vhd=VHDL Source Code
 .\src\function_package.vhd=VHDL Source Code
@@ -112,4 +93,24 @@ function_entities/Sbox.vhd=-1
 .\src\function_entities\GF_Multiplier.vhd=VHDL Source Code
 .\src\function_entities\shiftRows.vhd=VHDL Source Code
 .\src\function_entities\Sbox.vhd=VHDL Source Code
+.\src\key_controller.vhd=VHDL Source Code
+
+[Groups]
+TestBench=1
+function_entities=1
+
+[Files]
+/function_package.vhd=-1
+/aes_128_encrypt_f24.vhd=-1
+/key_controller.vhd=-1
+TestBench/aes_128_test_package.vhd=-1
+TestBench/aes_128_encrypt_f24_TB.vhd=-1
+TestBench/controller_TB.vhd=-1
+TestBench/controller_TB_runtest.do=-1
+TestBench/aes_128_encrypt_f24_TB_runtest.do=-1
+function_entities/mix_columns.vhd=-1
+function_entities/key_schedule.vhd=-1
+function_entities/GF_Multiplier.vhd=-1
+function_entities/shiftRows.vhd=-1
+function_entities/Sbox.vhd=-1
 
