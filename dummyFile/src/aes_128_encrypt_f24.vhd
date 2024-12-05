@@ -221,7 +221,7 @@ architecture dataFlow of AES_128_encrypt_f24 is
 type key_store is array (0 to 9) of std_logic_vector(0 to 127);
 signal start_key_gen, keys_done, start_encrypt, encryption_done, stale: std_logic;
 signal IR_IV, IR_KEY, IR_DATA, IR_OUTPUT, IR_CURRENT_ROUND_KEY : std_logic_vector(0 to 127);  
-signal state, nextstate : integer;
+signal state, nextstate : integer := 0;
 
 begin
 ENCRYPTOR : entity work.encrypter_decrypter 

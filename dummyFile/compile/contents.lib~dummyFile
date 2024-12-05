@@ -1,4 +1,4 @@
-529
+539
 ~E 1 "../src/aes_128_encrypt_f24.vhd" 6 AES_128_encrypt_f24
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 52 behavioral
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 220 dataFlow
@@ -37,6 +37,7 @@
 ~A 1 "../src/function_entities/shiftRows.vhd" 10 behavioral
 ~E 1 "../src/function_entities/Sub_Box.vhd" 5 Sub_box
 ~A 1 "../src/function_entities/Sub_Box.vhd" 13 dataflow
-~C 1 "../src/TestBench/dataFlow_TB.vhd" 197 testbench_for_aes_128_encrypt_f24
+~C 1 "../src/TestBench/dataFlow_TB.vhd" 200 testbench_for_aes_128_encrypt_f24
+~C 1 "../src/TestBench/dataFlow_TB.vhd" 200 testbench_for_aes_128_encrypt_f24_dataflow
 ~C 1 "../src/TestBench/controller_TB.vhd" 101 testbench_for_controller
 ~C 1 "../src/TestBench/encrypter_decrypter_TB.vhd" 120 testbench_for_encrypter_decrypter

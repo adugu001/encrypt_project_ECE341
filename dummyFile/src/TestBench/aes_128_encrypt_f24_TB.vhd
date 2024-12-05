@@ -79,7 +79,7 @@ type stream_store is array (1 to 3) of std_logic_vector(0 to 127);
 variable CBC_file, ECB_file: stream_store;
 begin
 		wait until clk'event AND clk = '1';
-		encrypt <= '1'; iv_load <= '0'; 
+		encrypt <= '0'; iv_load <= '0'; 
 		
 		wait until clk'event AND clk = '1';	
 		--ENCRYPTION ON INDIVIDUAL BLOCKS------------------------------------------------------------

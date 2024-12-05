@@ -78,7 +78,7 @@ type stream_store is array (1 to 3) of std_logic_vector(0 to 127);
 variable CBC_file, ECB_file: stream_store;
 begin
 		wait until clk'event AND clk = '1';
-		encrypt <= '1'; iv_load <= '0'; 
+		encrypt <= '0'; iv_load <= '0'; 
 		
 		wait until clk'event AND clk = '1';	
 		--ENCRYPTION ON INDIVIDUAL BLOCKS------------------------------------------------------------
@@ -101,9 +101,10 @@ begin
 				wait until clk'event AND clk = '1';
 			end loop load_data;
 			
-			stream <= '0'; start <= '0';
-			wait until clk'event AND clk = '1';
-			wait until clk'event AND clk = '1';
+			stream <= '0'; start <= '0';  
+			for i in 0 to 17 loop
+				wait until clk'event AND clk = '1';
+			end loop;
 
 			OUTPUT_CIPHER: for i in 0 to 3 loop				
 				cipher(i*32 to i*32 + 31) := dataOut; 
@@ -136,8 +137,9 @@ begin
 					end loop load_data;
 					db_load <= '0';  
 				 	
-					wait until clk'event AND clk = '1';
-					wait until clk'event AND clk = '1';	--eating clk cycles to encrypt
+					for i in 0 to 17 loop
+						wait until clk'event AND clk = '1';
+					end loop;
 					
 					
 					if j = 3 then stream <= '0'; end if;
@@ -177,8 +179,9 @@ begin
 			wait until clk'event AND clk = '1';
 		end loop load_data;
 		  
-		wait until clk'event AND clk = '1' AND done ='1';	--eating clk cycles for some reason
-		wait until clk'event AND clk = '1' AND done ='1'; 
+		for i in 0 to 17 loop
+			wait until clk'event AND clk = '1';
+		end loop; 
 		
 		wait until done = '1';
 		OUTPUT_CIPHER: for i in 0 to 3 loop
@@ -194,11 +197,11 @@ begin
 end process;
 end architecture;
 
-configuration TESTBENCH_FOR_aes_128_encrypt_f24 of dataflow_tb is
+configuration TESTBENCH_FOR_aes_128_encrypt_f24_dataflow of dataflow_tb is
 	for TB_ARCHITECTURE
 		for UUT_dat : aes_128_encrypt_f24
 			use entity work.aes_128_encrypt_f24(dataflow);
 		end for;
 	end for;
-end TESTBENCH_FOR_aes_128_encrypt_f24;
+end TESTBENCH_FOR_aes_128_encrypt_f24_dataflow;
 
