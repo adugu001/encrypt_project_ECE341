@@ -12,7 +12,7 @@ entity encrypter_decrypter is
 		start : in std_logic;
 		init_key : in std_logic_vector(0 to 127); 
 		data_to_main : out std_logic_vector(0 to 127);
-		
+		op_done : out std_logic;
 	);
 end encrypter_decrypter;
 
@@ -62,7 +62,7 @@ case state is
 		nextState <= 1 when start = '1' else 0;
 	when 1 => --load and forward key   
 		startKeyGen<= '1';
-		 
+		key_counter <= 1; 
 		 nextState <= 2;
 	when 2 => --hold in state 2 load keys until 10 keys
 		  roundKeys(key_counter) <= returned_key;
@@ -73,10 +73,15 @@ case state is
 	temp_data <= data_in;
 	nextState <=4;
 	when 4 => --get result
-	test <= data_return;
-	data_to_main <= test after 2ns;
+	data_to_main <= data_return;
+	op_done <= '1';
+	nextState <= 5;
+	when 5 =>  -- pause
+	nextState <= 10;
 	when 10 => --reset 
-		
+	op_done <= '0';
+	key_counter <= 1; 
+ 	data_to_main <= (others => '0');
 		nextState <= 0;
 	when others => null;
 	end case;
