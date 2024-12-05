@@ -30,23 +30,19 @@ UPDATEPROGRESS 6
 UPDATEPROGRESS 15
 MESSAGE "Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"" 
 UPDATEPROGRESS 16
+UPDATEPROGRESS 61
 UPDATEPROGRESS 62
-UPDATEPROGRESS 63
 UPDATEPROGRESS 66
 UPDATEPROGRESS 67
-UPDATEPROGRESS 68
 MESSAGE "Compile Architecture "dataFlow" of Entity "AES_128_encrypt_f24"" 
+UPDATEPROGRESS 68
 UPDATEPROGRESS 69
-UPDATEPROGRESS 70
-UPDATEPROGRESS 74
+UPDATEPROGRESS 73
 UPDATEPROGRESS 94
 UPDATEPROGRESS 95
 UPDATEPROGRESS 98
 UPDATEPROGRESS 99
 UPDATEPROGRESS 100
-ERROR COMP96_0078: "Unknown identifier "op_done"." "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" 236 3
-ERROR COMP96_0133: "Cannot find object declaration." "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" 236 3
-ERROR COMP96_0112: ""op_done" does not match the formal name." "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" 236 3
 ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
 MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_controller.vhd" 
 MESSAGE "Compile Entity "key_controller"" 
@@ -76,8 +72,7 @@ WARNING COMP96_0003: "Source file "C:/Users/andre/OneDrive/School/ECE 341/encryp
 MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/dataFlow_TB.vhd" 
 MESSAGE "Compile Entity "dataflow_tb"" 
 MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "dataflow_tb"" 
-MESSAGE "Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"" 
-WARNING COMP96_0994: "Multiple configuration "TESTBENCH_FOR_aes_128_encrypt_f24" found in "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/dataFlow_TB.vhd", "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd"." "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/dataFlow_TB.vhd" 197 1
+MESSAGE "Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24_dataflow"" 
 MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/blackBox.vhd" 
 MESSAGE "Compile Entity "blackBox"" 
 MESSAGE "Compile Architecture "dataflow" of Entity "blackBox"" 
@@ -99,4 +94,4 @@ MESSAGE "Compile Architecture "behavioral" of Entity "shiftRows""
 MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/Sbox.vhd" 
 MESSAGE "Compile Entity "Sbox"" 
 MESSAGE "Compile Architecture "dataflow" of Entity "Sbox"" 
-FAILURE "Compile failure 3 Errors 2 Warnings  Analysis time :  2.0 [s]" 
+SUCCESS "Compile success 0 Errors 1 Warnings  Analysis time :  1.0 [s]" 
