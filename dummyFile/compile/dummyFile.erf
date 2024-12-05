@@ -1,5 +1,97 @@
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd" 
+BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+UPDATEPROGRESS 1
+MESSAGE "Compile Package "function_package"" 
+UPDATEPROGRESS 2
+UPDATEPROGRESS 3
+UPDATEPROGRESS 4
+MESSAGE "Compile Package Body "function_package"" 
+UPDATEPROGRESS 5
+UPDATEPROGRESS 20
+UPDATEPROGRESS 25
+UPDATEPROGRESS 41
+UPDATEPROGRESS 43
+UPDATEPROGRESS 52
+UPDATEPROGRESS 63
+UPDATEPROGRESS 64
+UPDATEPROGRESS 67
+UPDATEPROGRESS 71
+UPDATEPROGRESS 73
+UPDATEPROGRESS 76
+UPDATEPROGRESS 79
+UPDATEPROGRESS 99
+UPDATEPROGRESS 100
+ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_package.vhd
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd" 
+BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+UPDATEPROGRESS 1
+MESSAGE "Compile Entity "AES_128_encrypt_f24"" 
+UPDATEPROGRESS 6
+UPDATEPROGRESS 15
+MESSAGE "Compile Architecture "behavioral" of Entity "AES_128_encrypt_f24"" 
+UPDATEPROGRESS 16
+UPDATEPROGRESS 61
+UPDATEPROGRESS 62
+UPDATEPROGRESS 66
+UPDATEPROGRESS 67
+MESSAGE "Compile Architecture "dataFlow" of Entity "AES_128_encrypt_f24"" 
+UPDATEPROGRESS 68
+UPDATEPROGRESS 69
+UPDATEPROGRESS 73
+UPDATEPROGRESS 94
+UPDATEPROGRESS 95
+UPDATEPROGRESS 98
+UPDATEPROGRESS 99
+UPDATEPROGRESS 100
+ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/aes_128_encrypt_f24.vhd
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/key_controller.vhd" 
+MESSAGE "Compile Entity "key_controller"" 
+MESSAGE "Compile Architecture "dataflow" of Entity "key_controller"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/encrypter_decrypter.vhd" 
+MESSAGE "Compile Entity "encrypter_decrypter"" 
+MESSAGE "Compile Architecture "dataflow" of Entity "encrypter_decrypter"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/encrypter_decrypter_TB.vhd" 
+MESSAGE "Compile Entity "encrypter_decrypter_tb"" 
+MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "encrypter_decrypter_tb"" 
+MESSAGE "Compile Configuration "TESTBENCH_FOR_encrypter_decrypter"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_test_package.vhd" 
+BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_test_package.vhd
+UPDATEPROGRESS 1
+MESSAGE "Compile Package "aesTest"" 
+UPDATEPROGRESS 2
+UPDATEPROGRESS 4
+UPDATEPROGRESS 99
+UPDATEPROGRESS 100
+ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_test_package.vhd
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/aes_128_encrypt_f24_TB.vhd" 
+MESSAGE "Compile Entity "aes_128_encrypt_f24_tb"" 
+MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "aes_128_encrypt_f24_tb"" 
+MESSAGE "Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/controller_TB.vhd" 
+WARNING COMP96_0003: "Source file "C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/controller_TB.vhd" is empty."
 MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/dataFlow_TB.vhd" 
 MESSAGE "Compile Entity "dataflow_tb"" 
 MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "dataflow_tb"" 
 MESSAGE "Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24_dataflow"" 
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/blackBox.vhd" 
+MESSAGE "Compile Entity "blackBox"" 
+MESSAGE "Compile Architecture "dataflow" of Entity "blackBox"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/Sub_Box.vhd" 
+MESSAGE "Compile Entity "Sub_box"" 
+MESSAGE "Compile Architecture "dataflow" of Entity "Sub_box"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/mix_columns.vhd" 
+MESSAGE "Compile Entity "mix_columns"" 
+MESSAGE "Compile Architecture "dataflow" of Entity "mix_columns"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/key_schedule.vhd" 
+MESSAGE "Compile Entity "key_schedule"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "key_schedule"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/GF_Multiplier.vhd" 
+MESSAGE "Compile Entity "GF_Multiplier"" 
+MESSAGE "Compile Architecture "dataFlow" of Entity "GF_Multiplier"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/shiftRows.vhd" 
+MESSAGE "Compile Entity "shiftRows"" 
+MESSAGE "Compile Architecture "behavioral" of Entity "shiftRows"" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/function_entities/Sbox.vhd" 
+MESSAGE "Compile Entity "Sbox"" 
+MESSAGE "Compile Architecture "dataflow" of Entity "Sbox"" 
+SUCCESS "Compile success 0 Errors 1 Warnings  Analysis time :  1.0 [s]" 
