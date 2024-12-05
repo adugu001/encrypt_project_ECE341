@@ -1,9 +1,12 @@
 .\src\function_package.vhd
 .\src\aes_128_encrypt_f24.vhd
 .\src\key_controller.vhd
+.\src\encrypter_decrypter.vhd
+.\src\TestBench\encrypter_decrypter_TB.vhd
 .\src\TestBench\aes_128_test_package.vhd
 .\src\TestBench\aes_128_encrypt_f24_TB.vhd
 .\src\TestBench\controller_TB.vhd
+.\src\TestBench\dataFlow_TB.vhd
 .\src\function_entities\blackBox.vhd
 .\src\function_entities\Sub_Box.vhd
 .\src\function_entities\mix_columns.vhd

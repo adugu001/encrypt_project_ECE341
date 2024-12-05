@@ -13,3 +13,6 @@ i<>.\src\controller_TB.vhd
 i<>.\src\mix_columns.vhd
 i<>.\src\Sub_Box.vhd
 i<>.\src\blackBox.vhd
+i<>.\src\TestBench\dataFlow_TB.vhd
+i<>.\src\encrypter_decrypter.vhd
+i<>.\src\encrypter_decrypter_TB.vhd

@@ -32,8 +32,8 @@ d_data(10) <= dataIn XOR roundKey(10);
 d_shiftRow_entity: entity work.shiftRows 	 port map(dataIn => d_data(10),  	 encrypt => encrypt, dataOut => d_shiftdata(10));
 d_subBox_entity :  entity work.sub_box	 port map(dataIn => d_shiftData(10), encrypt => encrypt, dataOut => d_subData(10));
 decryptor_3000: for i in 9 downto 1 generate
-	d_Data(i) <= d_mixData(i) XOR roundKey(i);
-	mix_col_entity : entity work.mix_columns port map(datain => d_Data(i+1), encrypt => encrypt, dataout => d_mixData(i)); 
+	d_Data(i) <= d_subData(i+1) XOR roundKey(i);
+	mix_col_entity : entity work.mix_columns port map(datain => d_Data(i), encrypt => encrypt, dataout => d_mixData(i)); 
 	shiftRow_entity: entity work.shiftRows 	 port map(dataIn => d_mixData(i), 	encrypt => encrypt, dataOut => d_shiftdata(i));
 	subBox_entity :  entity work.sub_box	 port map(dataIn => d_shiftData(i), 	encrypt => encrypt, dataOut => d_subData(i));	--1ns
 end generate;
