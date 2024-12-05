@@ -81,7 +81,7 @@ case state is
 	when 10 => --reset 
 	op_done <= '0';
 	key_counter <= 1; 
-	data_to_main <= (others => '0');
+ 	data_to_main <= (others => '0');
 		nextState <= 0;
 	when others => null;
 	end case;
