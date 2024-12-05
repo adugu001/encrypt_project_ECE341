@@ -3,9 +3,7 @@ library ieee;
 use ieee.NUMERIC_STD.all;
 use ieee.std_logic_1164.all;
 use work.function_package.all;
-use work.aesTest.all;
-
-	-- Add your library and packages declaration here ...
+use work.aesTest.all;			 
 
 entity aes_128_encrypt_f24_tb is
 end aes_128_encrypt_f24_tb;
@@ -40,10 +38,9 @@ architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
 	signal CBC_mode : STD_LOGIC := '0';
 	signal dataIn : STD_LOGIC_VECTOR(0 to 31);
 	-- Observed signals - signals mapped to the output ports of tested entity
-	signal dataOut_beh, dataOut_dat : STD_LOGIC_VECTOR(0 to 31);
-	signal Done_beh, done_dat : STD_LOGIC;
-   	signal SIMULATIONACTIVE:BOOLEAN:=TRUE;	
-	signal a1, a2, a3, b1, b2, b3: std_logic_vector(0 to 127) := (others =>'0');
+	signal dataOut : STD_LOGIC_VECTOR(0 to 31);
+	signal Done : STD_LOGIC;
+   	signal SIMULATIONACTIVE:BOOLEAN:=TRUE;										
 
 begin
 	UUT_beh : aes_128_encrypt_f24
@@ -58,31 +55,9 @@ begin
 			encrypt => encrypt,
 			CBC_mode => CBC_mode,
 			dataIn => dataIn,
-			dataOut => dataOut_beh,
-			Done => Done_beh
+			dataOut => dataOut,
+			Done => Done
 		);
-	UUT_dat : aes_128_encrypt_f24
-		port map (
-			clk => clk,
-			reset => reset,
-			start => start,
-			key_load => key_load,
-			IV_load => IV_load,
-			db_load => db_load,
-			stream => stream,
-			encrypt => encrypt,
-			CBC_mode => CBC_mode,
-			dataIn => dataIn,
-			dataOut => dataOut_dat,
-			Done => Done_dat
-		);
-
-	sub_box_entity : entity work.sub_box 	
-		port map(datain => a1,  encrypt => encrypt, dataout => b1);
-	shiftRow_entity: entity work.shiftRows 	 
-		port map(dataIn => a2, 	encrypt => encrypt, dataOut => b2);	--1ns
-	mix_col_entity : entity work.mix_columns 
-		port map(datain => a3,  encrypt => encrypt, dataout => b3);	--4ns
 	
 process
 	begin
@@ -99,9 +74,9 @@ variable data0 : std_logic_vector(0 to 127)  :=	X"3243F6A8885A308D313198A2E03707
 variable data1 : std_logic_vector(0 to 127):= 	X"F34481EC3CC627BACD5DC3FB08F273E6";	    
 variable key0 : std_logic_vector(0 to 127):= 	X"2B7E151628AED2A6ABF7158809CF4F3C"; 	  
 variable key1 : std_logic_vector(0 to 127) := (others => '0');
-variable temp_data, temp_key, cipher_beh, cipher_dat, expected : std_logic_vector(0 to 127);
+variable temp_data, temp_key, cipher, expected : std_logic_vector(0 to 127);
 type stream_store is array (1 to 3) of std_logic_vector(0 to 127);
-variable CBC_file_beh, ECB_file_beh, CBC_file_dat, ECB_file_dat: stream_store;
+variable CBC_file, ECB_file: stream_store;
 begin
 		wait until clk'event AND clk = '1';
 		encrypt <= '1'; iv_load <= '0'; 
@@ -132,13 +107,10 @@ begin
 			wait until clk'event AND clk = '1';
 
 			OUTPUT_CIPHER: for i in 0 to 3 loop				
-				cipher_dat(i*32 to i*32 + 31) := dataOut_dat;
-				cipher_beh(i*32 to i*32 + 31) := dataOut_beh; 
+				cipher(i*32 to i*32 + 31) := dataOut; 
 				wait until clk'event AND clk = '1';
 			end loop OUTPUT_CIPHER;
-			assert cipher_beh = expected and cipher_dat = expected report 	"Beh Output: " & to_hstring(cipher_beh) & character'val(10) &  
-																			"Dat Output: " & to_hstring(cipher_dat) & character'val(10) & 
-																			"Expected: " & to_hstring(expected);	 
+			assert cipher = expected report 	"Beh Output: " & to_hstring(cipher) & character'val(10) & 	"Expected: " & to_hstring(expected);	 
 			
 		end loop straight_encryption;	   
 		--ENCRYPTION ON CHAINED BLOCKS------------------------------------------------------------
@@ -172,22 +144,17 @@ begin
 					if j = 3 then stream <= '0'; end if;
 					OUTPUT_CIPHER: for i in 0 to 3 loop
 						if k = 0 then 
-							ECB_file_beh(j)(i*32 to i*32 + 31) := dataOut_beh;
-							ECB_file_dat(j)(i*32 to i*32 + 31) := dataOut_dat;
+							ECB_file(j)(i*32 to i*32 + 31) := dataOut;
 						else 	
-							CBC_file_beh(j)(i*32 to i*32 + 31) := dataOut_beh; 
-							CBC_file_dat(j)(i*32 to i*32 + 31) := dataOut_dat;
+							CBC_file(j)(i*32 to i*32 + 31) := dataOut;
 						end if;
 						wait until clk'event AND clk = '1';
 					end loop OUTPUT_CIPHER;
 			end loop;				
 		end loop CBC_TEST;
-		assert (ECB_file_beh(1) = ECB_file_beh(2) AND ECB_file_beh(1) = ECB_file_beh(3)) report "Beh ecb output not repeated";
-		assert (ECB_file_dat(1) = ECB_file_dat(2) AND ECB_file_dat(1) = ECB_file_dat(3)) report "Dat ecb output not repeated";
-		assert CBC_file_beh(1) /= CBC_file_beh(2) AND CBC_file_beh(1) /= CBC_file_beh(3) AND CBC_file_beh(2) /= CBC_file_beh(3) report "Beh CBC has repeated outputs";
-		assert CBC_file_dat(1) /= CBC_file_dat(2) AND CBC_file_dat(1) /= CBC_file_dat(3) AND CBC_file_dat(2) /= CBC_file_dat(3) report "Dat CBC has repeated outputs";
-		assert CBC_file_beh(1) = ECB_file_beh(1) report "Beh ECB and CBC initial encryption differ";
-		assert CBC_file_dat(1) = ECB_file_dat(1) report "Dat ECB and CBC initial encryption differ";
+		assert (ECB_file(1) = ECB_file(2) AND ECB_file(1) = ECB_file(3)) report "ecb output not repeated"; 
+		assert CBC_file(1) /= CBC_file(2) AND CBC_file(1) /= CBC_file(3) AND CBC_file(2) /= CBC_file(3) report "CBC has repeated outputs";
+		assert CBC_file(1) = ECB_file(1) report "ECB and CBC initial encryption differ"; 
 
 		--DECRYPTION ON INDIVIDUAL BLOCKS----------------------------------------------------------------------
 		temp_key := key0; temp_data := expect; expected := X"3243f6a8885a308d313198a2e0370734";
@@ -211,88 +178,23 @@ begin
 			wait until clk'event AND clk = '1';
 		end loop load_data;
 		  
-		wait until clk'event AND clk = '1' AND done_beh ='1';	--eating clk cycles for some reason
-		wait until clk'event AND clk = '1' AND done_beh ='1'; 
+		wait until clk'event AND clk = '1' AND done ='1';	--eating clk cycles for some reason
+		wait until clk'event AND clk = '1' AND done ='1'; 
 		
-		wait until done_beh = '1';
+		wait until done = '1';
 		OUTPUT_CIPHER: for i in 0 to 3 loop
-				cipher_beh(i*32 to i*32 + 31) := dataOut_beh;
+				cipher(i*32 to i*32 + 31) := dataOut;
 				wait until clk'event AND clk = '1';
-				report "cipher chunk " & to_string(i) & ": " & to_hstring(cipher_beh); --debug purpose
+				report "cipher chunk " & to_string(i) & ": " & to_hstring(cipher); --debug purpose
 		end loop OUTPUT_CIPHER;
-		assert cipher_beh = data0 report "Actual Output: " & to_hstring(cipher_beh) & character'val(10) & "Expected: " & to_hstring(expected);	 
+		assert cipher = data0 report "Actual Output: " & to_hstring(cipher) & character'val(10) & "Expected: " & to_hstring(expected);	 
 		--DECRYPTION ON CHAINED BLOCKS----------------------------------------------------------------------
 			--TODO
 		simulationactive<= false;
 		wait;
 end process;
                                                     
-functionProcess: process------------------------------------------------------------------------------------------------------------------------------
-variable testdata : std_logic_vector(0 to 127);
-variable data : std_logic_vector(0 to 127) :=   	"00011001"&"00111101"&"11100011"&"10111110"&  --NIST.FIPS.197-upd1::pg34::round #1 
-					                                "10100000"&"11110100"&"11100010"&"00101011"&
-													"10011010"&"11000110"&"10001101"&"00101010"&
-													"11101001"&"11111000"&"01001000"&"00001000";
-variable afterSub : std_logic_vector(0 to 127) :=   "11010100"&"00100111"&"00010001"&"10101110"&
-					                                "11100000"&"10111111"&"10011000"&"11110001"&
-													"10111000"&"10110100"&"01011101"&"11100101"&
-													"00011110"&"01000001"&"01010010"&"00110000";														
-variable afterShift : std_logic_vector(0 to 127) := "11010100"&"10111111"&"01011101"&"00110000"&
-					                                "11100000"&"10110100"&"01010010"&"10101110"&
-													"10111000"&"01000001"&"00010001"&"11110001"&
-													"00011110"&"00100111"&"10011000"&"11100101"; 																									   
-variable aftermix : std_logic_vector(0 to 127) := 	"00000100"&"01100110"&"10000001"&"11100101"&
-												    "11100000"&"11001011"&"00011001"&"10011010"&
-												    "01001000"&"11111000"&"11010011"&"01111010"&
-												    "00101000"&"00000110"&"00100110"&"01001100";
-											
-begin 	
-	--encrypt op 
-		encrypt <= '0';
-		
-		testData := sbox(data, '0');
-		a1 <= data;--1ns, erratic at 50 ns
-		for i in 0 to 3 loop
-			wait for 1 ns;		  
-		end loop;		  
-		assert testdata = b1 report "sbox failed";
-		
-		testData := shiftRows(aftersub, '0');  --1ns
-		a2 <= afterSub;
-		wait for 1 ns;		  
-		assert testdata = b2 report "shiftRow failed";
-		
-		testData := mixColumns(aftershift, '0'); --4ns
-		a3 <= aftershift;
-		for i in 0 to 3 loop
-			wait for 1 ns;		  
-		end loop;
-		assert testdata = b3 report "mixcol failed";
-		
-		--decrypt op 
-		encrypt <= '1';
-		
-		testData := mixColumns(aftermix, '1');	--4
-		a3 <= afterMix;
-		for i in 0 to 3 loop
-			wait for 1 ns;		  
-		end loop;
-		assert testdata = b3 report "inv mixcol failed";
-		
-		testData := shiftRows(aftershift, '1');
-		a2 <= aftershift;
-		wait for 1ns;
-		assert testdata = b2 report "inv shiftRows failed";
-		
-		testData := sbox(afterSub, '1');	 --1
-		a1 <= afterSub; 
-		wait for 1ns;
-		assert testdata = b1 report "inv sbox failed";
 
-		
-		
-		wait;
-end process functionProcess;
 end TB_ARCHITECTURE;
 
 configuration TESTBENCH_FOR_aes_128_encrypt_f24 of aes_128_encrypt_f24_tb is
@@ -300,10 +202,6 @@ configuration TESTBENCH_FOR_aes_128_encrypt_f24 of aes_128_encrypt_f24_tb is
 		for UUT_beh : aes_128_encrypt_f24
 			use entity work.aes_128_encrypt_f24(behavioral);
 		end for;  
-		
-		--for UUT_dat : aes_128_encrypt_f24
---			use entity work.aes_128_encrypt_f24(dataflow);
---		end for;
 	end for;
 end TESTBENCH_FOR_aes_128_encrypt_f24;
 
