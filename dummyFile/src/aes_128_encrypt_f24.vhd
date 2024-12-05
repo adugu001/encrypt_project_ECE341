@@ -253,13 +253,17 @@ when 2 => -- if IV_load
 	
 	IR_IV((iv_load_counter*32) to (iv_load_counter +1)*32 -1) <= datain when IV_Load = '1';
 	 iv_load_counter <= iv_load_counter + 1;
-	 nextState <= 3 when (IV_Load = '1' AND  iv_load_counter = 4) else 2;  
+	 nextState <= 3 when (IV_Load = '1' AND  iv_load_counter = 3) OR (IV_LOAD='0') else 2 ;  
 when 3 =>  
 	IR_DATA((data_load_counter*32) to (data_load_counter +1)*32 -1) <= datain when db_Load = '1';
 	 data_load_counter <= data_load_counter + 1;
-	 nextState <= 4 when (db_Load = '1' AND  iv_load_counter = 4) else 2;
+	 nextState <= 4 when (db_Load = '1' AND  data_load_counter = 3) else 3;
 when 4 => 
 	enc_start <= '1';
+	nextstate <= 5 when (encryption_done = '1') else 4;
+		when 5 => 
+		report "out: " & to_hstring(IR_OUTPUT);
+		nextState <= 2 when stream ='1' else 0;
 when others => null;
 end case;
 end process;

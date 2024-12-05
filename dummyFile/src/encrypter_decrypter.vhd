@@ -75,6 +75,9 @@ case state is
 	when 4 => --get result
 	data_to_main <= data_return;
 	op_done <= '1';
+	nextState <= 5;
+	when 5 =>  -- pause
+	nextState <= 10;
 	when 10 => --reset 
 	op_done <= '0';
 	key_counter <= 1; 

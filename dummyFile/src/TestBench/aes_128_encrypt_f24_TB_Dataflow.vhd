@@ -92,9 +92,9 @@ variable temp_data, temp_key, cipher, expected : std_logic_vector(0 to 127);
 type stream_store is array (1 to 3) of std_logic_vector(0 to 127);
 variable CBC_file, ECB_file: stream_store;
 begin	 
-	start <='1'; encrypt <= '1'; iv_load <= '0';
+	start <='1'; encrypt <= '0'; iv_load <= '0';
 		wait until clk'event AND clk = '1';
-		start <='1'; encrypt <= '1'; iv_load <= '0'; 
+		start <='1'; encrypt <= '0'; iv_load <= '0'; 
 		
 		wait until clk'event AND clk = '1';	
 		key_load <= '1';
@@ -108,9 +108,42 @@ begin
 		wait until clk'event AND clk = '1';
 		key_load <= '1';
 		dataIn <= key0(96 to 127);
+		wait until clk'event AND clk = '1';
+		key_load <='0';
+		iv_load<= '0';
+		wait until clk'event AND clk = '1';
+		db_load <= '1';
+		dataIn <= data0(0 to 31);
+		wait until clk'event AND clk = '1';	
+		db_load <= '1';
+		dataIn <= data0(32 to 63);
+		wait until clk'event AND clk = '1';
+		db_load <= '1';
+		dataIn <= data0(64 to 95);
+		wait until clk'event AND clk = '1';
+		db_load <= '1';
+		dataIn <= data0(96 to 127);
 		wait until clk'event AND clk = '1';	
 		wait until clk'event AND clk = '1';	
-			wait until clk'event AND clk = '1';	
+		wait until clk'event AND clk = '1';	
+		wait until clk'event AND clk = '1';	
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
+		wait until clk'event AND clk = '1';
 		--ENCRYPTION ON INDIVIDUAL BLOCKS------------------------------------------------------------
 		--straight_encryption: for k in 0 to 11 loop			  
 --			if k=0 then temp_key := key0; temp_data := data0; expected := X"3925841D02DC09FBDC118597196A0B32";
