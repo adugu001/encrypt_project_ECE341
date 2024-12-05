@@ -16,9 +16,8 @@ architecture TB_ARCHITECTURE of encrypter_decrypter_tb is
 		encrypt : in STD_LOGIC;
 		data_in : in STD_LOGIC_VECTOR(0 to 127);
 		start : in STD_LOGIC;  
-		start_a : in STD_LOGIC;
 		init_key : in STD_LOGIC_VECTOR(0 to 127);
-		key_return : in STD_LOGIC_VECTOR(0 to 127) );
+		data_to_main : out STD_LOGIC_VECTOR(0 to 127) );
 	end component;
 
 	-- Stimulus signals - signals mapped to the input and inout ports of tested entity
@@ -27,9 +26,9 @@ architecture TB_ARCHITECTURE of encrypter_decrypter_tb is
 	signal encrypt : STD_LOGIC;
 	signal data_in : STD_LOGIC_VECTOR(0 to 127);
 	signal start : STD_LOGIC;	
-		signal start_a : STD_LOGIC;
+
 	signal init_key : STD_LOGIC_VECTOR(0 to 127);
-	signal key_return : STD_LOGIC_VECTOR(0 to 127);
+	signal data_to_main : STD_LOGIC_VECTOR(0 to 127);
 	-- Observed signals - signals mapped to the output ports of tested entity
 	   signal SIMULATIONACTIVE:BOOLEAN:=TRUE;	
 	-- Add your code here ...
@@ -44,9 +43,8 @@ begin
 			encrypt => encrypt,
 			data_in => data_in,
 			start => start,
-			start_a => start_a,
 			init_key => init_key,
-			key_return => key_return
+			data_to_main => data_to_main
 		);
 
 	-- Add your stimulus here ...
@@ -54,8 +52,8 @@ begin
 	variable i : integer := 1;
 	begin
 		while simulationActive loop
-			clk <='0'; wait for 50ns;
-			clk <='1'; wait for 50ns; 
+			clk <='0'; wait for 100ns;
+			clk <='1'; wait for 100ns; 
 			report "clk cycle " & to_string(i);
 			i := i + 1;
 		end loop;
@@ -75,9 +73,8 @@ begin
 	wait until clk'event AND clk = '1';
 	reset <= '0'; 
 	data_in <= data0;
-	encrypt<= '1';
+	encrypt<= '0';
 	init_key <= key0;
-	start_a <= '1';
 	start <= '1';
 	wait until clk'event AND clk = '1';
 	wait until clk'event AND clk = '1';	

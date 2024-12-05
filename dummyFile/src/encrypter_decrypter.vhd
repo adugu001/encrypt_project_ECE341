@@ -10,9 +10,8 @@ entity encrypter_decrypter is
 		encrypt : in std_logic;
 		data_in : in std_logic_vector(0 to 127);
 		start : in std_logic;
-		start_a : in std_logic;
 		init_key : in std_logic_vector(0 to 127); 
-		key_return : in std_logic_vector(0 to 127);
+		data_to_main : out std_logic_vector(0 to 127);
 		
 	);
 end encrypter_decrypter;
@@ -27,7 +26,7 @@ signal temp_key : std_logic_vector(0 to 127);
 signal temp_data : std_logic_vector(0 to 127);
 signal all_keys_done : std_logic;
 signal stale : std_logic := '0';
-signal key_counter : integer := 0;
+signal key_counter : integer := 1;
 signal enc_dec: std_logic;
 signal data_return: std_logic_vector(0 to 127);
 signal test : std_logic_vector(0 to 127);
@@ -58,22 +57,24 @@ begin
 case state is
 	when 0 => --start	
 	temp_key <= init_key;
-	
+		roundKeys(0) <= init_key;
 		enc_dec <= encrypt;
-		nextState <= 1 when start_a = '1' else 0;
+		nextState <= 1 when start = '1' else 0;
 	when 1 => --load and forward key   
 		startKeyGen<= '1';
 		 
 		 nextState <= 2;
 	when 2 => --hold in state 2 load keys until 10 keys
 		  roundKeys(key_counter) <= returned_key;
-		  key_counter<= key_counter +1 when key_counter <9;
-			nextState <= 3 when key_counter = 9 else 2;
+		  key_counter<= key_counter+1  when key_counter <10;
+			nextState <= 3 when key_counter = 10 else 2;
 			temp_key <= returned_key;
 	when 3 => --start encrypt/decrypt 
 	temp_data <= data_in;
+	nextState <=4;
+	when 4 => --get result
 	test <= data_return;
-		nextState <=1;
+	data_to_main <= test after 2ns;
 	when 10 => --reset 
 		
 		nextState <= 0;

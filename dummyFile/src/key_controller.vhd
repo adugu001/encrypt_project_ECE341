@@ -17,7 +17,7 @@ entity key_controller is
 end key_controller;
 
 architecture dataflow of key_controller is	
-constant round_constants : std_logic_vector(0 to 79) := x"01020408102040801b36";	 	     
+constant round_constants : std_logic_vector(0 to 87) := x"0001020408102040801b36";	 	     
 	--signal round_constant : std_logic_vector(0 to 7);    
 	signal substituted_round_key : std_logic_vector(0 to 31);
 	signal round_key : std_logic_vector(0 to 127);
