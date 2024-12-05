@@ -276,8 +276,6 @@ begin
 		a1 <= afterSub; 
 		wait for 1ns;
 		assert testdata = b1 report "inv sbox failed";
-
-		
 		
 		wait;
 end process functionProcess;

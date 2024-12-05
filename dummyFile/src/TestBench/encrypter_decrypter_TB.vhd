@@ -52,8 +52,8 @@ begin
 	variable i : integer := 1;
 	begin
 		while simulationActive loop
-			clk <='0'; wait for 100ns;
-			clk <='1'; wait for 100ns; 
+			clk <='0'; wait for 150ns;
+			clk <='1'; wait for 150ns; 
 			report "clk cycle " & to_string(i);
 			i := i + 1;
 		end loop;

@@ -219,115 +219,70 @@ end architecture behavioral;
 
 architecture dataFlow of AES_128_encrypt_f24 is
 type key_store is array (0 to 9) of std_logic_vector(0 to 127);
-signal A,B,C,D,E,start_key_gen, keys_done, start_encrypt, encryption_done: std_logic;
-signal IR_IV, IR_KEY, IR_DATA, IR_OUTPUT, IR_CURRENT_ROUND_KEY : std_logic_vector(0 to 127);  
-signal state : std_logic_vector(0 to 4);
-
---round_controller_entity : entity work.key_controller
---		port map(
---			clk => CLK;
---			reset => reset; --assuming we need a reset
---			key => IR_KEY;	--full key
---			round_const => OPEN	--single round byte (unimplemented so far)
---			round_key => IR_CURRENT_ROUND_KEY --output one round key 
---		);
---round_key_counter : entity work.counter
---		port (
---			clk => CLK;
---			reset => reset;	
---			start => start_key_gen;
---			count_done => start_encrypt 
---		); 
---encryption_counter : entity work.counter
---		port (
---			clk => CLK;
---			reset => reset;
---			start => start_encrypt;
---			count_done => encryption_done
---		);
-
-begin
-	state <= a & b & c & d & e when (clk'event and clk = '1');
-	A <= '0' when reset = '0'
-		 else '1' when 	state = (   "10000"	or
-									"10001"	or
-									"10010"	or
-									"10011") or
-					(state = "01110" and encrypt = '1') or
-					(state = "01111" and encryption_done = '1')
-		 else '0';	
-	B <= '0' when reset = '0'
-		 else '1' when 	state = (	"00111" or
-									"01000" or
-									"01001" or
-									"01010" or
-									"01011" or
-									"01100" or
-									"01101") or
-					(state = "00101" and IV_load = '1') or
-					(state = "01110" and encrypt = '0') or
-					(state = "10100" and stream = '1') or
-					(state = "01111" and encryption_done = '0')
-		  else '0';
-	C <=  '0' when reset = '0'
-		  else '1' when   state = (   "00011" or
-									"00100" or
-									"00110" or
-									"01011" or
-									"01100" or
-									"01101" or
-									"10011"	) or
-					(state = "00101" and IV_load = '0') or
-					(state = "01110" and encrypt = '0') or
-					(state = "01111" and encryption_done = '0')
-		 else '0'; 
-	D <= '0' when reset = '0'
-		 else '1' when   state = (   "00010" or
-									"00101" or
-									"00110" or
-									"01001" or
-									"01010" or
-									"01101"	or
-									"10001" or
-									"10010"
-							) or
-					(state = "00001" and key_load = '1') or
-					(state = "01110" and encrypt = '0') or
-					(state = "10100" and stream = '1') or
-					(state = "01111" and encryption_done = '0')
-		 else '0';
-	E <= '0' when reset = '0'
-		 else '1' when   state = (   "00010" or
-								"00100" or
-								"00110" or
-								"01000"	or
-								"01100"	or
-								"01111" or
-								"10000" or
-								"10010"
-							) or
-					(state = "00000" and start = '1') or
-					(state = "00001" and key_load = '0') or
-					(state = "01010" and db_load = '1') or
-					(state = "01110" and encrypt = '0')
-		 else '0'; 	
+signal A,B,C,D,E, encryption_done: std_logic;  
+signal state, nextState : integer := 0;
+signal stale : std_logic := '0';  
+signal IR_IV, IR_KEY, IR_DATA, IR_OUTPUT : std_logic_vector(0 to 127);  
+--signal state : std_logic_vector(0 to 4);
+signal key_load_counter, iv_load_counter, data_load_counter : integer := 0;
+signal enc_start: std_logic := '0';
+begin	
+	encrypter_decrypter : entity work.encrypter_decrypter
+		port map(
+			clk => CLK,
+			reset => reset,
+			encrypt => encrypt,
+			data_in => IR_DATA,
+			start => enc_start,	 
+			init_key =>	IR_KEY,
+			data_to_main => IR_OUTPUT,
+			op_done => encryption_done
+		);	   
+		
+		
+		p1: process(state,stale) is  
+begin 
+case state is
+	when 0 => --wait for start
+		nextState <= 1 when start = '1' else 0;
+when 1 =>  
+	IR_KEY((key_load_counter*32) to (key_load_counter +1)*32 -1) <= datain;  
+  key_load_counter <= key_load_counter + 1;
+  nextState <= 2 when key_load_counter = 3 else 1;
+when 2 => -- if IV_load 
+	
+	IR_IV((iv_load_counter*32) to (iv_load_counter +1)*32 -1) <= datain when IV_Load = '1';
+	 iv_load_counter <= iv_load_counter + 1;
+	 nextState <= 3 when (IV_Load = '1' AND  iv_load_counter = 4) else 2;  
+when 3 =>  
+	IR_DATA((data_load_counter*32) to (data_load_counter +1)*32 -1) <= datain when db_Load = '1';
+	 data_load_counter <= data_load_counter + 1;
+	 nextState <= 4 when (db_Load = '1' AND  iv_load_counter = 4) else 2;
+when 4 => 
+	enc_start <= '1';
+when others => null;
+end case;
+end process;
+		
+		
+	
 			 
 	--combinational logic equation for each 21 states (00000 through 10100) below
 	--wait for start when state = '00000';
 	--wait for key_load when state = '00001';
-	IR_KEY(0 to 31) <= datain when state = "00010";
-	IR_KEY(32 to 63) <= datain when state = "00011";
-	IR_KEY(64 to 95) <= datain when state = "00100";
-	IR_KEY(96 to 127) <= datain when state = "00101";
-	IR_IV(0 to 31) <= datain when state = "00110";
-	IR_IV(32 to 63) <= datain when state = "00111";
-	IR_IV(64 to 95) <= datain when state = "01000";
-	IR_IV(96 to 127) <= datain when state = "01001";
-	--wait for db_load when state = '01010';
-	IR_DATA(0 to 31) <= datain when state = "01011";
-	IR_DATA(32 to 63) <= datain when state = "01100";
-	IR_DATA(64 to 95) <= datain when state = "01101";
-	IR_DATA(96 to 127) <= datain when state = "01110"; 
+	--IR_KEY(0 to 31) <= datain when state = "00010";
+--	IR_KEY(32 to 63) <= datain when state = "00011";
+--	IR_KEY(64 to 95) <= datain when state = "00100";
+--	IR_KEY(96 to 127) <= datain when state = "00101";
+--	IR_IV(0 to 31) <= datain when state = "00110";
+--	IR_IV(32 to 63) <= datain when state = "00111";
+--	IR_IV(64 to 95) <= datain when state = "01000";
+--	IR_IV(96 to 127) <= datain when state = "01001";
+--	--wait for db_load when state = '01010';
+--	IR_DATA(0 to 31) <= datain when state = "01011";
+--	IR_DATA(32 to 63) <= datain when state = "01100";
+--	IR_DATA(64 to 95) <= datain when state = "01101";
+--	IR_DATA(96 to 127) <= datain when state = "01110"; 
 	
 	--	key gen
 	--start_key_gen <= '1' when state = "01111" or "10000" else '0';
@@ -342,7 +297,21 @@ begin
 --	dataOut <= IR_OUTPUT(0 to 31) when state = "10001"; -- AND done_counter_signal
 --	dataOut <= IR_OUTPUT(32 to 63) <= datain when state = "10010";
 --	dataOut <= IR_OUTPUT(64 to 95) <= datain when state = "10011";
---	dataOut <= IR_OUTPUT(96 to 127) <= datain when state = "10100";
+--	dataOut <= IR_OUTPUT(96 to 127) <= datain when state = "10100";	   
+
+state_process : process(clk, reset) is	
+begin
+		if RESET = '1' then
+			State <= 10;
+		elsif CLK'event and CLK = '1' then
+			if (state = nextState)then
+				stale <= not stale;
+				else
+				state <= nextstate;	  
+				end if;
+			  
+		end if;
+end process;
 end architecture dataflow;
 -- Advanced challenge 2: use a single entity for both encryption and decryption.
 --      You are permitted to add additional control signals.
