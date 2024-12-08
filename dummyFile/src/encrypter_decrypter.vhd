@@ -60,7 +60,9 @@ case state is
 		roundKeys(0) <= init_key;
 		enc_dec <= encrypt;
 		nextState <= 1 when start = '1' else 0;
-	when 1 => --load and forward key   
+	when 1 => --load and forward key  
+	data_to_main <= (others => '0');
+		nextState <= 0;
 		startKeyGen<= '1';
 		key_counter <= 1; 
 		 nextState <= 2;
@@ -76,13 +78,12 @@ case state is
 	data_to_main <= data_return;
 	op_done <= '1';
 	nextState <= 5;
-	when 5 =>  -- pause
+	when 5 =>  -- pause for output
 	nextState <= 10;
 	when 10 => --reset 
 	op_done <= '0';
 	key_counter <= 1; 
- 	data_to_main <= (others => '0');
-		nextState <= 0;
+ 	nextState <= 0;
 	when others => null;
 	end case;
 end process;

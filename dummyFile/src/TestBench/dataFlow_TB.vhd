@@ -78,7 +78,7 @@ type stream_store is array (1 to 3) of std_logic_vector(0 to 127);
 variable CBC_file, ECB_file: stream_store;
 begin
 		wait until clk'event AND clk = '1';
-		encrypt <= '1'; iv_load <= '0'; 
+		encrypt <= '0'; iv_load <= '0'; 
 		
 		wait until clk'event AND clk = '1';	
 		--ENCRYPTION ON INDIVIDUAL BLOCKS------------------------------------------------------------
@@ -86,7 +86,7 @@ begin
 			temp_key := tests_128(k).key; temp_data := tests_128(k).plain; expected := tests_128(k).expected;
 			
 			
-			stream <= '1'; start <= '1'; 
+			stream <= '0'; start <= '1'; 
 			wait until start <= '1';
 			wait until clk'event AND clk = '1';
 			
@@ -95,7 +95,7 @@ begin
 				dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
 				wait until clk'event AND clk = '1';					
 			end loop load_key;
-			
+			wait until clk'event AND clk = '1';
 			db_load <= '1'; wait until clk'event AND clk = '1';
 			load_data: for i in 0 to 3 loop
 				dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
@@ -103,7 +103,7 @@ begin
 			end loop load_data;
 			
 			stream <= '0'; start <= '0';  
-			for i in 0 to 25 loop
+			for i in 0 to 16 loop
 				wait until clk'event AND clk = '1';
 			end loop;
 
