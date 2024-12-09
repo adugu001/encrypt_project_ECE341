@@ -1,9 +1,9 @@
-548
+559
 ~E 1 "../src/aes_128_encrypt_f24.vhd" 6 AES_128_encrypt_f24
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 52 behavioral
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 220 dataFlow
 ~E 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 10 aes_128_encrypt_f24_tb
-~A 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 11 TB_ARCHITECTURE
+~A 1 "../src/TestBench/behavioral_TB.vhd" 11 TB_ARCHITECTURE
 ~E 1 "../src/function_entities/blackBox.vhd" 5 blackBox
 ~A 1 "../src/function_entities/blackBox.vhd" 14 dataflow
 ~E 1 "../src/key_controller.vhd" 5 controller
@@ -19,6 +19,10 @@
 ~A 1 "../src/encrypter_decrypter.vhd" 19 dataflow
 ~E 1 "../src/TestBench/encrypter_decrypter_TB.vhd" 7 encrypter_decrypter_tb
 ~A 1 "../src/TestBench/encrypter_decrypter_TB.vhd" 10 TB_ARCHITECTURE
+~E 1 "../src/TestBench/Fn_entity_TB.vhd" 6 FN_entity_TB
+~A 1 "../src/TestBench/Fn_entity_TB.vhd" 9 TB_ARCHITECTURE
+~E 1 "../src/TestBench/Functions_TB.vhd" 6 Functions_TB
+~A 1 "../src/TestBench/Functions_TB.vhd" 9 TB_ARCHITECTURE
 ~E 1 "../src/function_entities/GF_Multiplier.vhd" 6 GF_Multiplier
 ~A 1 "../src/function_entities/GF_Multiplier.vhd" 14 dataFlow
 ~E 1 "../src/key_controller.vhd" 5 key_controller
@@ -37,7 +41,7 @@
 ~A 1 "../src/function_entities/shiftRows.vhd" 10 behavioral
 ~E 1 "../src/function_entities/Sub_Box.vhd" 5 Sub_box
 ~A 1 "../src/function_entities/Sub_Box.vhd" 13 dataflow
-~C 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 200 testbench_for_aes_128_encrypt_f24
+~C 1 "../src/TestBench/behavioral_TB.vhd" 200 testbench_for_aes_128_encrypt_f24
 ~C 1 "../src/TestBench/dataFlow_TB.vhd" 201 testbench_for_aes_128_encrypt_f24_dataflow
 ~C 1 "../src/TestBench/controller_TB.vhd" 101 testbench_for_controller
 ~C 1 "../src/TestBench/encrypter_decrypter_TB.vhd" 120 testbench_for_encrypter_decrypter

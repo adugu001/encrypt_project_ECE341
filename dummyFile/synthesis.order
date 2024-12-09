@@ -16,3 +16,5 @@ i<>.\src\blackBox.vhd
 i<>.\src\TestBench\dataFlow_TB.vhd
 i<>.\src\encrypter_decrypter.vhd
 i<>.\src\encrypter_decrypter_TB.vhd
+i<>.\src\Functions_TB.vhd
+i<>.\src\Fn_entity_TB.vhd
