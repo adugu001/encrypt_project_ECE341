@@ -67,36 +67,33 @@ process
 		wait;	
 end process;
 
-clockProcess:process  
-variable expect : std_logic_vector(0 to 127) := X"3925841D02DC09FBDC118597196A0B32";
-variable data0 : std_logic_vector(0 to 127)  :=	X"3243F6A8885A308D313198A2E0370734";	
-variable data1 : std_logic_vector(0 to 127):= 	X"F34481EC3CC627BACD5DC3FB08F273E6";	    
-variable key0 : std_logic_vector(0 to 127):= 	X"2B7E151628AED2A6ABF7158809CF4F3C"; 	  
-variable key1 : std_logic_vector(0 to 127) := (others => '0');
+COMPREHENSIVE_TEST:process  
 variable temp_data, temp_key, cipher, expected : std_logic_vector(0 to 127);
 type stream_store is array (1 to 3) of std_logic_vector(0 to 127);
-variable CBC_file, ECB_file: stream_store;
+variable CBC_file, ECB_file, DECRYPT_file: stream_store;
 begin
 		wait until clk'event AND clk = '1';
 		encrypt <= '0'; iv_load <= '0'; 
 		
 		wait until clk'event AND clk = '1';	
-		--ENCRYPTION ON INDIVIDUAL BLOCKS------------------------------------------------------------
-		straight_encryption: for k in 0 to 9 loop			  
+	--ENCRYPTION ON INDIVIDUAL BLOCKS------------------------------------------------------------
+	STRAIGHT_ENCRYPTION: for k in 0 to 4 loop			  
 			temp_key := tests_128(k).key; temp_data := tests_128(k).plain; expected := tests_128(k).expected;
 			
 			
 			stream <= '0'; start <= '1'; 
 			wait until start <= '1';
 			wait until clk'event AND clk = '1';
-			
 			key_load <= '1';
+			wait until clk'event AND clk = '1'; 
+			
 			load_key: for i in 0 to 3 loop
 				dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
 				wait until clk'event AND clk = '1';					
 			end loop load_key;
+			--wait until clk'event AND clk = '1';
+			db_load <= '1'; wait for 0ns;
 			wait until clk'event AND clk = '1';
-			db_load <= '1'; wait until clk'event AND clk = '1';
 			load_data: for i in 0 to 3 loop
 				dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
 				wait until clk'event AND clk = '1';
@@ -111,88 +108,193 @@ begin
 				cipher(i*32 to i*32 + 31) := dataOut; 
 				wait until clk'event AND clk = '1';
 			end loop OUTPUT_CIPHER;
-			assert cipher = expected report 	"Beh Output: " & to_hstring(cipher) & character'val(10) & 	"Expected: " & to_hstring(expected);	 
+			assert cipher = expected report 	"Indiv enc: " & to_hstring(cipher) & character'val(10) & 	"Expected: " & to_hstring(expected);	 
 			
-		end loop straight_encryption;	   
-		--ENCRYPTION ON CHAINED BLOCKS------------------------------------------------------------
-		temp_key := tests_128(7).key; temp_data := tests_128(7).plain; expected := tests_128(7).expected;
-		
-		CBC_TEST: for k in 0 to 1 loop
-			if k = 0 then CBC_mode <= '0';
-			else CBC_mode <= '1'; end if;
-			stream <= '1'; start <= '1';
+	END LOOP STRAIGHT_ENCRYPTION;	   
+	
+	
+	--DECRYPTION ON INDIVIDUAL BLOCKS----------------------------------------------------------------------
+	encrypt <= '1';
+	STRAIGHT_DECRYPTION: for k in 0 to 4 loop
+			temp_key := tests_128(k).key; temp_data := tests_128(k).expected; expected := tests_128(k).plain;
+			
+			stream <= '0'; start <= '1'; 
+			wait until start <= '1';
 			wait until clk'event AND clk = '1';			
-			start <= '0';
+			key_load <= '1';
+			wait until clk'event AND clk = '1';
 			
-			load_key: for i in 0 to 3 loop
+			LOAD_KEY: for i in 0 to 3 loop
 				dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
 				wait until clk'event AND clk = '1';					
-			end loop load_key;
+			END LOOP LOAD_KEY;	
+			
+
+			db_load <= '1'; wait until clk'event AND clk = '1';
+			load_data: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
+				wait until clk'event AND clk = '1';
+			end loop load_data;
+			
+			stream <= '0'; start <= '0';  
+			for i in 0 to 16 loop
+				wait until clk'event AND clk = '1';
+			end loop;
+		
+			OUTPUT_CIPHER: for i in 0 to 3 loop				
+				cipher(i*32 to i*32 + 31) := dataOut; 
+				wait until clk'event AND clk = '1';
+			end loop OUTPUT_CIPHER;
+			assert cipher = expected report 	"Indiv dec: " & to_hstring(cipher) & character'val(10) & 	"Expected: " & to_hstring(expected);	 
+	 END LOOP STRAIGHT_DECRYPTION;
+	 
+	 
+	 
+--DECRYPTION ON CHAINED BLOCKS------------------------------------------------------------
+		stream <= '1'; start <= '1'; key_load <= '1';
+		temp_key := tests_128(0).key; 
+		wait until start <= '1';		   -----
+		wait until clk'event AND clk = '1';			
+		wait until clk'event AND clk = '1';
+		
+		LOAD_KEY: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
+				wait until clk'event AND clk = '1';					
+		END LOOP LOAD_KEY;
+		
+		for j in 1 to 3 loop
+				temp_key := tests_128(j).key; temp_data := tests_128(j).expected; expected := tests_128(j).plain;
+				db_load <= '1'; wait for 0ns;
+				wait until clk'event AND clk = '1';
+			LOAD_DATA: for i in 0 to 3 loop
+					dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
+					wait until clk'event AND clk = '1';
+			END LOOP LOAD_DATA;
+			db_load <= '0';  
+			
+			start <= '0';
+			for i in 0 to 16 loop
+					wait until clk'event AND clk = '1';
+			end loop;
+			
+			if j = 3 then stream <= '0'; end if;
+			OUTPUT_CIPHER: for i in 0 to 3 loop
+					cipher(i*32 to i*32 + 31) := dataOut;
+					wait until clk'event AND clk = '1';
+			END LOOP OUTPUT_CIPHER;
+			assert cipher = expected report "chained dec";
+		END LOOP;
+		
+		
+		
+	--CBC Test------------------------------------------------------------
+	temp_key := tests_128(7).key; temp_data := tests_128(7).plain; expected := tests_128(7).expected;
+	encrypt <= '0';
+		
+	CBC_TEST: for k in 0 to 1 loop
+			if k = 0 then CBC_mode <= '0';
+			else CBC_mode <= '1'; end if;
+			stream <= '1'; start <= '1'; key_load <= '1';
+			wait until start <= '1';		   -----
+			wait until clk'event AND clk = '1';			
+			wait until clk'event AND clk = '1';
+			
+			LOAD_KEY: for i in 0 to 3 loop
+					dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
+					wait until clk'event AND clk = '1';					
+			END LOOP LOAD_KEY;
 			
 			for j in 1 to 3 loop									
 					db_load <= '1'; wait for 0ns;
 					wait until clk'event AND clk = '1';
-					load_data: for i in 0 to 3 loop
+				LOAD_DATA: for i in 0 to 3 loop
 						dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
 						wait until clk'event AND clk = '1';
-					end loop load_data;
-					db_load <= '0';  
-				 	
-					for i in 0 to 17 loop
+				END LOOP LOAD_DATA;
+				db_load <= '0';  
+				
+				start <= '0';
+				for i in 0 to 16 loop
 						wait until clk'event AND clk = '1';
-					end loop;
+				end loop;
 					
 					
 					if j = 3 then stream <= '0'; end if;
-					OUTPUT_CIPHER: for i in 0 to 3 loop
+				OUTPUT_CIPHER: for i in 0 to 3 loop
 						if k = 0 then 
 							ECB_file(j)(i*32 to i*32 + 31) := dataOut;
 						else 	
 							CBC_file(j)(i*32 to i*32 + 31) := dataOut;
 						end if;
 						wait until clk'event AND clk = '1';
-					end loop OUTPUT_CIPHER;
-			end loop;				
-		end loop CBC_TEST;
-		assert (ECB_file(1) = ECB_file(2) AND ECB_file(1) = ECB_file(3)) report "ecb output not repeated"; 
-		assert CBC_file(1) /= CBC_file(2) AND CBC_file(1) /= CBC_file(3) AND CBC_file(2) /= CBC_file(3) report "CBC has repeated outputs";
-		assert CBC_file(1) = ECB_file(1) report "ECB and CBC initial encryption differ"; 
+				END LOOP OUTPUT_CIPHER;
+			END LOOP;				
+	END LOOP CBC_TEST;
+	assert (ECB_file(1) = ECB_file(2) AND ECB_file(1) = ECB_file(3)) report "ecb output not repeated"; 
+	assert CBC_file(1) /= CBC_file(2) AND CBC_file(1) /= CBC_file(3) AND CBC_file(2) /= CBC_file(3) report "CBC has repeated outputs";
+	assert CBC_file(1) = ECB_file(1) report "ECB and CBC initial encryption differ";
 
-		--DECRYPTION ON INDIVIDUAL BLOCKS----------------------------------------------------------------------
-		temp_key := key0; temp_data := expect; expected := X"3243f6a8885a308d313198a2e0370734";
-		reset <= '1';
-		wait until clk'event AND clk = '1';
-		reset <= '0'; iv_load <= '0';
-		wait until clk'event AND clk = '1';
-		start <= '1'; key_load <= '1'; encrypt <= '0';	  
-		--stream<= '1';
-		wait until clk'event AND clk = '1';	 
-		
-		
-		load_key: for i in 0 to 3 loop
-			dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
-			wait until clk'event AND clk = '1';					
-		end loop load_key;
-		
-		db_load <= '1'; wait until clk'event AND clk = '1';
-		load_data: for i in 0 to 3 loop
-			dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
+	RESET_TEST: for k in 0 to 4 loop
+			temp_key := tests_128(k).key; temp_data := tests_128(k).expected; expected := tests_128(k).plain;
+			
+			stream <= '0'; start <= '1'; 
+			wait until start <= '1';
+			wait until clk'event AND clk = '1';			
+			key_load <= '1';
 			wait until clk'event AND clk = '1';
-		end loop load_data;
-		  
-		for i in 0 to 17 loop
-			wait until clk'event AND clk = '1';
-		end loop; 
-		
-		wait until done = '1';
-		OUTPUT_CIPHER: for i in 0 to 3 loop
-				cipher(i*32 to i*32 + 31) := dataOut;
+			start <= '0';
+			
+			LOAD_KEY: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(temp_key(i*32 to i*32 + 31));
 				wait until clk'event AND clk = '1';
-				report "cipher chunk " & to_string(i) & ": " & to_hstring(cipher); --debug purpose
-		end loop OUTPUT_CIPHER;
-		assert cipher = data0 report "Actual Output: " & to_hstring(cipher) & character'val(10) & "Expected: " & to_hstring(expected);	 
-		--DECRYPTION ON CHAINED BLOCKS----------------------------------------------------------------------
-			--TODO
+				if k = 0 and i = 3 then
+					reset <= '1'; 
+					wait until reset = '1';
+					wait for 0ns; --VERIFY UUT_DAT.STATE AND NEXTSTATE = 0
+					reset <= '0';
+					wait for 0ns;
+				end if;
+			END LOOP LOAD_KEY;	
+			
+
+			db_load <= '1'; wait until clk'event AND clk = '1';
+			load_data: for i in 0 to 3 loop
+				dataIn(0 to 31) <= std_logic_vector(temp_data(i*32 to i*32 + 31));
+				wait until clk'event AND clk = '1';
+				if k = 1 and i = 3 then
+					reset <= '1'; 
+					wait until reset = '1';
+					wait for 0ns; --VERIFY UUT_DAT.STATE AND NEXTSTATE = 0
+					reset <= '0';
+					wait for 0ns;
+				end if;
+			end loop load_data;
+			
+			stream <= '0'; start <= '0';  
+			for i in 0 to 16 loop
+				if k = 2 and i = 3 then
+					reset <= '1'; 
+					wait until reset = '1';
+					wait for 0ns; --VERIFY UUT_DAT.STATE AND NEXTSTATE = 0
+					reset <= '0';
+					wait for 0ns;
+				end if;
+				wait until clk'event AND clk = '1';
+			end loop;
+		
+			OUTPUT_CIPHER: for i in 0 to 3 loop
+				if k = 3 and i = 3 then
+					reset <= '1'; 
+					wait until reset = '1';
+					wait for 0ns; --VERIFY UUT_DAT.STATE AND NEXTSTATE = 0
+					reset <= '0';
+					wait for 0ns;
+				end if;
+				cipher(i*32 to i*32 + 31) := dataOut; 
+				wait until clk'event AND clk = '1';
+			end loop OUTPUT_CIPHER;	 
+	 END LOOP RESET_TEST;	
+
 		simulationactive<= false;
 		wait;
 end process;

@@ -20,7 +20,7 @@ LANGUAGE=VHDL
 REFRESH_FLOW=1
 FLOWTOOLS=NONE
 FAMILY=
-fileopenfolder=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src\TestBench
+fileopenfolder=C:\Users\andre\OneDrive\School\ECE 341\encrypt_project_ECE341\dummyFile\src
 EnableFullDebugMode=0
 EnableSSEvent=0
 FullDebugModeSignalsFile=.\dummyFile.psl
@@ -34,7 +34,7 @@ VitalGlitches=0
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=fn_entity_tb|TB_ARCHITECTURE|0 
+HierarchyInformation=dataflow_tb|TB_ARCHITECTURE|0
 ShowHide=ShowTopLevel
 Selected=
 
@@ -93,30 +93,6 @@ VhdlDisableAssertionsProcessing=0
 [LoadVHPI]
 Count=0
 
-[Files.Data]
-.\src\function_package.vhd=VHDL Source Code
-.\src\aes_128_encrypt_f24.vhd=VHDL Source Code
-.\src\key_controller.vhd=VHDL Source Code
-.\src\encrypter_decrypter.vhd=VHDL Source Code
-.\src\TestBench\Fn_entity_TB.vhd=VHDL Source Code
-.\src\TestBench\Functions_TB.vhd=VHDL Source Code
-.\src\TestBench\encrypter_decrypter_TB.vhd=VHDL Source Code
-.\src\TestBench\encrypter_decrypter_TB_runtest.do=Macro
-.\src\TestBench\aes_128_test_package.vhd=VHDL Source Code
-.\src\TestBench\behavioral_TB.vhd=VHDL Source Code
-.\src\TestBench\controller_TB.vhd=VHDL Source Code
-.\src\TestBench\controller_TB_runtest.do=Macro
-.\src\TestBench\behavioral_TB_runtest.do=Macro
-.\src\TestBench\dataFlow_TB.vhd=VHDL Test Bench
-.\src\TestBench\dataFlow_TB_runtest.do=Macro
-.\src\function_entities\blackBox.vhd=VHDL Source Code
-.\src\function_entities\Sub_Box.vhd=VHDL Source Code
-.\src\function_entities\mix_columns.vhd=VHDL Source Code
-.\src\function_entities\key_schedule.vhd=VHDL Source Code
-.\src\function_entities\GF_Multiplier.vhd=VHDL Source Code
-.\src\function_entities\shiftRows.vhd=VHDL Source Code
-.\src\function_entities\Sbox.vhd=VHDL Source Code
-
 [Groups]
 TestBench=1
 function_entities=1
@@ -126,6 +102,8 @@ function_entities=1
 /aes_128_encrypt_f24.vhd=-1
 /key_controller.vhd=-1
 /encrypter_decrypter.vhd=-1
+/simple_register_128.vhd=-1
+/simple_register_8.vhd=-1
 TestBench/Fn_entity_TB.vhd=-1
 TestBench/Functions_TB.vhd=-1
 TestBench/encrypter_decrypter_TB.vhd=-1
@@ -144,4 +122,30 @@ function_entities/key_schedule.vhd=-1
 function_entities/GF_Multiplier.vhd=-1
 function_entities/shiftRows.vhd=-1
 function_entities/Sbox.vhd=-1
+
+[Files.Data]
+.\src\function_package.vhd=VHDL Source Code
+.\src\aes_128_encrypt_f24.vhd=VHDL Source Code
+.\src\key_controller.vhd=VHDL Source Code
+.\src\encrypter_decrypter.vhd=VHDL Source Code
+.\src\simple_register_128.vhd=VHDL Source Code
+.\src\simple_register_8.vhd=VHDL Source Code
+.\src\TestBench\Fn_entity_TB.vhd=VHDL Source Code
+.\src\TestBench\Functions_TB.vhd=VHDL Source Code
+.\src\TestBench\encrypter_decrypter_TB.vhd=VHDL Source Code
+.\src\TestBench\encrypter_decrypter_TB_runtest.do=Macro
+.\src\TestBench\aes_128_test_package.vhd=VHDL Source Code
+.\src\TestBench\controller_TB.vhd=VHDL Source Code
+.\src\TestBench\controller_TB_runtest.do=Macro
+.\src\TestBench\behavioral_TB.vhd=VHDL Source Code
+.\src\TestBench\behavioral_TB_runtest.do=Macro
+.\src\TestBench\dataFlow_TB.vhd=VHDL Test Bench
+.\src\TestBench\dataFlow_TB_runtest.do=Macro
+.\src\function_entities\blackBox.vhd=VHDL Source Code
+.\src\function_entities\Sub_Box.vhd=VHDL Source Code
+.\src\function_entities\mix_columns.vhd=VHDL Source Code
+.\src\function_entities\key_schedule.vhd=VHDL Source Code
+.\src\function_entities\GF_Multiplier.vhd=VHDL Source Code
+.\src\function_entities\shiftRows.vhd=VHDL Source Code
+.\src\function_entities\Sbox.vhd=VHDL Source Code
 

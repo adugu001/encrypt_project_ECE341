@@ -11,8 +11,9 @@ ARCHITECTURE TB_ARCHITECTURE of FN_entity_TB is
 	signal encrypt : STD_LOGIC;
 	signal data_in, SR_data, SB_data, MC_data : STD_LOGIC_VECTOR(0 to 127); 	
 begin
-	ROW_SHIFTER : entity work.shiftRows
+	ROW_SHIFTER : entity work.shiftRows(dataflow)
 		port map (
+			clk => clk,
 			dataIn =>   data_in,
 			encrypt =>	encrypt,
 			dataOut =>	SR_data
@@ -69,5 +70,6 @@ begin
  
 		wait;
 END PROCESS TEST_FUNCTION_ENTITIES;
-END TB_ARCHITECTURE; 
+END TB_ARCHITECTURE;
+
 

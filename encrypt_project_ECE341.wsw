@@ -1,7 +1,13 @@
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\dummyFile\src/TestBench/dataFlow_TB.vhd|]
+TemplateId=0
+ActiveDocument=1
+tab=lu
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\dummyFile\src/function_entities/blackBox.vhd|]
+TemplateId=0
+tab=lu
 [OPENDOC|Aldec.Hde.HdePlugIn.7|.\dummyFile\src/aes_128_encrypt_f24.vhd|]
 TemplateId=0
 tab=lu
-[OPENDOC|Aldec.Hde.HdePlugIn.7|.\dummyFile\src/TestBench/Fn_entity_TB.vhd|]
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\dummyFile\src/encrypter_decrypter.vhd|]
 TemplateId=0
-ActiveDocument=1
 tab=lu
