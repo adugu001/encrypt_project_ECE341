@@ -5,10 +5,10 @@ use ieee.std_logic_1164.all;
 use work.function_package.all;
 use work.aesTest.all;			 
 
-entity aes_128_encrypt_f24_tb is
-end aes_128_encrypt_f24_tb;
+entity behavioral_TB is
+end behavioral_TB;
 
-architecture TB_ARCHITECTURE of aes_128_encrypt_f24_tb is
+architecture TB_ARCHITECTURE of behavioral_TB is
 	-- Component declaration of the tested unit
 	component aes_128_encrypt_f24
 	port(
@@ -197,12 +197,12 @@ end process;
 
 end TB_ARCHITECTURE;
 
-configuration TESTBENCH_FOR_aes_128_encrypt_f24 of aes_128_encrypt_f24_tb is
+configuration TESTBENCH_FOR_behavioral_TB of behavioral_TB is
 	for TB_ARCHITECTURE
 		for UUT_beh : aes_128_encrypt_f24
 			use entity work.aes_128_encrypt_f24(behavioral);
 		end for;  
 	end for;
-end TESTBENCH_FOR_aes_128_encrypt_f24;
+end TESTBENCH_FOR_behavioral_TB;
 
 
