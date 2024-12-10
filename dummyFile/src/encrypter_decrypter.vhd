@@ -43,8 +43,9 @@ begin
 		done => all_keys_done, 
 		round_constant => std_logic_vector(to_unsigned(key_counter,8))
 		); 
-	blackBox : entity work.blackBox
-	port map(	
+	blackBox : entity work.blackBox(dataflow)
+	port map(
+			clk => '1',
 			dataIn => temp_data,
 			encrypt => encrypt,
 			roundKey => roundKeys, 

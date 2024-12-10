@@ -1,11 +1,12 @@
-559
+644
 ~E 1 "../src/aes_128_encrypt_f24.vhd" 6 AES_128_encrypt_f24
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 52 behavioral
 ~A 1 "../src/aes_128_encrypt_f24.vhd" 220 dataFlow
 ~E 1 "../src/TestBench/aes_128_encrypt_f24_TB.vhd" 10 aes_128_encrypt_f24_tb
 ~A 1 "../src/TestBench/behavioral_TB.vhd" 11 TB_ARCHITECTURE
 ~E 1 "../src/function_entities/blackBox.vhd" 5 blackBox
-~A 1 "../src/function_entities/blackBox.vhd" 14 dataflow
+~A 1 "../src/function_entities/blackBox.vhd" 15 dataflow
+~A 1 "../src/function_entities/blackBox.vhd" 47 structural
 ~E 1 "../src/key_controller.vhd" 5 controller
 ~A 1 "../src/key_controller.vhd" 18 dataflow
 ~E 1 "../src/TestBench/controller_TB.vhd" 7 controller_tb
@@ -39,9 +40,17 @@
 ~A 1 "../src/function_entities/Sbox.vhd" 12 struct
 ~E 1 "../src/function_entities/shiftRows.vhd" 5 shiftRows
 ~A 1 "../src/function_entities/shiftRows.vhd" 10 behavioral
+~A 1 "../src/function_entities/shiftRows.vhd" 10 dataFlow
+~A 1 "../src/function_entities/shiftRows.vhd" 40 structural
+~E 1 "../src/simple_register_128.vhd" 5 simple_register_128
+~A 1 "../src/simple_register_128.vhd" 11 overload
+~E 1 "../src/simple_register_8.vhd" 5 simple_register_8
+~A 1 "../src/simple_register_8.vhd" 11 overload
+~E 1 "../src/simple_register_example.vhd" 5 simple_register_example
+~A 1 "../src/simple_register_example.vhd" 11 overload
 ~E 1 "../src/function_entities/Sub_Box.vhd" 5 Sub_box
 ~A 1 "../src/function_entities/Sub_Box.vhd" 13 dataflow
 ~C 1 "../src/TestBench/behavioral_TB.vhd" 200 testbench_for_aes_128_encrypt_f24
-~C 1 "../src/TestBench/dataFlow_TB.vhd" 201 testbench_for_aes_128_encrypt_f24_dataflow
+~C 1 "../src/TestBench/dataFlow_TB.vhd" 303 testbench_for_aes_128_encrypt_f24_dataflow
 ~C 1 "../src/TestBench/controller_TB.vhd" 101 testbench_for_controller
 ~C 1 "../src/TestBench/encrypter_decrypter_TB.vhd" 120 testbench_for_encrypter_decrypter
