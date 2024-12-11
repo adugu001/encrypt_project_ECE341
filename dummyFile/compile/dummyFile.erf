@@ -1,5 +1,35 @@
-MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/behavioral_TB.vhd" 
-MESSAGE "Compile Entity "behavioral_TB"" 
-MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "behavioral_TB"" 
-MESSAGE "Compile Configuration "TESTBENCH_FOR_behavioral_TB"" 
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]" 
+MESSAGE "File: C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/structural_TB.vhd" 
+BEGINPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/structural_TB.vhd
+UPDATEPROGRESS 2
+MESSAGE "Compile Entity "structural_tb"" 
+UPDATEPROGRESS 3
+MESSAGE "Compile Architecture "TB_ARCHITECTURE" of Entity "structural_tb"" 
+UPDATEPROGRESS 8
+UPDATEPROGRESS 9
+UPDATEPROGRESS 10
+UPDATEPROGRESS 11
+UPDATEPROGRESS 12
+UPDATEPROGRESS 13
+UPDATEPROGRESS 19
+UPDATEPROGRESS 21
+UPDATEPROGRESS 22
+UPDATEPROGRESS 23
+UPDATEPROGRESS 24
+UPDATEPROGRESS 25
+UPDATEPROGRESS 37
+UPDATEPROGRESS 48
+UPDATEPROGRESS 49
+UPDATEPROGRESS 50
+UPDATEPROGRESS 52
+UPDATEPROGRESS 60
+UPDATEPROGRESS 61
+UPDATEPROGRESS 74
+UPDATEPROGRESS 75
+UPDATEPROGRESS 94
+UPDATEPROGRESS 95
+UPDATEPROGRESS 96
+MESSAGE "Compile Configuration "TESTBENCH_FOR_aes_128_encrypt_f24_structural"" 
+UPDATEPROGRESS 98
+UPDATEPROGRESS 100
+ENDPROGRESS C:/Users/andre/OneDrive/School/ECE 341/encrypt_project_ECE341/dummyFile/src/TestBench/structural_TB.vhd
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]" 

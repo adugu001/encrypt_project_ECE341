@@ -1,45 +1,52 @@
-Active-HDL 12.0.118.7745 2024-12-10 17:49:28
+Active-HDL 12.0.118.7745 2024-12-11 13:24:50
 
 Elaboration top modules:
-Architecture                  TB_ARCHITECTURE(behavioral_TB)
+VHDL Configuration            testbench_for_aes_128_encrypt_f24_structural
 
 
----------------------------------------------------------------------------------------------------------
-Entity              | Architecture    | Library   | Info | Compiler Version        | Compilation Options
----------------------------------------------------------------------------------------------------------
-behavioral_TB       | TB_ARCHITECTURE | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-AES_128_encrypt_f24 | dataFlow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-encrypter_decrypter | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-key_controller      | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-blackBox            | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-Sbox                | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-Sub_box             | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-shiftRows           | dataFlow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-mix_columns         | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
-GF_Multiplier       | dataFlow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+Entity                     | Architecture    | Library   | Info | Compiler Version        | Compilation Options
+----------------------------------------------------------------------------------------------------------------
+structural_tb              | TB_ARCHITECTURE | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+AES_128_encrypt_f24        | structural      | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+encrypter_decrypter        | structural      | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+key_controller             | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+blackBox                   | structural      | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+Sbox                       | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+Sub_box                    | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+shiftRows                  | structural      | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+mix_columns                | dataflow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+simple_register_128        | overload        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+GF_Multiplier              | dataFlow        | dummyfile |      | 12.0.118.7745 (Windows) | -dbg -2019
+----------------------------------------------------------------------------------------------------------------
 
----------------------------------------------------------------------------------------------------------
-VHDL Package                          | Library   | Info | Compiler Version        | Compilation Options
----------------------------------------------------------------------------------------------------------
-standard                              | std       |      |                         | <unavailable>
-TEXTIO                                | std       |      |                         | <unavailable>
-std_logic_1164                        | ieee      |      |                         | <unavailable>
-NUMERIC_STD                           | ieee      |      |                         | <unavailable>
-aesTest                               | dummyfile |      |                         | <unavailable>
-function_package                      | dummyfile |      |                         | <unavailable>
----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+VHDL Configuration                           | Library   | Info | Compiler Version        | Compilation Options
+----------------------------------------------------------------------------------------------------------------
+testbench_for_aes_128_encrypt_f24_structural | dummyfile |      |                         | <unavailable>
+----------------------------------------------------------------------------------------------------------------
 
----------------------------------------------------------------------------------------------------------
-Library                               | Comment
----------------------------------------------------------------------------------------------------------
-dummyfile                             | None
-ieee                                  | Standard IEEE packages library
-std                                   | Standard VHDL library
----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+VHDL Package                                 | Library   | Info | Compiler Version        | Compilation Options
+----------------------------------------------------------------------------------------------------------------
+standard                                     | std       |      |                         | <unavailable>
+TEXTIO                                       | std       |      |                         | <unavailable>
+std_logic_1164                               | ieee      |      |                         | <unavailable>
+NUMERIC_STD                                  | ieee      |      |                         | <unavailable>
+aesTest                                      | dummyfile |      |                         | <unavailable>
+function_package                             | dummyfile |      |                         | <unavailable>
+----------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+Library                                      | Comment
+----------------------------------------------------------------------------------------------------------------
+dummyfile                                    | None
+ieee                                         | Standard IEEE packages library
+std                                          | Standard VHDL library
+----------------------------------------------------------------------------------------------------------------
 
 
-Simulation Options: asim -O5 +access +r +m+behavioral_TB behavioral_TB TB_ARCHITECTURE
+Simulation Options: asim -O5 +access +r +m+testbench_for_aes_128_encrypt_f24_structural testbench_for_aes_128_encrypt_f24_structural
 
 
 The performance of simulation is reduced. Version EDU Edition

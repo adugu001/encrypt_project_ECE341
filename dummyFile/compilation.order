@@ -3,7 +3,6 @@
 .\src\key_controller.vhd
 .\src\encrypter_decrypter.vhd
 .\src\simple_register_128.vhd
-.\src\simple_register_8.vhd
 .\src\TestBench\Fn_entity_TB.vhd
 .\src\TestBench\Functions_TB.vhd
 .\src\TestBench\encrypter_decrypter_TB.vhd
@@ -11,6 +10,7 @@
 .\src\TestBench\controller_TB.vhd
 .\src\TestBench\behavioral_TB.vhd
 .\src\TestBench\dataFlow_TB.vhd
+.\src\TestBench\structural_TB.vhd
 .\src\function_entities\blackBox.vhd
 .\src\function_entities\Sub_Box.vhd
 .\src\function_entities\mix_columns.vhd

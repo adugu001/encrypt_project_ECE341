@@ -17,7 +17,7 @@ begin
 	begin 	 
 		-- note the use of the 'last_value attribute
 		-- to confirm the previous value of the clock
-		if( clk'event and clk'last_value='0' and clk='1') then
+		if( clk'event and clk='1') then
 			if(clr='1') then Q<=(others => '0');
 			elsif(Ld='1') then Q<=D;
 			end if;

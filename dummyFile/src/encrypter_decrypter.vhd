@@ -104,4 +104,96 @@ begin
 		end if;
 end process;
 
+end architecture;  
+
+architecture structural of encrypter_decrypter is
+
+signal state, nextState : integer := 0;
+signal startKeyGen, finished_key : std_logic := '0';
+signal roundKeys: work.function_package.dataStore;  
+signal returned_key : std_logic_vector(0 to 127); 
+signal temp_key : std_logic_vector(0 to 127); 
+signal temp_data : std_logic_vector(0 to 127);
+signal all_keys_done : std_logic;
+signal stale : std_logic := '0';
+signal key_counter, k : integer := 1;
+signal enc_dec: std_logic;
+signal data_return: std_logic_vector(0 to 127);
+signal test : std_logic_vector(0 to 127);
+begin
+	key_controller : entity work.key_controller
+	port map(	
+		clk => CLK,
+		reset => reset,
+		start  => startKeyGen,
+		load_key => startKeyGen,
+		init_key => temp_key,
+		key_out => returned_key,
+		key_done => finished_key,
+		done => all_keys_done, 
+		round_constant => std_logic_vector(to_unsigned(key_counter,8))
+		); 
+	blackBox : entity work.blackBox(structural)
+	port map(
+			clk => clk,
+			dataIn => temp_data,
+			encrypt => encrypt,
+			roundKey => roundKeys, 
+			dataOut => data_return
+		); 	
+	
+	
+p1: process(state,stale) is  
+begin 
+case state is
+	when 0 => --start	
+	temp_key <= init_key;
+		roundKeys(0) <= init_key;
+		enc_dec <= encrypt;
+		nextState <= 1 when start = '1' else 0;
+	when 1 => --load and forward key  
+	data_to_main <= (others => '0');
+		nextState <= 0;
+		startKeyGen<= '1';
+		key_counter <= 1; 
+		 nextState <= 2;
+	when 2 => --hold in state 2 load keys until 10 keys
+		  roundKeys(key_counter) <= returned_key;
+		  key_counter<= key_counter+1  when key_counter <10;
+			nextState <= 3 when key_counter = 10 else 2;
+			temp_key <= returned_key;
+	when 3 => --start encrypt/decrypt 
+	temp_data <= data_in;
+	k<=1;
+	nextState <=4;
+	when 4 => --get result
+	k <= k+1;
+	data_to_main <= data_return;
+	op_done <= '1' when k = 11;
+	nextState <= 5 when k = 11 else 4;
+	when 5 =>  -- pause for output
+	nextState <= 10;
+	when 10 => --reset 
+	op_done <= '0';
+	key_counter <= 1; 
+ 	nextState <= 0;
+	when others => null;
+	end case;
+end process;
+
+
+state_process : process(clk, reset) is	
+begin
+		if RESET = '1' then
+			State <= 10;
+		elsif CLK'event and CLK = '1' then
+			if (state = nextState)then
+				stale <= not stale;
+				else
+				state <= nextstate;	  
+				end if;
+			  
+		end if;
+end process;
+
 end architecture;

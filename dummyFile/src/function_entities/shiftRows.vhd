@@ -38,7 +38,7 @@ begin
 end dataFlow;  
 
 architecture structural of shiftRows is
-component simple_register_example
+component simple_register_128
 	port(
 		clk: in std_logic;	
 		Clr: in std_logic; 
@@ -50,7 +50,7 @@ end component;
 signal to_dec_IR, to_enc_IR: std_logic_vector(0 to 127);
 
 begin
-encrypt_reg : simple_register_example	 
+encrypt_reg : simple_register_128	 
 	port map( 
 			  CLK=>clk,
 			  Clr => '0',
@@ -73,7 +73,7 @@ encrypt_reg : simple_register_example
 						dataIn(88  to 95),
 			  Qout => to_enc_IR
 			);	 
-decrypt_reg :	simple_register_example	 
+decrypt_reg :	simple_register_128	 
 	port map( 
 			  CLK=>clk,
 			  Clr => '0',
