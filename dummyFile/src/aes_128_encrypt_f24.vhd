@@ -325,5 +325,221 @@ begin
 END PROCESS CLK_PROCESS; 
 	
 end architecture dataflow;
--- Advanced challenge 2: use a single entity for both encryption and decryption.
---      You are permitted to add additional control signals.
+
+
+architecture dataFlow of AES_128_encrypt_f24 is
+type key_store is array (0 to 9) of std_logic_vector(0 to 127);
+signal start_key_gen, keys_done, start_encrypt, encryption_done: std_logic;	 
+signal stale: std_logic := '0';
+signal IR_KEY, IR_DATA, IR_OUTPUT, IR_CURRENT_ROUND_KEY : std_logic_vector(0 to 127); 
+signal IR_IV : std_logic_vector(0 to 127) := (others => '0'); 
+signal state, nextstate : integer := 0;
+
+begin
+ENCRYPTOR : entity work.encrypter_decrypter(dataFlow) 
+	port map(
+		clk => clk,
+		reset => reset,
+		encrypt => encrypt,
+		data_in => IR_DATA,
+		start => start_encrypt,
+		init_key =>	IR_KEY,
+		data_to_main => IR_OUTPUT,
+		op_done => encryption_done
+	);
+
+PROCESS(state, stale, reset) is	
+begin
+	if reset = '1' then nextstate <= 0;
+	else
+			case state is
+				when 0 => 
+					nextstate <= state + 1 when start = '1';
+				when 1 => 									
+					nextstate <= state + 1 when key_load = '1';
+				when 2 => 
+					IR_KEY(0 to 31) <= datain;
+					nextstate <= state + 1;
+				when 3 =>
+					IR_KEY(32 to 63) <= datain;
+					nextstate <= state + 1;
+				when 4 => 
+					IR_KEY(64 to 95) <= datain;
+					nextstate <= state + 1;
+				when 5 => 
+					IR_KEY(96 to 127) <= datain;
+					nextstate <= state + 1 when iv_load = '1' else 10;
+				when 6 => 
+					IR_IV(0 to 31) <= datain;
+					nextstate <= state + 1;
+				when 7 =>
+					IR_IV(32 to 63) <= datain;
+					nextstate <= state + 1;
+				when 8 => 
+					IR_IV(64 to 95) <= datain;
+					nextstate <= state + 1;
+				when 9 => 
+					IR_IV(96 to 127) <= datain;
+					nextstate <= state + 1;
+				when 10 => 
+					nextstate <= state + 1 when db_load = '1';
+				when 11 =>
+					IR_DATA(0 to 31) <= datain;
+					nextstate <= state + 1;
+				when 12 =>
+					IR_DATA(32 to 63) <= datain;
+					nextstate <= state + 1;
+				when 13 => 
+					IR_DATA(64 to 95) <= datain;
+					nextstate <= state + 1;
+				when 14 => 
+					IR_DATA(96 to 127) <= datain;
+					nextstate <= state + 1;
+				when 15 => 
+					IR_DATA <= IR_DATA XOR IR_IV;
+					start_encrypt <= '1';
+					nextstate <= state + 1 when encryption_done = '1';
+				when 16 =>
+					done <= '1';   
+					start_encrypt <= '0';
+					dataOut <= IR_OUTPUT(0 to 31);
+					nextstate <= state + 1;
+				when 17 => 
+					dataOut <= IR_OUTPUT(32 to 63);
+					nextstate <= state + 1;
+				when 18 => 
+					dataOut <= IR_OUTPUT(64 to 95);
+					nextstate <= state + 1;
+				when 19 => 
+					done <= '0';
+					dataOut <= IR_OUTPUT(96 to 127);
+					nextstate <= 10 when stream = '1' else 0;
+					IR_IV <= IR_OUTPUT when CBC_mode = '1';
+				when others => null;
+			END CASE;
+	 end if;
+END PROCESS;
+
+CLK_PROCESS: process(CLK, reset)
+begin
+			if RESET = '1' then
+				State <= 0;
+			end if;
+			if (CLK'event and CLK = '1') or reset = '1' then
+				if (state = nextState)then
+					stale <= not stale;
+				else
+				state <= nextstate;	  
+				end if;
+				end if;
+END PROCESS CLK_PROCESS; 	
+end architecture; 
+
+architecture structural of AES_128_encrypt_f24 is
+type key_store is array (0 to 9) of std_logic_vector(0 to 127);
+signal start_key_gen, keys_done, start_encrypt, encryption_done: std_logic;	 
+signal stale: std_logic := '0';
+signal IR_KEY, IR_DATA, IR_OUTPUT, IR_CURRENT_ROUND_KEY : std_logic_vector(0 to 127); 
+signal IR_IV : std_logic_vector(0 to 127) := (others => '0'); 
+signal state, nextstate : integer := 0;
+
+begin
+ENCRYPTOR : entity work.encrypter_decrypter(structural) 
+	port map(
+		clk => clk,
+		reset => reset,
+		encrypt => encrypt,
+		data_in => IR_DATA,
+		start => start_encrypt,
+		init_key =>	IR_KEY,
+		data_to_main => IR_OUTPUT,
+		op_done => encryption_done
+	);
+
+PROCESS(state, stale, reset) is	
+begin
+	if reset = '1' then nextstate <= 0;
+	else
+			case state is
+				when 0 => 
+					nextstate <= state + 1 when start = '1';
+				when 1 => 									
+					nextstate <= state + 1 when key_load = '1';
+				when 2 => 
+					IR_KEY(0 to 31) <= datain;
+					nextstate <= state + 1;
+				when 3 =>
+					IR_KEY(32 to 63) <= datain;
+					nextstate <= state + 1;
+				when 4 => 
+					IR_KEY(64 to 95) <= datain;
+					nextstate <= state + 1;
+				when 5 => 
+					IR_KEY(96 to 127) <= datain;
+					nextstate <= state + 1 when iv_load = '1' else 10;
+				when 6 => 
+					IR_IV(0 to 31) <= datain;
+					nextstate <= state + 1;
+				when 7 =>
+					IR_IV(32 to 63) <= datain;
+					nextstate <= state + 1;
+				when 8 => 
+					IR_IV(64 to 95) <= datain;
+					nextstate <= state + 1;
+				when 9 => 
+					IR_IV(96 to 127) <= datain;
+					nextstate <= state + 1;
+				when 10 => 
+					nextstate <= state + 1 when db_load = '1';
+				when 11 =>
+					IR_DATA(0 to 31) <= datain;
+					nextstate <= state + 1;
+				when 12 =>
+					IR_DATA(32 to 63) <= datain;
+					nextstate <= state + 1;
+				when 13 => 
+					IR_DATA(64 to 95) <= datain;
+					nextstate <= state + 1;
+				when 14 => 
+					IR_DATA(96 to 127) <= datain;
+					nextstate <= state + 1;
+				when 15 => 
+					IR_DATA <= IR_DATA XOR IR_IV;
+					start_encrypt <= '1';
+					nextstate <= state + 1 when encryption_done = '1';
+				when 16 =>
+					done <= '1';   
+					start_encrypt <= '0';
+					dataOut <= IR_OUTPUT(0 to 31);
+					nextstate <= state + 1;
+				when 17 => 
+					dataOut <= IR_OUTPUT(32 to 63);
+					nextstate <= state + 1;
+				when 18 => 
+					dataOut <= IR_OUTPUT(64 to 95);
+					nextstate <= state + 1;
+				when 19 => 
+					done <= '0';
+					dataOut <= IR_OUTPUT(96 to 127);
+					nextstate <= 10 when stream = '1' else 0;
+					IR_IV <= IR_OUTPUT when CBC_mode = '1';
+				when others => null;
+			END CASE;
+	 end if;
+END PROCESS;
+
+CLK_PROCESS: process(CLK, reset)
+begin
+			if RESET = '1' then
+				State <= 0;
+			end if;
+			if (CLK'event and CLK = '1') or reset = '1' then
+				if (state = nextState)then
+					stale <= not stale;
+				else
+				state <= nextstate;	  
+				end if;
+				end if;
+END PROCESS CLK_PROCESS; 
+	
+end architecture structural;

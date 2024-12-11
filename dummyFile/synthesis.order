@@ -19,4 +19,4 @@ i<>.\src\encrypter_decrypter_TB.vhd
 i<>.\src\Functions_TB.vhd
 i<>.\src\Fn_entity_TB.vhd
 i<>.\src\simple_register_example fig_2-42.vhd
-i<>.\src\simple_register_8.vhd
+i<>.\src\structural_TB.vhd
